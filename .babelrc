@@ -1,0 +1,31 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "components": "./components",
+          "assets": "./assets",
+          "fonts": "./assets/fonts",
+          "store": "./store",
+          "utils": "./utils"
+        }
+      }
+    ],
+    [
+      "styled-components",
+      { 
+        "ssr": true, 
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "inline-react-svg"
+  ]
+}
