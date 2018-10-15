@@ -46,7 +46,6 @@ export default (props) => (
       <Link href='/'><NavItem><Logo /></NavItem></Link>
       <Link href='/about'><NavItem>About</NavItem></Link>
       <Link href='/work'><NavItem>Work</NavItem></Link>
-      <Link href='/team'><NavItem>Team</NavItem></Link>
       <Link href='/contact'><NavItem>Contact</NavItem></Link>
     </Nav>
 

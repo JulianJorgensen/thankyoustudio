@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Link from 'next/link';
 import styled from 'styled-components';
 import styles from 'utils/styles';
-import { switchToLightContent } from 'store/actions';
 import SwatchPoster from 'assets/images/swatch_start_1-poster.jpg';
 import CphDistelleryPoster from 'assets/images/copenhagen-distellery.jpg';
 import { easings } from 'utils/variables';
@@ -57,10 +56,6 @@ const WorkItemContent = styled.div`
   store,
 }))
 export default class Index extends React.Component {
-  componentWillMount() {
-    this.props.dispatch(switchToLightContent());
-  }
-
   render () {
     return (
       <Wrapper>

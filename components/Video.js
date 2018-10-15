@@ -8,6 +8,13 @@ const Wrapper = styled.div`
   width: 100%;
   height: inherit;
 
+  ${props => props.marqueeVideo && `
+    position: absolute;
+    width: 100vw;
+    right: 0;
+    pointer-events: none;
+  `}
+
   ${props => props.ready && `
     opacity: 1;
   `}
@@ -16,7 +23,7 @@ const Wrapper = styled.div`
 const Video = styled(Vimeo)`
   width: 100%;
 
-  ${props => props.fullWidth && `
+  ${props => props.sliderVideo && `
     position: absolute;
     top: 0;
     left: 0;
@@ -62,11 +69,11 @@ export default class MarqueeVideo extends Component {
   }
 
   render() {
-    const { vimeoId, isActive, className, ...otherProps } = this.props;
+    const { vimeoId, isActive, className, marqueeVideo, ...otherProps } = this.props;
     const { ready } = this.state;
 
     return (
-      <Wrapper ready={ready}>
+      <Wrapper ready={ready} marqueeVideo={marqueeVideo}>
         <Video
           className={className}
           video={vimeoId}

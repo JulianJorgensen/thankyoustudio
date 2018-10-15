@@ -4,7 +4,11 @@ import thunkMiddleware from 'redux-thunk';
 import reducer from './reducers';
 
 export const initialState = {
-  lightContent: true
+  activeSlide: {
+    key: 0,
+    id: 'ThankYou',
+    contentColor: 'white'
+  }
 }
 
 export function initializeStore () {

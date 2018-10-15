@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import styles from 'utils/styles';
-import { switchToLightContent } from 'store/actions';
 
 const Wrapper = styled.div`
   ${styles.defaultWrapper};
@@ -14,10 +13,6 @@ const Wrapper = styled.div`
   store,
 }))
 export default class Team extends React.Component {
-  componentWillMount() {
-    this.props.dispatch(switchToLightContent());
-  }
-
   render () {
     return (
       <Wrapper>

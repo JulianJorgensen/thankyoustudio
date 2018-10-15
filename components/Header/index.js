@@ -5,30 +5,35 @@ import NavItem from './components/NavItem';
 import Logo from 'components/Logo';
 import styled from 'styled-components';
 import media from 'styled-media-query';
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { closeMobileNav, toggleMobileNav } from 'store/actions';
 import MobileNav from './components/MobileNav';
+import Headroom from 'react-headroom';
+import * as actions from 'store/actions';
 
-const Wrapper = styled.header`
+const StyledHeadroom = styled(Headroom)`
   position: fixed;
-  top: 40px;
   z-index: 99;
   width: 100%;
 
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
+  .headroom {
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    background-color: transparent;
+    width: 100%;
+  }
 `
 
 const Nav = styled.div`
-  color: ${props => props.lightContent ? 'white' : 'black'};
+  color: ${props => props.contentColor};
   transition: color 0.2s;
 
   display: flex;
   align-items: flex-end;
 
   svg path {
-    fill: ${props => props.lightContent ? 'white' : 'black'}
+    fill: ${props => props.contentColor};
   }
 `
 
@@ -56,7 +61,7 @@ const Bars = styled.div`
     left: 6px;
     height: 3px;
     width: 30px;
-    background-color: ${props => props.lightContent ? 'white' : 'black'};
+    background-color: ${props => props.contentColor};
     transition: all 0.3s ease;
   }
 
@@ -86,40 +91,67 @@ const Bars = styled.div`
   store,
 }))
 export default class Header extends Component {
-  state = {};
+  constructor() {
+    super();
 
-  handleMobileNavClick() {
-    this.props.dispatch(toggleMobileNav());
+    this.state = {};
+    this.handleOnNavClick = this.handleOnNavClick.bind(this);
   }
 
-  componentDidUpdate() {
+  componentWillUpdate() {
     Router.onRouteChangeStart = url => {
       this.props.dispatch(closeMobileNav());
     }
   }
 
-  render() {
-    const { store, router: { pathname, asPath } } = this.props;
-    let barsLightContent;
+  handleMobileNavClick() {
+    this.props.dispatch(toggleMobileNav());
+  }
 
-    if (store.marquee && store.marquee.active) {
-      barsLightContent = !store.lightContent
-    } else {
-      barsLightContent = store.lightContent;
+  handleOnNavClick(section) {
+    const { dispatch, store } = this.props;
+
+    if (store.activeSlide.key !== 0) {
+      dispatch(actions.setNextSlideIndex(store.activeSlide.key));
+      dispatch(actions.updateActiveSlide({
+        key: 0,
+        id: 'ThankYou',
+        contentColor: 'white'
+      }));
     }
 
+    let scrollOptions = {};
+
+    if (store.activeSlide.key === 0) {
+      scrollOptions = {
+        duration: 500,
+        smooth: "easeOutQuad",
+      }
+    }
+
+    setTimeout(() => {
+      scroller.scrollTo(section.toLowerCase(), scrollOptions);
+    }, 100);
+  }
+
+  render() {
+    const { store, router: { pathname, asPath } } = this.props;
+
     return (
-      <Wrapper>
-        <Nav lightContent={store.lightContent || store.mobileNav}>
-          <NavItem lightContent={store.lightContent} anchor={<StyledLogo />} href="/" logo />
-          <NavItem lightContent={store.lightContent} active={pathname === '/about'} anchor="About" href="/about" />
-          <NavItem lightContent={store.lightContent} active={pathname === '/work' || asPath.substring(0,5) === '/work' } anchor="Work" href="/work" />
-          <NavItem lightContent={store.lightContent} active={pathname === '/team'} anchor="Team" href="/team" />
-          <NavItem lightContent={store.lightContent} active={pathname === '/contact'} anchor="Contact" href="/contact" />
-        </Nav>
-        <Bars lightContent={barsLightContent} active={store.mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
-        <MobileNav active={store.mobileNav} />
-      </Wrapper>
+        <StyledHeadroom
+          onPin={() => this.setState({ pinned: true })}
+          onUnpin={() => this.setState({ pinned: false })}
+          downTolerance={50}
+        >
+            <Nav contentColor={store.activeSlide.contentColor}>
+              <NavItem contentColor={store.activeSlide.contentColor} anchor={<StyledLogo />} logo handleOnClick={this.handleOnNavClick} />
+              <NavItem contentColor={store.activeSlide.contentColor} anchor="About" handleOnClick={this.handleOnNavClick} />
+              <NavItem contentColor={store.activeSlide.contentColor} anchor="Work" handleOnClick={this.handleOnNavClick} />
+              <NavItem contentColor={store.activeSlide.contentColor} anchor="Contact" handleOnClick={this.handleOnNavClick} />
+            </Nav>
+            <Bars active={store.mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
+            <MobileNav active={store.mobileNav} />
+        </StyledHeadroom>
     );
   }
 }

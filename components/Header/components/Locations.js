@@ -29,7 +29,7 @@ export default (props) => (
         Enghavevej 40, 4<br />
         1674 Copenhagen V<br />
         Denmark<br />
-        <phone>+45 5214 0000</phone>
+        <div>+45 5214 0000</div>
       </LocationAddress>
     </LocationItem>
     <LocationItem>
@@ -38,7 +38,7 @@ export default (props) => (
         Enghavevej 40, 4<br />
         1674 Copenhagen V<br />
         Denmark<br />
-        <phone>+45 5214 0000</phone>
+        <div>+45 5214 0000</div>
       </LocationAddress>
     </LocationItem>
   </Wrapper>

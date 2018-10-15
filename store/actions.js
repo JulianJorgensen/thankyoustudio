@@ -1,27 +1,25 @@
 import actionTypes from 'store/types';
 
-export const activateMarqueeSlider = () => dispatch => {
-  return dispatch({ type: actionTypes.ACTIVATE_MARQUEE_SLIDER })
+export const updateActiveSlide = (slide) => dispatch => {
+  return dispatch({ 
+    type: actionTypes.UPDATE_ACTIVE_SLIDE,
+    slide: slide
+  })
 }
 
-export const deactivateMarqueeSlider = () => dispatch => {
-  return dispatch({ type: actionTypes.DEACTIVATE_MARQUEE_SLIDER })
+export const setNextSlideIndex = (nextSlideIndex) => dispatch => {
+  return dispatch({ 
+    type: actionTypes.SET_NEXT_SLIDE_INDEX,
+    nextSlideIndex: nextSlideIndex,
+    autoScroll: nextSlideIndex ? false : true
+  })
 }
 
-export const switchToLightContent = () => dispatch => {
-  return dispatch({ type: actionTypes.SWITCH_TO_LIGHT_CONTENT })
-}
-
-export const switchToDarkContent = () => dispatch => {
-  return dispatch({ type: actionTypes.SWITCH_TO_DARK_CONTENT })
-}
-
-export const switchMarqueeToLightContent = () => dispatch => {
-  return dispatch({ type: actionTypes.SWITCH_MARQUEE_TO_LIGHT_CONTENT })
-}
-
-export const switchMarqueeToDarkContent = () => dispatch => {
-  return dispatch({ type: actionTypes.SWITCH_MARQUEE_TO_DARK_CONTENT })
+export const setIsScrollNSliding = (isScrollNSliding) => dispatch => {
+  return dispatch({ 
+    type: actionTypes.SET_IS_SCROLL_N_SLIDING,
+    isScrollNSliding
+  })
 }
 
 export const toggleMobileNav = () => dispatch => {

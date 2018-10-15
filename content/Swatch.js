@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   ${styles.defaultWrapper};
   background-color: white;
   color: white;
+  width: 90%;
 `
 
 const CaseContent = styled.div`
@@ -28,7 +29,6 @@ const CaseContent = styled.div`
 
   ${props => props.intro && `
     width: calc(100% - 80px);
-    margin-top: -15vh;
     padding: 30px 60px;
 
     p {
@@ -146,8 +146,6 @@ export default class Swatch extends React.Component {
   render () {
     return (
       <Wrapper>
-        <Marquee vimeoId="294166889" title="Swatch skin" />
-
         <CaseContent intro>
           <Row>
             <Col large>

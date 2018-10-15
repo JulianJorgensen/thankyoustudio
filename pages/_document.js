@@ -8,10 +8,15 @@ injectGlobal`
     height: 100%;
     width: 100%;
     font-family: ${fonts.primary};
+    overflow-y: scroll;
+    overflow-x: hidden;
   }
- 
-  * {
-    box-sizing: border-box;
+
+  body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
   }
 
   a {
@@ -38,11 +43,6 @@ injectGlobal`
   }
 `
 
-const Body = styled.body`
-  margin: 0;
-  font-family: ${fonts.primary}
-`
-
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
     const sheet = new ServerStyleSheet();
@@ -59,10 +59,10 @@ export default class MyDocument extends Document {
           <link rel="shortcut icon" href={favicon} />
           {this.props.styleTags}
         </Head>
-        <Body>
+        <body>
           <Main />
           <NextScript />
-        </Body>
+        </body>
       </html>
     )
   }

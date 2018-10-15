@@ -15,7 +15,7 @@ const NavLink = styled.a`
   &:before {
     content: '';
     position: absolute;
-    background: ${props => props.lightContent ? 'white' : 'black'};
+    background: ${props => props.contentColor};
     height: 8px;
     bottom: -10px;
     left: 0;
@@ -63,8 +63,6 @@ const NavLink = styled.a`
   `}
 `
 
-export default ({ anchor, href, ...otherProps }) => (
-  <Link href={href}>
-    <NavLink {...otherProps}>{anchor}</NavLink>
-  </Link>
+export default ({ anchor, href, handleOnClick, logo, ...otherProps }) => (
+  <NavLink onClick={() => handleOnClick(logo ? 'top' : anchor)} {...otherProps}>{anchor}</NavLink>
 )

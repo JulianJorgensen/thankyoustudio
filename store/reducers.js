@@ -3,49 +3,22 @@ import actionTypes from 'store/types';
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.ACTIVATE_MARQUEE_SLIDER:
+    case actionTypes.UPDATE_ACTIVE_SLIDE:
       return {
         ...state,
-        marquee: {
-          ...state.marquee,
-          active: true
-        }
+        prevSlide: state.activeSlide,
+        activeSlide: action.slide
       };
-    case actionTypes.DEACTIVATE_MARQUEE_SLIDER:
+    case actionTypes.SET_NEXT_SLIDE_INDEX:
       return {
         ...state,
-        marquee: {
-          ...state.marquee,
-          active: false
-        }
+        nextSlideIndex: action.nextSlideIndex,
+        autoScroll: action.autoScroll
       };
-    case actionTypes.SWITCH_TO_LIGHT_CONTENT:
+    case actionTypes.SET_IS_SCROLL_N_SLIDING:
       return {
         ...state,
-        lightContent: true
-      };
-    case actionTypes.SWITCH_TO_DARK_CONTENT:
-      return {
-        ...state,
-        lightContent: false
-      };
-    case actionTypes.SWITCH_MARQUEE_TO_LIGHT_CONTENT:
-      return {
-        ...state,
-        lightContent: true,
-        marquee: {
-          ...state.marquee,
-          lightContent: true
-        }
-      };
-    case actionTypes.SWITCH_MARQUEE_TO_DARK_CONTENT:
-      return {
-        ...state,
-        lightContent: false,
-        marquee: {
-          ...state.marquee,
-          lightContent: false
-        }
+        isScrollNSliding: action.isScrollNSliding
       };
     case actionTypes.TOGGLE_MOBILE_NAV:
       return {
