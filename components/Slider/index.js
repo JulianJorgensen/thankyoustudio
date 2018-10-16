@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Router from 'next/router';
 import styled from 'styled-components';
 import SlideItem from './components/SlideItem';
 import Waypoint from 'react-waypoint';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import * as actions from 'store/actions';
+import SlideItems from 'store/slideItems';
 
 const Slider = styled.div`
   width: 100vw;
@@ -38,51 +40,6 @@ const BackButton = styled.div`
     display: none;
   `}
 `
-
-const SlideItems = [
-  {
-    id: "ThankYou",
-    title: "Welcome",
-    subtitle: "Design. Experiences. Culture.",
-    vimeoId: "197893849",
-    background: "black",
-    contentColor: "white",
-    landingSlide: true,
-  },
-  {
-    id: "Copenhagen",
-    title: "Copenhagen",
-    subtitle: "Design. Experiences. Culture.",
-    background: "white",
-    contentColor: "black",
-    image: 'https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg'
-  },
-  {
-    id: "Swatch",
-    title: "Swatch",
-    subtitle: "Design. Experiences. Culture.",
-    vimeoId: "294132083",
-    background: "black",
-    contentColor: "white",
-  },
-  {
-    id: "Ferrari",
-    title: "Ferrari",
-    subtitle: "Design. Experiences. Culture.",
-    background: "black",
-    contentColor: "white",
-    image: 'https://thankyoustudio.com/wp-content/uploads/2016/10/framegrabs3-1448383495270-1920.jpg'
-  },
-  {
-    id: "Onea",
-    title: "Onea",
-    subtitle: "Design. Experiences. Culture.",
-    background: "black",
-    contentColor: "white",
-    image: 'https://thankyoustudio.com/wp-content/uploads/2017/05/thumb-1.jpg'
-  },
-
-];
 
 @connect((store) => ({
   store,
@@ -157,11 +114,7 @@ export default class FancySlider extends Component {
     }
 
     dispatch(actions.setNextSlideIndex(false));
-    dispatch(actions.updateActiveSlide({
-      key: target.key,
-      id: target.id,
-      contentColor: target.contentColor
-    }));
+    dispatch(actions.updateActiveSlide(target.slug));
 
     // reset timeout after slide change
     clearTimeout(this.autoScroll);
@@ -188,14 +141,10 @@ export default class FancySlider extends Component {
 
   handleBackClick() {
     const { dispatch, store } = this.props;
-    const prevSlide = SlideItems[store.activeSlide.key-1];
+    const prevSlide = SlideItems[store.activeSlide.index-1];
     const prevSlideIndex = SlideItems.findIndex(x => x.id==prevSlide.id);
 
-    dispatch(actions.updateActiveSlide({
-      key: prevSlideIndex,
-      id: prevSlide.id,
-      contentColor: prevSlide.contentColor
-    }));
+    dispatch(actions.updateActiveSlide(prevSlide.slug));
 
     this.initScrolls();
   }
@@ -208,24 +157,28 @@ export default class FancySlider extends Component {
     const { activeSlide, isScrollNSliding, nextSlideIndex } = this.props.store;
     const { primaryContentIsAnimating } = this.state;
 
+    if (!activeSlide) return (
+      <div></div>
+    );
+
     return (
       <Waypoint
         onLeave={this.handleScroll}
         topOffset='99%'
       >
         <Slider>
-          <BackButton contentColor={activeSlide.contentColor} hidden={activeSlide.key === 0} onClick={this.handleBackClick}>&lsaquo;</BackButton>
+          <BackButton contentColor={activeSlide.contentColor} hidden={activeSlide.index === 0} onClick={this.handleBackClick}>&lsaquo;</BackButton>
           <Slides isScrollNSliding={isScrollNSliding}>
             {
               SlideItems.map((SlideItemData, i) => {
-                const isPrevious = activeSlide.key === i + 1;
-                const isActive = activeSlide.key === i;
+                const isPrevious = activeSlide.index === i + 1;
+                const isActive = activeSlide.index === i;
                 let isNext;
 
                 if (nextSlideIndex) {
                   isNext = nextSlideIndex === i;
                 } else {
-                  isNext = i === 0 ? activeSlide.key === SlideItems.length-1 : activeSlide.key === i - 1;  
+                  isNext = i === 0 ? activeSlide.index === SlideItems.length-1 : activeSlide.index === i - 1;  
 
                   if (i === 0 && primaryContentIsAnimating) {
                     isNext = false;
@@ -234,8 +187,8 @@ export default class FancySlider extends Component {
 
                 return (
                   <SlideItem
-                    key={`i-${SlideItemData.id}`}
-                    id={SlideItemData.id}
+                    key={`i-${SlideItemData.slug}`}
+                    slug={SlideItemData.slug}
                     title={SlideItemData.title}
                     subtitle={SlideItemData.subtitle}
                     vimeoId={SlideItemData.vimeoId}

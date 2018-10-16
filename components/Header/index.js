@@ -111,18 +111,14 @@ export default class Header extends Component {
   handleOnNavClick(section) {
     const { dispatch, store } = this.props;
 
-    if (store.activeSlide.key !== 0) {
-      dispatch(actions.setNextSlideIndex(store.activeSlide.key));
-      dispatch(actions.updateActiveSlide({
-        key: 0,
-        id: 'ThankYou',
-        contentColor: 'white'
-      }));
+    if (store.activeSlide.index !== 0) {
+      dispatch(actions.setNextSlideIndex(store.activeSlide.index));
+      dispatch(actions.updateActiveSlide('ThankYou'));
     }
 
     let scrollOptions = {};
 
-    if (store.activeSlide.key === 0) {
+    if (store.activeSlide.index === 0) {
       scrollOptions = {
         duration: 500,
         smooth: "easeOutQuad",
@@ -136,6 +132,10 @@ export default class Header extends Component {
 
   render() {
     const { store, router: { pathname, asPath } } = this.props;
+
+    if (!store.activeSlide) return (
+      <div></div>
+    );
 
     return (
         <StyledHeadroom

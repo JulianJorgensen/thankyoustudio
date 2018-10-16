@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 import { colors, fonts, easings } from 'utils/variables';
 import media from "styled-media-query";
 import Video from 'components/Video';

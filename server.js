@@ -10,7 +10,7 @@ app.prepare()
   const server = express();
 
   server.get('/work/:id', (req, res) => {
-    app.render(req, res, `/${req.params.id}`, req.params)
+    app.render(req, res, `/work`, req.params)
   })
 
   server.get('*', (req, res) => {

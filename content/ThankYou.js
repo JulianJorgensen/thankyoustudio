@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Work from 'components/Work';
 import styled from 'styled-components';
 
 const Header = styled.div`
@@ -29,6 +30,8 @@ export default () => (
     <Header black id="work">
       <Title>Our clients</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
+
+      <Work />
     </Header>
 
     <Header>

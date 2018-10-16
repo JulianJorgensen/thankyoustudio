@@ -47,58 +47,62 @@ export default class BelowFold extends Component {
   render() {
     let { store: { prevSlide, activeSlide, isScrollNSliding, nextSlideIndex } } = this.props;
 
+    if (!activeSlide) return (
+      <div></div>
+    );
+
     if (!prevSlide) {
       prevSlide = {
-        id: 0
+        index: 0
       };
     }
 
     const checkSlide = (name) => {
-      if (nextSlideIndex && activeSlide.key === 0) {
-        return activeSlide.id === name;
+      if (nextSlideIndex && activeSlide.index === 0) {
+        return activeSlide.slug === name;
       }
 
       if (prevSlide) {
-        return prevSlide.id === name || activeSlide.id === name;
+        return prevSlide.slug === name || activeSlide.slug === name;
       }
-      
-      return activeSlide.id === name;
+
+      return activeSlide.slug === name;
     };
 
     return (
       <Wrapper id="more" isScrollNSliding={isScrollNSliding}>
         <Content
-          isActive={activeSlide.id === 'ThankYou'}
-          isPrevious={prevSlide.id === 'ThankYou'}
+          isActive={activeSlide.slug === 'ThankYou'}
+          isPrevious={prevSlide.slug === 'ThankYou'}
           hasNextSlideIndex={nextSlideIndex > 0 ? true : false}
         >
           <ThankYou />
         </Content>
 
         <Content
-          isActive={activeSlide.id === 'Swatch'}
-          isPrevious={prevSlide.id === 'Swatch'}
+          isActive={activeSlide.slug === 'Swatch'}
+          isPrevious={prevSlide.slug === 'Swatch'}
         >
           {checkSlide('Swatch') && <Swatch />}
         </Content>
 
         <Content
-          isActive={activeSlide.id === 'Copenhagen'}
-          isPrevious={prevSlide.id === 'Copenhagen'}
+          isActive={activeSlide.slug === 'Copenhagen'}
+          isPrevious={prevSlide.slug === 'Copenhagen'}
         >
           {checkSlide('Copenhagen') && <Copenhagen />}
         </Content>
 
         <Content
-          isActive={activeSlide.id === 'Ferrari'}
-          isPrevious={prevSlide.id === 'Ferrari'}
+          isActive={activeSlide.slug === 'Ferrari'}
+          isPrevious={prevSlide.slug === 'Ferrari'}
         >
           {checkSlide('Ferrari') && <Ferrari />}
         </Content>
 
         <Content
-          isActive={activeSlide.id === 'Onea'}
-          isPrevious={prevSlide.id === 'Onea'}
+          isActive={activeSlide.slug === 'Onea'}
+          isPrevious={prevSlide.slug === 'Onea'}
         >
           {checkSlide('Onea') && <Onea />}
         </Content>

@@ -1,6 +1,10 @@
 import actionTypes from 'store/types';
+import slideItems from 'store/slideItems';
 
-export const updateActiveSlide = (slide) => dispatch => {
+export const updateActiveSlide = (slug) => dispatch => {
+  let slide = slideItems.find(obj => obj.slug.toLowerCase() == slug.toLowerCase());
+  slide.index = slideItems.findIndex(obj => obj === slide);
+
   return dispatch({ 
     type: actionTypes.UPDATE_ACTIVE_SLIDE,
     slide: slide

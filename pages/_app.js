@@ -1,5 +1,6 @@
 import App, { Container } from 'next/app';
 import React from 'react';
+import Router from 'next/router'
 import styled, { injectGlobal } from 'styled-components';
 import { PageTransition } from 'next-page-transitions';
 import withReduxStore from 'store/with-redux-store';
