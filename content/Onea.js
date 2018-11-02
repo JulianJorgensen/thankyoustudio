@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import BelowFold from 'components/BelowFold';
 
 const Header = styled.div`
   padding: 300px 50vw 300px 80px;
@@ -20,7 +21,7 @@ const Lead = styled.div`
 `
 
 export default () => (
-  <div>
+  <BelowFold>
     <Header>
       <Title>Onea is...</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
@@ -40,5 +41,5 @@ export default () => (
       <Title>Onea...</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
     </Header>
-  </div>
+  </BelowFold>
 )

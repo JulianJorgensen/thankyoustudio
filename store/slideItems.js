@@ -1,12 +1,14 @@
 export default [
   {
-    slug: "ThankYou",
-    title: "Welcome",
+    slug: ""
+  },
+  {
+    slug: "Swatch",
+    title: "Swatch",
     subtitle: "Design. Experiences. Culture.",
-    vimeoId: "197893849",
     background: "black",
     contentColor: "white",
-    landingSlide: true,
+    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",
   },
   {
     slug: "Copenhagen",
@@ -17,12 +19,12 @@ export default [
     image: 'https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg'
   },
   {
-    slug: "Swatch",
-    title: "Swatch",
+    slug: "romeo",
+    title: "Romeo",
     subtitle: "Design. Experiences. Culture.",
-    vimeoId: "294132083",
     background: "black",
     contentColor: "white",
+    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo.jpg"
   },
   {
     slug: "Ferrari",

@@ -1,111 +1,68 @@
 import React, { Component } from 'react';
-import dynamic from 'next/dynamic';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-
-const ThankYou = dynamic(import('content/ThankYou'));
-const Swatch = dynamic(import('content/Swatch'));
-const Copenhagen = dynamic(import('content/CopenhagenDistellery'));
-const Ferrari = dynamic(import('content/Ferrari'));
-const Onea = dynamic(import('content/Onea'));
+import { scroller } from 'react-scroll'
+import { easings } from 'utils/variables';
+import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
-  position: relative;
-  z-index: 2;
-  background-color: ${props => props.isScrollNSliding ? 'black' : 'white'};
-  transition: background-color 0.4s ease;
+  position: absolute;
+  top: 100vh;
+  background-color: white;
+  overflow: hidden;
+  width: 100%;
+
+  ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
+    transition: opacity 0s, width 0.5s !important;
+    transition-timing-function: ${easings.easeInOutCustom};
+    transition-delay: 0s !important;
+    z-index: 4;
+  `}
+`
+
+const ScrollCta = styled.a`
+  text-align: center;
+  display: block;
+  padding: 50px 0;
+  text-transform: uppercase;
+  cursor: pointer;
 `
 
 const Content = styled.div`
-  position: absolute;
-  opacity: 0;
-  transform: translateX(0%);
-  transition: all 0.4s ease-in;
-  background-color: white;
+  position: relative;
+  width: calc(100% - 10vw);
 
-  ${props => props.isPrevious && `
-    opacity: 0;
-    transform: translateX(-5%);
-  `}
-
-  ${props => props.isActive && `
-    opacity: 1;
-    transition-delay: 0.4s;
-    z-index: 1;
-  `}
-
-  ${props => props.hasNextSlideIndex && `
-    transform: translateX(0%) !important;
-    transition: none !important;
-  `}
+  img {
+    max-width: 100%;
+  }
 `
 
 @connect((store) => ({
   store,
 }))
 export default class BelowFold extends Component {
+  constructor() {
+    super();
+
+    this.handleOnScrollCtaClick = this.handleOnScrollCtaClick.bind(this);
+  }
+
+  handleOnScrollCtaClick() {
+    scroller.scrollTo('more', {
+      duration: 800,
+      smooth: "easeOutQuad",
+    });
+  }
+
   render() {
-    let { store: { prevSlide, activeSlide, isScrollNSliding, nextSlideIndex } } = this.props;
-
-    if (!activeSlide) return (
-      <div></div>
-    );
-
-    if (!prevSlide) {
-      prevSlide = {
-        index: 0
-      };
-    }
-
-    const checkSlide = (name) => {
-      if (nextSlideIndex && activeSlide.index === 0) {
-        return activeSlide.slug === name;
-      }
-
-      if (prevSlide) {
-        return prevSlide.slug === name || activeSlide.slug === name;
-      }
-
-      return activeSlide.slug === name;
-    };
+    const { children, store: { usePrevAsNextSlide }, ...otherProps } = this.props;
 
     return (
-      <Wrapper id="more" isScrollNSliding={isScrollNSliding}>
-        <Content
-          isActive={activeSlide.slug === 'ThankYou'}
-          isPrevious={prevSlide.slug === 'ThankYou'}
-          hasNextSlideIndex={nextSlideIndex > 0 ? true : false}
-        >
-          <ThankYou />
+      <Wrapper usePrevAsNextSlide={usePrevAsNextSlide} {...otherProps}>
+        <Content id="more">
+          {children}
         </Content>
-
-        <Content
-          isActive={activeSlide.slug === 'Swatch'}
-          isPrevious={prevSlide.slug === 'Swatch'}
-        >
-          {checkSlide('Swatch') && <Swatch />}
-        </Content>
-
-        <Content
-          isActive={activeSlide.slug === 'Copenhagen'}
-          isPrevious={prevSlide.slug === 'Copenhagen'}
-        >
-          {checkSlide('Copenhagen') && <Copenhagen />}
-        </Content>
-
-        <Content
-          isActive={activeSlide.slug === 'Ferrari'}
-          isPrevious={prevSlide.slug === 'Ferrari'}
-        >
-          {checkSlide('Ferrari') && <Ferrari />}
-        </Content>
-
-        <Content
-          isActive={activeSlide.slug === 'Onea'}
-          isPrevious={prevSlide.slug === 'Onea'}
-        >
-          {checkSlide('Onea') && <Onea />}
-        </Content>
+        <Footer />
       </Wrapper>
     )
   }

@@ -63,6 +63,6 @@ const NavLink = styled.a`
   `}
 `
 
-export default ({ anchor, href, handleOnClick, logo, ...otherProps }) => (
-  <NavLink onClick={() => handleOnClick(logo ? 'top' : anchor)} {...otherProps}>{anchor}</NavLink>
+export default ({ anchor, href, logo, ...otherProps }) => (
+  <Link href={href}><NavLink {...otherProps}>{anchor}</NavLink></Link>
 )

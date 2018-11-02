@@ -1,25 +1,46 @@
-import React, { Component } from 'react';
-import { withRouter } from 'next/router';
-import { connect } from 'react-redux';
+import React, { Component } from 'react';
+import Footer from 'components/Footer';
 import styled from 'styled-components';
-import Slider from 'components/Slider';
-import BelowFold from 'components/BelowFold';
-import * as actions from 'store/actions';
+import Work from 'components/Work';
 
-@withRouter
-@connect()
+const Wrapper = styled.div`
+`
+
+const PageTitle = styled.h1`
+  position: absolute;
+  font-size: 70px;
+  transform: rotate(-90deg);
+  transform-origin: left bottom;
+  margin-top: 100px;
+  margin-left: 20px;
+  opacity: 0.3;
+  text-transform: uppercase;
+  font-size: 48px;
+`
+
+const Content = styled.div`
+  padding: 200px 80px;
+  background-color: black;
+  color: white;
+  width: 90vw;
+`
+
+const Header = styled.div`
+  margin-bottom: 250px;
+`
+
 export default class WorkPage extends Component {
-  componentWillMount() {
-    const { dispatch, router } = this.props;
-    dispatch(actions.updateActiveSlide(router.query.id));
-  }
-
   render() {
     return (
-      <div id="top">
-        <Slider />
-        <BelowFold />
-      </div>
-    );
+      <Wrapper>
+        <Content>
+          <PageTitle>Work</PageTitle>
+          <Header></Header>
+          <Work />
+        </Content>
+
+        <Footer />
+      </Wrapper>
+    )
   }
 }

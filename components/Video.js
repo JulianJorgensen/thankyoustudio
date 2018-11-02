@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: inherit;
 
-  ${props => props.marqueeVideo && `
+  ${props => props.sliderVideo && `
     position: absolute;
     width: 100vw;
     right: 0;
@@ -29,7 +29,7 @@ const Video = styled(Vimeo)`
     left: 0;
     height: 100%;
     min-width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     pointer-events: none;
     overflow: hidden;
 
@@ -53,7 +53,7 @@ const Video = styled(Vimeo)`
   `}
 `
 
-export default class MarqueeVideo extends Component {
+export default class VideoComponent extends Component {
   constructor() {
     super();
 
@@ -69,17 +69,18 @@ export default class MarqueeVideo extends Component {
   }
 
   render() {
-    const { vimeoId, isActive, className, marqueeVideo, ...otherProps } = this.props;
+    const { vimeoId, isActive, className, sliderVideo, ...otherProps } = this.props;
     const { ready } = this.state;
 
     return (
-      <Wrapper ready={ready} marqueeVideo={marqueeVideo}>
+      <Wrapper ready={ready} sliderVideo={sliderVideo}>
         <Video
           className={className}
           video={vimeoId}
           muted={true}
           onLoaded={this.handleOnReady}
           paused={!isActive}
+          sliderVideo={sliderVideo}
           {...otherProps}
         />
       </Wrapper>

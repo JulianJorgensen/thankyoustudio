@@ -17,7 +17,6 @@ const Wrapper = styled.button`
   transition: all 0.2s ${easings.easeInOutQuad};
   border: 0;
   background-color: transparent;
-  z-index: 99;
   color: ${props => props.white ? 'white' : 'black'};
 
   &:before {

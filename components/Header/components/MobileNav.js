@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Locations from './Locations';
+import Locations from 'components/Locations';
 import Logo from 'components/Logo';
 import { fonts, easings } from 'utils/variables';
 
@@ -43,10 +43,10 @@ const NavItem = styled.li`
 export default (props) => (
   <Wrapper {...props}>
     <Nav>
-      <Link href='/'><NavItem><Logo /></NavItem></Link>
-      <Link href='/about'><NavItem>About</NavItem></Link>
-      <Link href='/work'><NavItem>Work</NavItem></Link>
-      <Link href='/contact'><NavItem>Contact</NavItem></Link>
+      <Link href='/' scroll={false}><NavItem><Logo /></NavItem></Link>
+      <Link href='/about' scroll={false}><NavItem>About</NavItem></Link>
+      <Link href='/work' scroll={false}><NavItem>Work</NavItem></Link>
+      <Link href='/contact' scroll={false}><NavItem>Contact</NavItem></Link>
     </Nav>
 
     <Locations />

@@ -10,6 +10,7 @@ injectGlobal`
     font-family: ${fonts.primary};
     overflow-y: scroll;
     overflow-x: hidden;
+    background-color: black;
   }
 
   body {
@@ -17,6 +18,10 @@ injectGlobal`
     padding: 0;
     border: 0;
     font-size: 100%;
+  }
+
+  * {
+    box-sizing: border-box;
   }
 
   a {

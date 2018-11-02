@@ -1,92 +1,93 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
 import styled from 'styled-components';
-import { wrapper, container } from 'utils/styles';
-import { fonts, colors } from 'utils/variables';
-import Logo from 'assets/icons/julian-jorgensen-logo.svg';
-import SignatureImage from 'assets/images/julian-signature.png';
-import GithubIcon from 'assets/icons/FontAwesome/brands/github.svg';
-import LinkedInIcon from 'assets/icons/FontAwesome/brands/linkedin-in.svg';
-import AngelListIcon from 'assets/icons/FontAwesome/brands/angellist.svg';
+import InstagramIcon from 'assets/icons/FontAwesome/brands/instagram.svg';
+import VimeoIcon from 'assets/icons/FontAwesome/brands/vimeo.svg';
+import FacebookIcon from 'assets/icons/FontAwesome/brands/facebook.svg';
+import Logo from 'components/Logo';
+import Cta from 'components/Cta';
 
 const Wrapper = styled.footer`
-  ${wrapper()}
-  font-family: ${fonts.primary};
-  font-weight: 500;
-  background: radial-gradient(circle at 80%, ${colors.curiousBlue} 20%, ${colors.catalinaBlue} 100%);
-  padding: 80px 0;
-`
-
-const Container = styled.div`
-  ${container()}
-`
-
-const TopRow = styled.div`
   display: flex;
   justify-content: space-between;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  border-bottom: 2px solid black;
+  background-color: black;
+  color: white;
+  width: calc(100% - 10vw);
+  padding: 80px;
+  height: 300px;
 `
 
-const BottomRow = styled.div`
-  display: flex;
-  justify-content: space-between;
+const LeftCol = styled.div`
+  position: relative;
 `
 
-const Signature = styled.div`
-  img {
-    position: absolute;
-    margin-top: -20px;
-    margin-left: -10px;
-    height: 108px;
-    width: 196px;
-  }
+const RightCol = styled.div`
+  padding-left: 40px;
 `
+
 
 const Nav = styled.nav`
   display: flex;
+  margin-bottom: 20px;
 `
 
-const NavItem = styled.a`
-  text-transform: uppercase;
-  margin-left: 20px;
-  padding: 6px 10px;
+const NavItem = styled.div`
+  margin-right: 20px;
+  font-size: 20px;
 
-  ${props => props.border && `
-    border: 1px solid black;
-    border-radius: 4px;
-  `}
-`
-
-const SocialMedia = styled.div`
-  display: flex;
-
-  a {
-    margin-left: 15px;
-    opacity: 0.6;
-    transition: all 0.2s;
-
-    &:hover {
-      opacity: 1;
-    }
-  }
-
-  svg {
-    height: 30px;
+  &:last-child {
+    margin-right: 0;
   }
 `
 
-const Copyright = styled.div`
+const ContactUs = styled.div`
+  padding-left: 80px;
+`
+
+const Headline = styled.div`
+  font-size: 30px;
+`
+
+const Subheadline = styled.div`
+  font-size: 30px;
+  opacity: 0.6;
+  margin-bottom: 20px;
+`
+
+const StyledLogo = styled(Logo)`
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: rotate(-90deg) translateX(-100%);
+  transform-origin: left top;
+`
+
+const Locations = styled.div`
+  opacity: 0.6;
+  text-align: right;
+  margin-bottom: 20px;
+`
+
+const Location = styled.div`
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+`
+
+const SocialMediaIcons = styled.div`
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  font-weight: bold;
-  font-style: italic;
-  text-transform: uppercase;
-  opacity: 0.2;
 
   svg {
-    height: 25px;
-    width: 28px;
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+    path {
+      fill: white;
+    }
   }
 `
 
@@ -96,27 +97,32 @@ export default class Footer extends Component {
   render() {
     return (
       <Wrapper>
-        <Container>
-          <TopRow>
-            <Signature><img src={SignatureImage} alt='Julian signature' height='108' width='196' /></Signature>
-            <Nav>
-              <NavItem href='/frontend-ux'>Frontend & UX</NavItem>
-              <NavItem href='/consulting'>Consulting</NavItem>
-              <NavItem href='/about'>About</NavItem>
-              <NavItem href='/portfolio'>Portfolio</NavItem>
-              <NavItem href='/faq'>Faq</NavItem>
-              <NavItem href='/contact' border>Contact</NavItem>
-            </Nav>
-          </TopRow>
-          <BottomRow>
-            <Copyright><Logo /> Julian Jorgensen &copy; 2018</Copyright>
-            <SocialMedia>
-              <a href="https://github.com/julianjorgensen" target="new" data-tip="See my Github" data-effect="solid"><GithubIcon /></a>
-              <a href="https://www.linkedin.com/in/julianjorgensen" target="new" data-tip="See my LinkedIn" data-effect="solid"><LinkedInIcon /></a>
-              <a href="https://angel.co/julianjorgensen" target="new" data-tip="See my Angel profile" data-effect="solid"><AngelListIcon /></a>      
-            </SocialMedia>
-          </BottomRow>
-        </Container>
+        <LeftCol>
+          <StyledLogo />
+          <ContactUs>
+            <Headline>Got a project?</Headline>
+            <Subheadline>Let's talk</Subheadline>
+            <Cta href="/contact" label="Contact us" white />
+          </ContactUs>
+        </LeftCol>
+        <RightCol>
+          <Nav>
+            <NavItem><Link href="/about"><a>About</a></Link></NavItem>
+            <NavItem><Link href="/work"><a>Work</a></Link></NavItem>
+            <NavItem><Link href="/contact"><a>Contact</a></Link></NavItem>
+          </Nav>
+          <Locations>
+            <Location>Copenhagen</Location>
+            <Location>Reykjavik</Location>
+            <Location>San Francisco</Location>
+          </Locations>
+          <SocialMediaIcons>
+            <Link href="/privacy"><a>Privacy</a></Link>
+            <a href="http://www.instagram.com/explore/tags/thankyouculture/" target="new"><InstagramIcon /></a>
+            <a href="http://vimeo.com/thankyoustudio/"><VimeoIcon /></a>
+            <a href="http://facebook.com/thankyoustudio/" target="new"><FacebookIcon /></a>
+          </SocialMediaIcons>
+        </RightCol>
       </Wrapper>
     );
   }

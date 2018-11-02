@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import Work from 'components/Work';
+import BelowFold from 'components/BelowFold';
+import Locations from 'components/Locations';
 import styled from 'styled-components';
+import AboutSectionPlaceholder from 'assets/images/placeholders/about-section.png'
+import InstagramFeedPlaceholder from 'assets/images/placeholders/instagram-feed.jpg'
 
-const Header = styled.div`
-  padding: 300px 50vw 300px 80px;
-  width: 100%;
+const Section = styled.div`
+  padding: 200px 80px;
 
   ${props => props.black && `
     background-color: black;
     color: white;
   `}
+`
+
+const Header = styled.div`
 `
 
 const Title = styled.h2`
@@ -20,28 +26,72 @@ const Lead = styled.div`
   font-size: 25px;
 `
 
+const AboutSection = styled.div`
+  padding: 200px 80px;
+  position: relative;
+
+  &:before {
+    content: '';
+    height: 300px;
+    width: 1px;
+    background-color: #979797;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateY(-50%);
+  }
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    content: '';
+    height: 300px;
+    width: 1px;
+    background-color: #979797;
+    transform: translateY(45%);
+    left: 50%;
+  }
+`
+
+const InstagramSection = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 35px;
+  margin-top: 220px;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    content: '';
+    height: 300px;
+    width: 1px;
+    background-color: #979797;
+    transform: translateY(-120%);
+  }
+`
+
+const IGPlaceholder = styled.img`
+  margin-top: 40px;
+  width: 100%;
+`
+
 export default () => (
-  <div>
-    <Header id="about">
-      <Title>What we do</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
+  <BelowFold isPrimaryPage={true}>
+    <AboutSection id="about">
+      <img src={AboutSectionPlaceholder} />
+    </AboutSection>
 
-    <Header black id="work">
-      <Title>Our clients</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-
+    <Section>
       <Work />
-    </Header>
+    </Section>
 
-    <Header>
-      <Title>Our ventures</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
+    <InstagramSection>
+      <h3>Work is fun!</h3>
+      <IGPlaceholder src={InstagramFeedPlaceholder} />
+    </InstagramSection>
 
-    <Header id="contact">
-      <Title>Contact</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
-  </div>
+  </BelowFold>
 )

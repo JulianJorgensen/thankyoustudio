@@ -10,6 +10,7 @@
         "alias": {
           "components": "./components",
           "content": "./content",
+          "marquees": "./marquees",
           "assets": "./assets",
           "fonts": "./assets/fonts",
           "store": "./store",

@@ -9,8 +9,12 @@ app.prepare()
 .then(() => {
   const server = express();
 
+  server.get('/work', (req, res) => {
+    app.render(req, res, `/work`)
+  })
+
   server.get('/work/:id', (req, res) => {
-    app.render(req, res, `/work`, req.params)
+    app.render(req, res, `/${req.params.id}`)
   })
 
   server.get('*', (req, res) => {

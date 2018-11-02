@@ -6,14 +6,27 @@ export default (state = initialState, action) => {
     case actionTypes.UPDATE_ACTIVE_SLIDE:
       return {
         ...state,
-        prevSlide: state.activeSlide,
         activeSlide: action.slide
       };
-    case actionTypes.SET_NEXT_SLIDE_INDEX:
+    case actionTypes.UPDATE_PREV_SLIDE:
       return {
         ...state,
-        nextSlideIndex: action.nextSlideIndex,
+        prevSlide: action.slide
+      };
+    case actionTypes.HIDE_ACTIVE_SLIDE:
+      return {
+        ...state,
+        activeSlideHidden: action.activeSlideHidden
+      };
+    case actionTypes.SET_AUTO_SCROLL:
+      return {
+        ...state,
         autoScroll: action.autoScroll
+      };
+    case actionTypes.SET_USE_PREV_AS_NEXT_SLIDE:
+      return {
+        ...state,
+        usePrevAsNextSlide: action.usePrevAsNextSlide
       };
     case actionTypes.SET_IS_SCROLL_N_SLIDING:
       return {
@@ -30,6 +43,12 @@ export default (state = initialState, action) => {
         ...state,
         mobileNav: false
       };
+    case actionTypes.SET_HEADER_SOLID:
+      return {
+        ...state,
+        headerSolid: action.solid
+      };
+
     default: return state
   }
 }

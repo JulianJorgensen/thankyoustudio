@@ -5,10 +5,10 @@ import NavItem from './components/NavItem';
 import Logo from 'components/Logo';
 import styled from 'styled-components';
 import media from 'styled-media-query';
+import Headroom from 'react-headroom';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { closeMobileNav, toggleMobileNav } from 'store/actions';
 import MobileNav from './components/MobileNav';
-import Headroom from 'react-headroom';
 import * as actions from 'store/actions';
 
 const StyledHeadroom = styled(Headroom)`
@@ -17,11 +17,23 @@ const StyledHeadroom = styled(Headroom)`
   width: 100%;
 
   .headroom {
+    background-color: transparent;
+    transition: all 0.3s;
+    transition-delay: 0.2s;
+    padding: 40px;
     display: flex;
     align-items: center;
-    padding: 40px;
-    background-color: transparent;
-    width: 100%;
+  
+    ${props => props.fixed && `
+      padding: 20px 40px;
+      background-color: ${props.color === 'white' ? 'black' : 'white'};
+    `}
+
+    ${props => props.scrolling && `
+      padding: 40px;
+      background-color: transparent;
+      transition: all 0s;
+    `}
   }
 `
 
@@ -95,7 +107,9 @@ export default class Header extends Component {
     super();
 
     this.state = {};
-    this.handleOnNavClick = this.handleOnNavClick.bind(this);
+    this.handleOnUnpin = this.handleOnUnpin.bind(this);
+    this.handleOnPin = this.handleOnPin.bind(this);
+    this.handleOnUnfix = this.handleOnUnfix.bind(this);
   }
 
   componentWillUpdate() {
@@ -108,50 +122,58 @@ export default class Header extends Component {
     this.props.dispatch(toggleMobileNav());
   }
 
-  handleOnNavClick(section) {
-    const { dispatch, store } = this.props;
+  handleOnUnpin() {
+    this.setState({
+      onPinned: false,
+      fixed: true
+    });
+  }
 
-    if (store.activeSlide.index !== 0) {
-      dispatch(actions.setNextSlideIndex(store.activeSlide.index));
-      dispatch(actions.updateActiveSlide('ThankYou'));
-    }
+  handleOnPin() {
+    this.setState({
+      onPinned: true,
+      fixed: true
+    });
+  }
 
-    let scrollOptions = {};
-
-    if (store.activeSlide.index === 0) {
-      scrollOptions = {
-        duration: 500,
-        smooth: "easeOutQuad",
-      }
-    }
-
-    setTimeout(() => {
-      scroller.scrollTo(section.toLowerCase(), scrollOptions);
-    }, 100);
+  handleOnUnfix() {
+    this.setState({
+      fixed: false
+    });
   }
 
   render() {
     const { store, router: { pathname, asPath } } = this.props;
+    const { fixed } = this.state;
 
-    if (!store.activeSlide) return (
-      <div></div>
-    );
+    const { activeSlide, isScrollNSliding, mobileNav } = store;
+
+    let windowHeight;
+    if (typeof(window) === 'object') {
+      windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    }
+
+    const contentColor = activeSlide ? activeSlide.contentColor : 'black';
 
     return (
-        <StyledHeadroom
-          onPin={() => this.setState({ pinned: true })}
-          onUnpin={() => this.setState({ pinned: false })}
-          downTolerance={50}
-        >
-            <Nav contentColor={store.activeSlide.contentColor}>
-              <NavItem contentColor={store.activeSlide.contentColor} anchor={<StyledLogo />} logo handleOnClick={this.handleOnNavClick} />
-              <NavItem contentColor={store.activeSlide.contentColor} anchor="About" handleOnClick={this.handleOnNavClick} />
-              <NavItem contentColor={store.activeSlide.contentColor} anchor="Work" handleOnClick={this.handleOnNavClick} />
-              <NavItem contentColor={store.activeSlide.contentColor} anchor="Contact" handleOnClick={this.handleOnNavClick} />
-            </Nav>
-            <Bars active={store.mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
-            <MobileNav active={store.mobileNav} />
-        </StyledHeadroom>
+      <StyledHeadroom 
+        onUnpin={this.handleOnUnpin}
+        onPin={this.handleOnPin}
+        onUnfix={this.handleOnUnfix}
+        pinStart={windowHeight ? windowHeight/1.8 : 300}
+        fixed={fixed ? 'true' : ''}
+        color={contentColor}
+        scrolling={isScrollNSliding ? 'true' : 'false'}
+      >
+        <Nav contentColor={contentColor}>
+          <NavItem contentColor={contentColor} anchor={<StyledLogo />} href="/" logo />
+          <NavItem contentColor={contentColor} anchor="About" href="/about" />
+          <NavItem contentColor={contentColor} anchor="Work" href="/work" />
+          <NavItem contentColor={contentColor} anchor="Contact" href="/contact" />
+        </Nav>
+        <Bars active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
+        <MobileNav active={mobileNav} />
+      </StyledHeadroom>
     );
   }
 }
