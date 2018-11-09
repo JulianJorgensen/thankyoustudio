@@ -1,20 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Router, { withRouter } from 'next/router'
-import NavItem from './components/NavItem';
-import Logo from 'components/Logo';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 import Headroom from 'react-headroom';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import { closeMobileNav, toggleMobileNav } from 'store/actions';
+import Nav from './components/Nav';
 import MobileNav from './components/MobileNav';
-import * as actions from 'store/actions';
+import Bars from './components/Bars';
 
 const StyledHeadroom = styled(Headroom)`
   position: fixed;
   z-index: 99;
   width: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  ${props => props.fontsloaded && `
+    opacity: 1;
+  `}
 
   .headroom {
     background-color: transparent;
@@ -22,78 +27,30 @@ const StyledHeadroom = styled(Headroom)`
     transition-delay: 0.2s;
     padding: 40px;
     display: flex;
-    align-items: center;
-  
-    ${props => props.fixed && `
-      padding: 20px 40px;
-      background-color: ${props.color === 'white' ? 'black' : 'white'};
-    `}
+    align-items: center;  
+    pointer-events: auto;
+  }
 
-    ${props => props.scrolling && `
+  ${props => props.scrolling && `
+    .headroom {
       padding: 40px;
       background-color: transparent;
       transition: all 0s;
-    `}
-  }
-`
-
-const Nav = styled.div`
-  color: ${props => props.contentColor};
-  transition: color 0.2s;
-
-  display: flex;
-  align-items: flex-end;
-
-  svg path {
-    fill: ${props => props.contentColor};
-  }
-`
-
-const StyledLogo = styled(Logo)`
-  font-size: 30px;
-  line-height: 30px;
-`
-
-const Bars = styled.div`
-  position: relative;
-  z-index: 100;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-
-  ${media.lessThan('medium')`
-    display: none;
+    }
   `}
 
-  &:after,
-  &:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 6px;
-    height: 3px;
-    width: 30px;
-    background-color: ${props => props.contentColor};
-    transition: all 0.3s ease;
-  }
+  ${props => props.fixed && `
+    .headroom {
+      padding: 20px 40px;
+      background-color: ${props.color === 'white' ? 'black' : 'white'};
+      transition-delay: 0.6s;
 
-  &:before {
-    transform: translateY(4px);
-  }
-  &:after {
-    transform: translateY(-4px);
-  }
-
-  ${props => props.active && `
-    &:after,
-    &:before {
-      background-color: white;
-    }
-    &:before {
-      transform: rotate(45deg) translateY(0);
-    }
-    &:after {
-      transform: rotate(-45deg) translateY(0);
+      ${props.scrolling && `
+        background-color: transparent;
+        transition-delay: 0s;
+        transition-duration: 0s;
+        padding: 40px;
+      `}
     }
   `}
 `
@@ -143,10 +100,9 @@ export default class Header extends Component {
   }
 
   render() {
-    const { store, router: { pathname, asPath } } = this.props;
+    const { store, router } = this.props;
     const { fixed } = this.state;
-
-    const { activeSlide, isScrollNSliding, mobileNav } = store;
+    const { activeSlide, slider, mobileNav } = store;
 
     let windowHeight;
     if (typeof(window) === 'object') {
@@ -155,22 +111,20 @@ export default class Header extends Component {
 
     const contentColor = activeSlide ? activeSlide.contentColor : 'black';
 
+    const page = router.asPath.split('/')[1];
+
     return (
       <StyledHeadroom 
         onUnpin={this.handleOnUnpin}
         onPin={this.handleOnPin}
         onUnfix={this.handleOnUnfix}
-        pinStart={windowHeight ? windowHeight/1.8 : 300}
+        pinStart={200}
         fixed={fixed ? 'true' : ''}
         color={contentColor}
-        scrolling={isScrollNSliding ? 'true' : 'false'}
+        scrolling={slider.isScrollNSliding ? 'true' : ''}
+        fontsloaded={store.fontsLoaded ? 'true' : ''}
       >
-        <Nav contentColor={contentColor}>
-          <NavItem contentColor={contentColor} anchor={<StyledLogo />} href="/" logo />
-          <NavItem contentColor={contentColor} anchor="About" href="/about" />
-          <NavItem contentColor={contentColor} anchor="Work" href="/work" />
-          <NavItem contentColor={contentColor} anchor="Contact" href="/contact" />
-        </Nav>
+        <Nav contentColor={contentColor} page={page} />
         <Bars active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
         <MobileNav active={mobileNav} />
       </StyledHeadroom>

@@ -4,36 +4,10 @@ import media from 'styled-media-query';
 
 const NavLink = styled.a`
   position: relative;
-  font-weight: bold;
-  font-size: 20px;
   margin-right: 25px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
   color: inherit;
   cursor: pointer;
-
-  &:before {
-    content: '';
-    position: absolute;
-    background: ${props => props.contentColor};
-    height: 8px;
-    bottom: -10px;
-    left: 0;
-    visibility: hidden;
-    transition: all 0.2s ease-in 0s;
-    width: 0%;
-  }
-  &:hover:before {
-    width: 100%;
-    visibility: visible;
-  }
-
-  ${props => props.active && `
-    &:before {
-      width: 100%;
-      visibility: visible;
-    }
-  `}
+  overflow-x: hidden;
 
   ${props => props.logo &&`
     position: relative;
@@ -63,6 +37,38 @@ const NavLink = styled.a`
   `}
 `
 
-export default ({ anchor, href, logo, ...otherProps }) => (
-  <Link href={href}><NavLink {...otherProps}>{anchor}</NavLink></Link>
+const NavLinkText = styled.div`  
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+`
+
+const NavLinkLine = styled.div`
+  background-color: ${props => props.contentColor};
+  height: 8px;
+  bottom: -10px;
+  left: 0;
+  visibility: hidden;
+  transition: width 0.2s ease-in 0s;
+  width: 0%;
+
+  ${NavLink}:hover & {
+    width: 100%;
+    visibility: visible;
+  }
+
+  ${props => props.active && `
+    width: 100%;
+    visibility: visible;
+  `}
+`
+
+export default ({ active, anchor, href, logo, contentColor, ...otherProps }) => (
+  <Link href={href}>
+    <NavLink {...otherProps}>
+      <NavLinkText>{anchor}</NavLinkText>
+      <NavLinkLine active={active} contentColor={contentColor} />
+    </NavLink>
+  </Link>
 )

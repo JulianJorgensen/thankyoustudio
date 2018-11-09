@@ -119,7 +119,7 @@ export default class Footer extends Component {
           <SocialMediaIcons>
             <Link href="/privacy"><a>Privacy</a></Link>
             <a href="http://www.instagram.com/explore/tags/thankyouculture/" target="new"><InstagramIcon /></a>
-            <a href="http://vimeo.com/thankyoustudio/"><VimeoIcon /></a>
+            <a href="http://vimeo.com/thankyoustudio/" target="new"><VimeoIcon /></a>
             <a href="http://facebook.com/thankyoustudio/" target="new"><FacebookIcon /></a>
           </SocialMediaIcons>
         </RightCol>

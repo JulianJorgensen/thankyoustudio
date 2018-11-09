@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import Work from 'components/Work';
 import BelowFold from 'components/BelowFold';
 import Locations from 'components/Locations';
+import InstagramFeed from 'components/InstagramFeed';
 import styled from 'styled-components';
 import AboutSectionPlaceholder from 'assets/images/placeholders/about-section.png'
-import InstagramFeedPlaceholder from 'assets/images/placeholders/instagram-feed.jpg'
 
 const Section = styled.div`
   padding: 200px 80px;
@@ -59,7 +59,6 @@ const InstagramSection = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  font-size: 35px;
   margin-top: 220px;
 
   &:before {
@@ -71,11 +70,6 @@ const InstagramSection = styled.div`
     background-color: #979797;
     transform: translateY(-120%);
   }
-`
-
-const IGPlaceholder = styled.img`
-  margin-top: 40px;
-  width: 100%;
 `
 
 export default () => (
@@ -90,7 +84,7 @@ export default () => (
 
     <InstagramSection>
       <h3>Work is fun!</h3>
-      <IGPlaceholder src={InstagramFeedPlaceholder} />
+      <InstagramFeed />
     </InstagramSection>
 
   </BelowFold>

@@ -3,7 +3,7 @@ import SlideItems from 'store/slideItems';
 
 export const updateActiveSlide = (slug) => dispatch => {
   let slide = {};
-  console.log('updating activeSlide', slug);
+
   if (slug) {
     slide = SlideItems.find(obj => obj.slug.toLowerCase() == slug.toLowerCase());
 
@@ -63,13 +63,20 @@ export const setAutoScroll = (autoScroll) => dispatch => {
   })
 }
 
+export const setHasMouseLeftNextSlide = (hasMouseLeftNextSlide) => dispatch => {
+  return dispatch({ 
+    type: actionTypes.SET_HAS_MOUSE_LEFT_NEXT_SLIDE,
+    hasMouseLeftNextSlide
+  })
+}
+
 export const setIsScrollNSliding = () => dispatch => {
   setTimeout(() => {
     return dispatch({ 
       type: actionTypes.SET_IS_SCROLL_N_SLIDING,
       isScrollNSliding: false
     });
-  }, 700);
+  }, 500);
 
   return dispatch({ 
     type: actionTypes.SET_IS_SCROLL_N_SLIDING,
@@ -83,4 +90,8 @@ export const toggleMobileNav = () => dispatch => {
 
 export const closeMobileNav = () => dispatch => {
   return dispatch({ type: actionTypes.CLOSE_MOBILE_NAV })
+}
+
+export const confirmFontsLoaded = () => dispatch => {
+  return dispatch({ type: actionTypes.CONFIRM_FONTS_LOADED })
 }

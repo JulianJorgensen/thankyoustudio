@@ -23,3 +23,10 @@ export const easings = {
   easeOutSine: 'cubic-bezier(.39,.575,.565,1)',
   easeInOutCustom: 'cubic-bezier(.45,.035,.045,.95)'
 }
+
+export const standAlonePages = [
+  'about',
+  'work',
+  'contact',
+  'privacy'
+];

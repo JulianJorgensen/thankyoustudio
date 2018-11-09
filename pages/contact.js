@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import Footer from 'components/Footer';
+import StandAlonePage from 'components/StandAlonePage';
 import Locations from 'components/Locations';
 import styled from 'styled-components';
-
-const Wrapper = styled.div`
-`
 
 const PageTitle = styled.h1`
   position: absolute;
@@ -22,6 +19,7 @@ const Content = styled.div`
   padding: 200px 80px;
   background-color: black;
   color: white;
+  min-height: 100vh;
 `
 
 const Header = styled.div`
@@ -38,13 +36,11 @@ const Lead = styled.div`
 export default class ContactPage extends Component {
   render() {
     return (
-      <Wrapper>
+      <StandAlonePage>
         <Content>
           <Locations />
         </Content>
-
-        <Footer />
-      </Wrapper>
+      </StandAlonePage>
     )
   }
 }

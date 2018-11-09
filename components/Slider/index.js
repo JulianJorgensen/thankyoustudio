@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Router from 'next/router';
+import Router, { withRouter } from 'next/router';
 import styled from 'styled-components';
 import SlideItem from './components/SlideItem';
 import Waypoint from 'react-waypoint';
+import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
+import { standAlonePages } from 'utils/variables';
 
 const Slider = styled.div`
   position: absolute;
@@ -31,17 +33,24 @@ const BackButton = styled.div`
   top: 50%;
   left: 30px;
   z-index: 5;
-  font-size: 80px;
   cursor: pointer;
-  color: ${props => props.contentColor};
   transition: opacity 0.2s;
   pointer-events: auto;
 
   ${props => props.isHidden && `
     opacity: 0;
   `}
-`
 
+  svg {
+    width: 40px;
+    height: 40px;
+    path {
+      fill: ${props => props.contentColor};
+      transition: fill 0.2s;
+    }
+  }
+`
+@withRouter
 @connect((store) => ({
   store,
 }))
@@ -53,15 +62,81 @@ export default class FancySlider extends Component {
     this.handleBackClick = this.handleBackClick.bind(this);
     this.waypointEnter = this.waypointEnter.bind(this);
     this.waypointLeave = this.waypointLeave.bind(this);
+    this.handleNextMouseLeave = this.handleNextMouseLeave.bind(this);
+    this.triggerNextClick = this.triggerNextClick.bind(this);
+  }
+
+  componentDidMount() {
+    this.addArrowKeyEvents();
+  }
+
+  addArrowKeyEvents() {
+    document.onkeydown = (e) => {
+      switch (e.keyCode) {
+        case 37:
+          this.handleBackClick();
+          break;
+        case 39:
+          this.triggerNextClick();
+          break;
+      }
+    };
   }
 
   handleBackClick() {
     const { dispatch, store } = this.props;
     const prevSlide = SlideItems[store.activeSlide.index - 1];
 
+    dispatch(actions.setHasMouseLeftNextSlide(true));
+    dispatch(actions.setAutoScroll(false));
+
+    if (prevSlide) {
+      Router.push({
+        pathname: '/' + prevSlide.slug.toLowerCase()
+      }, prevSlide.slug ? '/work/' + prevSlide.slug.toLowerCase() : '/');
+    }
+  }
+
+  triggerNextClick() {
+    const { dispatch, store } = this.props;
+    let nextSlide
+    if (store.activeSlide.index === SlideItems.length - 1) {
+      nextSlide = SlideItems[0];
+    } else {
+      nextSlide = SlideItems[store.activeSlide.index + 1];
+    }
+
+    if (store.usePrevAsNextSlide) {
+      nextSlide = store.prevSlide;
+    }
+
+    if (!nextSlide) nextSlide = SlideItems[0];
+
+    if (nextSlide.slug !== '') {
+      dispatch(actions.setHasMouseLeftNextSlide(false));
+    }
+
     Router.push({
-      pathname: '/' + prevSlide.slug.toLowerCase()
-    }, prevSlide.slug ? '/work/' + prevSlide.slug.toLowerCase() : '/');
+      pathname: '/' + nextSlide.slug.toLowerCase()
+    }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');
+  }
+
+  handleNextMouseLeave() {
+    const { dispatch, router } = this.props;
+    const isStandAlonePage = standAlonePages.includes(router.pathname.substr(1));
+
+    dispatch(actions.setHasMouseLeftNextSlide(true));
+
+    if (isStandAlonePage) return;
+
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop === 0) {
+      scroll.scrollTo(150, {
+        duration: 700,
+        smooth: true
+      });
+    }
+    dispatch(actions.setAutoScroll(false));
   }
 
   onCtaClick() {
@@ -70,7 +145,6 @@ export default class FancySlider extends Component {
 
   waypointEnter() {
     const { dispatch } = this.props;
-
     dispatch(actions.setHeaderSolid(false));
   }
 
@@ -81,8 +155,7 @@ export default class FancySlider extends Component {
   }
 
   render() {
-    const { activeSlide, prevSlide, activeSlideHidden, isScrollNSliding, usePrevAsNextSlide } = this.props.store;
-    const { primaryContentIsAnimating } = this.state;
+    const { activeSlide, prevSlide, activeSlideHidden, slider, usePrevAsNextSlide, hasMouseLeftNextSlide, fontsLoaded } = this.props.store;
 
     if (!activeSlide) return (
       <div></div>
@@ -97,18 +170,18 @@ export default class FancySlider extends Component {
         <Slider>
           <BackButton 
             contentColor={activeSlide.contentColor} 
-            isHidden={activeSlide.index === 0 || isScrollNSliding} 
+            isHidden={activeSlide.index === 0 || slider.isScrollNSliding} 
             onClick={this.handleBackClick}
           >
-            &lsaquo;
+            <ChevronLeftIcon />
           </BackButton>
-          <Slides isScrollNSliding={isScrollNSliding}>
+          <Slides isScrollNSliding={slider.isScrollNSliding}>
             {
               SlideItems.map((SlideItemData, i) => {
                 const isPrevious = activeSlide.index === i + 1;
                 const isActive = activeSlide.index === i;
                 let isNext;
-                if (usePrevAsNextSlide) {
+                if (usePrevAsNextSlide && prevSlide) {
                   isNext = prevSlide.index === i;
                 } else {
                   isNext = ((activeSlide.index === i - 1) || (activeSlide.index === (SlideItems.length - 1) && i === 0));
@@ -121,14 +194,19 @@ export default class FancySlider extends Component {
                     title={SlideItemData.title}
                     subtitle={SlideItemData.subtitle}
                     vimeoId={SlideItemData.vimeoId}
+                    onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     onCtaClickHandler={this.onCtaClick}
                     isPrevious={isPrevious}
                     isActive={isActive && !activeSlideHidden}
                     isNext={isNext}
-                    isScrollNSliding={isScrollNSliding}
+                    isScrollNSliding={slider.isScrollNSliding}
                     image={SlideItemData.image}
                     background={SlideItemData.background}
                     contentColor={SlideItemData.contentColor}
+                    hasMouseLeftNextSlide={hasMouseLeftNextSlide}
+                    onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
+                    isActiveSlideHidden={activeSlideHidden}
+                    fontsLoaded={fontsLoaded}
                   />
                 )
               })

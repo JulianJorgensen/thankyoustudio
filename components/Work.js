@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const WorkItems = styled.div`
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: auto auto auto;
   grid-auto-rows: minmax(250px, auto);
   grid-auto-flow: dense;
   width: 100%;
@@ -86,7 +86,7 @@ export default class Work extends React.Component {
             </WorkItem>
           </Link>
 
-          <Link href="/swatch" as="/work/swatch" scroll={false}>
+          <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
             <WorkItem>
               <WorkItemImage src={SwatchPoster} />
               <WorkItemContent>
@@ -126,7 +126,7 @@ export default class Work extends React.Component {
             </WorkItem>
           </Link>
 
-          <Link href="/swatch" as="/work/swatch" scroll={false}>
+          <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
             <WorkItem>
               <WorkItemImage src={SwatchPoster} />
               <WorkItemContent>
@@ -156,7 +156,7 @@ export default class Work extends React.Component {
             </WorkItem>
           </Link>
 
-          <Link href="/swatch" as="/work/swatch" scroll={false}>
+          <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
             <WorkItem>
               <WorkItemImage src={SwatchPoster} />
               <WorkItemContent>

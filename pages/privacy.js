@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import Footer from 'components/Footer';
+import StandAlonePage from 'components/StandAlonePage';
 import styled from 'styled-components';
-import Work from 'components/Work';
-
-const Wrapper = styled.div`
-`
 
 const Content = styled.div`
   padding: 200px 80px;
@@ -26,17 +22,14 @@ const Lead = styled.div`
 export default class PrivacyPage extends Component {
   render() {
     return (
-      <Wrapper>
+      <StandAlonePage>
         <Content>
           <Header>
             <Title>Privacy</Title>
             <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
           </Header>
-          <Work />
         </Content>
-
-        <Footer />
-      </Wrapper>
+      </StandAlonePage>
     )
   }
 }

@@ -18,14 +18,8 @@ const Wrapper = styled.div`
   transform: translateX(0);
   pointer-events: none;
 
-  ${props => props.isPrevious && `
-    position: absolute;
-    width: 100vw;
-    z-index: 1;
-  `}
-
   ${props => props.isActive && `
-    position: ${props.isScrollNSliding ? 'fixed' : 'absolute'};
+    position: absolute;
     width: 100vw;
     z-index: 3;
     will-change: transform;
@@ -33,9 +27,9 @@ const Wrapper = styled.div`
     pointer-events: auto;
   `}
 
-  ${props => props.isNext && !props.isScrollNSliding && `
+  ${props => props.isNext && `
     position: fixed;
-    width: 10vw;
+    width: ${props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
     z-index: 4;
     will-change: width;
     opacity: 1;
@@ -48,27 +42,44 @@ const Wrapper = styled.div`
     }
   `}
 
-  ${props => !props.landingSlide && media.lessThan('medium')`
+  ${props => media.lessThan('medium')`
     display: none;
   `}
 
   background: ${props => props.background};
 `
+export default ({ isPrevious, isNext, onMouseOut, isActiveSlideHidden, onClickHandler, hasMouseLeftNextSlide, isScrollNSliding, ...props }) => {
+  let styles = {};
 
+  if (props.isActive && isScrollNSliding) {
+    styles = {
+      position: 'fixed'
+    }
+  }
 
+  if (isPrevious) {
+    styles = {
+      position: 'absolute',
+      width: '100vw',
+      zIndex: '1',
+      opacity: '1'
+    }
+  }
 
-export default (props) => (
-  <Link href={`/${props.slug.toLowerCase()}`} as={props.slug ? `/work/${props.slug.toLowerCase()}` : '/'} scroll={false}>
+  return (
     <Wrapper
-      contentColor={props.contentColor}
       isActive={props.isActive}
-      isPrevious={props.isPrevious}
-      isNext={props.isNext}
+      isPrevious={isPrevious}
+      isNext={isNext}
+      contentColor={props.contentColor}
       background={props.background}
-      landingSlide={props.landingSlide}
-      isScrollNSliding={props.isScrollNSliding}
+      hasMouseLeftNextSlide={hasMouseLeftNextSlide}
+      onMouseOut={onMouseOut}
+      isActiveSlideHidden={isActiveSlideHidden}
+      onClick={onClickHandler}
+      style={styles}
     >
-      { props.slug === '' ? <LandingSlide /> : <WorkSlide {...props} /> }
+      { props.slug === '' ? <LandingSlide {...props} /> : <WorkSlide {...props} /> }
     </Wrapper>
-  </Link>
-)
+  )
+}

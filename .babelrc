@@ -26,7 +26,10 @@
         "preprocess": false
       }
     ],
-    "transform-decorators-legacy",
+    [
+      "@babel/plugin-proposal-decorators", 
+      { "legacy": true }
+    ],
     "transform-class-properties",
     "inline-react-svg"
   ]

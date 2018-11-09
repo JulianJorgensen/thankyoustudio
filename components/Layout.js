@@ -1,31 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import styled, { injectGlobal } from 'styled-components';
+import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
+import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
-import SlideItems from 'store/slideItems';
 import * as actions from 'store/actions';
-import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
-import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
-
-injectGlobal`
-  @font-face {
-    font-family: 'Helvetica Neue';
-    src: url(${HelveticaNeueRoman}) format('woff2'),
-        url(${HelveticaNeueBold}) format('woff');
-  }
-`
+import { standAlonePages } from 'utils/variables';
 
 const Wrapper = styled.div`
 `
 
-const standAlonePages = [
-  'about',
-  'work',
-  'contact'
-];
+const SCROLL_DURATION = 400;
 
 @withRouter
 @connect((store) => ({
@@ -55,6 +42,8 @@ export default class Layout extends Component {
   componentDidMount() {
     this.initRouterEventListeners();
     window.addEventListener('scroll', this.handleScroll);
+
+    this.initFontObserver();
   }
 
   componentDidUpdate(oldProps) {
@@ -70,8 +59,18 @@ export default class Layout extends Component {
   }
 
   handleScroll() {
-    clearTimeout(this.autoScroll);
     window.removeEventListener('scroll', this.handleScroll);
+
+    // prevent autoscroll
+    clearTimeout(this.autoScroll);
+  }
+
+  initFontObserver() {
+    const font = new FontFaceObserver('Helvetica Neue')
+
+    font.load().then(() => {
+      this.props.dispatch(actions.confirmFontsLoaded());
+    });
   }
 
   initRouterEventListeners() {
@@ -95,24 +94,31 @@ export default class Layout extends Component {
           slug = urlExploded[1];
       }
 
-      clearTimeout(this.autoScroll);
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 0) {
         this.scrollToTop();
       }
 
+      clearTimeout(this.autoScroll);
+
       if (isStandAlonePage) {
         dispatch(actions.updateActiveSlide(slug));
+        dispatch(actions.setHasMouseLeftNextSlide(true));
 
-        console.log('store.activeSlide.slug', store.activeSlide.slug.toLowerCase());
         if (!standAlonePages.includes(store.activeSlide.slug.toLowerCase())) {
           dispatch(actions.updatePrevSlide(store.activeSlide));
         }
-      } else {
-        dispatch(actions.updateActiveSlide(slug));
       }
 
-      this.setAutoScroll();
+      if (!isStandAlonePage) {
+        dispatch(actions.updateActiveSlide(slug));
+
+        dispatch(actions.setAutoScroll(true));
+        setTimeout(() => {
+          this.setAutoScroll();
+        }, SCROLL_DURATION);  
+      }
+
       this.toggleActiveSlide(url);
       dispatch(actions.setHeaderSolid(false));
       this.setUsePrevAsNextSlide(url);
@@ -143,7 +149,6 @@ export default class Layout extends Component {
   setUsePrevAsNextSlide(url) {
     const { dispatch, store } = this.props;
 
-    console.log('new url', url);
     if (standAlonePages.includes(url ? url.substr(1) : '')) {
       dispatch(actions.setUsePrevAsNextSlide(true));
     } else {
@@ -164,19 +169,18 @@ export default class Layout extends Component {
   scrollToTop() {
     this.props.dispatch(actions.setIsScrollNSliding());
     scroll.scrollToTop({
-      duration: 500,
+      duration: SCROLL_DURATION,
       delay: 50,
       smooth: 'easeInQuint'
     });
   }
 
   setAutoScroll() {
-    const { store } = this.props;
-
-    console.log('setting autoScroll timeout');
     this.autoScroll = setTimeout(() => {
+      const { store } = this.props;
       if (store.autoScroll) {
         scroll.scrollTo(150, {
+          duration: SCROLL_DURATION,
           smooth: true
         });
       }

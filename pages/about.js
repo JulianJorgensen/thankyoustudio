@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import Footer from 'components/Footer';
+import StandAlonePage from 'components/StandAlonePage';
 import PlayIcon from 'assets/icons/FontAwesome/regular/play-circle.svg'
 import AboutTabs from 'assets/images/about-tabs.png';
 import styled from 'styled-components';
-
-const Wrapper = styled.div`
-`
 
 const PageTitle = styled.h1`
   position: absolute;
@@ -58,7 +55,7 @@ const Lead = styled.div`
 export default class AboutPage extends Component {
   render() {
     return (
-      <Wrapper>
+      <StandAlonePage>
         <Content>
           <PageTitle>About</PageTitle>
           <Header>
@@ -67,9 +64,7 @@ export default class AboutPage extends Component {
           </Header>
           <img src={AboutTabs} />
         </Content>
-
-        <Footer />
-      </Wrapper>
+      </StandAlonePage>
     )
   }
 }

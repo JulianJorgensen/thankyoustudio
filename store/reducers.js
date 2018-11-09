@@ -23,6 +23,11 @@ export default (state = initialState, action) => {
         ...state,
         autoScroll: action.autoScroll
       };
+    case actionTypes.SET_HAS_MOUSE_LEFT_NEXT_SLIDE:
+      return {
+        ...state,
+        hasMouseLeftNextSlide: action.hasMouseLeftNextSlide
+      };
     case actionTypes.SET_USE_PREV_AS_NEXT_SLIDE:
       return {
         ...state,
@@ -31,7 +36,9 @@ export default (state = initialState, action) => {
     case actionTypes.SET_IS_SCROLL_N_SLIDING:
       return {
         ...state,
-        isScrollNSliding: action.isScrollNSliding
+        slider: {
+          isScrollNSliding: action.isScrollNSliding
+        }
       };
     case actionTypes.TOGGLE_MOBILE_NAV:
       return {
@@ -47,6 +54,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         headerSolid: action.solid
+      };
+    case actionTypes.CONFIRM_FONTS_LOADED:
+      return {
+        ...state,
+        fontsLoaded: true
       };
 
     default: return state

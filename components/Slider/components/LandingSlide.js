@@ -62,6 +62,13 @@ const PlayReel = styled.div`
     height: 40px;
     margin-right: 15px;
   }
+
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  ${props => props.fontsLoaded && `
+    opacity: 1;
+  `}
 `
 
 const Statement = styled.div`
@@ -70,6 +77,12 @@ const Statement = styled.div`
   text-align: center;
   font-size: 28px;
   font-weight: light;
+  opacity: 0;
+  transition: opacity 0.2s;
+
+  ${props => props.fontsLoaded && `
+    opacity: 1;
+  `}
 `
 
 const LogoItems = [
@@ -106,6 +119,7 @@ export default class LandingSlide extends Component {
   }
 
   render() {
+    const { fontsLoaded } = this.props;
     const { hideFullscreenVideo } = this.state;
 
     return (
@@ -120,14 +134,14 @@ export default class LandingSlide extends Component {
           <Logos>
             {
               LogoItems.map((logoUrl, i) => (
-                <Logo show={this.state.activeLogo === i} src={logoUrl} />
+                <Logo key={logoUrl} show={this.state.activeLogo === i} src={logoUrl} />
               ))
             }
           </Logos>
 
-          <PlayReel><PlayIcon /> Play full reel</PlayReel>
+          <PlayReel fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
 
-          <Statement>Thank You Studio is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
+          <Statement fontsLoaded={fontsLoaded}>Thank You Studio is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
         </Content>
       </Wrapper>  
     )

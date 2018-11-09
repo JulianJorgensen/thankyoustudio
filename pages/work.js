@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
-import Footer from 'components/Footer';
+import StandAlonePage from 'components/StandAlonePage';
 import styled from 'styled-components';
 import Work from 'components/Work';
-
-const Wrapper = styled.div`
-`
 
 const PageTitle = styled.h1`
   position: absolute;
@@ -32,15 +29,13 @@ const Header = styled.div`
 export default class WorkPage extends Component {
   render() {
     return (
-      <Wrapper>
+      <StandAlonePage>
         <Content>
           <PageTitle>Work</PageTitle>
           <Header></Header>
           <Work />
         </Content>
-
-        <Footer />
-      </Wrapper>
+      </StandAlonePage>
     )
   }
 }
