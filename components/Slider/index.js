@@ -17,7 +17,7 @@ const Slider = styled.div`
   left: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  // overflow: hidden;
   pointer-events: none;
 `
 
@@ -116,9 +116,22 @@ export default class FancySlider extends Component {
       dispatch(actions.setHasMouseLeftNextSlide(false));
     }
 
+    // set is sliding (we need to have certain styles for a slide when sliding)
+    this.setIsSliding(true);
+    setTimeout(() => {
+      this.setIsSliding(false);
+    }, 500)
+
+    // change to the actual new url
     Router.push({
       pathname: '/' + nextSlide.slug.toLowerCase()
     }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');
+  }
+
+  setIsSliding(isSliding) {
+    this.setState({
+      isSliding
+    });
   }
 
   handleNextMouseLeave() {
@@ -207,6 +220,7 @@ export default class FancySlider extends Component {
                     onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
                     isActiveSlideHidden={activeSlideHidden}
                     fontsLoaded={fontsLoaded}
+                    isSliding={this.state.isSliding}
                   />
                 )
               })

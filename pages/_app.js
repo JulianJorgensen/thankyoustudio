@@ -60,8 +60,8 @@ export default class MyApp extends App {
           .fade-exit-active.stand-alone-page {
             opacity: 0;
           }
-        `}</style>
-        <style jsx global>{`
+
+
           @font-face {
             font-family: 'Helvetica Neue';
             src: url(${HelveticaNeueRoman}) format('woff2'),
@@ -71,19 +71,20 @@ export default class MyApp extends App {
           html {
             height: 100%;
             width: 100%;
-            font-family: ${fonts.primary};
+            font-family: ${fonts.primary}, Helvetica, sans-serif;
             overflow-y: scroll;
             overflow-x: hidden;
             background-color: black;
           }
-        
+
           body {
             margin: 0;
             padding: 0;
             border: 0;
             font-size: 100%;
+            border: 0;
           }
-        
+
           * {
             box-sizing: border-box;
           }
@@ -123,8 +124,6 @@ export default class MyApp extends App {
             outline: 0;
           }
         `}</style>
-
-
       </Container>
     )
   }

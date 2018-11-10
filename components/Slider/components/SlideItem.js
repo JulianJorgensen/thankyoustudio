@@ -5,28 +5,8 @@ import LandingSlide from './LandingSlide';
 import WorkSlide from './WorkSlide';
 import { colors, fonts, easings } from 'utils/variables';
 import media from "styled-media-query";
-import Video from 'components/Video';
 
 const Wrapper = styled.div`
-  top: 0;
-  right: 0;
-  height: 100%;
-  transition: width 0.5s ${easings.easeInOutCustom};
-  overflow: hidden;
-  opacity: 0;
-  width: 0;
-  transform: translateX(0);
-  pointer-events: none;
-
-  ${props => props.isActive && `
-    position: absolute;
-    width: 100vw;
-    z-index: 3;
-    will-change: transform;
-    opacity: 1;
-    pointer-events: auto;
-  `}
-
   ${props => props.isNext && `
     position: fixed;
     width: ${props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
@@ -53,7 +33,7 @@ export default ({ isPrevious, isNext, onMouseOut, isActiveSlideHidden, onClickHa
 
   if (props.isActive && isScrollNSliding) {
     styles = {
-      position: 'fixed'
+      position: 'fixed',
     }
   }
 
@@ -71,15 +51,40 @@ export default ({ isPrevious, isNext, onMouseOut, isActiveSlideHidden, onClickHa
       isActive={props.isActive}
       isPrevious={isPrevious}
       isNext={isNext}
+      isSliding={props.isSliding}
       contentColor={props.contentColor}
       background={props.background}
       hasMouseLeftNextSlide={hasMouseLeftNextSlide}
       onMouseOut={onMouseOut}
       isActiveSlideHidden={isActiveSlideHidden}
       onClick={onClickHandler}
+      className={props.isActive ? 'wrapper is-active' : 'wrapper'}
       style={styles}
     >
       { props.slug === '' ? <LandingSlide {...props} /> : <WorkSlide {...props} /> }
+      <style jsx global>{`
+        .wrapper {
+          top: 0;
+          right: 0;
+          height: 100%;
+          transition: width 0.5s ${easings.easeInOutCustom};
+          opacity: 0;
+          width: 0;
+          transform: translateX(0);
+          pointer-events: none;
+          overflow: hidden;
+        }
+
+        .wrapper.is-active {
+          position: absolute;
+          width: 100vw;
+          z-index: 3;
+          will-change: transform;
+          opacity: 1;
+          pointer-events: auto;      
+        }
+      `}
+      </style>
     </Wrapper>
   )
 }

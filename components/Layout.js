@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
-import { animateScroll as scroll } from 'react-scroll';
+import { scroll } from 'react-scroll';
 import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
@@ -56,6 +56,7 @@ export default class Layout extends Component {
 
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
+    clearTimeout(this.autoScroll);
   }
 
   handleScroll() {
@@ -168,11 +169,9 @@ export default class Layout extends Component {
 
   scrollToTop() {
     this.props.dispatch(actions.setIsScrollNSliding());
-    scroll.scrollToTop({
-      duration: SCROLL_DURATION,
-      delay: 50,
-      smooth: 'easeInQuint'
-    });
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 480); // the number has to be less than the slider animation to prevent a flickering
   }
 
   setAutoScroll() {
