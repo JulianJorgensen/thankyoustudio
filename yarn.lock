@@ -736,29 +736,6 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@fullpage/react-fullpage@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@fullpage/react-fullpage/-/react-fullpage-0.0.9.tgz#46e74350126982da88b72ac6ec2886209a62c596"
-  integrity sha512-xMjN+dYXGo0d55yZ0ZUVdUiXnACkWVydV6yRhy29mI26mRe8jBDh82oOzkISE5U2lb0Eplj1ifpga/Liq6hlhQ==
-  dependencies:
-    fullpage.js "^3.0.2"
-
-"@u-wave/react-vimeo@^0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@u-wave/react-vimeo/-/react-vimeo-0.5.0.tgz#338c12e81abd7967253a09b527cce5d79ef6d7d7"
-  integrity sha512-oo72suA/iN6Fp91/Z4YiE9E9SEPhPmyTo0EwVbUwyOaaTyCwauv1k2cpk10rkkk1+SxpA3r2NLwPAfNP3bEUGg==
-  dependencies:
-    "@vimeo/player" "^2.5.0"
-    prop-types "^15.6.1"
-
-"@vimeo/player@^2.5.0":
-  version "2.6.3"
-  resolved "https://registry.yarnpkg.com/@vimeo/player/-/player-2.6.3.tgz#f1b88f75a7ddb79f2fa8cfc4ea89e628caabafbd"
-  integrity sha512-H/iUrgLSpX0dUAD2lw61v8ftabwwDPSzRc1niUcP7ZkAEhaVQaxK7RsOTKbwa14S42ueV0usl2HMMp6NpJx+dQ==
-  dependencies:
-    native-promise-only "0.8.1"
-    weakmap-polyfill "2.0.0"
-
 "@webassemblyjs/ast@1.7.8":
   version "1.7.8"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.7.8.tgz#f31f480debeef957f01b623f27eabc695fa4fe8f"
@@ -2660,11 +2637,6 @@ fsevents@^1.2.2:
     nan "^2.9.2"
     node-pre-gyp "^0.10.0"
 
-fullpage.js@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/fullpage.js/-/fullpage.js-3.0.2.tgz#4a38e8ac5be5ebf2d9631dc462468255adaa110e"
-  integrity sha512-re3Xx/GMdbCKmLSt52ns+w9mcynX0lXvZ7gq9SxLqQ/tqNVI2JRlF0nIxiI4/F+k+zfF+Pu30hlQfp7CG5CPuQ==
-
 function-bind@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/function-bind/-/function-bind-1.1.1.tgz#a56899d3ea3c9bab874bb9773b7c5ede92f4895d"
@@ -3698,11 +3670,6 @@ nanomatch@^1.2.9:
     regex-not "^1.0.0"
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
-
-native-promise-only@0.8.1:
-  version "0.8.1"
-  resolved "https://registry.yarnpkg.com/native-promise-only/-/native-promise-only-0.8.1.tgz#20a318c30cb45f71fe7adfbf7b21c99c1472ef11"
-  integrity sha1-IKMYwwy0X3H+et+/eyHJnBRy7xE=
 
 needle@^2.2.1:
   version "2.2.4"
@@ -5629,11 +5596,6 @@ watchpack@^1.5.0:
     chokidar "^2.0.2"
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
-
-weakmap-polyfill@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/weakmap-polyfill/-/weakmap-polyfill-2.0.0.tgz#8f28f935e3853896ad40747e5258db578d9dc8de"
-  integrity sha1-jyj5NeOFOJatQHR+UljbV42dyN4=
 
 webpack-bundle-analyzer@2.13.1:
   version "2.13.1"

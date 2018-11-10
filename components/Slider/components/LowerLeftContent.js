@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TweenLite from 'gsap/TweenLite';
+import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { colors, fonts, easings } from 'utils/variables';
