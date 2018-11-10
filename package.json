@@ -8,8 +8,7 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
-    "@fullpage/react-fullpage": "^0.0.9",
-    "@u-wave/react-vimeo": "^0.5.0",
+    "@zeit/next-bundle-analyzer": "^0.1.2",
     "axios": "^0.18.0",
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-transform-class-properties": "^6.24.1",

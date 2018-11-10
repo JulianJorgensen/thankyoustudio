@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Vimeo from '@u-wave/react-vimeo';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -20,7 +19,7 @@ const Wrapper = styled.div`
   `}
 `
 
-const Video = styled(Vimeo)`
+const Video = styled.video`
   width: 100%;
 
   ${props => props.sliderVideo && `

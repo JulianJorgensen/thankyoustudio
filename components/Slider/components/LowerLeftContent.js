@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import TweenLite from 'gsap';
+import TweenLite from 'gsap/TweenLite';
 import styled from 'styled-components';
-import { throttle } from 'lodash';
+import throttle from 'lodash.throttle';
 import { colors, fonts, easings } from 'utils/variables';
 
 const Wrapper = styled.div`
