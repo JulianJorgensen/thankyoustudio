@@ -4,7 +4,6 @@
   "scripts": {
     "dev": "node server.js",
     "build": "next build",
-    "postinstall": "yarn build",
     "heroku-postbuild": "yarn build",
     "start": "NODE_ENV=production node server.js"
   },
