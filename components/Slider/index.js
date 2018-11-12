@@ -140,16 +140,16 @@ export default class FancySlider extends Component {
 
     dispatch(actions.setHasMouseLeftNextSlide(true));
 
-    if (isStandAlonePage) return;
+    // if (isStandAlonePage) return;
 
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop === 0) {
-      scroll.scrollTo(150, {
-        duration: 700,
-        smooth: true
-      });
-    }
-    dispatch(actions.setAutoScroll(false));
+    // let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    // if (scrollTop === 0) {
+    //   scroll.scrollTo(150, {
+    //     duration: 700,
+    //     smooth: true
+    //   });
+    // }
+    // dispatch(actions.setAutoScroll(false));
   }
 
   onCtaClick() {

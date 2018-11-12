@@ -82,7 +82,8 @@ export default ({ isPrevious, isNext, onMouseOut, isActiveSlideHidden, onClickHa
           z-index: 3;
           will-change: transform;
           opacity: 1;
-          pointer-events: auto;      
+          pointer-events: auto;     
+          // overflow: visible; 
         }
       `}
       </style>

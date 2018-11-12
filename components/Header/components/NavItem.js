@@ -49,18 +49,15 @@ const NavLinkLine = styled.div`
   height: 8px;
   bottom: -10px;
   left: 0;
-  visibility: hidden;
   transition: width 0.2s ease-in 0s;
   width: 0%;
 
   ${NavLink}:hover & {
     width: 100%;
-    visibility: visible;
   }
 
   ${props => props.active && `
     width: 100%;
-    visibility: visible;
   `}
 `
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TweenLite } from 'gsap/umd/TweenLite';
+import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { colors, fonts, easings } from 'utils/variables';
@@ -85,7 +85,7 @@ export default class LowerLeftContent extends Component {
     if (this.props.isActive) {
       document.addEventListener('scroll', this.handleOnScroll);
     } else {
-      // this.headerAnimation = TweenLite.to(this.headerEl, 3, {top: 0});
+      this.headerAnimation = TweenLite.to(this.headerEl, 3, {top: 0});
       document.removeEventListener('scroll', this.handleOnScroll);
     }
   }
@@ -105,8 +105,8 @@ export default class LowerLeftContent extends Component {
     } else {
       this.setState({ hideCta: false });
     }
-
-    // this.headerAnimation = TweenLite.set(this.headerEl, {top: scrollTop/4});
+    console.log('animate', scrollTop);
+    this.headerAnimation = TweenLite.set(this.headerEl, {top: scrollTop/4});
   }
 
   render() {
