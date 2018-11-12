@@ -1,8 +1,6 @@
 import Document, { Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import flush from 'styled-jsx/server';
-import { fonts } from 'utils/variables';
-import favicon from 'assets/images/favicon.ico';
 
 export default class MyDocument extends Document {
   static getInitialProps ({ renderPage }) {
@@ -17,10 +15,6 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>
-          <title>THANK YOU &reg;</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <meta charSet="utf-8" />
-          <link rel="shortcut icon" href={favicon} />
           {this.props.styleTags}
         </Head>
         <body>

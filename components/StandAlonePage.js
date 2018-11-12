@@ -5,12 +5,6 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.2s;
-
-  ${props => props.fontsLoaded && `
-    opacity: 1;
-  `}
 
   ${props => props.isScrollNSliding && `
     position: fixed !important;

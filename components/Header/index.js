@@ -15,7 +15,7 @@ const StyledHeadroom = styled(Headroom)`
   width: 100%;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.1s;
 
   ${props => props.fontsloaded && `
     opacity: 1;

@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   font-size: 30px;
   letter-spacing: -1px;
   -webkit-font-smoothing: subpixel-antialiased;
+  user-select: none;
 `
 
 const Small = styled.div`

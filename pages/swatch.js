@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import BelowFold from 'components/BelowFold';
+import Page from 'components/Page';
 import Video from 'components/Video';
 import Cta from 'components/Cta';
 import SwatchWatchesImg from 'assets/images/swatch-watches.png';
@@ -136,66 +136,66 @@ const BusVideo = styled(Video)`
 export default class Swatch extends React.Component {
   render() {
     return (
-      <BelowFold>
-          <CaseContent intro>
-            <Row>
-              <Col large>
-                <p>Re-launching an iconic SWATCH SKIN collection with 360° campaign aiming for a major global impact</p>
-                <p>By uniting the model and the watch’s physical movements through graphic continuity and exaggerated scale, we’ve positioned SKIN as a vital part of female movement, empowerment and freedom.</p>
-              </Col>
-              <Col small alignRight>
-                <Cta label="Visit site" href='/' />
-              </Col>
-            </Row>
-          </CaseContent>
+      <Page isCase>
+        <CaseContent intro>
+          <Row>
+            <Col large>
+              <p>Re-launching an iconic SWATCH SKIN collection with 360° campaign aiming for a major global impact</p>
+              <p>By uniting the model and the watch’s physical movements through graphic continuity and exaggerated scale, we’ve positioned SKIN as a vital part of female movement, empowerment and freedom.</p>
+            </Col>
+            <Col small alignRight>
+              <Cta label="Visit site" href='/' />
+            </Col>
+          </Row>
+        </CaseContent>
 
+        <FeatureVideo>
+          <StyledVideo vimeoId="294156985" responsive background />
+        </FeatureVideo>
+
+        <CaseContent>
+          <Row>
+            <Col sticky>
+              <CaseSectionHeadline>Creating the impossible</CaseSectionHeadline>
+              <CaseSectionSubHeadline>Making experiences stand out</CaseSectionSubHeadline>
+              <p>Lorem ipsum dolor sit amet, ei melius propriae legendos vis, mel id iisque albucius voluptua, eam ex oblique ceteros qualisque. Pri at eius denique definitiones, in vis etiam liber movet, sed consulatu forensibus ut. Ne graeco cetero pericula vel.</p>
+              <p>Eum ei augue ubique, ne sit graece adolescens, nam lobortis posidonium ad. Et mel eros dignissim evertitur, an movet corpora evertitur vix. Mea id noster alienum imperdiet, sale voluptatum eu est.</p>
+            </Col>
+            <Col alignRight>
+              <Watches src={SwatchWatchesImg} />
+              <DigitalDisplays src={SwatchDigitalDisplaysImg} />
+              <StoreDisplays src={SwatchStoreDisplaysImg} />
+            </Col>
+          </Row>
+        </CaseContent>
+
+        <CaseContent>
           <FeatureVideo>
             <StyledVideo vimeoId="294156985" responsive background />
           </FeatureVideo>
 
-          <CaseContent>
-            <Row>
-              <Col sticky>
-                <CaseSectionHeadline>Creating the impossible</CaseSectionHeadline>
-                <CaseSectionSubHeadline>Making experiences stand out</CaseSectionSubHeadline>
-                <p>Lorem ipsum dolor sit amet, ei melius propriae legendos vis, mel id iisque albucius voluptua, eam ex oblique ceteros qualisque. Pri at eius denique definitiones, in vis etiam liber movet, sed consulatu forensibus ut. Ne graeco cetero pericula vel.</p>
-                <p>Eum ei augue ubique, ne sit graece adolescens, nam lobortis posidonium ad. Et mel eros dignissim evertitur, an movet corpora evertitur vix. Mea id noster alienum imperdiet, sale voluptatum eu est.</p>
-              </Col>
-              <Col alignRight>
-                <Watches src={SwatchWatchesImg} />
-                <DigitalDisplays src={SwatchDigitalDisplaysImg} />
-                <StoreDisplays src={SwatchStoreDisplaysImg} />
-              </Col>
-            </Row>
-          </CaseContent>
+          <Row topMargin bottomMargin>
+            <Col>
+              <CaseSectionHeadline>Experiences</CaseSectionHeadline>
+              <CaseSectionSubHeadline>Creates experiences</CaseSectionSubHeadline>
+              <p>Lorem ipsum dolor sit amet, ei melius propriae legendos vis, mel id iisque albucius voluptua, eam ex oblique ceteros qualisque. Pri at eius denique definitiones, in vis etiam liber movet, sed consulatu forensibus ut. Ne graeco cetero pericula vel.</p>
+            </Col>
+          </Row>
 
-          <CaseContent>
-            <FeatureVideo>
-              <StyledVideo vimeoId="294156985" responsive background />
-            </FeatureVideo>
+          <Airport src={SwatchAirportImg} />
+          <BusVideo vimeoId="294354915" background />
 
-            <Row topMargin bottomMargin>
-              <Col>
-                <CaseSectionHeadline>Experiences</CaseSectionHeadline>
-                <CaseSectionSubHeadline>Creates experiences</CaseSectionSubHeadline>
-                <p>Lorem ipsum dolor sit amet, ei melius propriae legendos vis, mel id iisque albucius voluptua, eam ex oblique ceteros qualisque. Pri at eius denique definitiones, in vis etiam liber movet, sed consulatu forensibus ut. Ne graeco cetero pericula vel.</p>
-              </Col>
-            </Row>
+          <Row items={4} topMargin bottomMargin>
+            <Col><img src={SwatchPhotoshoot} /></Col>
+            <Col><img src={SwatchPoster} /></Col>
+            <Col><img src={SwatchPhotoshoot} /></Col>
+            <Col><img src={SwatchPoster} /></Col>
+          </Row>
+        </CaseContent>
 
-            <Airport src={SwatchAirportImg} />
-            <BusVideo vimeoId="294354915" background />
+        <ThankYou />
 
-            <Row items={4} topMargin bottomMargin>
-              <Col><img src={SwatchPhotoshoot} /></Col>
-              <Col><img src={SwatchPoster} /></Col>
-              <Col><img src={SwatchPhotoshoot} /></Col>
-              <Col><img src={SwatchPoster} /></Col>
-            </Row>
-          </CaseContent>
-
-          <ThankYou />
-
-      </BelowFold>
+      </Page>
     )
   }
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
-import { scroll } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
 import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
 import Slider from 'components/Slider';

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 import StandAlonePage from 'components/StandAlonePage';
 import Locations from 'components/Locations';
 import styled from 'styled-components';
+import { meta } from 'utils/variables';
 
 const PageTitle = styled.h1`
   position: absolute;
@@ -37,6 +39,9 @@ export default class ContactPage extends Component {
   render() {
     return (
       <StandAlonePage>
+        <Head>
+          <title>Contact {meta.description}</title>
+        </Head>
         <Content>
           <Locations />
         </Content>

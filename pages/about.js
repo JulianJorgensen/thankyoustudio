@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 import StandAlonePage from 'components/StandAlonePage';
 import PlayIcon from 'assets/icons/FontAwesome/regular/play-circle.svg'
 import AboutTabs from 'assets/images/about-tabs.png';
 import styled from 'styled-components';
+import { meta } from 'utils/variables';
 
 const PageTitle = styled.h1`
   position: absolute;
@@ -56,6 +58,9 @@ export default class AboutPage extends Component {
   render() {
     return (
       <StandAlonePage>
+        <Head>
+          <title>About {meta.description}</title>
+        </Head>
         <Content>
           <PageTitle>About</PageTitle>
           <Header>

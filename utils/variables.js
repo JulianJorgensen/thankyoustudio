@@ -30,3 +30,8 @@ export const standAlonePages = [
   'contact',
   'privacy'
 ];
+
+export const meta = {
+  title: 'THANK YOU &reg; designs digital experiences and connect brands',
+  description: 'Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.'
+}

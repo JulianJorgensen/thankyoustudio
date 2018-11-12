@@ -34,6 +34,7 @@ export default ({ isPrevious, isNext, onMouseOut, isActiveSlideHidden, onClickHa
   if (props.isActive && isScrollNSliding) {
     styles = {
       position: 'fixed',
+      marginRight: '-15px'
     }
   }
 

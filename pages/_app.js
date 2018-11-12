@@ -1,12 +1,14 @@
 import App, { Container } from 'next/app';
+import Head from 'next/head';
 import React from 'react';
 import withReduxStore from 'store/with-redux-store';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from 'components/Layout';
-import { fonts } from 'utils/variables';
+import { meta, fonts } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
+import favicon from 'assets/images/favicon.ico';
 
 @withReduxStore
 export default class MyApp extends App {
@@ -14,6 +16,15 @@ export default class MyApp extends App {
     const { Component, pageProps, reduxStore } = this.props
     return (
       <Container>
+        <Head>
+          <title>{meta.title}</title>
+          <meta name="description" content={meta.description} />
+
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta charSet="utf-8" />
+          <link rel="shortcut icon" href={favicon} />
+          <link rel="canonical" href="https://www.thankyoustudio.com" />
+        </Head>
         <Provider store={reduxStore}>
           <Layout>
             <TransitionGroup component={null}>
@@ -40,7 +51,6 @@ export default class MyApp extends App {
             opacity: 1;
             width: 100%;
             transition: opacity 0.5s, width 0.5s;
-            // transition-delay: 0.5s;
           }
 
           .fade-exit {

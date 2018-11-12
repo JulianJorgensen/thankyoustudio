@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Head from 'next/head';
 import StandAlonePage from 'components/StandAlonePage';
 import styled from 'styled-components';
 import Work from 'components/Work';
+import { meta } from 'utils/variables';
 
 const PageTitle = styled.h1`
   position: absolute;
@@ -30,6 +32,9 @@ export default class WorkPage extends Component {
   render() {
     return (
       <StandAlonePage>
+        <Head>
+          <title>Our work {meta.description}</title>
+        </Head>
         <Content>
           <PageTitle>Work</PageTitle>
           <Header></Header>

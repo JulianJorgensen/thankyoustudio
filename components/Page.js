@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import Head from 'next/head';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll'
-import { easings } from 'utils/variables';
+import { easings, meta } from 'utils/variables';
 import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
@@ -40,7 +41,7 @@ const Content = styled.div`
 @connect((store) => ({
   store,
 }))
-export default class BelowFold extends Component {
+export default class Page extends Component {
   constructor() {
     super();
 
@@ -55,10 +56,21 @@ export default class BelowFold extends Component {
   }
 
   render() {
-    const { children, store: { usePrevAsNextSlide }, ...otherProps } = this.props;
+    const { children, isCase, store: { activeSlide, usePrevAsNextSlide }, ...otherProps } = this.props;
+
+    const renderHead = () => {
+      if (!isCase) return;
+
+      return (
+        <Head>
+          <title>Case {activeSlide.slug} - {meta.title}</title>
+        </Head>
+      )
+    }
 
     return (
       <Wrapper usePrevAsNextSlide={usePrevAsNextSlide} {...otherProps}>
+        {renderHead()}
         <Content id="more">
           {children}
         </Content>

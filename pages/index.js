@@ -1,6 +1,6 @@
 import React from 'react';
 import Work from 'components/Work';
-import BelowFold from 'components/BelowFold';
+import Page from 'components/Page';
 import InstagramFeed from 'components/InstagramFeed';
 import styled from 'styled-components';
 import AboutSectionPlaceholder from 'assets/images/placeholders/about-section.png'
@@ -72,7 +72,7 @@ const InstagramSection = styled.div`
 `
 
 export default () => (
-  <BelowFold isPrimaryPage={true}>
+  <Page isPrimaryPage={true}>
     <AboutSection id="about">
       <img src={AboutSectionPlaceholder} />
     </AboutSection>
@@ -86,5 +86,5 @@ export default () => (
       <InstagramFeed />
     </InstagramSection>
 
-  </BelowFold>
+  </Page>
 )

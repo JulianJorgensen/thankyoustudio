@@ -1,9 +1,9 @@
 import React from 'react';
-import BelowFold from 'components/BelowFold';
+import Page from 'components/Page';
 // import RomeoCasePlaceholder from 'assets/images/placeholders/ROMEO_CASE_02.jpg'
 
 export default () => (
-  <BelowFold>
+  <Page isCase>
     {/* <img src={RomeoCasePlaceholder} /> */}
-  </BelowFold>
+  </Page>
 )
