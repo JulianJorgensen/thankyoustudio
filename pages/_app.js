@@ -5,7 +5,7 @@ import withReduxStore from 'store/with-redux-store';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from 'components/Layout';
-import { meta, fonts } from 'utils/variables';
+import { meta, fonts, timings } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
@@ -31,7 +31,7 @@ export default class MyApp extends App {
               <CSSTransition
                 key={this.props.router.route}
                 classNames='fade'
-                timeout={500}
+                timeout={timings.pageTransitionTimeout}
               >
                 <Component {...pageProps} />
               </CSSTransition>

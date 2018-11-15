@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import { TweenLite } from 'gsap';
 import throttle from 'lodash.throttle';
 import LandingSlide from './LandingSlide';
 import WorkSlide from './WorkSlide';
-import { colors, fonts, easings } from 'utils/variables';
+import { easings, timings } from 'utils/variables';
 import media from "styled-media-query";
 
 const Wrapper = styled.div`
+  position: absolute;
   top: 0;
   right: 0;
   height: 100%;
-  transition: width 0.5s ${easings.easeInOutCustom};
+  transition: width ${timings.slideItemWrapper} ${easings.easeInOutCustom};
   opacity: 0;
   width: 0;
   pointer-events: none;
@@ -38,19 +38,18 @@ const Wrapper = styled.div`
     position: fixed;
     width: ${props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
     z-index: 6;
-    // will-change: width;
+    will-change: width;
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;
 
+    ${props.isCondensed && `
+      width: 0;
+    `}
     &:hover {
       width: 15vw;
       transition-duration: 0.5s;
     }
-  `}
-
-  ${props => props.isNext && props.isCondensed && `
-    width: 0;
   `}
 
   ${props => props.isNext && media.lessThan('medium')`
@@ -120,7 +119,7 @@ export default class SlideItem extends Component {
       }
     }
   
-    if (props.isPrevious) {
+    if (props.isPrevious && !props.isCondensed) {
       styles = {
         position: 'absolute',
         width: '100%',

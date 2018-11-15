@@ -4,11 +4,11 @@ import Head from 'next/head';
 import Footer from 'components/Footer';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
-import { meta } from 'utils/variables';
+import { meta, timings } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
-  transition: top 0.5s;
+  transition: top ${timings.defaultPageWrapper};
   overflow: hidden;
   width: 100%;
 `

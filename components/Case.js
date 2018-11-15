@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import media from "styled-media-query";
 import { scroller } from 'react-scroll'
-import { easings, meta } from 'utils/variables';
+import { easings, meta, timings } from 'utils/variables';
 import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   top: 100vh;
   width: 100%;
   background-color: #fafafa;
-  transition: transform 0.5s;
+  transition: transform ${timings.caseWrapper};
 `
 
 // ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `

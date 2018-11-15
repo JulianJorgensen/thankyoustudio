@@ -8,6 +8,7 @@ import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import { animateScroll as scroll } from 'react-scroll'
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
+import { timings } from 'utils/variables';
 
 const Slider = styled.div`
   position: absolute;
@@ -15,7 +16,7 @@ const Slider = styled.div`
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
-  transition: width 0.5s;
+  transition: width ${timings.slider};
   height: 100vh;
   pointer-events: none;
 `
@@ -32,6 +33,7 @@ const BackButton = styled.div`
   top: 50%;
   left: 30px;
   z-index: 5;
+  opacity: ${props => props.hasMouseLeftNextSlide ? '1' : '0'};
   cursor: pointer;
   pointer-events: auto;
 
@@ -163,7 +165,7 @@ export default class FancySlider extends Component {
         <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
           <BackButton 
             contentColor={navColor}
-            hide={activeSlide.index === 0 || isSliding || slider.isScrollNSliding || !hasMouseLeftNextSlide}
+            show={hasMouseLeftNextSlide}
             onClick={this.handleBackClick}
           >
             <ChevronLeftIcon />

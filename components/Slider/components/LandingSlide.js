@@ -118,7 +118,7 @@ export default class LandingSlide extends Component {
       this.setState({
         hideFullscreenVideo: true
       });
-    }, 5000);
+    }, 4400);
   }
 
   initLogosAutoRotate() {
@@ -137,19 +137,19 @@ export default class LandingSlide extends Component {
     return (
       <Wrapper>
         <FullscreenVideo hidden={hideFullscreenVideo} playsInline muted autoPlay>
-          <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANYOU_LANDING_08_PART1.mp4" type="video/mp4" />
+          <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/thanyou_landing-cut.mp4" type="video/mp4" />
         </FullscreenVideo>
         <MaskedVideo playsInline autoPlay muted loop>
           <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANYOU_LANDING_08_PART2.mp4" type="video/mp4" />
         </MaskedVideo>
         <Content>
-          <Logos>
+          {/* <Logos>
             {
               LogoItems.map((logoUrl, i) => (
                 <Logo key={logoUrl} show={this.state.activeLogo === i} src={logoUrl} />
               ))
             }
-          </Logos>
+          </Logos> */}
 
           <PlayReel fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
 

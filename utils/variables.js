@@ -35,3 +35,30 @@ export const meta = {
   title: 'THANK YOU &reg; designs digital experiences and connect brands',
   description: 'Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.'
 }
+
+export const timings = {
+  caseWrapper: '0.5s',
+  defaultPageWrapper: '0.5s',  
+  slideItemWrapper: '0.5s',
+  slider: '0.5s',
+  setIsScrollNSlidingFalse: 500,
+  pageTransitionTimeout: 500,
+  setIsSlidingFalse: 500,
+  scrollToTop: 480, // the number has to be less than the slider animation to prevent a flickering
+  setAutoScrollTimeout: 6000,
+  scrollDuration: 500
+}
+
+// slow motion timings
+// export const timings = {
+//   caseWrapper: '50s',
+//   defaultPageWrapper: '50s',  
+//   slideItemWrapper: '50s',
+//   slider: '50s',
+//   setIsScrollNSlidingFalse: 50000,
+//   pageTransitionTimeout: 50000,
+//   setIsSlidingFalse: 50000,
+//   scrollToTop: 48000, // the number has to be less than the slider animation to prevent a flickering
+//   setAutoScrollTimeout: 6000,
+//   scrollDuration: 50000
+// }
