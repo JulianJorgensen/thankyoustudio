@@ -29,9 +29,14 @@ export default class Layout extends Component {
 
   componentWillMount() {
     const { dispatch, router } = this.props;
-    const currentPage = router.pathname ? router.pathname.substr(1) : '';
+    const url = router.pathname;
+    const urlExploded = url.split('/');
+    const currentPage = url ? url.substr(1) : '';
 
-    dispatch(actions.updateActiveSlide(currentPage));
+    const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
+    if (isCase) {
+      dispatch(actions.updateActiveSlide(currentPage));
+    }
   }
 
   componentDidMount() {
@@ -143,7 +148,7 @@ export default class Layout extends Component {
     this.props.dispatch(actions.setIsScrollNSliding());
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 495); // the number has to be less than the slider animation to prevent a flickering
+    }, 480); // the number has to be less than the slider animation to prevent a flickering
   }
 
   setAutoScroll() {

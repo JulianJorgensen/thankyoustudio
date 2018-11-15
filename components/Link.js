@@ -14,6 +14,7 @@ export default class Link extends Component {
   }
 
   handleOnClick() {
+    console.log('pushing route', this.props.href);
     Router.push({
       pathname: this.props.href
     });

@@ -13,6 +13,13 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
+const Content = styled.div`
+  padding: 200px 80px;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+`
+
 @connect((store) => ({
   store,
 }))
@@ -31,7 +38,9 @@ export default class DefaultPage extends Component {
         <Head>
           <title>{title} {meta.description}</title>
         </Head>
-        {children}
+        <Content>
+          {children}
+        </Content>
         <Footer />
         <style jsx global>{`
           .fade-enter.default-page,

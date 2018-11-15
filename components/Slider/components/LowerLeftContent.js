@@ -72,6 +72,7 @@ export default class LowerLeftContent extends Component {
 
     this.handleOnScroll = this.handleOnScroll.bind(this);
     this.updateHeaderPosition = throttle(this.updateHeaderPosition, 15);
+    this.removeScrollEventListener = this.removeScrollEventListener.bind(this);
   }
 
   componentDidMount() {
@@ -79,22 +80,30 @@ export default class LowerLeftContent extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    this.toggleScrollEventListener(prevProps);
-  }
+    if (!this.headerEl || !prevProps) return;
 
-  toggleScrollEventListener(prevProps) {
-    if (!this.headerEl) return;
-    if (!prevProps) return;
-    if (prevProps.isActive && this.props.isActive) return;
     if (prevProps.isNext && this.props.isNext) return;
     if (prevProps.isPrevious && this.props.isPrevious) return;
 
+    this.toggleScrollEventListener(prevProps);
+  }
+
+  componentWillUnMount() {
+    this.removeScrollEventListener();
+  }
+
+  toggleScrollEventListener(prevProps) {
     if (this.props.isActive) {
       document.addEventListener('scroll', this.handleOnScroll);
     } else {
-      this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
-      document.removeEventListener('scroll', this.handleOnScroll);
+      this.removeScrollEventListener();
     }
+  }
+
+  removeScrollEventListener() {
+    console.log('reset headerEl');
+    this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
+    document.removeEventListener('scroll', this.handleOnScroll);
   }
 
   handleOnScroll() {

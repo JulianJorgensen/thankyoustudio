@@ -33,12 +33,7 @@ const BackButton = styled.div`
   left: 30px;
   z-index: 5;
   cursor: pointer;
-  transition: opacity 0.2s;
   pointer-events: auto;
-
-  ${props => props.isHidden && `
-    opacity: 0;
-  `}
 
   svg {
     width: 40px;
@@ -168,7 +163,7 @@ export default class FancySlider extends Component {
         <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
           <BackButton 
             contentColor={navColor}
-            isHidden={activeSlide.index === 0 || slider.isScrollNSliding || !hasMouseLeftNextSlide} 
+            hide={activeSlide.index === 0 || isSliding || slider.isScrollNSliding || !hasMouseLeftNextSlide}
             onClick={this.handleBackClick}
           >
             <ChevronLeftIcon />
