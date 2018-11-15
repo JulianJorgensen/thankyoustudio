@@ -1,12 +1,10 @@
-import Link from 'next/link';
 import styled from 'styled-components';
 import media from 'styled-media-query';
 
-const NavLink = styled.a`
+const NavLink = styled.div`
   position: relative;
   margin-right: 25px;
   color: inherit;
-  cursor: pointer;
   overflow-x: hidden;
 
   ${props => props.logo &&`
@@ -45,7 +43,7 @@ const NavLinkText = styled.div`
 `
 
 const NavLinkLine = styled.div`
-  background-color: ${props => props.contentColor};
+  background-color: ${props => props.navColor};
   height: 8px;
   bottom: -10px;
   left: 0;
@@ -61,11 +59,9 @@ const NavLinkLine = styled.div`
   `}
 `
 
-export default ({ active, anchor, href, logo, contentColor, ...otherProps }) => (
-  <Link href={href}>
-    <NavLink {...otherProps}>
-      <NavLinkText>{anchor}</NavLinkText>
-      <NavLinkLine active={active} contentColor={contentColor} />
-    </NavLink>
-  </Link>
+export default ({ active, anchor, navColor, ...otherProps }) => (
+  <NavLink {...otherProps}>
+    <NavLinkText>{anchor}</NavLinkText>
+    <NavLinkLine active={active} navColor={navColor} />
+  </NavLink>
 )

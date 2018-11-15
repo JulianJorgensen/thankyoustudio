@@ -6,17 +6,18 @@ export default (state = initialState, action) => {
     case actionTypes.UPDATE_ACTIVE_SLIDE:
       return {
         ...state,
-        activeSlide: action.slide
+        activeSlide: action.slide,
+        navColor: action.slide.whiteContent ? 'white' : 'black'
+      };
+    case actionTypes.CONDENSE_SLIDER:
+      return {
+        ...state,
+        condenseSlider: action.condense
       };
     case actionTypes.UPDATE_PREV_SLIDE:
       return {
         ...state,
         prevSlide: action.slide
-      };
-    case actionTypes.HIDE_ACTIVE_SLIDE:
-      return {
-        ...state,
-        activeSlideHidden: action.activeSlideHidden
       };
     case actionTypes.SET_AUTO_SCROLL:
       return {
@@ -27,11 +28,6 @@ export default (state = initialState, action) => {
       return {
         ...state,
         hasMouseLeftNextSlide: action.hasMouseLeftNextSlide
-      };
-    case actionTypes.SET_USE_PREV_AS_NEXT_SLIDE:
-      return {
-        ...state,
-        usePrevAsNextSlide: action.usePrevAsNextSlide
       };
     case actionTypes.SET_IS_SCROLL_N_SLIDING:
       return {
@@ -50,6 +46,11 @@ export default (state = initialState, action) => {
         ...state,
         mobileNav: false
       };
+    case actionTypes.SET_NAV_COLOR:
+      return {
+        ...state,
+        navColor: action.color
+      };
     case actionTypes.SET_HEADER_SOLID:
       return {
         ...state,
@@ -59,6 +60,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         fontsLoaded: true
+      };
+    case actionTypes.SET_IS_SLIDING:
+      return {
+        ...state,
+        isSliding: action.isSliding
       };
 
     default: return state

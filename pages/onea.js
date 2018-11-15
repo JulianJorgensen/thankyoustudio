@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Page from 'components/Page';
+import Case from 'components/Case';
 
 const Header = styled.div`
   padding: 300px 50vw 300px 80px;
@@ -21,7 +21,7 @@ const Lead = styled.div`
 `
 
 export default () => (
-  <Page isCase>
+  <Case>
     <Header>
       <Title>Onea is...</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
@@ -41,5 +41,5 @@ export default () => (
       <Title>Onea...</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
     </Header>
-  </Page>
+  </Case>
 )

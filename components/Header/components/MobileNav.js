@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Locations from 'components/Locations';
 import Logo from 'components/Logo';
 import { fonts, easings } from 'utils/variables';
 
@@ -18,7 +17,6 @@ const Wrapper = styled.nav`
   transition: all 0.4s ${easings.easeInOutQuad};
   text-align: center;
   display: flex;
-  justify-content: space-around;
   align-items: center;
   font-family: ${fonts.primary};
 
@@ -36,19 +34,37 @@ const Nav = styled.nav`
 `
 
 const NavItem = styled.li`
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   cursor: pointer;
+
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: all 1s ${easings.easeOutShine};
+
+  ${props => props.active && `
+    transform: translateY(0);
+    opacity: 1;
+  `}
+
+  :nth-child(1) {
+    transition-delay: 0s;
+  }
+
+  :nth-child(2) {
+    transition-delay: 0.1s;
+  }
+
+  :nth-child(3) {
+    transition-delay: 0.2s;
+  }
 `
 
 export default (props) => (
   <Wrapper {...props}>
     <Nav>
-      <Link href='/' scroll={false}><NavItem><Logo /></NavItem></Link>
-      <Link href='/about' scroll={false}><NavItem>About</NavItem></Link>
-      <Link href='/work' scroll={false}><NavItem>Work</NavItem></Link>
-      <Link href='/contact' scroll={false}><NavItem>Contact</NavItem></Link>
+      <Link href='/about' scroll={false}><NavItem active={props.active}>About</NavItem></Link>
+      <Link href='/work' scroll={false}><NavItem active={props.active}>Work</NavItem></Link>
+      <Link href='/contact' scroll={false}><NavItem active={props.active}>Contact</NavItem></Link>
     </Nav>
-
-    <Locations />
   </Wrapper>
 );

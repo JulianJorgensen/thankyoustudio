@@ -28,6 +28,7 @@ const StyledHeadroom = styled(Headroom)`
     padding: 40px;
     display: flex;
     align-items: center;  
+    justify-content: space-between;
     pointer-events: auto;
   }
 
@@ -102,14 +103,12 @@ export default class Header extends Component {
   render() {
     const { store, router } = this.props;
     const { fixed } = this.state;
-    const { activeSlide, slider, mobileNav } = store;
+    const { activeSlide, slider, mobileNav, navColor } = store;
 
     let windowHeight;
     if (typeof(window) === 'object') {
       windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     }
-
-    const contentColor = activeSlide ? activeSlide.contentColor : 'black';
 
     const page = router.asPath.split('/')[1];
 
@@ -118,14 +117,14 @@ export default class Header extends Component {
         onUnpin={this.handleOnUnpin}
         onPin={this.handleOnPin}
         onUnfix={this.handleOnUnfix}
-        pinStart={200}
+        pinStart={300}
         fixed={fixed ? 'true' : ''}
-        color={contentColor}
+        color={navColor}
         scrolling={slider.isScrollNSliding ? 'true' : ''}
         fontsloaded={store.fontsLoaded ? 'true' : ''}
       >
-        <Nav contentColor={contentColor} page={page} />
-        <Bars active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
+        <Nav navColor={navColor} page={page} mobileActive={mobileNav} />
+        <Bars navColor={navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
         <MobileNav active={mobileNav} />
       </StyledHeadroom>
     );

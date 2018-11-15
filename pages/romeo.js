@@ -1,9 +1,9 @@
 import React from 'react';
-import Page from 'components/Page';
+import Case from 'components/Case';
 // import RomeoCasePlaceholder from 'assets/images/placeholders/ROMEO_CASE_02.jpg'
 
 export default () => (
-  <Page isCase>
+  <Case>
     {/* <img src={RomeoCasePlaceholder} /> */}
-  </Page>
+  </Case>
 )

@@ -5,25 +5,24 @@ import styled from 'styled-components';
 import SlideItem from './components/SlideItem';
 import Waypoint from 'react-waypoint';
 import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
+import { animateScroll as scroll } from 'react-scroll'
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
-import { standAlonePages } from 'utils/variables';
 
 const Slider = styled.div`
   position: absolute;
-  z-index: 98;
+  width: ${props => props.isCondensed ? '0%' : '100%'};
+  overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
-  left: 0;
-  width: 100vw;
+  right: 0;
+  transition: width 0.5s;
   height: 100vh;
-  // overflow: hidden;
   pointer-events: none;
 `
 
 const Slides = styled.div`
   position: relative;
-  width: inherit;
+  width: 100%;
   height: inherit;
   pointer-events: none;
 `
@@ -116,40 +115,16 @@ export default class FancySlider extends Component {
       dispatch(actions.setHasMouseLeftNextSlide(false));
     }
 
-    // set is sliding (we need to have certain styles for a slide when sliding)
-    this.setIsSliding(true);
-    setTimeout(() => {
-      this.setIsSliding(false);
-    }, 500)
-
     // change to the actual new url
     Router.push({
       pathname: '/' + nextSlide.slug.toLowerCase()
     }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');
   }
 
-  setIsSliding(isSliding) {
-    this.setState({
-      isSliding
-    });
-  }
-
   handleNextMouseLeave() {
     const { dispatch, router } = this.props;
-    const isStandAlonePage = standAlonePages.includes(router.pathname.substr(1));
 
     dispatch(actions.setHasMouseLeftNextSlide(true));
-
-    // if (isStandAlonePage) return;
-
-    // let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    // if (scrollTop === 0) {
-    //   scroll.scrollTo(150, {
-    //     duration: 700,
-    //     smooth: true
-    //   });
-    // }
-    // dispatch(actions.setAutoScroll(false));
   }
 
   onCtaClick() {
@@ -168,7 +143,17 @@ export default class FancySlider extends Component {
   }
 
   render() {
-    const { activeSlide, prevSlide, activeSlideHidden, slider, usePrevAsNextSlide, hasMouseLeftNextSlide, fontsLoaded } = this.props.store;
+    const { 
+      activeSlide,
+      condenseSlider,
+      prevSlide,
+      slider,
+      isSliding,
+      usePrevAsNextSlide,
+      hasMouseLeftNextSlide,
+      fontsLoaded,
+      navColor
+    } = this.props.store;
 
     if (!activeSlide) return (
       <div></div>
@@ -180,10 +165,10 @@ export default class FancySlider extends Component {
         onLeave={this.waypointLeave}
         topOffset='50%'
       >
-        <Slider>
+        <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
           <BackButton 
-            contentColor={activeSlide.contentColor} 
-            isHidden={activeSlide.index === 0 || slider.isScrollNSliding} 
+            contentColor={navColor}
+            isHidden={activeSlide.index === 0 || slider.isScrollNSliding || !hasMouseLeftNextSlide} 
             onClick={this.handleBackClick}
           >
             <ChevronLeftIcon />
@@ -210,17 +195,17 @@ export default class FancySlider extends Component {
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     onCtaClickHandler={this.onCtaClick}
                     isPrevious={isPrevious}
-                    isActive={isActive && !activeSlideHidden}
+                    isActive={isActive}
+                    isCondensed={condenseSlider}
                     isNext={isNext}
                     isScrollNSliding={slider.isScrollNSliding}
+                    isSliding={isSliding}
                     image={SlideItemData.image}
                     background={SlideItemData.background}
-                    contentColor={SlideItemData.contentColor}
+                    contentColor={SlideItemData.whiteContent ? 'white' : 'black'}
                     hasMouseLeftNextSlide={hasMouseLeftNextSlide}
                     onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
-                    isActiveSlideHidden={activeSlideHidden}
                     fontsLoaded={fontsLoaded}
-                    isSliding={this.state.isSliding}
                   />
                 )
               })

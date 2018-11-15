@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import StandAlonePage from 'components/StandAlonePage';
+import DefaultPage from 'components/DefaultPage';
 import styled from 'styled-components';
 
 const Content = styled.div`
@@ -22,14 +22,14 @@ const Lead = styled.div`
 export default class PrivacyPage extends Component {
   render() {
     return (
-      <StandAlonePage>
+      <DefaultPage>
         <Content>
           <Header>
             <Title>Privacy</Title>
             <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
           </Header>
         </Content>
-      </StandAlonePage>
+      </DefaultPage>
     )
   }
 }

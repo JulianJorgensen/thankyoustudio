@@ -6,17 +6,7 @@ export const updateActiveSlide = (slug) => dispatch => {
 
   if (slug) {
     slide = SlideItems.find(obj => obj.slug.toLowerCase() == slug.toLowerCase());
-
-    if (slide) {
-      slide.index = SlideItems.findIndex(obj => obj === slide);
-    } else {
-      // no slide found, it must be a standalone one
-      slide = {
-        slug,
-        index: 0,
-        contentColor: 'white'
-      }
-    }
+    slide.index = SlideItems.findIndex(obj => obj === slide);
   } else {
     slide = SlideItems[0];
     slide.index = 0;
@@ -28,6 +18,13 @@ export const updateActiveSlide = (slug) => dispatch => {
   });
 }
 
+export const condenseSlider = (condense) => dispatch => {
+  return dispatch({
+    type: actionTypes.CONDENSE_SLIDER,
+    condense
+  });
+}
+
 export const updatePrevSlide = (slide) => dispatch => {
   return dispatch({
     type: actionTypes.UPDATE_PREV_SLIDE,
@@ -35,17 +32,10 @@ export const updatePrevSlide = (slide) => dispatch => {
   });
 }
 
-export const setUsePrevAsNextSlide = (usePrevAsNextSlide) => dispatch => {
+export const setNavColorWhite = (white) => dispatch => {
   return dispatch({ 
-    type: actionTypes.SET_USE_PREV_AS_NEXT_SLIDE,
-    usePrevAsNextSlide
-  })
-}
-
-export const hideActiveSlide = (activeSlideHidden) => dispatch => {
-  return dispatch({ 
-    type: actionTypes.HIDE_ACTIVE_SLIDE,
-    activeSlideHidden: activeSlideHidden
+    type: actionTypes.SET_NAV_COLOR,
+    color: white ? 'white' : 'black'
   })
 }
 
@@ -94,4 +84,8 @@ export const closeMobileNav = () => dispatch => {
 
 export const confirmFontsLoaded = () => dispatch => {
   return dispatch({ type: actionTypes.CONFIRM_FONTS_LOADED })
+}
+
+export const setIsSliding = (isSliding) => dispatch => {
+  return dispatch({ type: actionTypes.SET_IS_SLIDING, isSliding })
 }

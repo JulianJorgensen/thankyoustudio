@@ -1,19 +1,24 @@
 import React, { Component } from 'react';
+import Link from 'components/Link';
 import media from 'styled-media-query';
 import styled from 'styled-components';
 import NavItem from './NavItem';
 import Logo from 'components/Logo';
 
 const Wrapper = styled.div`
-  color: ${props => props.contentColor};
+  color: ${props => props.navColor};
   transition: color 0.2s;
 
   display: flex;
   align-items: flex-end;
+  user-select: none;
 
-  svg path {
-    fill: ${props => props.contentColor};
-  }
+  ${props => props.mobileActive && `
+    position: relative;
+    z-index: 100;
+
+    color: white;
+  `}
 `
 
 const StyledLogo = styled(Logo)`
@@ -23,13 +28,13 @@ const StyledLogo = styled(Logo)`
 
 export default class Nav extends Component {
   render() {
-    const { contentColor, page } = this.props;
+    const { navColor, page, mobileActive } = this.props;
     return (
-      <Wrapper contentColor={contentColor}>
-        <NavItem contentColor={contentColor} anchor={<StyledLogo />} href="/" logo />
-        <NavItem active={page === 'about'} contentColor={contentColor} anchor="About" href="/about" />
-        <NavItem active={page === 'work'} contentColor={contentColor} anchor="Work" href="/work" />
-        <NavItem active={page === 'contact'} contentColor={contentColor} anchor="Contact" href="/contact" />
+      <Wrapper navColor={navColor} mobileActive={mobileActive}>
+        <Link href="/"><NavItem navColor={navColor} anchor={<StyledLogo />} logo /></Link>
+        <Link href="/work"><NavItem active={page === 'work'} navColor={navColor} anchor="Work" /></Link>
+        <Link href="/about"><NavItem active={page === 'about'} navColor={navColor} anchor="About" /></Link>
+        <Link href="/contact"><NavItem active={page === 'contact'} navColor={navColor} anchor="Contact" /></Link>
       </Wrapper>
     )
   }

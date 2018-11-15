@@ -7,7 +7,6 @@ import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
 import * as actions from 'store/actions';
-import { standAlonePages } from 'utils/variables';
 
 const Wrapper = styled.div`
 `
@@ -24,10 +23,8 @@ export default class Layout extends Component {
 
     this.initRouterEventListeners = this.initRouterEventListeners.bind(this);
     this.setAutoScroll = this.setAutoScroll.bind(this);
-    this.setUsePrevAsNextSlide = this.setUsePrevAsNextSlide.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
-    this.toggleActiveSlide = this.toggleActiveSlide.bind(this);
   }
 
   componentWillMount() {
@@ -35,13 +32,15 @@ export default class Layout extends Component {
     const currentPage = router.pathname ? router.pathname.substr(1) : '';
 
     dispatch(actions.updateActiveSlide(currentPage));
-
-    this.toggleActiveSlide(router.pathname);
   }
 
   componentDidMount() {
     this.initRouterEventListeners();
     window.addEventListener('scroll', this.handleScroll);
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 150);
 
     this.initFontObserver();
   }
@@ -77,52 +76,19 @@ export default class Layout extends Component {
   initRouterEventListeners() {
     // Client side route change
     Router.router.events.on('routeChangeStart', (url) => {
-      const { dispatch, router, store } = this.props;
-
-      const isStandAlonePage = standAlonePages.includes(url.substr(1));
-      const urlExploded = url.split('/');
-      let slug;
-
-      switch(urlExploded[1]) {
-        case 'work':
-          if (urlExploded[2]) {
-            slug = urlExploded[2];
-          } else {
-            slug = 'work';
-          }
-          break;
-        default:
-          slug = urlExploded[1];
-      }
-
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 0) {
         this.scrollToTop();
       }
 
-      clearTimeout(this.autoScroll);
+      const urlExploded = url.split('/');
+      const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
 
-      if (isStandAlonePage) {
-        dispatch(actions.updateActiveSlide(slug));
-        dispatch(actions.setHasMouseLeftNextSlide(true));
-
-        if (!standAlonePages.includes(store.activeSlide.slug.toLowerCase())) {
-          dispatch(actions.updatePrevSlide(store.activeSlide));
-        }
+      if (isCase) {
+        this.routeChangeCase(url);
+      } else {
+        this.routeChangeDefault();
       }
-
-      if (!isStandAlonePage) {
-        dispatch(actions.updateActiveSlide(slug));
-
-        dispatch(actions.setAutoScroll(true));
-        setTimeout(() => {
-          this.setAutoScroll();
-        }, SCROLL_DURATION);  
-      }
-
-      this.toggleActiveSlide(url);
-      dispatch(actions.setHeaderSolid(false));
-      this.setUsePrevAsNextSlide(url);
 
       return true;
     });
@@ -131,13 +97,10 @@ export default class Layout extends Component {
     Router.beforePopState(({ url, as: asUrl }) => {
       const { dispatch, router, store } = this.props;
 
-      this.toggleActiveSlide(url);
-
-      if (!standAlonePages.includes(url.substr(1))) {
-        dispatch(actions.updateActiveSlide(url.substr(1)));
-      }
-
-      this.setUsePrevAsNextSlide();
+      console.log('beforePopState');
+      // if (!standAlonePages.includes(url.substr(1))) {
+      //   dispatch(actions.updateActiveSlide(url.substr(1)));
+      // }
 
       setTimeout(() => {
         window.scrollTo(0, 0);
@@ -147,31 +110,40 @@ export default class Layout extends Component {
     })
   }
 
-  setUsePrevAsNextSlide(url) {
-    const { dispatch, store } = this.props;
+  routeChangeCase(url) {
+    const { dispatch } = this.props;
+    let slug = url.split('/')[2];
 
-    if (standAlonePages.includes(url ? url.substr(1) : '')) {
-      dispatch(actions.setUsePrevAsNextSlide(true));
-    } else {
-      dispatch(actions.setUsePrevAsNextSlide(false));
-    }
+    dispatch(actions.condenseSlider(false));
+    dispatch(actions.updateActiveSlide(slug));
+
+    // set is sliding (we need to have certain styles for a slide when sliding)
+    this.setIsSliding(true);
+    setTimeout(() => {
+      this.setIsSliding(false);
+    }, 500)
+
+    dispatch(actions.setHeaderSolid(false));
   }
 
-  toggleActiveSlide(url) {
-    const { dispatch } = this.props;
+  routeChangeDefault() {
+    const { dispatch, store } = this.props;
 
-    if (standAlonePages.includes(url.substr(1))) {
-      dispatch(actions.hideActiveSlide(true));
-    } else {
-      dispatch(actions.hideActiveSlide(false));
-    }
+    console.log('route change default');
+
+    dispatch(actions.condenseSlider(true));
+    dispatch(actions.setHasMouseLeftNextSlide(true));
+  }
+
+  setIsSliding(isSliding) {
+    this.props.dispatch(actions.setIsSliding(isSliding));
   }
 
   scrollToTop() {
     this.props.dispatch(actions.setIsScrollNSliding());
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, 480); // the number has to be less than the slider animation to prevent a flickering
+    }, 495); // the number has to be less than the slider animation to prevent a flickering
   }
 
   setAutoScroll() {

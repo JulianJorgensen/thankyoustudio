@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { easings } from 'utils/variables';
 import Video from 'components/Video';
-import LowerleftContent from 'components/Slider/components/LowerLeftContent';
+import LowerleftContent from './LowerLeftContent';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -12,13 +12,14 @@ const Wrapper = styled.div`
 const Image = styled.div`
   position: absolute;
   right: 0;
-  width: 100vw;
+  width: calc(100vw - 15px);
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url(${props => props.image});
   transition: transform 6s ${easings.easeOutShine};
+  transition-delay: 0.4s;
   transform: scale(1);
 
   ${props => props.isActive && `
@@ -30,10 +31,10 @@ const StyledVideo = styled(Video)`
   opacity: 0.5;
 `
 
-export default (props) => (
+export default ({ title, subtitle, image, vimeoId, isActive, isNext, fontsLoaded, contentColor }) => (
   <Wrapper>
-    <LowerleftContent {...props} />
-    <Image isActive={props.isActive} image={props.image} />
-    {props.vimeoId ? <StyledVideo vimeoId={props.vimeoId} isActive={props.isActive} background sliderVideo /> : ''}
+    <LowerleftContent title={title} subtitle={subtitle} isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} contentColor={contentColor} />
+    <Image isNext={isNext} isActive={isActive} image={image} />
+    {vimeoId ? <StyledVideo vimeoId={vimeoId} isActive={isActive} background sliderVideo /> : ''}
   </Wrapper>
-);
+)

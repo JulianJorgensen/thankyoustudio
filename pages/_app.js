@@ -39,43 +39,18 @@ export default class MyApp extends App {
           </Layout>
         </Provider>
         <style jsx global>{`
-          .fade-enter {
-            position: absolute;
-            opacity: 0;
-            width: 0;
-            transition: opacity 0, width 0.5s;
+          @font-face {
+            font-family: 'Helvetica Neue';
+            src: url(${HelveticaNeueRoman}) format('woff2');
+            font-weight: normal;
+            font-style: normal;
           }
-
-          .fade-enter-active {
-            position: absolute;
-            opacity: 1;
-            width: 100%;
-            transition: opacity 0.5s, width 0.5s;
-          }
-
-          .fade-exit {
-            position: absolute;
-            transform: translateX(0);
-            opacity: 1;
-            transition: all 0;
-          }
-
-          .fade-exit-active {
-            position: absolute;
-            transform: translateX(-100px);
-            opacity: 1;
-            transition: all 0.5s ease-in;
-          }
-          
-          .fade-exit-active.stand-alone-page {
-            opacity: 0;
-          }
-
 
           @font-face {
             font-family: 'Helvetica Neue';
-            src: url(${HelveticaNeueRoman}) format('woff2'),
-                url(${HelveticaNeueBold}) format('woff2');
+            src: url(${HelveticaNeueBold}) format('woff2');
+            font-weight: bold;
+            font-style: normal;
           }
 
           html {
@@ -109,11 +84,12 @@ export default class MyApp extends App {
           }
  
           h1 {
-            font-size: 80px;
+            font-size: 70px;
           }
         
           h2 {
-            font-size: 60px;
+            font-size: 40px;
+            line-height: 54px;
           }
         
           h3 {
@@ -121,7 +97,9 @@ export default class MyApp extends App {
           }
         
           p {
-            line-height: 150%;
+            font-size: 22px;
+            line-height: 34px;
+            letter-spacing: -1px
           }
         
           ul {

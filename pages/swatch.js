@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import Page from 'components/Page';
+import Case from 'components/Case';
 import Video from 'components/Video';
 import Cta from 'components/Cta';
 import SwatchWatchesImg from 'assets/images/swatch-watches.png';
@@ -15,12 +15,12 @@ import ThankYou from 'components/ThankYou';
 const CaseContent = styled.div`
   position: relative;
   width: 100%;
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   padding: 60px;
 
   ${props => props.intro && `
-    padding: 30px 60px;
+    padding: 300px 60px 60px 60px;
 
     p {
       font-size: 25px;
@@ -136,7 +136,7 @@ const BusVideo = styled(Video)`
 export default class Swatch extends React.Component {
   render() {
     return (
-      <Page isCase>
+      <Case>
         <CaseContent intro>
           <Row>
             <Col large>
@@ -195,7 +195,7 @@ export default class Swatch extends React.Component {
 
         <ThankYou />
 
-      </Page>
+      </Case>
     )
   }
 }

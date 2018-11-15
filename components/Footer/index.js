@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
+import media from "styled-media-query";
 import InstagramIcon from 'assets/icons/FontAwesome/brands/instagram.svg';
 import VimeoIcon from 'assets/icons/FontAwesome/brands/vimeo.svg';
 import FacebookIcon from 'assets/icons/FontAwesome/brands/facebook.svg';
@@ -8,13 +9,16 @@ import Logo from 'components/Logo';
 import Cta from 'components/Cta';
 
 const Wrapper = styled.footer`
-  display: flex;
-  justify-content: space-between;
   background-color: black;
   color: white;
-  width: calc(100% - 10vw);
-  padding: 80px;
-  height: 300px;
+  width: 100%;
+  padding: 80px 40px;
+
+  ${media.greaterThan('medium')`
+    display: flex;
+    justify-content: space-between;
+    height: 300px;
+  `}
 `
 
 const LeftCol = styled.div`
@@ -22,7 +26,6 @@ const LeftCol = styled.div`
 `
 
 const RightCol = styled.div`
-  padding-left: 40px;
 `
 
 
@@ -64,8 +67,11 @@ const StyledLogo = styled(Logo)`
 
 const Locations = styled.div`
   opacity: 0.6;
-  text-align: right;
   margin-bottom: 20px;
+
+  ${media.greaterThan('medium')`
+    text-align: right;
+  `}
 `
 
 const Location = styled.div`
@@ -78,7 +84,6 @@ const Location = styled.div`
 
 const SocialMediaIcons = styled.div`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
 
   svg {
@@ -89,6 +94,10 @@ const SocialMediaIcons = styled.div`
       fill: white;
     }
   }
+
+  ${media.greaterThan('medium')`
+    justify-content: flex-end;
+  `}
 `
 
 export default class Footer extends Component {

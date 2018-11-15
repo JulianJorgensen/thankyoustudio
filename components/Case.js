@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import styled from 'styled-components';
+import media from "styled-media-query";
 import { scroller } from 'react-scroll'
 import { easings, meta } from 'utils/variables';
 import Footer from 'components/Footer';
@@ -9,29 +10,21 @@ import Footer from 'components/Footer';
 const Wrapper = styled.div`
   position: absolute;
   top: 100vh;
-  background-color: white;
-  overflow: hidden;
   width: 100%;
-
-  ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
-    transition: opacity 0s, width 0.5s !important;
-    transition-timing-function: ${easings.easeInOutCustom};
-    transition-delay: 0s !important;
-    z-index: 4;
-  `}
+  background-color: #fafafa;
+  transition: transform 0.5s;
 `
 
-const ScrollCta = styled.a`
-  text-align: center;
-  display: block;
-  padding: 50px 0;
-  text-transform: uppercase;
-  cursor: pointer;
-`
+// ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
+// transition: opacity 0s, width 0.5s !important;
+// transition-timing-function: ${easings.easeInOutCustom};
+// transition-delay: 0s !important;
+// z-index: 4;
+// `}
 
 const Content = styled.div`
   position: relative;
-  width: calc(100% - 10vw);
+  width: 100%;
 
   img {
     max-width: 100%;
@@ -41,7 +34,7 @@ const Content = styled.div`
 @connect((store) => ({
   store,
 }))
-export default class Page extends Component {
+export default class Case extends Component {
   constructor() {
     super();
 
@@ -56,25 +49,36 @@ export default class Page extends Component {
   }
 
   render() {
-    const { children, isCase, store: { activeSlide, usePrevAsNextSlide }, ...otherProps } = this.props;
+    const { children, store, ...props } = this.props;
 
     const renderHead = () => {
-      if (!isCase) return;
+      if (!props.isPrimaryPage) return;
 
       return (
         <Head>
-          <title>Case {activeSlide.slug} - {meta.title}</title>
+          <title>Case {store.activeSlide.slug} - {meta.title}</title>
         </Head>
       )
     }
 
     return (
-      <Wrapper usePrevAsNextSlide={usePrevAsNextSlide} {...otherProps}>
+      <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
         {renderHead()}
         <Content id="more">
           {children}
         </Content>
         <Footer />
+        <style jsx global>{`
+          .fade-exit.case-page {
+            transform: translateX(0px);
+          }
+
+          .fade-exit-active.case-page {
+            transform: translateX(-100px);
+          }
+        `}
+        </style>
+
       </Wrapper>
     )
   }

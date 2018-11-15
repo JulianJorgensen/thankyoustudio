@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlayIcon from 'assets/icons/FontAwesome/regular/play-circle.svg';
 import styled from 'styled-components';
+import media from "styled-media-query";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -12,27 +13,38 @@ const Wrapper = styled.div`
 const FullscreenVideo = styled.video`
   position: absolute;
   min-height: 100%;
-  right: 10vw;
   z-index: 3;
+
+  ${media.greaterThan('medium')`
+    right: 10vw;
+  `}
 `
 
 const MaskedVideo = styled.video`
   position: absolute;
   min-height: 100%;
-  max-width: 90vw;
-  right: 10vw;
+  max-width: 100%;
+
+  ${props => media.greaterThan('medium')`
+    max-width: 90vw;
+    right: 10vw;
+  `}
 `
 
 const Content = styled.div`
   position: absolute;
   z-index: 4;
   top: 55vh;
-  right: 10vw;
-  height: 100%;
-  width: 90vw;
+  height: 45vh;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  ${props => media.greaterThan('medium')`
+    width: 90vw;
+    right: 10vw;
+  `}
 `
 
 const Logos = styled.div`
@@ -141,7 +153,7 @@ export default class LandingSlide extends Component {
 
           <PlayReel fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
 
-          <Statement fontsLoaded={fontsLoaded}>Thank You Studio is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
+          <Statement fontsLoaded={fontsLoaded}>THANK YOU Studio is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
         </Content>
       </Wrapper>  
     )
