@@ -29,7 +29,7 @@ const StyledHeadroom = styled(Headroom)`
     display: flex;
     align-items: center;  
     justify-content: space-between;
-    pointer-events: auto;
+    pointer-events: none;
   }
 
   ${props => props.scrolling && `

@@ -6,7 +6,7 @@ export default class AboutPage extends Component {
   render() {
     return (
       <DefaultPage whiteContent title="About">
-        <IdentifySimplifyAmplify />
+        <IdentifySimplifyAmplify whiteContent />
       </DefaultPage>
     )
   }

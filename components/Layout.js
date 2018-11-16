@@ -35,10 +35,17 @@ export default class Layout extends Component {
     const urlExploded = url.split('/');
     const currentPage = router.pathname.substr(1);
 
+    // set video is playing
+    if (url === '/') {
+      dispatch(actions.landingVideoPlaying(true));
+
+      setTimeout(() => {
+        dispatch(actions.landingVideoPlaying(false));
+      }, timings.fullScreenVideoDuration)
+    }
+
+    // update slide if its a case (or landing page)
     const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
-    console.log('isCase', isCase);
-    console.log('currentPage', currentPage);
-    console.log('urlExploded[1]', urlExploded[1]);
     if (isCase) {
       dispatch(actions.updateActiveSlide(currentPage));
     }
@@ -86,7 +93,7 @@ export default class Layout extends Component {
   initRouterEventListeners() {
     // Client side route change
     Router.router.events.on('routeChangeStart', (url, err) => {
-      console.log('route change err', err);
+
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
       if (scrollTop > 0) {
         this.scrollToTop();
@@ -153,6 +160,8 @@ export default class Layout extends Component {
     const { dispatch, store } = this.props;
     let prevSlide;
     
+    if (!store.activeSlide) return;
+
     if (store.activeSlide.index === 0) {
       prevSlide = SlideItems[SlideItems.length - 1];
     } else {

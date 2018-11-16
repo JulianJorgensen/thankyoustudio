@@ -14,6 +14,11 @@ export default (state = initialState, action) => {
         ...state,
         condenseSlider: action.condense
       };
+    case actionTypes.LANDING_VIDEO_PLAYING:
+      return {
+        ...state,
+        isLandingVideoPlaying: action.isPlaying
+      };
     case actionTypes.UPDATE_PREV_SLIDE:
       return {
         ...state,

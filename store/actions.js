@@ -26,6 +26,13 @@ export const condenseSlider = (condense) => dispatch => {
   });
 }
 
+export const landingVideoPlaying = (isPlaying) => dispatch => {
+  return dispatch({
+    type: actionTypes.LANDING_VIDEO_PLAYING,
+    isPlaying
+  });
+}
+
 export const updatePrevSlide = (slide) => dispatch => {
   return dispatch({
     type: actionTypes.UPDATE_PREV_SLIDE,

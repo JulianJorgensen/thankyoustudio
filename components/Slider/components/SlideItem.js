@@ -36,16 +36,17 @@ const Wrapper = styled.div`
 
   ${props => props.isNext && `
     position: fixed;
-    width: ${props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
+    width: ${(props.isCondensed || props.isLandingVideoPlaying) ? '0' : props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
     z-index: 6;
     will-change: width;
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;
 
-    ${props.isCondensed && `
-      width: 0;
+    ${props.wasPrevious && `
+      transition-duration: 0s;
     `}
+
     &:hover {
       width: 15vw;
       transition-duration: 0.5s;
@@ -86,10 +87,11 @@ export default class SlideItem extends Component {
 
   toggleScrollEventListener() {
     if (this.props.isNext) {
-      console.log('add Scroll event listener');
       document.addEventListener('scroll', this.handleOnScroll);
     } else {
-      console.log('remove Scroll event listener');
+      console.log('this.slideEl', this.slideEl);
+      if (!this.slideEl) return;
+
       this.nextSlideOnScrollAnimation = TweenLite.to(this.slideEl, 0, {right: 0});
       document.removeEventListener('scroll', this.handleOnScroll);
     }
@@ -104,12 +106,12 @@ export default class SlideItem extends Component {
   updateNextSlidePosition() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > 1500 || this.props.isScrollNSliding) return;
-
+    if (!this.slideEl) return;
     this.nextSlideOnScrollAnimation = TweenLite.set(this.slideEl, {right: -scrollTop/3});
   }
 
   render() {
-    const { ...props } = this.props;
+    const { onClickHandler, onCtaClickHandler, ...props } = this.props;
 
     let styles = {};
 
@@ -131,8 +133,8 @@ export default class SlideItem extends Component {
     return (
       <Wrapper
         {...props}
-        innerRef={el => this.slideEl = el}
-        onClick={props.onClickHandler}
+        ref={el => this.slideEl = el}
+        onClick={onClickHandler}
         className={props.isActive ? 'wrapper is-active' : 'wrapper'}
         style={styles}
       >

@@ -10,13 +10,15 @@ const Wrapper = styled.div`
 
 const TabsNav = styled.div`
   display: flex;
-  margin-bottom: 50px;
+  margin-bottom: 80px;
   width: ${layout.containerWidth};
 `
 
 const TabNavItem = styled.h2`
+  position: relative;
   margin-right: 40px;
   font-size: 80px;
+  color: inherit;
   cursor: pointer;
   opacity: 0.4;
   transition: opacity 0.2s;
@@ -30,8 +32,20 @@ const TabNavItem = styled.h2`
     opacity: 0.7;
   }
 
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    height: 12px;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s;
+    background-color: ${props => props.whiteContent ? 'white' : 'black'};
+  }
+
   ${props => props.active && `
-    &, :hover {
+    &, &:after, :hover {
       opacity: 1;
     }
   `}
@@ -62,6 +76,8 @@ export default class IdentifySimplifyAmplify extends Component {
     this.state = {
       selected: 1
     };
+
+    this.selectTab = this.selectTab.bind(this);
   }
 
   selectTab(tab) {
@@ -74,11 +90,11 @@ export default class IdentifySimplifyAmplify extends Component {
     const { selected } = this.state;
 
     return (
-      <Wrapper>
+      <Wrapper {...this.props}>
           <TabsNav>
-            <TabNavItem active={selected === 1} onClick={() => this.selectTab(1)}>Identify</TabNavItem>
-            <TabNavItem active={selected === 2} onClick={() => this.selectTab(2)}>Simplify</TabNavItem>
-            <TabNavItem active={selected === 3} onClick={() => this.selectTab(3)}>Amplify</TabNavItem>
+            <TabNavItem {...this.props} active={selected === 1} onClick={() => this.selectTab(1)}>Identify</TabNavItem>
+            <TabNavItem {...this.props} active={selected === 2} onClick={() => this.selectTab(2)}>Simplify</TabNavItem>
+            <TabNavItem {...this.props} active={selected === 3} onClick={() => this.selectTab(3)}>Amplify</TabNavItem>
           </TabsNav>
           <Tabs>
             <Tab active={selected === 1}>

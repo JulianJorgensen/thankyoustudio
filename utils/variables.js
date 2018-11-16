@@ -21,7 +21,8 @@ export const layout = {
 export const easings = {
   easeInOutQuad: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
   easeOutSine: 'cubic-bezier(.39,.575,.565,1)',
-  easeInOutCustom: 'cubic-bezier(.45,.035,.045,.95)'
+  easeInOutCustom: 'cubic-bezier(.45,.035,.045,.95)',
+  easeOutQuart: 'cubic-bezier(0.165, 0.84, 0.44, 1)'
 }
 
 export const standAlonePages = [
@@ -32,7 +33,7 @@ export const standAlonePages = [
 ];
 
 export const meta = {
-  title: 'THANK YOU &reg; designs digital experiences and connect brands',
+  title: 'THANK YOU designs digital experiences and connect brands',
   description: 'Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.'
 }
 
@@ -46,7 +47,8 @@ export const timings = {
   setIsSlidingFalse: 500,
   scrollToTop: 480, // the number has to be less than the slider animation to prevent a flickering
   setAutoScrollTimeout: 6000,
-  scrollDuration: 500
+  scrollDuration: 500,
+  fullScreenVideoDuration: 3800
 }
 
 // slow motion timings
@@ -60,5 +62,6 @@ export const timings = {
 //   setIsSlidingFalse: 50000,
 //   scrollToTop: 48000, // the number has to be less than the slider animation to prevent a flickering
 //   setAutoScrollTimeout: 6000,
-//   scrollDuration: 50000
+//   scrollDuration: 50000,
+//   fullScreenVideoDuration: 3800
 // }

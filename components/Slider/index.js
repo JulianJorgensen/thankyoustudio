@@ -81,16 +81,19 @@ export default class FancySlider extends Component {
 
   handleBackClick() {
     const { dispatch, store } = this.props;
-    const prevSlide = SlideItems[store.activeSlide.index - 1];
+    let prevSlide;
+    if (store.activeSlide.index === 0) {
+      prevSlide = SlideItems[SlideItems.length - 1];
+    } else {
+      prevSlide = SlideItems[store.activeSlide.index - 1];
+    }
 
     dispatch(actions.setHasMouseLeftNextSlide(true));
     dispatch(actions.setAutoScroll(false));
 
-    if (prevSlide) {
-      Router.push({
-        pathname: '/' + prevSlide.slug.toLowerCase()
-      }, prevSlide.slug ? '/work/' + prevSlide.slug.toLowerCase() : '/');
-    }
+    Router.push({
+      pathname: '/' + prevSlide.slug.toLowerCase()
+    }, prevSlide.slug ? '/work/' + prevSlide.slug.toLowerCase() : '/');
   }
 
   triggerNextClick() {
@@ -149,7 +152,8 @@ export default class FancySlider extends Component {
       usePrevAsNextSlide,
       hasMouseLeftNextSlide,
       fontsLoaded,
-      navColor
+      navColor,
+      isLandingVideoPlaying
     } = this.props.store;
 
     if (!activeSlide) return (
@@ -173,8 +177,25 @@ export default class FancySlider extends Component {
           <Slides isScrollNSliding={slider.isScrollNSliding}>
             {
               SlideItems.map((SlideItemData, i) => {
-                const isPrevious = activeSlide.index === i + 1;
                 const isActive = activeSlide.index === i;
+
+                // detect if is previous
+                let isPrevious;
+                if (activeSlide.index === 0) {
+                  isPrevious = i === SlideItems.length - 1;
+                } else {
+                  isPrevious = activeSlide.index === i + 1;
+                }
+
+                // detect if was previous
+                let wasPrevious;
+                if (prevSlide) {
+                  wasPrevious = i === prevSlide.index;
+                } else {
+                  wasPrevious = i === SlideItems.length - 1;
+                }
+                
+                // detect if is next
                 let isNext;
                 if (usePrevAsNextSlide && prevSlide) {
                   isNext = prevSlide.index === i;
@@ -192,11 +213,13 @@ export default class FancySlider extends Component {
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     onCtaClickHandler={this.onCtaClick}
                     isPrevious={isPrevious}
+                    wasPrevious={wasPrevious}
                     isActive={isActive}
                     isCondensed={condenseSlider}
                     isNext={isNext}
                     isScrollNSliding={slider.isScrollNSliding}
                     isSliding={isSliding}
+                    isLandingVideoPlaying={isLandingVideoPlaying}
                     image={SlideItemData.image}
                     background={SlideItemData.background}
                     contentColor={SlideItemData.whiteContent ? 'white' : 'black'}

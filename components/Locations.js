@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 const Wrapper = styled.ul`
   display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`
+
+const Locations = styled.ul`
+  display: flex;
   justify-content: space-between;
   width: 600px;
   list-style-type: none;
@@ -22,32 +28,34 @@ const LocationAddress = styled.div`
 
 export default (props) => (
   <Wrapper {...props}>
-    <LocationItem>
-      <LocationTitle>Copenhagen</LocationTitle>
-      <LocationAddress>
-        Enghavevej 40, 4<br />
-        1674 Copenhagen V<br />
-        Denmark<br />
-        <div>+45 5214 0000</div>
-      </LocationAddress>
-    </LocationItem>
-    <LocationItem>
-      <LocationTitle>San Francisco</LocationTitle>
-      <LocationAddress>
-        Enghavevej 40, 4<br />
-        1674 Copenhagen V<br />
-        Denmark<br />
-        <div>+45 5214 0000</div>
-      </LocationAddress>
-    </LocationItem>
-    <LocationItem>
-      <LocationTitle>Reykjavik</LocationTitle>
-      <LocationAddress>
-        Enghavevej 40, 4<br />
-        1674 Copenhagen V<br />
-        Denmark<br />
-        <div>+45 5214 0000</div>
-      </LocationAddress>
-    </LocationItem>
+    <Locations>
+      <LocationItem>
+        <LocationTitle>Copenhagen</LocationTitle>
+        <LocationAddress>
+          Enghavevej 40, 4<br />
+          1674 Copenhagen V<br />
+          Denmark<br />
+          <div>+45 5214 0000</div>
+        </LocationAddress>
+      </LocationItem>
+      <LocationItem>
+        <LocationTitle>San Francisco</LocationTitle>
+        <LocationAddress>
+          Enghavevej 40, 4<br />
+          1674 Copenhagen V<br />
+          Denmark<br />
+          <div>+45 5214 0000</div>
+        </LocationAddress>
+      </LocationItem>
+      <LocationItem>
+        <LocationTitle>Reykjavik</LocationTitle>
+        <LocationAddress>
+          Enghavevej 40, 4<br />
+          1674 Copenhagen V<br />
+          Denmark<br />
+          <div>+45 5214 0000</div>
+        </LocationAddress>
+      </LocationItem>
+    </Locations>
   </Wrapper>
 );

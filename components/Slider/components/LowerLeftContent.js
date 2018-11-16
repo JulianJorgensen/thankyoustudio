@@ -102,6 +102,7 @@ export default class LowerLeftContent extends Component {
 
   removeScrollEventListener() {
     console.log('reset headerEl');
+    if (!this.headerEl) return;
     this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
     document.removeEventListener('scroll', this.handleOnScroll);
   }
@@ -123,6 +124,7 @@ export default class LowerLeftContent extends Component {
       this.setState({ hideCta: false });
     }
     console.log('animate', scrollTop);
+    if (!this.headerEl) return;
     this.headerAnimation = TweenLite.set(this.headerEl, {top: scrollTop/3});
   }
 
@@ -132,7 +134,7 @@ export default class LowerLeftContent extends Component {
     return (
       <Wrapper isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} contentColor={contentColor}>
         <Content isActive={isActive}>
-          <Header innerRef={div => this.headerEl = div}>
+          <Header ref={div => this.headerEl = div}>
             <Title>{title}</Title>
             <SubTitle isNext={isNext}>{subtitle}</SubTitle>
           </Header>

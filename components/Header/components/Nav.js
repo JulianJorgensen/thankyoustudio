@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   user-select: none;
+  pointer-events: auto;
 
   ${props => props.mobileActive && `
     position: relative;

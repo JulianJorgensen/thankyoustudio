@@ -52,8 +52,7 @@ export default class Case extends Component {
     const { children, store, ...props } = this.props;
 
     const renderHead = () => {
-      if (!props.isPrimaryPage) return;
-
+      if (props.isPrimaryPage) return;
       return (
         <Head>
           <title>Case {store.activeSlide.slug} - {meta.title}</title>

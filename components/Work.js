@@ -33,7 +33,7 @@ const WorkItem = styled.div`
   overflow: hidden;
 
   &:first-child {
-    margin-top: 100px;
+    margin-top: 200px;
   }
 `
 
