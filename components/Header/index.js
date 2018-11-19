@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Router, { withRouter } from 'next/router'
 import styled from 'styled-components';
-import media from 'styled-media-query';
+import media from 'utils/mediaQueries';
 import Headroom from 'react-headroom';
 import { closeMobileNav, toggleMobileNav } from 'store/actions';
 import Nav from './components/Nav';

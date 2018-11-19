@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import PlayIcon from 'assets/icons/FontAwesome/regular/play-circle.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import styled from 'styled-components';
-import media from "styled-media-query";
 import * as actions from 'store/actions';
 import { EASINGS, TIMINGS } from 'utils/variables';
 

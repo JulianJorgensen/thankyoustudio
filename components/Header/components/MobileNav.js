@@ -30,6 +30,7 @@ const Nav = styled.nav`
   list-style-type: none;
   text-align: left;
   font-size: 30px;
+  pointer-events: auto;
 `
 
 const NavItem = styled.li`

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import media from 'styled-media-query';
+import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
 import { EASINGS, INSTAGRAM } from 'utils/variables';
 
@@ -9,11 +9,11 @@ const Posts = styled.div`
   grid-template-columns: auto auto;
   width: 100%;
 
-  ${media.greaterThan('medium')`
+  ${media.tablet`
     grid-template-columns: auto auto auto;
   `}
 
-  ${media.greaterThan('large')`
+  ${media.desktop`
     grid-template-columns: auto auto auto auto;
   `}
 `

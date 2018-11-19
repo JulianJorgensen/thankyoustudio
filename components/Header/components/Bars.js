@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from 'styled-media-query';
+import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   position: relative;
@@ -9,6 +9,11 @@ const Wrapper = styled.div`
   height: 40px;
   cursor: pointer;
   margin-bottom: 8px;
+  pointer-events: auto;
+
+  ${media.tablet`
+    pointer-events: none;
+  `}
 
   &:after,
   &:before {
@@ -21,7 +26,7 @@ const Wrapper = styled.div`
     background-color: ${props => props.navColor};
     transition: all 0.3s ease;
 
-    ${media.greaterThan('medium')`
+    ${media.tablet`
       display: none;
     `}
   }

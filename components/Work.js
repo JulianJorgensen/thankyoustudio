@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import { EASINGS } from 'utils/variables';
+import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   color: white;
@@ -13,10 +14,13 @@ const Wrapper = styled.div`
 `
 
 const WorkItems = styled.div`
-  column-count: 2;
-  column-gap: 50px;
   width: 100%;
-  break-inside: avoid-column;
+
+  ${media.tablet `
+    column-count: 2;
+    column-gap: 50px;
+    break-inside: avoid-column;
+  `}
 `
 
 const WorkItem = styled(LazyShow)`
@@ -28,9 +32,11 @@ const WorkItem = styled(LazyShow)`
   overflow: hidden;
   color: ${props => props.whitecontent ? 'white' : 'black'};
 
-  &:first-child {
-    margin-top: 200px;
-  }
+  ${media.tablet `
+    &:first-child {
+      margin-top: 200px;
+    }
+  `}
 
   li {
     border-color: ${props => props.whitecontent ? 'white' : 'black'};

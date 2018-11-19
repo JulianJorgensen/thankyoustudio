@@ -1,3 +1,9 @@
+export const breakpoints = {
+  desktop: 992,
+  tablet: 768,
+  phone: 576,
+}
+
 export const TRACKING = {
   GOOGLE_ANALYTICS: 'UA-98361509-1'
 }

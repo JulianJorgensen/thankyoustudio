@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import media from "styled-media-query";
+import media from 'utils/mediaQueries';
 import InstagramIcon from 'assets/icons/FontAwesome/brands/instagram.svg';
 import VimeoIcon from 'assets/icons/FontAwesome/brands/vimeo.svg';
 import FacebookIcon from 'assets/icons/FontAwesome/brands/facebook.svg';
@@ -14,7 +14,7 @@ const Wrapper = styled.footer`
   width: 100%;
   padding: 80px 40px;
 
-  ${media.greaterThan('medium')`
+  ${media.tablet`
     display: flex;
     justify-content: space-between;
     height: 300px;
@@ -69,7 +69,7 @@ const Locations = styled.div`
   opacity: 0.6;
   margin-bottom: 20px;
 
-  ${media.greaterThan('medium')`
+  ${media.tablet`
     text-align: right;
   `}
 `
@@ -95,7 +95,7 @@ const SocialMediaIcons = styled.div`
     }
   }
 
-  ${media.greaterThan('medium')`
+  ${media.tablet`
     justify-content: flex-end;
   `}
 `

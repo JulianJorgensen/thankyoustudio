@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Link from 'components/Link';
-import media from 'styled-media-query';
+import media from 'utils/mediaQueries';
 import styled from 'styled-components';
 import NavItem from './NavItem';
 import Logo from 'components/Logo';

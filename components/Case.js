@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
 import styled from 'styled-components';
-import media from "styled-media-query";
 import { scroller } from 'react-scroll'
 import { EASINGS, META, TIMINGS } from 'utils/variables';
 import Footer from 'components/Footer';

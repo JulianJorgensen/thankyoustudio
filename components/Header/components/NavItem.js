@@ -1,7 +1,8 @@
 import styled from 'styled-components';
-import media from 'styled-media-query';
+import media from 'utils/mediaQueries';
 
 const NavLink = styled.div`
+  display: none;
   position: relative;
   margin-right: 25px;
   color: inherit;
@@ -18,20 +19,24 @@ const NavLink = styled.div`
     }
   `}
 
-  ${props => props.logo && media.lessThan('large')`
+  ${props => props.logo && `
+    display: block;
+  `}
+
+  ${props => props.logo && media.desktop`
     svg {
       width: 30px;
       height: 30px;
     }
   `}
 
-  ${media.lessThan('large')`
-    font-size: 18px;
-    margin-right: 28px;
+  ${media.tablet`
+    display: block;
   `}
 
-  ${props => !props.logo && media.lessThan('medium')`
-    display: none;
+  ${media.desktop`
+    font-size: 18px;
+    margin-right: 28px;
   `}
 `
 

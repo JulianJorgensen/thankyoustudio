@@ -5,7 +5,7 @@ import throttle from 'lodash.throttle';
 import LandingSlide from './LandingSlide';
 import WorkSlide from './WorkSlide';
 import { EASINGS, TIMINGS } from 'utils/variables';
-import media from 'styled-media-query';
+import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -35,6 +35,7 @@ const Wrapper = styled.div`
   `}
 
   ${props => props.isNext && `
+    display: none;
     position: fixed;
     width: ${(props.isCondensed || props.isLandingVideoPlaying) ? '0' : props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
     z-index: ${props.isLandingVideoPlaying ? '0' : '6'};
@@ -42,6 +43,7 @@ const Wrapper = styled.div`
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;
+    transition-duration: ${props.wasPrevious ? '0s' : '0.5s'};
 
     &:before {
       content: '';
@@ -57,13 +59,13 @@ const Wrapper = styled.div`
       width: 15vw;
       transition-duration: 0.5s;
     }
-  
-    ${props.wasPrevious && `
-      transition-duration: 0s;
-    `}
   `}
 
-  background: ${props => props.background};
+  ${props => props.isNext && media.tablet`
+    display: block;
+  `}
+
+  background: ${props => props.background ? props.background : ''};
 `
 export default class SlideItem extends Component {
   constructor(props){
