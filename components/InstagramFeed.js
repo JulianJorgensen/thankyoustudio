@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { easings } from 'utils/variables';
+import { EASINGS } from 'utils/variables';
 
 const Posts = styled.div`
   display: grid;
@@ -30,7 +30,7 @@ const PostImage = styled.div`
   background: url(${props => props.imageLowRes}) center center no-repeat;
   background-size: cover;
   transform: scale(1.02);
-  transition: transform 0.5s ${easings.easeOutShine};
+  transition: transform 0.5s ${EASINGS.EASE_OUT_SHINE};
 
   ${Post}:hover & {
     transform: scale(1.07);
@@ -49,7 +49,7 @@ const PostContent = styled.div`
   height: 100%;
   width: 100%;
   opacity: 0;
-  transition: opacity 0.5s ${easings.easeOutShine};
+  transition: opacity 0.5s ${EASINGS.EASE_OUT_SHINE};
 
   &:hover {
     opacity: 0.8;

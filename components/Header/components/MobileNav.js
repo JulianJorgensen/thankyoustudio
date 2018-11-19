@@ -1,8 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import Logo from 'components/Logo';
-import { fonts, easings } from 'utils/variables';
+import { FONTS, EASINGS } from 'utils/variables';
 
 const Wrapper = styled.nav`
   position: fixed;
@@ -14,11 +13,11 @@ const Wrapper = styled.nav`
   padding: 40px;
   transform: translateY(-100%);
   background-color: gray;
-  transition: all 0.4s ${easings.easeInOutQuad};
+  transition: all 0.4s ${EASINGS.EASE_IN_OUT_QUAD};
   text-align: center;
   display: flex;
   align-items: center;
-  font-family: ${fonts.primary};
+  font-family: ${FONTS.PRIMARY};
 
   ${props => props.active && `
     transform: translateY(0);
@@ -39,7 +38,7 @@ const NavItem = styled.li`
 
   transform: translateY(-50px);
   opacity: 0;
-  transition: all 1s ${easings.easeOutShine};
+  transition: all 1s ${EASINGS.EASE_OUT_SHINE};
 
   ${props => props.active && `
     transform: translateY(0);

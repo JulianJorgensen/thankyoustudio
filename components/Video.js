@@ -77,7 +77,6 @@ export default class VideoComponent extends Component {
           className={className}
           video={vimeoId}
           muted={true}
-          onLoaded={this.handleOnReady}
           paused={!isActive}
           sliderVideo={sliderVideo}
           {...otherProps}

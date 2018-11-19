@@ -1,6 +1,6 @@
 import actionTypes from 'store/types';
 import SlideItems from 'store/slideItems';
-import { timings } from 'utils/variables';
+import { TIMINGS } from 'utils/variables';
 
 export const updateActiveSlide = (slug) => dispatch => {
   let slide = {};
@@ -74,7 +74,7 @@ export const setIsScrollNSliding = () => dispatch => {
       type: actionTypes.SET_IS_SCROLL_N_SLIDING,
       isScrollNSliding: false
     });
-  }, timings.setIsScrollNSlidingFalse);
+  }, TIMINGS.SET_IS_SCROLL_N_SLIDING_FALSE);
 
   return dispatch({ 
     type: actionTypes.SET_IS_SCROLL_N_SLIDING,

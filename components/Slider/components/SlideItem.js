@@ -4,15 +4,15 @@ import { TweenLite } from 'gsap';
 import throttle from 'lodash.throttle';
 import LandingSlide from './LandingSlide';
 import WorkSlide from './WorkSlide';
-import { easings, timings } from 'utils/variables';
-import media from "styled-media-query";
+import { EASINGS, TIMINGS } from 'utils/variables';
+import media from 'styled-media-query';
 
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
   height: 100%;
-  transition: width ${timings.slideItemWrapper} ${easings.easeInOutCustom};
+  transition: width ${TIMINGS.SLIDE_ITEM_WRAPPER} ${EASINGS.EASE_IN_OUT_CUSTOM};
   opacity: 0;
   width: 0;
   pointer-events: none;
@@ -37,24 +37,30 @@ const Wrapper = styled.div`
   ${props => props.isNext && `
     position: fixed;
     width: ${(props.isCondensed || props.isLandingVideoPlaying) ? '0' : props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
-    z-index: 6;
+    z-index: ${props.isLandingVideoPlaying ? '0' : '6'};
     will-change: width;
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;
 
-    ${props.wasPrevious && `
-      transition-duration: 0s;
-    `}
+    &:before {
+      content: '';
+      position: fixed;
+      top: 0;
+      right: 0;
+      z-index: 100;
+      height: 100vh;
+      width: 5vw;
+    }
 
     &:hover {
       width: 15vw;
       transition-duration: 0.5s;
     }
-  `}
-
-  ${props => props.isNext && media.lessThan('medium')`
-    display: none;
+  
+    ${props.wasPrevious && `
+      transition-duration: 0s;
+    `}
   `}
 
   background: ${props => props.background};
@@ -77,23 +83,48 @@ export default class SlideItem extends Component {
   }
 
   componentDidUpdate(prevProps) {
+    const { isNext, isActive, isPrevious } = this.props;
+
     if (!prevProps) return;
     if (prevProps == this.props) return;
-    if (prevProps.isNext && this.props.isNext) return;
-    if (prevProps.isActive && this.props.isActive) return;
-    if (prevProps.isPrevious && this.props.isPrevious) return;
-    this.toggleScrollEventListener(prevProps);
+    
+    // handle scroll animation of next slide
+    if (prevProps.isNext && isNext) return;
+    if (prevProps.isActive && isActive) return;
+    if (prevProps.isPrevious && isPrevious) return;
+    this.toggleScrollEventListener();
   }
 
   toggleScrollEventListener() {
     if (this.props.isNext) {
       document.addEventListener('scroll', this.handleOnScroll);
     } else {
-      console.log('this.slideEl', this.slideEl);
       if (!this.slideEl) return;
 
       this.nextSlideOnScrollAnimation = TweenLite.to(this.slideEl, 0, {right: 0});
       document.removeEventListener('scroll', this.handleOnScroll);
+    }
+  }
+
+  handleNextSlideHoverWhenHidden(mouseOver) {
+    if (!this.props.isNext) return;
+
+    // Always show next slide when mouse is over to the right
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 500) {
+      if (mouseOver) {
+        this.nextSlideOnScrollAnimation = TweenLite.to(this.slideEl, 0.5, { right: 0 });
+        document.removeEventListener('scroll', this.handleOnScroll);
+        return;
+      } else {
+        this.nextSlideOnScrollAnimation = TweenLite.to(this.slideEl, 0.5, { right: -300 });
+        this.toggleScrollEventListener();
+        return;
+      }
+    } else {
+      this.nextSlideOnScrollAnimation = TweenLite.to(this.slideEl, 0.5, { right: 0 });
+      this.toggleScrollEventListener();
+      return;
     }
   }
 
@@ -137,6 +168,8 @@ export default class SlideItem extends Component {
         onClick={onClickHandler}
         className={props.isActive ? 'wrapper is-active' : 'wrapper'}
         style={styles}
+        onMouseEnter={() => props.isNext ? this.handleNextSlideHoverWhenHidden(true) : ''}
+        onMouseLeave={() => props.isNext ? this.handleNextSlideHoverWhenHidden(false) : ''}
       >
         { props.slug === '' ? <LandingSlide {...props} /> : <WorkSlide {...props} /> }
       </Wrapper>

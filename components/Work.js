@@ -1,11 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import Link from 'next/link';
 import styled from 'styled-components';
-import styles from 'utils/styles';
-import SwatchPoster from 'assets/images/swatch_start_1-poster.jpg';
-import CphDistelleryPoster from 'assets/images/copenhagen-distellery.jpg';
-import { easings, layout } from 'utils/variables';
+import LazyShow from 'components/lazyShow';
+import { EASINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   color: white;
@@ -18,30 +15,52 @@ const Wrapper = styled.div`
 const WorkItems = styled.div`
   column-count: 2;
   column-gap: 50px;
-  max-width: ${layout.containerWidth};
   width: 100%;
+  break-inside: avoid-column;
 `
 
-const WorkItem = styled.div`
+const WorkItem = styled(LazyShow)`
+  position: relative;
   break-inside: avoid-column;
   height: 750px;
   margin-bottom: 50px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   cursor: pointer;
   overflow: hidden;
+  color: ${props => props.whitecontent ? 'white' : 'black'};
 
   &:first-child {
     margin-top: 200px;
   }
+
+  li {
+    border-color: ${props => props.whitecontent ? 'white' : 'black'};
+  }
+
+  ${props => props.alignright && `
+    margin-left: auto;
+  `}
+
+  ${props => props.vertical && `
+    max-width: 525px;
+  `}
+
+  ${props => props.horizontal && `
+    width: 100%;
+    height: 525px;
+  `}
+
+  ${props => props.square && `
+    max-width: 525px;
+    max-height: 525px;
+  `}
+
 `
 
 const WorkItemImage = styled.div`
   position: relative;
   background: url(${props => props.src}) center center no-repeat;
   background-size: cover;
-  transition: transform 1s ${easings.easeOutSine};
+  transition: transform 1s ${EASINGS.EASE_OUT_SHINE};
   height: 100%;
 
   &:hover {
@@ -50,111 +69,159 @@ const WorkItemImage = styled.div`
 `
 
 const WorkItemContent = styled.div`
+  position: absolute;
+  bottom: 0;
   padding: 20px;
+  z-index: 2;
 `
 
 const WorkItemTitle = styled.h3`
-  font-size: 20px;
+  font-size: 24px;
+  text-transform: uppercase;
+  margin-bottom: 5px;
 `
 
-const WorkItemLead = styled.div`
-  font-size: 16px;
+const WorkItemTags = styled.ul`
+  display: flex;
+`
+
+const WorkItemTag = styled.li`
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  margin-right: 10px;
+  padding: 4px 8px;
 `
 
 export default (props) => (
   <Wrapper {...props}>
     <WorkItems>
       <Link href="/swatch" as="/work/swatch" scroll={false}>
-        <WorkItem horizontalSpan2 verticalSpan2>
-          <WorkItemImage src={SwatchPoster} />
+        <WorkItem horizontal={1} whitecontent={1}>
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Swatch</WorkItemTitle>
-            <WorkItemLead>Combining pop music and tech to launch a new phone</WorkItemLead>
-          </WorkItemContent>
-
-        </WorkItem>
-      </Link>
-
-      <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
-        <WorkItem>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
-          <WorkItemContent>
-            <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
-            <WorkItemLead>Launching a daring SUV to a new target group</WorkItemLead>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
 
       <Link href="/onea" as="/work/onea" scroll={false}>
-        <WorkItem>
-          <WorkItemImage src={SwatchPoster} />
+        <WorkItem vertical={1} alignright={1}>
+          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/05/thumb-1.jpg" />
           <WorkItemContent>
-            <WorkItemTitle>Onea</WorkItemTitle>
-            <WorkItemLead>Sparking renewed interest in Sweden as a holiday destination</WorkItemLead>
+            <WorkItemTitle>Onea test</WorkItemTitle>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
 
-      <Link href="/romeo" as="/work/romeo" scroll={false}>
-        <WorkItem verticalSpan2>
-          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo.jpg" />
+      <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
+        <WorkItem vertical={1} alignright={1}>
+          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
           <WorkItemContent>
-            <WorkItemTitle>Romeo</WorkItemTitle>
-            <WorkItemLead>Customers first – reshaping brand identity and online presence</WorkItemLead>
+            <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
+
 
       <Link href="/ferrari" as="/work/ferrari" scroll={false}>
-        <WorkItem verticalSpan2>
+        <WorkItem vertical={1} alignright={1} whitecontent={1}>
           <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2016/10/framegrabs3-1448383495270-1920.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Ferrari</WorkItemTitle>
-            <WorkItemLead>Customers first – reshaping brand identity and online presence</WorkItemLead>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
 
       <Link href="/swatch" as="/work/swatch" scroll={false}>
-        <WorkItem>
+        <WorkItem square={1} alignright={1}>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Swatch</WorkItemTitle>
-            <WorkItemLead>Sparking renewed interest in Sweden</WorkItemLead>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
-        <WorkItem>
+        <WorkItem vertical={1}>
           <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
-            <WorkItemLead>Launching a daring SUV to a new target group</WorkItemLead>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
+          </WorkItemContent>
+        </WorkItem>
+      </Link>
+
+      <Link href="/romeo" as="/work/romeo" scroll={false}>
+        <WorkItem square={1}>
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo.jpg" />
+          <WorkItemContent>
+            <WorkItemTitle>Romeo</WorkItemTitle>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
+          </WorkItemContent>
+        </WorkItem>
+      </Link>
+
+      <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
+        <WorkItem vertical={1}>
+          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
+          <WorkItemContent>
+            <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
 
       <Link href="/onea" as="/work/onea" scroll={false}>
-        <WorkItem verticalSpan2>
+        <WorkItem horizontal={1} whitecontent={1}>
           <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/05/thumb-1.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Onea</WorkItemTitle>
-            <WorkItemLead>Sparking renewed interest in Sweden as a holiday destination</WorkItemLead>
+            <WorkItemTags>
+              <WorkItemTag>Branding</WorkItemTag>
+              <WorkItemTag>Design</WorkItemTag>
+              <WorkItemTag>Development</WorkItemTag>
+            </WorkItemTags>
           </WorkItemContent>
         </WorkItem>
       </Link>
-
-      <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
-        <WorkItem>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
-          <WorkItemContent>
-            <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
-            <WorkItemLead>Launching a daring SUV to a new target group</WorkItemLead>
-          </WorkItemContent>
-        </WorkItem>
-      </Link>
-
     </WorkItems>
   </Wrapper>
 )

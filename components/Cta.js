@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { colors, easings } from 'utils/variables';
+import { EASINGS } from 'utils/variables';
 
 const Wrapper = styled.button`
   position: relative;
@@ -14,7 +14,7 @@ const Wrapper = styled.button`
   font-size: 18px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: all 0.2s ${easings.easeInOutQuad};
+  transition: all 0.2s ${EASINGS.EASE_IN_OUT_QUAD};
   border: 0;
   background-color: transparent;
   color: ${props => props.white ? 'white' : 'black'};
@@ -28,7 +28,7 @@ const Wrapper = styled.button`
     height: 2px;
     width: 40px;
     background-color: ${props => props.white ? 'white' : 'black'};
-    transition: all 0.2s ${easings.easeInOutQuad};
+    transition: all 0.2s ${EASINGS.EASE_IN_OUT_QUAD};
   }
 
   &:hover {

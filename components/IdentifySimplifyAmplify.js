@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { layout } from 'utils/variables';
+import { LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
   display: flex;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 const TabsNav = styled.div`
   display: flex;
   margin-bottom: 80px;
-  width: ${layout.containerWidth};
+  width: ${LAYOUT.CONTAINER_WIDTH};
 `
 
 const TabNavItem = styled.h2`
@@ -53,7 +53,7 @@ const TabNavItem = styled.h2`
 
 const Tabs = styled.div`
   display: flex;
-  width: ${layout.containerWidth};
+  width: ${LAYOUT.CONTAINER_WIDTH};
   padding-right: 300px;
 `
 

@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Router, { withRouter } from 'next/router';
 import styled from 'styled-components';
-import SlideItem from './components/SlideItem';
-import Waypoint from 'react-waypoint';
-import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
+import Observer from 'react-intersection-observer';
 import { animateScroll as scroll } from 'react-scroll'
+
+import SlideItem from './components/SlideItem';
+import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
-import { timings } from 'utils/variables';
+import { TIMINGS } from 'utils/variables';
 
 const Slider = styled.div`
   position: absolute;
@@ -16,7 +17,7 @@ const Slider = styled.div`
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
-  transition: width ${timings.slider};
+  transition: width ${TIMINGS.SLIDER};
   height: 100vh;
   pointer-events: none;
 `
@@ -46,6 +47,17 @@ const BackButton = styled.div`
     }
   }
 `
+
+const ShowNextSlideZone = styled.div`
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 10vw;
+  pointer-events: auto;
+`
+
 @withRouter
 @connect((store) => ({
   store,
@@ -56,10 +68,9 @@ export default class FancySlider extends Component {
     this.state = {};
 
     this.handleBackClick = this.handleBackClick.bind(this);
-    this.waypointEnter = this.waypointEnter.bind(this);
-    this.waypointLeave = this.waypointLeave.bind(this);
     this.handleNextMouseLeave = this.handleNextMouseLeave.bind(this);
     this.triggerNextClick = this.triggerNextClick.bind(this);
+    this.handleIsInViewChange = this.handleIsInViewChange.bind(this);
   }
 
   componentDidMount() {
@@ -131,15 +142,13 @@ export default class FancySlider extends Component {
     scroll.scrollTo(window.innerHeight);
   }
 
-  waypointEnter() {
+  handleIsInViewChange(inView) {
     const { dispatch } = this.props;
-    dispatch(actions.setHeaderSolid(false));
-  }
-
-  waypointLeave() {
-    const { dispatch } = this.props;
-
-    dispatch(actions.setHeaderSolid(true));
+    if (inView) {
+      dispatch(actions.setHeaderSolid(false));
+    } else {
+      dispatch(actions.setHeaderSolid(true));
+    }
   }
 
   render() {
@@ -161,10 +170,9 @@ export default class FancySlider extends Component {
     );
 
     return (
-      <Waypoint
-        onEnter={this.waypointEnter}
-        onLeave={this.waypointLeave}
-        topOffset='50%'
+      <Observer
+        onChange={this.handleIsInViewChange}
+        tag="div"
       >
         <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
           <BackButton 
@@ -232,7 +240,7 @@ export default class FancySlider extends Component {
             }
           </Slides>
         </Slider>
-      </Waypoint>
+      </Observer>
     );
   }
 }

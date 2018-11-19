@@ -5,7 +5,7 @@ import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import styled from 'styled-components';
 import media from "styled-media-query";
 import * as actions from 'store/actions';
-import { easings, timings } from 'utils/variables';
+import { EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -32,7 +32,7 @@ const MaskedVideo = styled.video`
 
   ${props => props.show && `
     transform: scale(1);
-    transition: transform 2s ${easings.easeOutQuart};
+    transition: transform 2s ${EASINGS.EASE_OUT_QUAD};
   `}
 `
 
@@ -152,7 +152,7 @@ export default class LandingSlide extends Component {
       this.setState({
         hideFullscreenVideo: true
       });
-    }, timings.fullScreenVideoDuration);
+    }, TIMINGS.FULL_SCREEN_VIDEO_DURATION);
   }
 
   initLogosAutoRotate() {

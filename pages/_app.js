@@ -1,11 +1,11 @@
+import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import React from 'react';
 import withReduxStore from 'store/with-redux-store';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Layout from 'components/Layout';
-import { meta, fonts, timings } from 'utils/variables';
+import { FONTS, META, TIMINGS } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
@@ -17,13 +17,13 @@ export default class MyApp extends App {
     return (
       <Container>
         <Head>
-          <title>{meta.title}</title>
-          <meta name="description" content={meta.description} />
+          <title>{META.TITLE}</title>
+          <meta name="description" content={META.DESCRIPTION} />
 
           <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta charSet="utf-8" />
           <link rel="shortcut icon" href={favicon} />
-          <link rel="canonical" href="https://www.thankyoustudio.com" />
+          <link rel="canonical" href={META.CANONICAL} />
         </Head>
         <Provider store={reduxStore}>
           <Layout>
@@ -31,7 +31,7 @@ export default class MyApp extends App {
               <CSSTransition
                 key={this.props.router.route}
                 classNames='fade'
-                timeout={timings.pageTransitionTimeout}
+                timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
               >
                 <Component {...pageProps} />
               </CSSTransition>
@@ -56,7 +56,7 @@ export default class MyApp extends App {
           html {
             height: 100%;
             width: 100%;
-            font-family: ${fonts.primary}, Helvetica, sans-serif;
+            font-family: ${FONTS.PRIMARY}, Helvetica, sans-serif;
             overflow-y: scroll;
             overflow-x: hidden;
             background-color: black;

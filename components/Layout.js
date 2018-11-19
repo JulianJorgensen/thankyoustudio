@@ -8,12 +8,14 @@ import Header from 'components/Header';
 import Slider from 'components/Slider';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
-import { timings } from 'utils/variables';
+import { TIMINGS } from 'utils/variables';
+import withAnalytics from 'utils/withAnalytics';
 
 const Wrapper = styled.div`
 `
 
 @withRouter
+@withAnalytics
 @connect((store) => ({
   store,
 }))
@@ -30,7 +32,6 @@ export default class Layout extends Component {
 
   componentWillMount() {
     const { dispatch, router } = this.props;
-    console.log('router', router);
     const url = router.asPath;
     const urlExploded = url.split('/');
     const currentPage = router.pathname.substr(1);
@@ -41,7 +42,7 @@ export default class Layout extends Component {
 
       setTimeout(() => {
         dispatch(actions.landingVideoPlaying(false));
-      }, timings.fullScreenVideoDuration)
+      }, TIMINGS.FULL_SCREEN_VIDEO_DURATION)
     }
 
     // update slide if its a case (or landing page)
@@ -139,7 +140,7 @@ export default class Layout extends Component {
     this.setIsSliding(true);
     setTimeout(() => {
       this.setIsSliding(false);
-    }, timings.setIsSlidingFalse)
+    }, TIMINGS.SET_IS_SLIDING_FALSE)
 
     dispatch(actions.setHeaderSolid(false));
   }
@@ -179,7 +180,7 @@ export default class Layout extends Component {
     this.props.dispatch(actions.setIsScrollNSliding());
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, timings.scrollToTop);
+    }, TIMINGS.SCROLL_TO_TOP);
   }
 
   setAutoScroll() {
@@ -187,11 +188,11 @@ export default class Layout extends Component {
       const { store } = this.props;
       if (store.autoScroll) {
         scroll.scrollTo(150, {
-          duration: timings.scrollDuration,
+          duration: TIMINGS.SCROLL_DURATION,
           smooth: true
         });
       }
-    }, timings.setAutoScrollTimeout);
+    }, TIMINGS.SET_AUTO_SCROLL_TIMEOUT);
   }
 
   render() {

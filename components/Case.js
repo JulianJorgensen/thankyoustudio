@@ -4,7 +4,7 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import media from "styled-media-query";
 import { scroller } from 'react-scroll'
-import { easings, meta, timings } from 'utils/variables';
+import { EASINGS, META, TIMINGS } from 'utils/variables';
 import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
@@ -12,12 +12,12 @@ const Wrapper = styled.div`
   top: 100vh;
   width: 100%;
   background-color: #fafafa;
-  transition: transform ${timings.caseWrapper};
+  transition: transform ${TIMINGS.CASE_WRAPPER};
 `
 
 // ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
 // transition: opacity 0s, width 0.5s !important;
-// transition-timing-function: ${easings.easeInOutCustom};
+// transition-timing-function: ${EASINGS.EASE_IN_OUT_CUSTOMeaseInOutCustom};
 // transition-delay: 0s !important;
 // z-index: 4;
 // `}
@@ -55,7 +55,7 @@ export default class Case extends Component {
       if (props.isPrimaryPage) return;
       return (
         <Head>
-          <title>Case {store.activeSlide.slug} - {meta.title}</title>
+          <title>Case {store.activeSlide.slug} - {META.TITLE}</title>
         </Head>
       )
     }

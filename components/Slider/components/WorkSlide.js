@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { easings } from 'utils/variables';
+import { EASINGS } from 'utils/variables';
 import Video from 'components/Video';
 import LowerleftContent from './LowerLeftContent';
 
@@ -18,7 +18,7 @@ const Image = styled.div`
   background-repeat: no-repeat;
   background-position: center center;
   background-image: url(${props => props.image});
-  transition: transform 6s ${easings.easeOutShine};
+  transition: transform 6s ${EASINGS.EASE_OUT_SHINE};
   transition-delay: 0.4s;
   transform: scale(1);
 

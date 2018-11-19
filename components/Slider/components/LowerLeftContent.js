@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
-import { colors, fonts, easings } from 'utils/variables';
+import { FONTS, EASINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   bottom: 40px;
   width: 50vw;
   opacity: 0;
-  transition: opacity 0.2s, left 0.4s ${easings.easeOutShine} 0.3s;
+  transition: opacity 0.2s, left 0.4s ${EASINGS.EASE_OUT_SHINE} 0.3s;
   color: ${props => props.contentColor};
 
   ${props => props.fontsLoaded && `
@@ -47,7 +47,7 @@ const Title = styled.h1`
   margin-bottom: -20px;
   margin-left: -4px;
   font-weight: 800;
-  font-family: ${fonts.primary};
+  font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
   color: inherit;
 `
@@ -55,7 +55,7 @@ const Title = styled.h1`
 const SubTitle = styled.h2`
   font-size: 26px;
   font-weight: 300;
-  font-family: ${fonts.primary};
+  font-family: ${FONTS.PRIMARY};
   margin-top: 6px;
   opacity: ${props => props.isNext ? '0' : '1'};
   transition: opacity 0.2s;
@@ -101,7 +101,6 @@ export default class LowerLeftContent extends Component {
   }
 
   removeScrollEventListener() {
-    console.log('reset headerEl');
     if (!this.headerEl) return;
     this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
     document.removeEventListener('scroll', this.handleOnScroll);
@@ -123,7 +122,6 @@ export default class LowerLeftContent extends Component {
     } else {
       this.setState({ hideCta: false });
     }
-    console.log('animate', scrollTop);
     if (!this.headerEl) return;
     this.headerAnimation = TweenLite.set(this.headerEl, {top: scrollTop/3});
   }
