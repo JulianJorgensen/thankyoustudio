@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { LAYOUT } from 'utils/variables';
+import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   display: flex;
@@ -9,9 +10,13 @@ const Wrapper = styled.div`
 `
 
 const TabsNav = styled.div`
-  display: flex;
-  margin-bottom: 80px;
-  width: ${LAYOUT.CONTAINER_WIDTH};
+  display: none;
+
+  ${media.tablet`
+    display: flex;
+    margin-bottom: 80px;
+    width: ${LAYOUT.CONTAINER_WIDTH};  
+  `}
 `
 
 const TabNavItem = styled.h2`
@@ -52,21 +57,25 @@ const TabNavItem = styled.h2`
 `
 
 const Tabs = styled.div`
-  display: flex;
-  width: ${LAYOUT.CONTAINER_WIDTH};
-  padding-right: 300px;
+  ${media.tablet`
+    display: flex;
+    width: ${LAYOUT.CONTAINER_WIDTH};
+    padding-right: 300px;
+  `}
 `
 
 const Tab = styled.div`
-  display: none;
-  column-count: 2;
-
   p {
     margin: 0;
   }
 
-  ${props => props.active && `
-    display: block;
+  ${media.tablet`
+    display: none;
+    column-count: 2;
+
+    ${props => props.active && `
+      display: block;
+    `}
   `}
 `
 
