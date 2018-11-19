@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 import media from 'styled-media-query';
-import { EASINGS } from 'utils/variables';
+import Fetch from 'isomorphic-unfetch';
+import { EASINGS, INSTAGRAM } from 'utils/variables';
 
 const Posts = styled.div`
   display: grid;
@@ -56,31 +56,21 @@ const PostContent = styled.div`
   }
 `
 
-const ACCESS_TOKEN = '54020099.f5cbc94.7b9691e1a2614731b18da6c190dfe604';
-const NUMBER_OF_POSTS = 8;
-
-export default class AboutPage extends Component {
+export default class InstagramFeed extends Component {
   constructor() {
     super();
 
     this.state = {};
-    this.fetchInstagramPosts = this.fetchInstagramPosts.bind(this);
   }
 
-  componentWillMount() {
-    this.fetchInstagramPosts();
-  }
+  async componentDidMount() {
+    const res = await Fetch(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${INSTAGRAM.ACCESS_TOKEN}&count=${INSTAGRAM.NUMBER_OF_POSTS}`);
+    const data = await res.json();
+    console.log('data', data);
 
-  fetchInstagramPosts() {
-    axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${ACCESS_TOKEN}&count=${NUMBER_OF_POSTS}`)
-      .then(({ data }) => {
-        this.setState({
-          posts: data.data
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    this.setState({
+      posts: data.data
+    });
   }
 
   render() {

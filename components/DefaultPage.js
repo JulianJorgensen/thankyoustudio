@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
-import Footer from 'components/Footer';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
 import { META, TIMINGS } from 'utils/variables';
+import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -25,12 +25,6 @@ const Content = styled.div`
   store,
 }))
 export default class DefaultPage extends Component {
-  constructor() {
-    super();
-
-    this.state = {};
-  }
-
   componentDidMount() {
     const { dispatch, whiteContent } = this.props;
     if (whiteContent) dispatch(actions.setNavColorWhite(true));
