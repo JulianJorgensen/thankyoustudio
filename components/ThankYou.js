@@ -10,6 +10,7 @@ const Wrapper = styled.section`
   width: 100%;
   padding: 200px 0;
   color: black;
+  overflow: hidden;
 `
 
 const StyledLogo = styled(Logo)`

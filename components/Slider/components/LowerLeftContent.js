@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   left: 40px;
   bottom: 40px;
   width: 100%;
+  max-width: calc(100vw - 40px);
   opacity: 0;
   transition: opacity 0.2s, left 0.4s ${EASINGS.EASE_OUT_SHINE} 0.3s;
   color: ${props => props.contentColor};
