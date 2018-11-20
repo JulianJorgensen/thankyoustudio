@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import Head from 'next/head';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
-import { META, TIMINGS } from 'utils/variables';
 import Footer from 'components/Footer';
+import media from 'utils/mediaQueries';
+import { LAYOUT, META, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -14,11 +15,15 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  padding: 200px 0;
+  padding: 200px ${LAYOUT.EDGE_MARGIN};
   background-color: black;
   color: white;
   min-height: 100vh;
   opacity: 1;
+
+  ${media.tablet`
+    padding: 200px ${LAYOUT.MOBILE.EDGE_MARGIN};
+  `}
 `
 
 @connect((store) => ({

@@ -48,6 +48,7 @@ const NavLinkText = styled.div`
 `
 
 const NavLinkLine = styled.div`
+  display: none;
   background-color: ${props => props.navColor};
   height: 8px;
   bottom: -10px;
@@ -55,12 +56,16 @@ const NavLinkLine = styled.div`
   transition: width 0.2s ease-in 0s;
   width: 0%;
 
-  ${NavLink}:hover & {
-    width: 100%;
-  }
+  ${media.tablet`
+    display: block;
 
-  ${props => props.active && `
-    width: 100%;
+    ${NavLink}:hover & {
+      width: 100%;
+    }
+
+    ${props => props.active && `
+      width: 100%;
+    `}
   `}
 `
 

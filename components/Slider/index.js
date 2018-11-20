@@ -9,6 +9,7 @@ import SlideItem from './components/SlideItem';
 import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
+import media from 'utils/mediaQueries';
 import { TIMINGS } from 'utils/variables';
 
 const Slider = styled.div`
@@ -18,8 +19,12 @@ const Slider = styled.div`
   top: 0;
   right: 0;
   transition: width ${TIMINGS.SLIDER};
-  height: 100vh;
+  height: 100vw;
   pointer-events: none;
+
+  ${media.tablet`
+    height: 100vh;
+  `}
 `
 
 const Slides = styled.div`

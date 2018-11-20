@@ -4,13 +4,20 @@ import Case from 'components/Case';
 import InstagramFeed from 'components/InstagramFeed';
 import styled from 'styled-components';
 import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
+import { LAYOUT } from 'utils/variables';
+import media from 'utils/mediaQueries';
+
 
 const Section = styled.div`
-  padding: 200px 40px;
+  padding: 100px ${LAYOUT.MOBILE.EDGE_MARGIN};
 
   ${props => props.black && `
     background-color: black;
     color: white;
+  `}
+
+  ${media.tablet`
+    padding: 200px 40px;
   `}
 `
 
@@ -25,11 +32,6 @@ const Lead = styled.div`
   font-size: 25px;
 `
 
-const AboutSection = styled.div`
-  padding: 200px 80px;
-  position: relative;
-`
-
 const InstagramSection = styled.div`
   position: relative;
   display: flex;
@@ -41,9 +43,9 @@ const InstagramSection = styled.div`
 
 export default () => (
   <Case isPrimaryPage>
-    <AboutSection>
+    <Section>
       <IdentifySimplifyAmplify />
-    </AboutSection>
+    </Section>
 
     <Section>
       <Work textColor="black" />

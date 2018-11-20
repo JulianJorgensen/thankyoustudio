@@ -13,7 +13,11 @@ export const FONTS = {
 }
 
 export const LAYOUT = {
-  CONTAINER_WIDTH: '1100px'
+  CONTAINER_WIDTH: '1100px',
+  EDGE_MARGIN: '40px',
+  MOBILE: {
+    EDGE_MARGIN: '30px'
+  }
 }
 
 export const EASINGS = {

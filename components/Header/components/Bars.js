@@ -6,13 +6,14 @@ const Wrapper = styled.div`
   position: relative;
   z-index: 100;
   width: 40px;
-  height: 40px;
+  height: 30px;
   cursor: pointer;
-  margin-bottom: 8px;
   pointer-events: auto;
 
   ${media.tablet`
     pointer-events: none;
+    margin-bottom: 8px;
+    height: 40px;
   `}
 
   &:after,

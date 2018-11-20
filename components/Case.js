@@ -4,19 +4,24 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll'
 import { EASINGS, META, TIMINGS } from 'utils/variables';
+import media from 'utils/mediaQueries';
 import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 100vh;
+  top: 100vw;
   width: 100%;
   background-color: #fafafa;
   transition: transform ${TIMINGS.CASE_WRAPPER};
+
+  ${media.tablet`
+    top: 100vh;
+  `}
 `
 
 // ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
 // transition: opacity 0s, width 0.5s !important;
-// transition-timing-function: ${EASINGS.EASE_IN_OUT_CUSTOMeaseInOutCustom};
+// transition-timing-function: ${EASINGS.EASE_IN_OUT_CUSTOM};
 // transition-delay: 0s !important;
 // z-index: 4;
 // `}

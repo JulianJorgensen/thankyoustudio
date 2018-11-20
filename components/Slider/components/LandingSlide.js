@@ -28,6 +28,7 @@ const FullscreenVideo = styled.video`
 
 const MaskedVideo = styled.video`
   transform: scale(1.1);
+  height: 100%;
 
   ${props => props.show && `
     transform: scale(1);
@@ -65,6 +66,7 @@ const Content = styled.div`
   position: absolute;
   right: 10vw;
   width: 90vw;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
