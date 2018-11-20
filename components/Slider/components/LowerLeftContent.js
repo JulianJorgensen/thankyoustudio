@@ -3,13 +3,14 @@ import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { FONTS, EASINGS } from 'utils/variables';
+import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   position: absolute;
   z-index: 99;
   left: 40px;
   bottom: 40px;
-  width: 50vw;
+  width: 100%;
   opacity: 0;
   transition: opacity 0.2s, left 0.4s ${EASINGS.EASE_OUT_SHINE} 0.3s;
   color: ${props => props.contentColor};
@@ -26,6 +27,10 @@ const Wrapper = styled.div`
     left: 100px;
     transition: none;
   `}
+
+  ${media.tablet`
+    width: 50vw;
+  `}
 `
 
 const Content = styled.div`
@@ -41,8 +46,8 @@ const Header = styled.div`
 `
 
 const Title = styled.h1`
-  font-size: 140px;
-  line-height: 130px;
+  font-size: 60px;
+  line-height: 55px;
   margin-top: 16px;
   margin-bottom: -20px;
   margin-left: -4px;
@@ -50,15 +55,24 @@ const Title = styled.h1`
   font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
   color: inherit;
+
+  ${media.tablet`
+    font-size: 140px;
+    line-height: 130px;
+  `}
 `
 
 const SubTitle = styled.h2`
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 300;
   font-family: ${FONTS.PRIMARY};
   margin-top: 6px;
   opacity: ${props => props.isNext ? '0' : '1'};
   transition: opacity 0.2s;
+
+  ${media.tablet`
+    font-size: 26px;
+  `}
 `
 
 export default class LowerLeftContent extends Component {

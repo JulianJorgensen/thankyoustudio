@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { EASINGS } from 'utils/variables';
 import Video from 'components/Video';
 import LowerleftContent from './LowerLeftContent';
+import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -13,7 +14,7 @@ const Image = styled.div`
   position: absolute;
   right: 0;
   width: calc(100vw - 15px);
-  height: 100vh;
+  height: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -24,6 +25,10 @@ const Image = styled.div`
 
   ${props => props.isActive && `
     transform: scale(1.05);
+  `}
+
+  ${media.tablet`
+    height: 100vh;
   `}
 `
 
