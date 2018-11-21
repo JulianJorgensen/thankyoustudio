@@ -21,7 +21,7 @@ const Lead = styled.div`
 `
 
 export default () => (
-  <Case>
+  <Case title="Copenhagen Distillery">
     <Header>
       <Title>Something about copenhagen distillery</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>

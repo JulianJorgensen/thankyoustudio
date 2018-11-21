@@ -47,7 +47,7 @@ export default class MyApp extends App {
       )
 
       return (
-        <LayoutMobile>
+        <Layout>
           <TransitionGroup component={null}>
             <CSSTransition
               key={this.props.router.route}
@@ -57,7 +57,7 @@ export default class MyApp extends App {
               <Component {...pageProps} />
             </CSSTransition>
           </TransitionGroup>
-        </LayoutMobile>
+        </Layout>
       )
     }
 

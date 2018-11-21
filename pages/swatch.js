@@ -136,7 +136,7 @@ const BusVideo = styled(Video)`
 export default class Swatch extends React.Component {
   render() {
     return (
-      <Case>
+      <Case title="Swatch">
         <CaseContent intro>
           <Row>
             <Col large>

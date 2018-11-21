@@ -53,28 +53,13 @@ export default class Case extends Component {
   }
 
   render() {
-    const { children, store, ...props } = this.props;
-
-    const renderHead = () => {
-      if (props.isPrimaryPage) return;
-
-      let slug;
-      if (store.activeSlide) {
-        slug = store.activeSlide.slug;
-      } else {
-        slug = "";
-      }
-
-      return (
-        <Head>
-          <title>Case {slug} - {META.TITLE}</title>
-        </Head>
-      )
-    }
+    const { children, store, title, ...props } = this.props;
 
     return (
       <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
-        {renderHead()}
+        <Head>
+          <title>{title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.</title>
+        </Head>
         <Content id="more">
           {children}
         </Content>
