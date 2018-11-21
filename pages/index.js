@@ -1,5 +1,5 @@
 import React from 'react';
-import Work from 'components/Work';
+// import Work from 'components/Work';
 import Case from 'components/Case';
 import InstagramFeed from 'components/InstagramFeed';
 import styled from 'styled-components';
@@ -48,7 +48,7 @@ export default () => (
     </Section>
 
     <Section>
-      <Work textColor="black" />
+      {/* <Work textColor="black" /> */}
     </Section>
 
     <InstagramSection>
