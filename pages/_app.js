@@ -9,11 +9,25 @@ import { FONTS, META, TIMINGS } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
+import mobilecheck from 'utils/mobilecheck';
 
 @withReduxStore
 export default class MyApp extends App {
+  static async getInitialProps({Component, ctx}) {
+    const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
+    const isMobile = mobilecheck(userAgent);
+    
+    let pageProps = {}
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx)
+    }
+    
+    return { pageProps, isMobile }
+  }
+
   render () {
-    const { Component, pageProps, reduxStore } = this.props
+    const { Component, pageProps, reduxStore, isMobile } = this.props
+
     return (
       <Container>
         <Head>
@@ -26,7 +40,7 @@ export default class MyApp extends App {
           <link rel="canonical" href={META.CANONICAL} />
         </Head>
         <Provider store={reduxStore}>
-          <Layout>
+          <Layout isMobile={isMobile}>
             <TransitionGroup component={null}>
               <CSSTransition
                 key={this.props.router.route}

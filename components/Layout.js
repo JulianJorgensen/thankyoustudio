@@ -205,18 +205,27 @@ export default class Layout extends Component {
   }
 
   render() {
-    const { children } = this.props;
+    const { children, isMobile } = this.props;
+
+    if (isMobile) {
+      return (
+        <Wrapper>
+          <Header />
+          <Swipeable
+            onSwipedRight={this.handleSwipedRight}
+            onSwipedLeft={this.handleSwipedLeft}
+          >
+            {children}
+          </Swipeable>
+        </Wrapper>
+      )  
+    }
 
     return (
-      <Wrapper id="top">
+      <Wrapper>
         <Header />
-        <Swipeable
-          onSwipedRight={this.handleSwipedRight}
-          onSwipedLeft={this.handleSwipedLeft}
-        >
-          <Slider />
-          {children}
-        </Swipeable>
+        <Slider />
+        {children}
       </Wrapper>
     )
   }
