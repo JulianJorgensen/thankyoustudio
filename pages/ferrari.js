@@ -20,8 +20,8 @@ const Lead = styled.div`
   font-size: 25px;
 `
 
-export default () => (
-  <Case title="Ferrari">
+export default (props) => (
+  <Case title="Ferrari" isMobile={props.isMobile}>
     <Header black>
       <Title>Rrrrrrwww Ferrari distillery</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>

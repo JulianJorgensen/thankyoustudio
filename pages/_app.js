@@ -12,7 +12,6 @@ import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
 
 const Layout = dynamic(() => import('components/Layout'));
-const LayoutMobile = dynamic(() => import('components/LayoutMobile'));
 
 @withReduxStore
 export default class MyApp extends App {
@@ -33,7 +32,7 @@ export default class MyApp extends App {
 
     const renderLayout = () => {
       if (isMobile) return (
-        <LayoutMobile>
+        <Layout isMobile={isMobile}>
           <TransitionGroup component={null}>
             <CSSTransition
               key={this.props.router.route}
@@ -43,7 +42,7 @@ export default class MyApp extends App {
               <Component isMobile={isMobile} {...pageProps} />
             </CSSTransition>
           </TransitionGroup>
-        </LayoutMobile>
+        </Layout>
       )
 
       return (
