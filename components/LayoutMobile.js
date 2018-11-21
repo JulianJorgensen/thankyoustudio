@@ -6,6 +6,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import Swipeable from 'react-swipeable';
 import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
+import Slider from 'components/Slider';
 import * as actions from 'store/actions';
 import { TIMINGS } from 'utils/variables';
 import withAnalytics from 'utils/withAnalytics';
@@ -62,6 +63,7 @@ export default class LayoutMobile extends Component {
           onSwipedRight={this.handleSwipedRight}
           onSwipedLeft={this.handleSwipedLeft}
         >
+          <Slider />
           {children}
         </Swipeable>
       </Wrapper>
