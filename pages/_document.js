@@ -16,7 +16,6 @@ export default class MyDocument extends Document {
   }
 
   render () {
-    console.log('this.props.userAgent', this.props.userAgent);
     return (
       <html>
         <Head>
