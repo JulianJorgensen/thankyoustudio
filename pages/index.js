@@ -42,8 +42,8 @@ const InstagramSection = styled.div`
   margin-top: 220px;
 `
 
-export default () => (
-  <Case isPrimaryPage>
+export default (props) => (
+  <Case isPrimaryPage {...props}>
     <Section>
       <IdentifySimplifyAmplify />
     </Section>

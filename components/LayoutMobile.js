@@ -26,6 +26,19 @@ export default class LayoutMobile extends Component {
     this.scrollToTop = this.scrollToTop.bind(this);
   }
 
+  componentWillMount() {
+    const { dispatch, router } = this.props;
+    const url = router.asPath;
+    const urlExploded = url.split('/');
+    const currentPage = router.pathname.substr(1);
+
+    // update slide if its a case (or landing page)
+    const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
+    if (isCase) {
+      dispatch(actions.updateActiveSlide(currentPage));
+    }
+  }
+
   componentDidMount() {
     this.initFontObserver();
   }
