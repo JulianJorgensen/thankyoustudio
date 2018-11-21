@@ -9,7 +9,6 @@ import Footer from 'components/Footer';
 
 const Wrapper = styled.div`
   position: absolute;
-  top: 100vw;
   width: 100%;
   background-color: #fafafa;
   transition: transform ${TIMINGS.CASE_WRAPPER};
@@ -55,10 +54,15 @@ export default class Case extends Component {
   render() {
     const { children, store, title, ...props } = this.props;
 
+    const renderTitle = () => {
+      if (!title) return META.TITLE;
+      return `${title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.`;
+    }
+
     return (
       <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
         <Head>
-          <title>{title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.</title>
+          <title>{renderTitle()}</title>
         </Head>
         <Content id="more">
           {children}

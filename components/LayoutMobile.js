@@ -25,7 +25,6 @@ export default class LayoutMobile extends Component {
     this.scrollToTop = this.scrollToTop.bind(this);
   }
 
-
   componentDidMount() {
     this.initFontObserver();
   }

@@ -13,7 +13,6 @@ import media from 'utils/mediaQueries';
 import { TIMINGS } from 'utils/variables';
 
 const Slider = styled.div`
-  position: absolute;
   width: ${props => props.isCondensed ? '0%' : '100%'};
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
@@ -23,6 +22,7 @@ const Slider = styled.div`
   pointer-events: none;
 
   ${media.tablet`
+    position: absolute;
     height: 100vh;
   `}
 `

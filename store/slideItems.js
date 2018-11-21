@@ -3,7 +3,7 @@ export default [
     slug: ""
   },
   {
-    slug: "Swatch",
+    slug: "swatch",
     title: "Swatch",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
@@ -11,7 +11,7 @@ export default [
     whiteContent: true
   },
   {
-    slug: "Copenhagen",
+    slug: "copenhagen",
     title: "Copenhagen Distillery",
     subtitle: "Design. Experiences. Culture.",
     background: "white",
@@ -22,11 +22,11 @@ export default [
     title: "Romeo",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
-    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo.jpg",
+    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo-cover.jpg",
     whiteContent: true
   },
   {
-    slug: "Ferrari",
+    slug: "ferrari",
     title: "Ferrari",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
@@ -34,7 +34,7 @@ export default [
     whiteContent: true
   },
   {
-    slug: "Onea",
+    slug: "onea",
     title: "Onea",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
