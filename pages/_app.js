@@ -16,13 +16,13 @@ export default class MyApp extends App {
   static async getInitialProps({Component, ctx}) {
     const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
     const isMobile = mobilecheck(userAgent);
-    
-    let pageProps = {}
+
+    let pageProps = {};
     if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+      pageProps = await Component.getInitialProps(ctx);
     }
     
-    return { pageProps, isMobile }
+    return { pageProps, isMobile };
   }
 
   render () {
