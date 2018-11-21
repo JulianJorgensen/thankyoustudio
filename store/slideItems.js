@@ -15,7 +15,7 @@ export default [
     title: "Copenhagen Distillery",
     subtitle: "Design. Experiences. Culture.",
     background: "white",
-    image: 'https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg'
+    image: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg'
   },
   {
     slug: "romeo",
@@ -30,7 +30,7 @@ export default [
     title: "Ferrari",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
-    image: 'https://thankyoustudio.com/wp-content/uploads/2016/10/framegrabs3-1448383495270-1920.jpg',
+    image: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg',
     whiteContent: true
   },
   {
@@ -38,7 +38,7 @@ export default [
     title: "Onea",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
-    image: 'https://thankyoustudio.com/wp-content/uploads/2017/05/thumb-1.jpg',
+    image: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',
     whiteContent: true
   },
 ];

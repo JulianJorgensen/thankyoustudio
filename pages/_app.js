@@ -40,7 +40,7 @@ export default class MyApp extends App {
           <link rel="canonical" href={META.CANONICAL} />
         </Head>
         <Provider store={reduxStore}>
-          <Layout isMobile={isMobile}>
+          <Layout isMobile={true}>
             <TransitionGroup component={null}>
               <CSSTransition
                 key={this.props.router.route}
