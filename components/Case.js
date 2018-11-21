@@ -59,7 +59,7 @@ export default class Case extends Component {
       if (props.isPrimaryPage) return;
 
       let slug;
-      if (store.activeSlide.slug) {
+      if (store.activeSlide) {
         slug = store.activeSlide.slug;
       } else {
         slug = "";
