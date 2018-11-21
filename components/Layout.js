@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
-import Swipeable from 'react-swipeable';
 import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
@@ -75,14 +74,6 @@ export default class Layout extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
     clearTimeout(this.autoScroll);
-  }
-
-  handleSwipedLeft() {
-    alert("You Swiped left")
-  }
-
-  handleSwipedRight() {
-    alert("You Swiped right")
   }
 
   handleScroll() {
@@ -205,21 +196,7 @@ export default class Layout extends Component {
   }
 
   render() {
-    const { children, isMobile } = this.props;
-
-    if (isMobile) {
-      return (
-        <Wrapper>
-          <Header />
-          <Swipeable
-            onSwipedRight={this.handleSwipedRight}
-            onSwipedLeft={this.handleSwipedLeft}
-          >
-            {children}
-          </Swipeable>
-        </Wrapper>
-      )  
-    }
+    const { children } = this.props;
 
     return (
       <Wrapper>

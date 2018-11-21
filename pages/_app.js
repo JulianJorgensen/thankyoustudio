@@ -1,15 +1,18 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import withReduxStore from 'store/with-redux-store';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import Layout from 'components/Layout';
 import { FONTS, META, TIMINGS } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
+
+const Layout = dynamic(() => import('components/Layout'));
+const LayoutMobile = dynamic(() => import('components/LayoutMobile'));
 
 @withReduxStore
 export default class MyApp extends App {
@@ -28,6 +31,36 @@ export default class MyApp extends App {
   render () {
     const { Component, pageProps, reduxStore, isMobile } = this.props
 
+    const renderLayout = () => {
+      if (isMobile) return (
+        <LayoutMobile>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              key={this.props.router.route}
+              classNames='fade'
+              timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
+            >
+              <Component {...pageProps} />
+            </CSSTransition>
+          </TransitionGroup>
+        </LayoutMobile>
+      )
+
+      return (
+        <Layout>
+          <TransitionGroup component={null}>
+            <CSSTransition
+              key={this.props.router.route}
+              classNames='fade'
+              timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
+            >
+              <Component {...pageProps} />
+            </CSSTransition>
+          </TransitionGroup>
+        </Layout>
+      )
+    }
+
     return (
       <Container>
         <Head>
@@ -40,17 +73,7 @@ export default class MyApp extends App {
           <link rel="canonical" href={META.CANONICAL} />
         </Head>
         <Provider store={reduxStore}>
-          <Layout isMobile={isMobile}>
-            <TransitionGroup component={null}>
-              <CSSTransition
-                key={this.props.router.route}
-                classNames='fade'
-                timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
-              >
-                <Component {...pageProps} />
-              </CSSTransition>
-            </TransitionGroup>
-          </Layout>
+          {renderLayout()}
         </Provider>
         <style jsx global>{`
           @font-face {
