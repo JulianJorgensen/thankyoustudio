@@ -44,7 +44,6 @@ export const TIMINGS = {
   SCROLL_TO_TOP: 480, // the number has to be less than the slider animation to prevent a flickering
   SET_AUTO_SCROLL_TIMEOUT: 6000,
   SCROLL_DURATION: 500,
-  FULL_SCREEN_VIDEO_DURATION: 3800
 }
 
 // slow motion timings
@@ -59,7 +58,6 @@ export const TIMINGS = {
 //   SCROLL_TO_TOP: 48000, // the number has to be less than the slider animation to prevent a flickering
 //   SET_AUTO_SCROLL_TIMEOUT: 6000,
 //   SCROLL_DURATION: 50000,
-//   FULL_SCREEN_VIDEO_DURATION: 3800
 // }
 
 export const INSTAGRAM = {

@@ -19,21 +19,11 @@ const Wrapper = styled.div`
   color: black;
 `
 
-const FullscreenVideo = styled.video`
-  position: fixed;
-  min-height: 100%;
-  min-width: 100vw;
-  z-index: 100;
-`
-
-const MaskedVideo = styled.video`
-  transform: scale(1.1);
+const LandingVideo = styled.video`
+  position: absolute;
+  left: 0;
+  top: 0;
   height: 100%;
-
-  ${props => props.show && `
-    transform: scale(1);
-    transition: transform 2s ${EASINGS.EASE_OUT_QUAD};
-  `}
 `
 
 const FullReelWrapper = styled.div`
@@ -149,11 +139,6 @@ export default class LandingSlide extends Component {
 
   componentDidMount() {
     this.initLogosAutoRotate();
-    setTimeout(() => {
-      this.setState({
-        hideFullscreenVideo: true
-      });
-    }, TIMINGS.FULL_SCREEN_VIDEO_DURATION);
   }
 
   initLogosAutoRotate() {
@@ -183,14 +168,10 @@ export default class LandingSlide extends Component {
 
   render() {
     const { fontsLoaded } = this.props;
-    const { hideFullscreenVideo, playFullReel } = this.state;
+    const { playFullReel } = this.state;
 
     return (
       <Wrapper>
-        <FullscreenVideo hidden={hideFullscreenVideo} playsInline muted autoPlay>
-          <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/thanyou_landing-cut.mp4" type="video/mp4" />
-        </FullscreenVideo>
-
         <FullReelWrapper show={playFullReel}>
           <FullReel ref={el => this.fullReelEl = el} playsInline>
             <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel18.mp4" type="video/mp4" />
@@ -199,9 +180,9 @@ export default class LandingSlide extends Component {
         </FullReelWrapper>
 
         <Content hide={playFullReel}>
-          <MaskedVideo show={hideFullscreenVideo} playsInline autoPlay muted loop>
-            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANYOU_LANDING_08_PART2.mp4" type="video/mp4" />
-          </MaskedVideo>
+          <LandingVideo playsInline autoPlay muted>
+            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_14_1.mp4" type="video/mp4" />
+          </LandingVideo>
 
           {/* <Logos>
             {
