@@ -56,6 +56,5 @@ export default (props) => (
       <h3>Work is fun!</h3>
       <InstagramFeed />
     </InstagramSection>
-
   </Case>
 )

@@ -40,7 +40,7 @@ export default class MyApp extends App {
               classNames='fade'
               timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
             >
-              <Component {...pageProps} />
+              <Component isMobile={isMobile} {...pageProps} />
             </CSSTransition>
           </TransitionGroup>
         </LayoutMobile>
@@ -54,7 +54,7 @@ export default class MyApp extends App {
               classNames='fade'
               timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
             >
-              <Component isMobile={isMobile} {...pageProps} />
+              <Component {...pageProps} />
             </CSSTransition>
           </TransitionGroup>
         </Layout>

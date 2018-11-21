@@ -136,7 +136,7 @@ const BusVideo = styled(Video)`
 export default class Swatch extends React.Component {
   render() {
     return (
-      <Case title="Swatch" isMobile={this.props.isMobile}>
+      <Case title="Swatch" isMobile={true}>
         <CaseContent intro>
           <Row>
             <Col large>
