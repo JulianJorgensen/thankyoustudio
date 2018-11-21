@@ -212,6 +212,7 @@ export default class Layout extends Component {
         onSwipedRight={this.handleSwipedRight}
         onSwipedLeft={this.handleSwipedLeft}
       >
+        <Header />
         <Slider />
         {children}
       </Swipeable>
