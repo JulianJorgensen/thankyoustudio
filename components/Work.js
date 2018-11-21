@@ -118,7 +118,7 @@ export default (props) => (
 
       <Link href="/onea" as="/work/onea" scroll={false}>
         <WorkItem vertical={1} alignright={1}>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/05/thumb-1.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Onea test</WorkItemTitle>
             <WorkItemTags>
@@ -132,7 +132,7 @@ export default (props) => (
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
         <WorkItem vertical={1} alignright={1}>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
             <WorkItemTags>
@@ -147,7 +147,7 @@ export default (props) => (
 
       <Link href="/ferrari" as="/work/ferrari" scroll={false}>
         <WorkItem vertical={1} alignright={1} whitecontent={1}>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2016/10/framegrabs3-1448383495270-1920.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Ferrari</WorkItemTitle>
             <WorkItemTags>
@@ -175,7 +175,7 @@ export default (props) => (
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
         <WorkItem vertical={1}>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
             <WorkItemTags>
@@ -203,7 +203,7 @@ export default (props) => (
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
         <WorkItem vertical={1}>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/01/thumb_03.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
             <WorkItemTags>
@@ -217,7 +217,7 @@ export default (props) => (
 
       <Link href="/onea" as="/work/onea" scroll={false}>
         <WorkItem horizontal={1} whitecontent={1}>
-          <WorkItemImage src="https://thankyoustudio.com/wp-content/uploads/2017/05/thumb-1.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Onea</WorkItemTitle>
             <WorkItemTags>
