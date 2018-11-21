@@ -30,36 +30,6 @@ export default class MyApp extends App {
   render () {
     const { Component, pageProps, reduxStore, isMobile } = this.props
 
-    const renderLayout = () => {
-      if (isMobile) return (
-        <Layout isMobile={isMobile}>
-          <TransitionGroup component={null}>
-            <CSSTransition
-              key={this.props.router.route}
-              classNames='fade'
-              timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
-            >
-              <Component isMobile={isMobile} {...pageProps} />
-            </CSSTransition>
-          </TransitionGroup>
-        </Layout>
-      )
-
-      return (
-        <Layout>
-          <TransitionGroup component={null}>
-            <CSSTransition
-              key={this.props.router.route}
-              classNames='fade'
-              timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
-            >
-              <Component {...pageProps} />
-            </CSSTransition>
-          </TransitionGroup>
-        </Layout>
-      )
-    }
-
     return (
       <Container>
         <Head>
@@ -72,7 +42,17 @@ export default class MyApp extends App {
           <link rel="canonical" href={META.CANONICAL} />
         </Head>
         <Provider store={reduxStore}>
-          {renderLayout()}
+          <Layout isMobile={isMobile}>
+            <TransitionGroup component={null}>
+              <CSSTransition
+                key={this.props.router.route}
+                classNames='fade'
+                timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
+              >
+                <Component isMobile={isMobile} {...pageProps} />
+              </CSSTransition>
+            </TransitionGroup>
+          </Layout>
         </Provider>
         <style jsx global>{`
           @font-face {
