@@ -22,9 +22,7 @@ export default class LayoutMobile extends Component {
   constructor() {
     super();
 
-    this.initRouterEventListeners = this.initRouterEventListeners.bind(this);
     this.scrollToTop = this.scrollToTop.bind(this);
-    this.handleScroll = this.handleScroll.bind(this);
   }
 
 
