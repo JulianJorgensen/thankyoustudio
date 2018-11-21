@@ -1,5 +1,5 @@
 import React from 'react';
-// import Work from 'components/Work';
+import dynamic from 'next/dynamic'
 import Case from 'components/Case';
 import InstagramFeed from 'components/InstagramFeed';
 import styled from 'styled-components';
@@ -7,6 +7,7 @@ import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
 import { LAYOUT } from 'utils/variables';
 import media from 'utils/mediaQueries';
 
+const Work = dynamic(import('components/Work'));
 
 const Section = styled.div`
   padding: 100px ${LAYOUT.MOBILE.EDGE_MARGIN};
@@ -48,7 +49,7 @@ export default () => (
     </Section>
 
     <Section>
-      {/* <Work textColor="black" /> */}
+      <Work textColor="black" />
     </Section>
 
     <InstagramSection>
