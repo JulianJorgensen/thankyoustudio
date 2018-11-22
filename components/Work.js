@@ -36,9 +36,6 @@ const WorkItem = styled(LazyShow)`
   ${media.tablet `
     margin-bottom: 50px;
     height: 750px;
-    &:first-child {
-      margin-top: 200px;
-    }
   `}
 
   li {
@@ -196,7 +193,7 @@ export default (props) => (
 
       <Link href="/romeo" as="/work/romeo" scroll={false}>
         <WorkItem square={1}>
-          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo.jpg" />
+          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Romeo</WorkItemTitle>
             <WorkItemTags>

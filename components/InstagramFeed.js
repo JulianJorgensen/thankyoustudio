@@ -3,21 +3,29 @@ import styled from 'styled-components';
 import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
 import { EASINGS, INSTAGRAM } from 'utils/variables';
-import Observer from 'react-intersection-observer';
+import dynamic from 'next/dynamic';
 
-const Wrapper = styled(Observer)`
+const Observer = dynamic(import('react-intersection-observer'), {
+  ssr: false
+});
+
+const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  padding-top: 220px;
+  margin-top: 220px;
+  height: 500px;
+  background-color: black;
 `
 
 const Posts = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   width: 100%;
+  transition: opacity 1s;
+  opacity: ${props => props.active ? '1' : '0'};
 
   ${media.tablet`
     grid-template-columns: auto auto auto;
@@ -98,7 +106,7 @@ export default class InstagramFeed extends Component {
       if (!posts) return;
       return (
         posts.map((post) => (
-          <Post key={post.id}>
+          <Post key={post.id} active>
             <PostImage imageLowRes={post.images.low_resolution.url} />
             <PostContent>{post.caption.text}</PostContent>
           </Post>
@@ -107,12 +115,14 @@ export default class InstagramFeed extends Component {
     }
 
     return (
-      <Wrapper onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
-        <h3>Work is fun!</h3>
-        <Posts>
-          {renderPosts()}
-        </Posts>
-      </Wrapper>
+      <Observer onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
+        <Wrapper>
+          <h3>Work is fun!</h3>
+          <Posts active={posts}>
+            {renderPosts()}
+          </Posts>
+        </Wrapper>
+      </Observer> 
     )
   }
 }
