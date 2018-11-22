@@ -28,8 +28,6 @@ export default class LazyShow extends Component {
   }
 
   handleOnChange(inView) {
-    if (!inView) return;
-
     this.setState({
       inView
     });
@@ -42,7 +40,7 @@ export default class LazyShow extends Component {
 
     return (
       <Wrapper inview={this.state.inView ? 1 : 0}>
-        <Observer {...props} tag="div" onChange={this.handleOnChange}>
+        <Observer {...props} tag="div" onChange={this.handleOnChange} triggerOnce={true}>
           {children}
         </Observer>
       </Wrapper>

@@ -3,6 +3,16 @@ import styled from 'styled-components';
 import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
 import { EASINGS, INSTAGRAM } from 'utils/variables';
+import Observer from 'react-intersection-observer';
+
+const Wrapper = styled(Observer)`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 220px;
+`
 
 const Posts = styled.div`
   display: grid;
@@ -61,12 +71,20 @@ export default class InstagramFeed extends Component {
     super();
 
     this.state = {};
+    this.handleIsInView = this.handleIsInView.bind(this);
+    this.loadInstagramFeed = this.loadInstagramFeed.bind(this);
   }
 
-  async componentDidMount() {
+  handleIsInView(inView) {
+    if (inView) {
+      console.log('handle is in view');
+      this.loadInstagramFeed();  
+    }
+  }
+
+  async loadInstagramFeed() {
     const res = await Fetch(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${INSTAGRAM.ACCESS_TOKEN}&count=${INSTAGRAM.NUMBER_OF_POSTS}`);
     const data = await res.json();
-    console.log('data', data);
 
     this.setState({
       posts: data.data
@@ -76,21 +94,25 @@ export default class InstagramFeed extends Component {
   render() {
     const { posts } = this.state;
 
-    if (!posts) {
+    const renderPosts = () => {
+      if (!posts) return;
       return (
-        <div></div>
-      )
-    }
-
-    return (
-      <Posts>
-        {posts.map((post) => (
+        posts.map((post) => (
           <Post key={post.id}>
             <PostImage imageLowRes={post.images.low_resolution.url} />
             <PostContent>{post.caption.text}</PostContent>
           </Post>
-        ))}
-      </Posts>
+        ))
+      )
+    }
+
+    return (
+      <Wrapper onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
+        <h3>Work is fun!</h3>
+        <Posts>
+          {renderPosts()}
+        </Posts>
+      </Wrapper>
     )
   }
 }

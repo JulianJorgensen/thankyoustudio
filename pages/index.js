@@ -4,10 +4,10 @@ import Case from 'components/Case';
 import styled from 'styled-components';
 import { LAYOUT } from 'utils/variables';
 import media from 'utils/mediaQueries';
+import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
 
 const Work = dynamic(import('components/Work'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
-const IdentifySimplifyAmplify = dynamic(import('components/IdentifySimplifyAmplify'));
 
 const Section = styled.div`
   padding: 100px ${LAYOUT.MOBILE.EDGE_MARGIN};
@@ -33,28 +33,14 @@ const Lead = styled.div`
   font-size: 25px;
 `
 
-const InstagramSection = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  margin-top: 220px;
-`
-
 export default (props) => (
   <Case isPrimaryPage {...props}>
     <Section>
       <IdentifySimplifyAmplify />
     </Section>
+    
+    <Work textColor="black" />
 
-    <Section>
-      {/* <Work textColor="black" /> */}
-    </Section>
-
-    <InstagramSection>
-      <h3>Work is fun!</h3>
-      <InstagramFeed />
-    </InstagramSection>
+    <InstagramFeed />
   </Case>
 )

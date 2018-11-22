@@ -15,24 +15,27 @@ const Wrapper = styled.div`
 
 const WorkItems = styled.div`
   width: 100%;
+  column-count: 2;
+  column-gap: 30px;
+  break-inside: avoid-column;
 
   ${media.tablet `
-    column-count: 2;
     column-gap: 50px;
-    break-inside: avoid-column;
   `}
 `
 
 const WorkItem = styled(LazyShow)`
   position: relative;
   break-inside: avoid-column;
-  height: 750px;
-  margin-bottom: 50px;
+  height: 350px;
+  margin-bottom: 30px;
   cursor: pointer;
   overflow: hidden;
   color: ${props => props.whitecontent ? 'white' : 'black'};
 
   ${media.tablet `
+    margin-bottom: 50px;
+    height: 750px;
     &:first-child {
       margin-top: 200px;
     }
@@ -52,7 +55,11 @@ const WorkItem = styled(LazyShow)`
 
   ${props => props.horizontal && `
     width: 100%;
-    height: 525px;
+    height: 250px;
+
+    ${media.tablet `
+      height: 525px;
+    `}
   `}
 
   ${props => props.square && `
