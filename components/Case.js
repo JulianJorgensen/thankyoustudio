@@ -13,11 +13,7 @@ const Wrapper = styled.div`
   position: absolute;
   width: 100%;
   background-color: #fafafa;
-  transition: transform ${TIMINGS.CASE_WRAPPER};
-
-  ${media.tablet`
-    top: 100vh;
-  `}
+  overflow: hidden;
 `
 
 // ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
@@ -79,8 +75,22 @@ export default class Case extends Component {
         </Content>
         <Footer />
         <style jsx global>{`
+          .fade-enter.case-page {
+            position: fixed;
+            width: 0;
+            top: 0;
+            right: 0;
+          }
+
+          .fade-enter-active.case-page {
+            width: 100vw;
+            transition: width ${TIMINGS.SLIDE_ITEM_WRAPPER} ${EASINGS.EASE_IN_OUT_CUSTOM};
+            z-index: 99;
+          }
+
           .fade-exit.case-page {
             transform: translateX(0px);
+            transition: transform ${TIMINGS.SLIDE_ITEM_WRAPPER} ${EASINGS.EASE_IN_OUT_CUSTOM};
           }
 
           .fade-exit-active.case-page {

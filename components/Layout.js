@@ -6,7 +6,7 @@ import { animateScroll as scroll } from 'react-scroll';
 import Swipeable from 'react-swipeable';
 import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
-import Slider from 'components/Slider';
+// import Slider from 'components/Slider';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
 import { TIMINGS } from 'utils/variables';
@@ -220,7 +220,7 @@ export default class Layout extends Component {
     return (
       <Wrapper>
         <Header />
-        <Slider />
+        {/* <Slider /> */}
         {children}
       </Wrapper>
     )

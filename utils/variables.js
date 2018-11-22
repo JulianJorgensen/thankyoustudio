@@ -47,7 +47,7 @@ export const TIMINGS = {
 }
 
 // slow motion timings
-// export const timings = {
+// export const TIMINGS = {
 //   CASE_WRAPPER: '50s',
 //   DEFAULT_PAGE_WRAPPER: '50s',  
 //   SLIDE_ITEM_WRAPPER: '50s',

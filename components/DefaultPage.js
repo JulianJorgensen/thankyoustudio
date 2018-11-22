@@ -81,7 +81,7 @@ export default class DefaultPage extends Component {
           }
 
           .fade-exit.default-page .content {
-            opacity: 0;
+            // opacity: 0;
           }
 
           .fade-exit-active.default-page {

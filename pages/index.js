@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { LAYOUT } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
+import Hero from 'components/Hero';
 
 const Work = dynamic(import('components/Work'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
@@ -35,6 +36,15 @@ const Lead = styled.div`
 
 export default (props) => (
   <Case isPrimaryPage whiteContent {...props}>
+    <Hero
+      title="Thank you"
+      subtitle="test"
+      image=""
+      isActive={true}
+      fontsLoaded={true}
+      contentColor="black"
+    />
+
     <Section>
       <IdentifySimplifyAmplify />
     </Section>

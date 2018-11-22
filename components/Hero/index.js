@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import { EASINGS } from 'utils/variables';
-import Video from 'components/Video';
-import LowerleftContent from '../../Hero/components/LowerLeftContent';
+import LowerleftContent from './components/LowerLeftContent';
 import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
+  position: relative;
   width: 100%;
-  height: 100%;
+  height: 100vh;
 `
 
 const Image = styled.div`
@@ -32,14 +32,9 @@ const Image = styled.div`
   `}
 `
 
-const StyledVideo = styled(Video)`
-  opacity: 0.5;
-`
-
-export default ({ title, subtitle, image, vimeoId, isActive, isNext, fontsLoaded, contentColor }) => (
+export default ({ title, subtitle, image, isActive, isNext, fontsLoaded, contentColor }) => (
   <Wrapper>
     <LowerleftContent title={title} subtitle={subtitle} isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} contentColor={contentColor} />
     <Image isNext={isNext} isActive={isActive} image={image} />
-    {vimeoId ? <StyledVideo vimeoId={vimeoId} isActive={isActive} background sliderVideo /> : ''}
   </Wrapper>
 )

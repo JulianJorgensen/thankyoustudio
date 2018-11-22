@@ -11,6 +11,8 @@ import SwatchAirportImg from 'assets/images/swatch-airport.jpg';
 import SwatchPhotoshoot from 'assets/images/swatch-photoshoot.jpg';
 import SwatchPoster from 'assets/images/swatch_start_1-poster.jpg';
 import ThankYou from 'components/ThankYou';
+import Hero from 'components/Hero';
+
 
 const CaseContent = styled.div`
   position: relative;
@@ -137,6 +139,15 @@ export default class Swatch extends React.Component {
   render() {
     return (
       <Case title="Swatch" isMobile={this.props.isMobile}>
+      <Hero
+        title="Swatch"
+        subtitle="test"
+        image="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg"
+        isActive={true}
+        fontsLoaded={true}
+        contentColor="white"
+      />
+
         <CaseContent intro>
           <Row>
             <Col large>

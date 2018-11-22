@@ -10,7 +10,7 @@ import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
 import media from 'utils/mediaQueries';
-import { TIMINGS } from 'utils/variables';
+import { EASINGS, TIMINGS } from 'utils/variables';
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
@@ -22,7 +22,7 @@ const Slider = styled.div`
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
-  transition: width ${TIMINGS.SLIDER};
+  transition: width ${TIMINGS.SLIDER} ${EASINGS.EASE_IN_OUT_CUSTOM};
   pointer-events: none;
 
   ${media.tablet`
@@ -55,16 +55,6 @@ const BackButton = styled.div`
       transition: fill 0.2s;
     }
   }
-`
-
-const ShowNextSlideZone = styled.div`
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 10vw;
-  pointer-events: auto;
 `
 
 @withRouter
@@ -108,7 +98,7 @@ export default class FancySlider extends Component {
       prevSlide = SlideItems[store.activeSlide.index - 1];
     }
 
-    dispatch(actions.setHasMouseLeftNextSlide(true));
+    // dispatch(actions.setHasMouseLeftNextSlide(true));
     dispatch(actions.setAutoScroll(false));
 
     Router.push({
@@ -142,8 +132,9 @@ export default class FancySlider extends Component {
   }
 
   handleNextMouseLeave() {
-    const { dispatch, router } = this.props;
+    const { dispatch, router, store } = this.props;
 
+    if (store.isSliding) return;
     dispatch(actions.setHasMouseLeftNextSlide(true));
   }
 

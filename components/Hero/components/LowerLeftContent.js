@@ -68,7 +68,7 @@ const SubTitle = styled.h2`
   font-weight: 300;
   font-family: ${FONTS.PRIMARY};
   margin-top: 6px;
-  opacity: ${props => props.isNext ? '0' : '1'};
+  opacity: ${props => props.isNext || props.hide ? '0' : '1'};
   transition: opacity 0.2s;
 
   ${media.tablet`
@@ -133,9 +133,9 @@ export default class LowerLeftContent extends Component {
     if (scrollTop > 1000) return;
 
     if (scrollTop > 80) {
-      this.setState({ hideCta: true });
+      this.setState({ hideSubtitle: true });
     } else {
-      this.setState({ hideCta: false });
+      this.setState({ hideSubtitle: false });
     }
     if (!this.headerEl) return;
     this.headerAnimation = TweenLite.set(this.headerEl, {top: scrollTop/3});
@@ -149,7 +149,7 @@ export default class LowerLeftContent extends Component {
         <Content isActive={isActive}>
           <Header ref={div => this.headerEl = div}>
             <Title>{title}</Title>
-            <SubTitle isNext={isNext}>{subtitle}</SubTitle>
+            <SubTitle hide={this.state.hideSubtitle} isNext={isNext}>{subtitle}</SubTitle>
           </Header>
         </Content>
       </Wrapper>
