@@ -13,17 +13,15 @@ import media from 'utils/mediaQueries';
 import { TIMINGS } from 'utils/variables';
 
 const Slider = styled.div`
-  display: none;
+  height: 100vw;
   width: ${props => props.isCondensed ? '0%' : '100%'};
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
   transition: width ${TIMINGS.SLIDER};
-  height: 100vw;
   pointer-events: none;
 
   ${media.tablet`
-    display: block;
     position: absolute;
     height: 100vh;
   `}
@@ -194,6 +192,9 @@ export default class FancySlider extends Component {
               SlideItems.map((SlideItemData, i) => {
                 const isActive = activeSlide.index === i;
 
+                // if mobile only show the active slide
+                if (this.props.isMobile && !isActive) return;
+
                 // detect if is previous
                 let isPrevious;
                 if (activeSlide.index === 0) {
@@ -224,7 +225,6 @@ export default class FancySlider extends Component {
                     slug={SlideItemData.slug}
                     title={SlideItemData.title}
                     subtitle={SlideItemData.subtitle}
-                    vimeoId={SlideItemData.vimeoId}
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     onCtaClickHandler={this.onCtaClick}
                     isPrevious={isPrevious}

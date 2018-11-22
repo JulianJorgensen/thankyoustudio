@@ -49,7 +49,7 @@ export default (props) => (
     </Section>
 
     <Section>
-      <Work textColor="black" />
+      {/* <Work textColor="black" /> */}
     </Section>
 
     <InstagramSection>

@@ -6,7 +6,6 @@ import { scroller } from 'react-scroll'
 import { EASINGS, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Footer from 'components/Footer';
-import MobileHero from 'components/MobileHero';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -65,7 +64,6 @@ export default class Case extends Component {
         <Head>
           <title>{renderTitle()}</title>
         </Head>
-        {props.isMobile ? <MobileHero /> : ''}
         <Content id="more">
           {children}
         </Content>
