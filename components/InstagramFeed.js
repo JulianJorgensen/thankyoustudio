@@ -16,15 +16,19 @@ const Wrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin-top: 220px;
-  height: 500px;
+  min-height: 600px;
   background-color: black;
+
+  ${media.tablet`
+    min-height: 500px;
+  `}
 `
 
 const Posts = styled.div`
   display: grid;
   grid-template-columns: auto auto;
   width: 100%;
-  transition: opacity 1s;
+  transition: opacity 0.6s;
   opacity: ${props => props.active ? '1' : '0'};
 
   ${media.tablet`
@@ -38,8 +42,12 @@ const Posts = styled.div`
 
 const Post = styled.div`
   position: relative;
-  height: 250px;
+  height: 150px;
   overflow: hidden;
+
+  ${media.tablet`
+    height: 250px;
+  `}
 `
 
 const PostImage = styled.div`
