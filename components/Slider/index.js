@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import dynamic from 'next/dynamic';
 import Router, { withRouter } from 'next/router';
 import styled from 'styled-components';
-import Observer from 'react-intersection-observer';
 import { animateScroll as scroll } from 'react-scroll'
 
 import SlideItem from './components/SlideItem';
@@ -11,6 +11,10 @@ import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
 import media from 'utils/mediaQueries';
 import { TIMINGS } from 'utils/variables';
+
+const Observer = dynamic(import('react-intersection-observer'), {
+  ssr: false
+});
 
 const Slider = styled.div`
   height: 100vw;

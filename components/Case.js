@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Head from 'next/head';
+import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll'
 import { EASINGS, META, TIMINGS } from 'utils/variables';
@@ -42,6 +43,11 @@ export default class Case extends Component {
     super();
 
     this.handleOnScrollCtaClick = this.handleOnScrollCtaClick.bind(this);
+  }
+
+  componentDidMount() {
+    // require polyfill for intersection observer only in client side
+    require('intersection-observer');
   }
 
   handleOnScrollCtaClick() {

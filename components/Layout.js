@@ -148,9 +148,6 @@ export default class Layout extends Component {
 
   routeChangeDefault() {
     const { dispatch, store } = this.props;
-    const activeSlide = store.activeSlide;
-
-    console.log('route change default');
 
     dispatch(actions.condenseSlider(true));
     dispatch(actions.setHasMouseLeftNextSlide(true));
