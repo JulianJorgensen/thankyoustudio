@@ -125,7 +125,6 @@ export default class InstagramFeed extends Component {
     return (
       <Observer onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
         <Wrapper>
-          <h3>Work is fun!</h3>
           <Posts active={posts}>
             {renderPosts()}
           </Posts>

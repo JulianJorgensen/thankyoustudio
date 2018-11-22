@@ -4,6 +4,7 @@ import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import { scroller } from 'react-scroll'
+import * as actions from 'store/actions';
 import { EASINGS, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Footer from 'components/Footer';
@@ -48,6 +49,9 @@ export default class Case extends Component {
   componentDidMount() {
     // require polyfill for intersection observer only in client side
     require('intersection-observer');
+
+    const { dispatch, whiteContent } = this.props;
+    if (whiteContent) dispatch(actions.setNavColorWhite(true));
   }
 
   handleOnScrollCtaClick() {

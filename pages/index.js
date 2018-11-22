@@ -34,7 +34,7 @@ const Lead = styled.div`
 `
 
 export default (props) => (
-  <Case isPrimaryPage {...props}>
+  <Case isPrimaryPage whiteContent {...props}>
     <Section>
       <IdentifySimplifyAmplify />
     </Section>
