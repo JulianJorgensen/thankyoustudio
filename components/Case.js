@@ -9,6 +9,8 @@ import { EASINGS, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Footer from 'components/Footer';
 
+const MobileHero = dynamic(import('components/MobileHero'));
+
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
@@ -61,6 +63,7 @@ export default class Case extends Component {
         <Head>
           <title>{renderTitle()}</title>
         </Head>
+        {!props.isMobile ? <MobileHero /> : ''}
         <Content>
           {children}
         </Content>

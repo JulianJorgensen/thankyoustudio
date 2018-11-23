@@ -17,6 +17,7 @@ const Observer = dynamic(import('react-intersection-observer'), {
 });
 
 const Slider = styled.div`
+  display: none;
   height: 100vw;
   width: ${props => props.isCondensed ? '0%' : '100%'};
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
@@ -26,6 +27,7 @@ const Slider = styled.div`
   pointer-events: none;
 
   ${media.tablet`
+    display: block;
     position: absolute;
     height: 100vh;
   `}
