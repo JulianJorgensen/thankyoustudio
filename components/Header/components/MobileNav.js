@@ -8,9 +8,8 @@ const Wrapper = styled.nav`
   z-index: 99;
   top: 0;
   left: 0;
-  height: 80vh;
+  height: 0;
   width: 100%;
-  padding: 40px;
   transform: translateY(-100%);
   background-color: gray;
   transition: all 0.4s ${EASINGS.EASE_IN_OUT_QUAD};
@@ -18,8 +17,10 @@ const Wrapper = styled.nav`
   display: flex;
   align-items: center;
   font-family: ${FONTS.PRIMARY};
+  overflow: hidden;
 
   ${props => props.active && `
+    height: 80vh;
     transform: translateY(0);
     background-color: black;
   `}
@@ -31,6 +32,7 @@ const Nav = styled.nav`
   text-align: left;
   font-size: 30px;
   pointer-events: auto;
+  padding: 40px;
 `
 
 const NavItem = styled.li`

@@ -3,20 +3,16 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
-import Swipeable from 'react-swipeable';
-import FontFaceObserver from 'fontfaceobserver';
 import Header from 'components/Header';
 import Slider from 'components/Slider';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
 import { TIMINGS } from 'utils/variables';
-import withAnalytics from 'utils/withAnalytics';
 
 const Wrapper = styled.div`
 `
 
 @withRouter
-@withAnalytics
 @connect((store) => ({
   store,
 }))
@@ -56,12 +52,6 @@ export default class Layout extends Component {
   componentDidMount() {
     this.initRouterEventListeners();
     window.addEventListener('scroll', this.handleScroll);
-
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 150);
-
-    this.initFontObserver();
   }
 
   componentDidUpdate(oldProps) {
@@ -82,14 +72,6 @@ export default class Layout extends Component {
 
     // prevent autoscroll
     clearTimeout(this.autoScroll);
-  }
-
-  initFontObserver() {
-    const font = new FontFaceObserver('Helvetica Neue')
-
-    font.load().then(() => {
-      this.props.dispatch(actions.confirmFontsLoaded());
-    });
   }
 
   initRouterEventListeners() {
@@ -193,29 +175,8 @@ export default class Layout extends Component {
     }, TIMINGS.SET_AUTO_SCROLL_TIMEOUT);
   }
 
-  handleSwipedLeft() {
-    alert("You Swiped left")
-  }
-
-  handleSwipedRight() {
-    alert("You Swiped right")
-  }
-
   render() {
-    const { children, isMobile } = this.props;
-
-    if (isMobile) return (
-      <Swipeable
-        onSwipedRight={this.handleSwipedRight}
-        onSwipedLeft={this.handleSwipedLeft}
-      >
-        <Wrapper>
-          <Header />
-          <Slider isMobile={isMobile} />
-          {children}
-        </Wrapper>
-      </Swipeable>
-    )
+    const { children } = this.props;
 
     return (
       <Wrapper>

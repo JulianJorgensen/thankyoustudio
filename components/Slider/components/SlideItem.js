@@ -31,7 +31,7 @@ const Wrapper = styled.div`
   `}
 
   ${props => props.isPrevious && props.isSliding && `
-    overflow: visible;
+    // overflow: visible;
   `}
 
   ${props => props.isNext && `

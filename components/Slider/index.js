@@ -10,7 +10,7 @@ import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
 import media from 'utils/mediaQueries';
-import { TIMINGS } from 'utils/variables';
+import { EASINGS, TIMINGS } from 'utils/variables';
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
@@ -22,7 +22,7 @@ const Slider = styled.div`
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
-  transition: width ${TIMINGS.SLIDER};
+  transition: width ${TIMINGS.SLIDER} ${EASINGS.EASE_IN_OUT_CUSTOM};
   pointer-events: none;
 
   ${media.tablet`

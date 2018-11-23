@@ -40,25 +40,12 @@ const Content = styled.div`
   store,
 }))
 export default class Case extends Component {
-  constructor() {
-    super();
-
-    this.handleOnScrollCtaClick = this.handleOnScrollCtaClick.bind(this);
-  }
-
   componentDidMount() {
     // require polyfill for intersection observer only in client side
     require('intersection-observer');
 
     const { dispatch, whiteContent } = this.props;
     if (whiteContent) dispatch(actions.setNavColorWhite(true));
-  }
-
-  handleOnScrollCtaClick() {
-    scroller.scrollTo('more', {
-      duration: 800,
-      smooth: "easeOutQuad",
-    });
   }
 
   render() {
@@ -74,7 +61,7 @@ export default class Case extends Component {
         <Head>
           <title>{renderTitle()}</title>
         </Head>
-        <Content id="more">
+        <Content>
           {children}
         </Content>
         <Footer />

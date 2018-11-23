@@ -15,8 +15,8 @@ const Wrapper = styled.div`
   height: 100%;
   width: 100%;
   padding-right: 10vw;
-  background-color: #F9F9F9;
-  color: black;
+  background-color: black;
+  color: white;
 `
 
 const LandingVideo = styled.video`
@@ -24,6 +24,11 @@ const LandingVideo = styled.video`
   left: 0;
   top: 0;
   height: 100%;
+  transition: transform 0.8s ease-in;
+
+  ${props => props.wipe && `
+    transform: translateX(100%);
+  `}
 `
 
 const FullReelWrapper = styled.div`
@@ -59,6 +64,7 @@ const Content = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   opacity: 1;
   transition: opacity 0.2s;
@@ -95,6 +101,9 @@ const PlayReel = styled.div`
     width: 40px;
     height: 40px;
     margin-right: 15px;
+    path {
+      fill: white;
+    }
   }
 
   opacity: 0;
@@ -129,25 +138,20 @@ export default class LandingSlide extends Component {
   constructor() {
     super();
 
-    this.state = {
-      activeLogo: 0
-    }
-
+    this.state = {};
     this.fullReelEl = null;
+    this.teaserVideoEl = null;
     this.handleTogglePlayReel = this.handleTogglePlayReel.bind(this);
   }
 
   componentDidMount() {
-    this.initLogosAutoRotate();
-  }
-
-  initLogosAutoRotate() {
-    setInterval(() => {
-      const { activeLogo } = this.state;
+    const videoDuration = this.teaserVideoEl.duration;
+    console.log('videoDuration', videoDuration);
+    setTimeout(() => {
       this.setState({
-        activeLogo: activeLogo === LogoItems.length-1 ? 0 : activeLogo + 1
-      });
-    }, 4000);
+        wipeTeaser: true
+      })
+    }, 5000);
   }
 
   handleTogglePlayReel() {
@@ -168,7 +172,7 @@ export default class LandingSlide extends Component {
 
   render() {
     const { fontsLoaded } = this.props;
-    const { playFullReel } = this.state;
+    const { playFullReel, wipeTeaser } = this.state;
 
     return (
       <Wrapper>
@@ -180,20 +184,11 @@ export default class LandingSlide extends Component {
         </FullReelWrapper>
 
         <Content hide={playFullReel}>
-          <LandingVideo playsInline autoPlay muted>
-            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_14_1.mp4" type="video/mp4" />
+          <LandingVideo wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline autoPlay muted>
+            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
           </LandingVideo>
 
-          {/* <Logos>
-            {
-              LogoItems.map((logoUrl, i) => (
-                <Logo key={logoUrl} show={this.state.activeLogo === i} src={logoUrl} />
-              ))
-            }
-          </Logos> */}
-
           <PlayReel onClick={this.handleTogglePlayReel} fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
-
           <Statement fontsLoaded={fontsLoaded}>THANK YOU Studio is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
         </Content>
       </Wrapper>  
