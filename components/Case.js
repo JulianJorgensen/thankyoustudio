@@ -63,7 +63,7 @@ export default class Case extends Component {
         <Head>
           <title>{renderTitle()}</title>
         </Head>
-        {!props.isMobile ? <MobileHero /> : ''}
+        {props.isMobile ? <MobileHero /> : ''}
         <Content>
           {children}
         </Content>
