@@ -8,6 +8,7 @@ import { EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
+  top: 0;
   right: 0;
   overflow: hidden;
   display: flex;
@@ -21,6 +22,7 @@ const Wrapper = styled.div`
 
 const LandingVideo = styled.video`
   position: absolute;
+  z-index: 2;
   left: 0;
   top: 0;
   height: 100%;
@@ -57,15 +59,11 @@ const FullReel = styled.video`
   min-width: 100vw;
 `
 
-const Content = styled.div`
+const Inner = styled.div`
   position: absolute;
   right: 10vw;
   width: 90vw;
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   opacity: 1;
   transition: opacity 0.2s;
 
@@ -74,16 +72,14 @@ const Content = styled.div`
   `}
 `
 
-const Logos = styled.div`
+const Content = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
-  height: 150px;
-`
-
-const Logo = styled.img`
-  position: absolute;
+  align-items: center;
+  height: 100%;
   opacity: 0;
-  transition: opacity 0.5s;
+  transition: opacity 0.2s;
 
   ${props => props.show && `
     opacity: 1;
@@ -96,10 +92,11 @@ const PlayReel = styled.div`
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
+  font-size: 26px;
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     margin-right: 15px;
     path {
       fill: white;
@@ -120,18 +117,8 @@ const Statement = styled.div`
   text-align: center;
   font-size: 28px;
   font-weight: light;
-  opacity: 0;
-  transition: opacity 0.2s;
-
-  ${props => props.fontsLoaded && `
-    opacity: 1;
-  `}
+  opacity: 0.7;
 `
-
-const LogoItems = [
-  'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-logo.png',
-  'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-logo.png'
-];
 
 @connect()
 export default class LandingSlide extends Component {
@@ -145,13 +132,20 @@ export default class LandingSlide extends Component {
   }
 
   componentDidMount() {
-    const videoDuration = this.teaserVideoEl.duration;
-    console.log('videoDuration', videoDuration);
-    setTimeout(() => {
-      this.setState({
-        wipeTeaser: true
-      })
-    }, 5000);
+    this.playTeaser();
+  }
+
+  playTeaser() {
+    this.teaserVideoEl.onloadedmetadata = () => {
+      let videoDuration = this.teaserVideoEl.duration;
+      this.teaserVideoEl.play();
+
+      setTimeout(() => {
+        this.setState({
+          wipeTeaser: true
+        })
+      }, (videoDuration*1000)-600);
+    };
   }
 
   handleTogglePlayReel() {
@@ -176,21 +170,27 @@ export default class LandingSlide extends Component {
 
     return (
       <Wrapper>
+        <LandingVideo poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg" wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline muted>
+          <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
+        </LandingVideo>
+
+        <Inner hide={playFullReel}>
+          <LandingVideo poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg" wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline muted>
+            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
+          </LandingVideo>
+
+          <Content show={wipeTeaser}>
+            <PlayReel onClick={this.handleTogglePlayReel} fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
+            <Statement fontsLoaded={fontsLoaded}>THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
+          </Content>
+        </Inner>
+
         <FullReelWrapper show={playFullReel}>
           <FullReel ref={el => this.fullReelEl = el} playsInline>
             <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel18.mp4" type="video/mp4" />
           </FullReel>
           <FullReelClose onClick={this.handleTogglePlayReel}><CloseIcon /></FullReelClose>
         </FullReelWrapper>
-
-        <Content hide={playFullReel}>
-          <LandingVideo wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline autoPlay muted>
-            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
-          </LandingVideo>
-
-          <PlayReel onClick={this.handleTogglePlayReel} fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
-          <Statement fontsLoaded={fontsLoaded}>THANK YOU Studio is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
-        </Content>
       </Wrapper>  
     )
   }

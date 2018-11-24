@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import media from 'utils/mediaQueries';
+import { breakpoint } from 'utils/variables';
 
 const NavLink = styled.div`
   display: none;
@@ -23,18 +24,18 @@ const NavLink = styled.div`
     display: block;
   `}
 
-  ${props => props.logo && media.desktop`
+  ${props => props.logo && breakpoint.up('m')`
     svg {
       width: 30px;
       height: 30px;
     }
   `}
 
-  ${media.tablet`
+  ${breakpoint.up('m')`
     display: block;
   `}
 
-  ${media.desktop`
+  ${breakpoint.up('m')`
     font-size: 18px;
     margin-right: 28px;
   `}
@@ -56,7 +57,7 @@ const NavLinkLine = styled.div`
   transition: width 0.2s ease-in 0s;
   width: 0%;
 
-  ${media.tablet`
+  ${breakpoint.up('m')`
     display: block;
 
     ${NavLink}:hover & {

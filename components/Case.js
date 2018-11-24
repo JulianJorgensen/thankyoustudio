@@ -58,12 +58,26 @@ export default class Case extends Component {
       return `${title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.`;
     }
 
+    if (props.isMobile) {
+      return (
+        <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
+          <Head>
+            <title>{renderTitle()}</title>
+          </Head>
+          <MobileHero />
+          <Content>
+            {children}
+          </Content>
+          <Footer />
+        </Wrapper>
+      )
+    }
+
     return (
       <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
         <Head>
           <title>{renderTitle()}</title>
         </Head>
-        {props.isMobile ? <MobileHero /> : ''}
         <Content>
           {children}
         </Content>

@@ -1,3 +1,14 @@
+import styledBreakpoint from '@humblebee/styled-components-breakpoint';
+
+export const breakpoint = styledBreakpoint({
+  xxs: 0,
+  xs: 320,
+  s: 576,
+  m: 768,
+  l: 992,
+  xl: 1200,
+});
+
 export const BREAKPOINTS = {
   desktop: 992,
   tablet: 768,
@@ -38,9 +49,9 @@ export const TIMINGS = {
   DEFAULT_PAGE_WRAPPER: '0.5s',  
   SLIDE_ITEM_WRAPPER: '0.5s',
   SLIDER: '0.5s',
-  SET_IS_SCROLL_N_SLIDING_FALSE: 500,
+  SET_IS_SCROLL_N_SLIDING_FALSE: 600,
+  SET_IS_SLIDING_FALSE: 600,
   PAGE_TRANSITION_TIMEOUT: 500,
-  SET_IS_SLIDING_FALSE: 500,
   SCROLL_TO_TOP: 480, // the number has to be less than the slider animation to prevent a flickering
   SET_AUTO_SCROLL_TIMEOUT: 6000,
   SCROLL_DURATION: 500,

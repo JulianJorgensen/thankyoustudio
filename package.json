@@ -8,6 +8,7 @@
     "start": "NODE_ENV=production node server.js"
   },
   "dependencies": {
+    "@humblebee/styled-components-breakpoint": "^2.1.4",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "add": "^2.0.6",
     "babel-plugin-module-resolver": "^3.1.1",

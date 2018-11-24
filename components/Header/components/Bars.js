@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from 'utils/mediaQueries';
+import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: relative;
@@ -10,7 +11,7 @@ const Wrapper = styled.div`
   cursor: pointer;
   pointer-events: auto;
 
-  ${media.tablet`
+  ${breakpoint.up('m')`
     pointer-events: none;
     margin-bottom: 8px;
     height: 40px;
@@ -27,7 +28,7 @@ const Wrapper = styled.div`
     background-color: ${props => props.navColor};
     transition: all 0.3s ease;
 
-    ${media.tablet`
+    ${breakpoint.up('m')`
       display: none;
     `}
   }

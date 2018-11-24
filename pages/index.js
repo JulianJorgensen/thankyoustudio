@@ -35,12 +35,12 @@ const Lead = styled.div`
 
 export default (props) => (
   <Case isPrimaryPage whiteContent {...props}>
-    {/* <Section>
+    <Section>
       <IdentifySimplifyAmplify />
-    </Section> */}
+    </Section>
     
-    {/* <Work textColor="black" /> */}
+    <Work textColor="black" />
 
-    {/* <InstagramFeed /> */}
+    <InstagramFeed />
   </Case>
 )

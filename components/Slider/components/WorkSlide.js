@@ -13,7 +13,7 @@ const Wrapper = styled.div`
 const Image = styled.div`
   position: absolute;
   right: 0;
-  width: calc(100vw - 15px);
+  width: 100vw;
   height: 100vw;
   background-size: cover;
   background-repeat: no-repeat;

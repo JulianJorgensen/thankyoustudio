@@ -7,8 +7,7 @@ import { closeMobileNav, toggleMobileNav } from 'store/actions';
 import Nav from './components/Nav';
 import MobileNav from './components/MobileNav';
 import Bars from './components/Bars';
-import media from 'utils/mediaQueries';
-import { LAYOUT } from 'utils/variables';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const StyledHeadroom = styled(Headroom)`
   position: fixed;
@@ -26,24 +25,30 @@ const StyledHeadroom = styled(Headroom)`
     background-color: transparent;
     transition: all 0.3s;
     transition-delay: 0.2s;
-    padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN};
     display: flex;
     align-items: center;  
     justify-content: space-between;
     pointer-events: none;
 
-    ${media.tablet`
+    ${breakpoint.down('m')`
+      padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN};
+    `}
+
+    ${breakpoint.up('m')`
       padding: 40px ${LAYOUT.EDGE_MARGIN};
     `}
   }
 
   ${props => props.scrolling && `
     .headroom {
-      padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN};
       background-color: transparent;
       transition: all 0s;
 
-      ${media.tablet`
+      ${breakpoint.down('m')`
+        padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN};
+      `}
+
+      ${breakpoint.up('m')`
         padding: 40px ${LAYOUT.EDGE_MARGIN};
       `}
     }
@@ -51,11 +56,14 @@ const StyledHeadroom = styled(Headroom)`
 
   ${props => props.fixed && `
     .headroom {
-      padding: 20px ${LAYOUT.MOBILE.EDGE_MARGIN};
       background-color: ${props.color === 'white' ? 'black' : 'white'};
       transition-delay: 0.6s;
 
-      ${media.tablet`
+      ${breakpoint.down('m')`
+        padding: 20px ${LAYOUT.MOBILE.EDGE_MARGIN};
+      `}
+
+      ${breakpoint.up('m')`
         padding: 40px ${LAYOUT.EDGE_MARGIN};
       `}
 
