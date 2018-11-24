@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import { EASINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
   color: white;
@@ -16,10 +17,10 @@ const Wrapper = styled.div`
 const WorkItems = styled.div`
   width: 100%;
   column-count: 2;
-  column-gap: 30px;
+  column-gap: 20px;
   break-inside: avoid-column;
 
-  ${media.tablet `
+  ${breakpoint.up('m')`
     column-gap: 50px;
   `}
 `
@@ -28,12 +29,12 @@ const WorkItem = styled(LazyShow)`
   position: relative;
   break-inside: avoid-column;
   height: 350px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   cursor: pointer;
   overflow: hidden;
   color: ${props => props.whitecontent ? 'white' : 'black'};
 
-  ${media.tablet `
+  ${breakpoint.up('m')`
     margin-bottom: 50px;
     height: 750px;
   `}
@@ -54,7 +55,7 @@ const WorkItem = styled(LazyShow)`
     width: 100%;
     height: 250px;
 
-    ${media.tablet `
+    ${breakpoint.up('m')`
       height: 525px;
     `}
   `}
@@ -83,24 +84,37 @@ const WorkItemContent = styled.div`
   bottom: 0;
   padding: 20px;
   z-index: 2;
+  width: 100%;
 `
 
 const WorkItemTitle = styled.h3`
-  font-size: 24px;
+  font-size: 18px;
   text-transform: uppercase;
-  margin-bottom: 5px;
+
+  ${breakpoint.up('m')`
+    font-size: 24px;
+    margin-bottom: 50px;
+    height: 750px;
+  `}
+
 `
 
 const WorkItemTags = styled.ul`
   display: flex;
+  flex-wrap: wrap;
 `
 
 const WorkItemTag = styled.li`
   border-width: 1px;
   border-style: solid;
   border-radius: 3px;
-  margin-right: 10px;
-  padding: 4px 8px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding: 2px 4px;
+
+  ${breakpoint.up('m')`
+    padding: 4px 8px;
+  `}
 `
 
 export default (props) => (

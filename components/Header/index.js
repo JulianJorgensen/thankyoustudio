@@ -31,26 +31,18 @@ const StyledHeadroom = styled(Headroom)`
     pointer-events: none;
 
     ${breakpoint.down('m')`
-      padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN};
+      padding: ${props => props.fixed ? '20px' : '40px'} ${LAYOUT.MOBILE_EDGE_MARGIN};
     `}
 
     ${breakpoint.up('m')`
-      padding: 40px ${LAYOUT.EDGE_MARGIN};
+      padding: ${props => props.fixed ? '20px' : '40px'} ${LAYOUT.EDGE_MARGIN};
     `}
   }
 
-  ${props => props.scrolling && `
+  ${props => props.scrollnsliding && `
     .headroom {
       background-color: transparent;
       transition: all 0s;
-
-      ${breakpoint.down('m')`
-        padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN};
-      `}
-
-      ${breakpoint.up('m')`
-        padding: 40px ${LAYOUT.EDGE_MARGIN};
-      `}
     }
   `}
 
@@ -59,19 +51,11 @@ const StyledHeadroom = styled(Headroom)`
       background-color: ${props.color === 'white' ? 'black' : 'white'};
       transition-delay: 0.6s;
 
-      ${breakpoint.down('m')`
-        padding: 20px ${LAYOUT.MOBILE.EDGE_MARGIN};
-      `}
-
-      ${breakpoint.up('m')`
-        padding: 40px ${LAYOUT.EDGE_MARGIN};
-      `}
-
-      ${props.scrolling && `
+      ${props.scrollnsliding && `
         background-color: transparent;
         transition-delay: 0s;
         transition-duration: 0s;
-        padding: 40px;
+        padding: 20px 40px;
       `}
     }
   `}
@@ -131,6 +115,8 @@ export default class Header extends Component {
       windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     }
 
+    console.log('fixed', fixed);
+    console.log('scrolling', slider.isScrollNSliding);
     const page = router.asPath.split('/')[1];
 
     return (
@@ -139,10 +125,10 @@ export default class Header extends Component {
         onPin={this.handleOnPin}
         onUnfix={this.handleOnUnfix}
         pinStart={300}
-        fixed={fixed ? 'true' : ''}
+        fixed={fixed}
         color={navColor}
-        scrolling={slider.isScrollNSliding ? 'true' : ''}
-        fontsloaded={store.fontsLoaded ? 'true' : ''}
+        scrollnsliding={slider.isScrollNSliding}
+        fontsloaded={store.fontsLoaded}
       >
         <Nav navColor={navColor} page={page} mobileActive={mobileNav} />
         <Bars navColor={navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
