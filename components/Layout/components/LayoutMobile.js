@@ -26,13 +26,17 @@ export default class Layout extends Component {
   initRouterEventListeners() {
     // Client side route change
     Router.router.events.on('routeChangeStart', (url, err) => {
-      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 50);
       return true;
     });
 
     // Server side route change
     Router.beforePopState(({ url, as: asUrl }) => {
-      window.scrollTo(0, 0);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+      }, 50);
       return true;
     })
   }
