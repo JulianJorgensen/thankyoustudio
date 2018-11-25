@@ -33,7 +33,7 @@ export default class Layout extends Component {
 
       setTimeout(() => {
         window.scrollTo(0, 0);
-      }, TIMINGS.PAGE_TRANSITION_TIMEOUT);
+      }, TIMINGS.SCROLL_TO_TOP);
 
       return true;
     });
