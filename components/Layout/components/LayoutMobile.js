@@ -33,14 +33,14 @@ export default class Layout extends Component {
 
       setTimeout(() => {
         window.scrollTo(0, 0);
-      }, TIMINGS.DEFAULT_PAGE_WRAPPER);
+      }, 500);
 
       return true;
     });
 
     // Server side route change
     Router.beforePopState(({ url, as: asUrl }) => {
-      window.scrollTo(0, 0);
+      // window.scrollTo(0, 0);
       return true;
     })
   }
