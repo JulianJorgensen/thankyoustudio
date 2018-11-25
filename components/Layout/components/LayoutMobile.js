@@ -23,20 +23,24 @@ export default class Layout extends Component {
     this.initRouterEventListeners = this.initRouterEventListeners.bind(this);
   }
 
+  componentDidMount() {
+    this.initRouterEventListeners();
+  }
+
   initRouterEventListeners() {
     // Client side route change
     Router.router.events.on('routeChangeStart', (url, err) => {
+
       setTimeout(() => {
         window.scrollTo(0, 0);
-      }, 50);
+      }, TIMINGS.DEFAULT_PAGE_WRAPPER);
+
       return true;
     });
 
     // Server side route change
     Router.beforePopState(({ url, as: asUrl }) => {
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-      }, 50);
+      window.scrollTo(0, 0);
       return true;
     })
   }
@@ -61,6 +65,29 @@ export default class Layout extends Component {
           <Header />
           {children}
         </Wrapper>
+        <style jsx global>{`
+          .fade-enter {
+            transition-property: transform;
+            transform: translateX(100px);
+            z-index: 3;
+          }
+
+          .fade-enter-active {
+            transition-duration: ${TIMINGS.DEFAULT_PAGE_WRAPPER};
+            transform: translateX(0px);
+          }
+
+          .fade-exit {
+            transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER};
+            transform: translateX(0px);
+            z-index: 2;
+          }
+
+          .fade-exit-active {
+            transform: translateX(-100px);
+          }
+        `}
+        </style>
       </Swipeable>
     )
   }

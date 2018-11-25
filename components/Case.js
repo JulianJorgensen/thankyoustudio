@@ -15,7 +15,6 @@ const Wrapper = styled.div`
   position: absolute;
   width: 100%;
   background-color: #fafafa;
-  transition: transform ${TIMINGS.CASE_WRAPPER};
 
   ${media.tablet`
     top: 100vh;
@@ -69,7 +68,7 @@ export default class Case extends Component {
             {children}
           </Content>
           <Footer />
-        </Wrapper>
+      </Wrapper>
       )
     }
 
@@ -83,6 +82,10 @@ export default class Case extends Component {
         </Content>
         <Footer />
         <style jsx global>{`
+          .fade-enter.case-page, .fade-exit.case-page {
+            transition: transform ${TIMINGS.CASE_WRAPPER};
+          }
+
           .fade-exit.case-page {
             transform: translateX(0px);
           }
@@ -92,7 +95,6 @@ export default class Case extends Component {
           }
         `}
         </style>
-
       </Wrapper>
     )
   }
