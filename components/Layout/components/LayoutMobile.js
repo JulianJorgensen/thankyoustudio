@@ -33,7 +33,7 @@ export default class Layout extends Component {
 
       setTimeout(() => {
         window.scrollTo(0, 0);
-      }, 500);
+      }, TIMINGS.PAGE_TRANSITION_TIMEOUT);
 
       return true;
     });
@@ -69,12 +69,13 @@ export default class Layout extends Component {
           .fade-enter {
             transition-property: transform;
             transform: translateX(100px);
-            position: fixed;
+            position: fixed !important;
             top: 0;
             z-index: 3;
           }
 
           .fade-enter-active {
+            position: fixed !important;
             transition-duration: ${TIMINGS.DEFAULT_PAGE_WRAPPER};
             transform: translateX(0px);
           }
