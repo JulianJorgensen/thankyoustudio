@@ -69,6 +69,8 @@ export default class Layout extends Component {
           .fade-enter {
             transition-property: transform;
             transform: translateX(100px);
+            position: fixed;
+            top: 0;
             z-index: 3;
           }
 
