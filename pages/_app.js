@@ -12,8 +12,7 @@ import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
 import { breakpoint, BREAKPOINTS_NEW } from 'utils/variables';
-
-const Layout = dynamic(() => import('layout'));
+import Layout from 'layout';
 
 const GlobalStyle = createGlobalStyle`
   * {

@@ -141,15 +141,12 @@ export default class LandingSlide extends Component {
     this.state = {};
     this.fullReelEl = null;
     this.teaserVideoEl = null;
+    this.playTeaser = this.playTeaser.bind(this);
     this.handleTogglePlayReel = this.handleTogglePlayReel.bind(this);
   }
-
-  componentDidMount() {
-    this.playTeaser();
-  }
-
-  playTeaser() {
-    this.teaserVideoEl.onloadedmetadata = () => {
+  
+  playTeaser(el) {
+    console.log('this.teaserVideoEl', this.teaserVideoEl)
       let videoDuration = this.teaserVideoEl.duration;
       this.teaserVideoEl.play();
 
@@ -158,7 +155,6 @@ export default class LandingSlide extends Component {
           wipeTeaser: true
         })
       }, (videoDuration*1000)-600);
-    };
   }
 
   handleTogglePlayReel() {
@@ -188,7 +184,14 @@ export default class LandingSlide extends Component {
         </LandingVideo>
 
         <Inner hide={playFullReel}>
-          <LandingVideo poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg" wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline muted>
+          <LandingVideo
+            poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg"
+            wipe={wipeTeaser}
+            ref={el => this.teaserVideoEl = el}
+            onLoadedMetadata={(el) => this.playTeaser(el)}
+            playsInline
+            muted
+          >
             <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
           </LandingVideo>
 
