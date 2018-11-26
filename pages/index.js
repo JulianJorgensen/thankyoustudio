@@ -36,7 +36,7 @@ const Lead = styled.div`
 
 export default (props) => (
   <Case isPrimaryPage whiteContent {...props}>
-    <MobileHero isLanding isMobile={true} />
+    <MobileHero isLanding isMobile={props.isMobile} />
     <Section>
       <IdentifySimplifyAmplify />
     </Section>
