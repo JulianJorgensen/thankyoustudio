@@ -1,16 +1,21 @@
 import styled from 'styled-components';
+import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.ul`
   display: flex;
-  padding-top: 200px;
 `
 
 const Locations = styled.ul`
   display: flex;
-  justify-content: space-between;
-  width: 800px;
+  flex-direction: column;
   list-style-type: none;
   color: ${props => props.dark ? 'black' : 'white'};
+
+  ${breakpoint.up('m')`
+    flex-direction: row;
+    justify-content: space-between;
+    width: 800px;
+  `}
 `
 
 const LocationEmail = styled.a`
@@ -20,11 +25,19 @@ const LocationEmail = styled.a`
 
 const LocationItem = styled.li`
   text-align: left;
+  margin-bottom: 50px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  ${breakpoint.up('m')`
+    margin-bottom: 0;
+  `}
 `
 
-const LocationTitle = styled.span`
+const LocationTitle = styled.h3`
   font-weight: bold;
-  font-size: 24px;
 `
 
 const LocationAddress = styled.div`

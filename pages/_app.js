@@ -3,6 +3,7 @@ import App, { Container } from 'next/app';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import withReduxStore from 'store/with-redux-store';
+import { createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { FONTS, META, TIMINGS } from 'utils/variables';
@@ -10,8 +11,57 @@ import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
+import { breakpoint } from 'utils/variables';
 
 const Layout = dynamic(() => import('components/Layout'));
+
+const GlobalStyle = createGlobalStyle`
+  * {
+    box-sizing: border-box;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: 70px;
+  }
+
+  h2 {
+    font-size: 40px;
+    line-height: 54px;
+  }
+
+  h3 {
+    font-size: 30px;
+
+    ${breakpoint.up('m')`
+      font-size: 40px;
+    `}
+  }
+
+  p {
+    font-size: 22px;
+    line-height: 34px;
+    letter-spacing: -1px
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  button {
+    outline: 0;
+  }
+`;
 
 @withReduxStore
 export default class MyApp extends App {
@@ -54,12 +104,14 @@ export default class MyApp extends App {
             </TransitionGroup>
           </Layout>
         </Provider>
+        <GlobalStyle />
         <style jsx global>{`
           @font-face {
             font-family: 'Helvetica Neue';
             src: url(${HelveticaNeueRoman}) format('woff2');
             font-weight: normal;
             font-style: normal;
+            font-display: fallback;
           }
 
           @font-face {
@@ -67,6 +119,7 @@ export default class MyApp extends App {
             src: url(${HelveticaNeueBold}) format('woff2');
             font-weight: bold;
             font-style: normal;
+            font-display: fallback;
           }
 
           html {
@@ -84,48 +137,6 @@ export default class MyApp extends App {
             border: 0;
             font-size: 100%;
             border: 0;
-          }
-
-          * {
-            box-sizing: border-box;
-          }
-        
-          a {
-            color: inherit;
-            text-decoration: none;
-          }
-        
-          h1, h2, h3, h4, h5, h6 {
-            margin: 0;
-          }
- 
-          h1 {
-            font-size: 70px;
-          }
-        
-          h2 {
-            font-size: 40px;
-            line-height: 54px;
-          }
-        
-          h3 {
-            font-size: 40px;
-          }
-        
-          p {
-            font-size: 22px;
-            line-height: 34px;
-            letter-spacing: -1px
-          }
-        
-          ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-          }
-        
-          button {
-            outline: 0;
           }
         `}</style>
       </Container>
