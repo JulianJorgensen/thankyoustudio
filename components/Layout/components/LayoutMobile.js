@@ -46,11 +46,11 @@ export default class Layout extends Component {
   }
 
   handleSwipedLeft() {
-    alert("You Swiped left")
+    // alert("You Swiped left")
   }
 
   handleSwipedRight() {
-    alert("You Swiped right")
+    // alert("You Swiped right")
   }
 
   render() {
@@ -68,7 +68,7 @@ export default class Layout extends Component {
         <style jsx global>{`
           .fade-enter {
             transition-property: transform;
-            transform: translateX(100px);
+            transform: translateX(300px);
             position: fixed !important;
             top: 0;
             z-index: 3;
