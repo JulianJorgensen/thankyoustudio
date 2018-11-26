@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LandingHero from 'components/LandingHero';
 
 const Wrapper = styled.div`
   height: 100vw;
@@ -7,8 +8,13 @@ const Wrapper = styled.div`
   background-color: red;
 `
 
-export default () => (
-  <Wrapper>
-    <h2>Ismobile!!</h2>
-  </Wrapper>
-);
+export default ({ isMobile, isLanding }) => {
+  if (!isMobile) return null;
+  if (isLanding) return <LandingHero />
+
+  return (
+    <Wrapper>
+      <h2>Ismobile!!</h2>
+    </Wrapper>
+  )
+}

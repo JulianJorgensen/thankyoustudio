@@ -4,20 +4,24 @@ import PlayIcon from 'assets/icons/FontAwesome/regular/play-circle.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
-import { EASINGS, TIMINGS } from 'utils/variables';
+import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  height: 70vh;
   width: 100%;
-  padding-right: 10vw;
   background-color: black;
   color: white;
+
+  ${breakpoint.up('m')`
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    padding-right: 10vw;
+  `}
 `
 
 const LandingVideo = styled.video`
@@ -25,11 +29,15 @@ const LandingVideo = styled.video`
   z-index: 2;
   left: 0;
   top: 0;
-  height: 100%;
+  height: 70vh;
   transition: transform 0.8s ease-in;
 
   ${props => props.wipe && `
     transform: translateX(100%);
+  `}
+
+  ${breakpoint.up('m')`
+    height: 100vh;
   `}
 `
 
@@ -60,15 +68,18 @@ const FullReel = styled.video`
 `
 
 const Inner = styled.div`
-  position: absolute;
-  right: 10vw;
-  width: 90vw;
   height: 100%;
   opacity: 1;
   transition: opacity 0.2s;
 
   ${props => props.hide && `
     opacity: 0;
+  `}
+
+  ${breakpoint.up('m')`
+    position: absolute;
+    right: 10vw;
+    width: 90vw;
   `}
 `
 
@@ -120,7 +131,9 @@ const Statement = styled.div`
   opacity: 0.7;
 `
 
-@connect()
+@connect((store) => ({
+  store,
+}))
 export default class LandingSlide extends Component {
   constructor() {
     super();
@@ -165,7 +178,7 @@ export default class LandingSlide extends Component {
   }
 
   render() {
-    const { fontsLoaded } = this.props;
+    const { store } = this.props;
     const { playFullReel, wipeTeaser } = this.state;
 
     return (
@@ -180,8 +193,8 @@ export default class LandingSlide extends Component {
           </LandingVideo>
 
           <Content show={wipeTeaser}>
-            <PlayReel onClick={this.handleTogglePlayReel} fontsLoaded={fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
-            <Statement fontsLoaded={fontsLoaded}>THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
+            <PlayReel onClick={this.handleTogglePlayReel} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
+            <Statement fontsLoaded={store.fontsLoaded}>THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
           </Content>
         </Inner>
 

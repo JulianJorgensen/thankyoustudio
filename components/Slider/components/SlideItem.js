@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { TweenLite } from 'gsap';
 import throttle from 'lodash.throttle';
-import LandingSlide from './LandingSlide';
+import LandingSlide from 'components/LandingHero';
 import WorkSlide from './WorkSlide';
 import { EASINGS, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
@@ -173,7 +173,7 @@ export default class SlideItem extends Component {
         onMouseEnter={() => props.isNext ? this.handleNextSlideHoverWhenHidden(true) : ''}
         onMouseLeave={() => props.isNext ? this.handleNextSlideHoverWhenHidden(false) : ''}
       >
-        { props.slug === '' ? <LandingSlide {...props} /> : <WorkSlide {...props} /> }
+        { props.slug === '' ? <LandingSlide /> : <WorkSlide {...props} /> }
       </Wrapper>
     )
   }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
 import { animateScroll as scroll } from 'react-scroll';
-import Header from 'components/Header';
+import Header from 'layout/components/Header';
 import Slider from 'components/Slider';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';

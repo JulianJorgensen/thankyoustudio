@@ -1,13 +1,14 @@
 import React from 'react';
 import dynamic from 'next/dynamic'
-import Case from 'components/Case';
 import styled from 'styled-components';
+import Case from 'components/Case';
 import { LAYOUT } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
 
 const Work = dynamic(import('components/Work'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
+const MobileHero = dynamic(import('components/MobileHero'));
 
 const Section = styled.div`
   padding: 100px ${LAYOUT.MOBILE.EDGE_MARGIN};
@@ -35,6 +36,7 @@ const Lead = styled.div`
 
 export default (props) => (
   <Case isPrimaryPage whiteContent {...props}>
+    <MobileHero isLanding isMobile={props.isMobile} />
     <Section>
       <IdentifySimplifyAmplify />
     </Section>

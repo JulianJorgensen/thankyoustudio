@@ -11,9 +11,9 @@ import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
-import { breakpoint } from 'utils/variables';
+import { breakpoint, BREAKPOINTS_NEW } from 'utils/variables';
 
-const Layout = dynamic(() => import('components/Layout'));
+const Layout = dynamic(() => import('layout'));
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -65,6 +65,13 @@ const GlobalStyle = createGlobalStyle`
 
 @withReduxStore
 export default class MyApp extends App {
+  constructor() {
+    super();
+
+    this.state = {};
+    this.checkScreenSizes = this.checkScreenSizes.bind(this);
+  }
+
   static async getInitialProps({Component, ctx}) {
     const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
     const isMobile = mobilecheck(userAgent);
@@ -77,8 +84,28 @@ export default class MyApp extends App {
     return { pageProps, isMobile };
   }
 
+  componentDidMount() {
+    this.checkScreenSizes();
+    window.addEventListener('resize', this.checkScreenSizes);
+  }
+
+  checkScreenSizes() {
+    if (window.innerWidth < BREAKPOINTS_NEW.m) {
+      if (this.props.isMobile || this.state.isMobile) return;
+      this.setState({
+        isMobile: true
+      });
+    } else {
+      if (!this.props.isMobile && !this.state.isMobile) return;
+      this.setState({
+        isMobile: false
+      });
+    }
+  }
+
   render () {
-    const { Component, pageProps, reduxStore, isMobile } = this.props
+    const { Component, pageProps, reduxStore } = this.props
+    const isMobile = this.props.isMobile || this.state.isMobile;
 
     return (
       <Container>

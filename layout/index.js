@@ -10,8 +10,8 @@ import LayoutDefault from './components/LayoutDefault';
 @connect()
 export default class Layout extends Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
     this.initFontObserver();
+    window.scrollTo(0, 0);
   }
 
   initFontObserver() {
@@ -23,9 +23,7 @@ export default class Layout extends Component {
   }
 
   render() {
-    const { isMobile } = this.props;
-
-    if (isMobile) return <LayoutMobile {...this.props} />;
+    if (this.props.isMobile) return <LayoutMobile {...this.props} />;
     return <LayoutDefault {...this.props} />;
   }
 }

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
 import Swipeable from 'react-swipeable';
-import Header from 'components/Header';
+import Header from 'layout/components/Header';
 import * as actions from 'store/actions';
 import { TIMINGS } from 'utils/variables';
 import withAnalytics from 'utils/withAnalytics';

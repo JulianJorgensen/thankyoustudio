@@ -1,13 +1,15 @@
 import styledBreakpoint from '@humblebee/styled-components-breakpoint';
 
-export const breakpoint = styledBreakpoint({
+export const BREAKPOINTS_NEW = {
   xxs: 0,
   xs: 320,
   s: 576,
   m: 768,
   l: 992,
   xl: 1200,
-});
+}
+
+export const breakpoint = styledBreakpoint(BREAKPOINTS_NEW);
 
 export const BREAKPOINTS = {
   desktop: 992,

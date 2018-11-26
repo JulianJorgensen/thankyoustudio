@@ -59,16 +59,6 @@ const BackButton = styled.div`
   }
 `
 
-const ShowNextSlideZone = styled.div`
-  position: fixed;
-  z-index: 1000;
-  top: 0;
-  right: 0;
-  height: 100vh;
-  width: 10vw;
-  pointer-events: auto;
-`
-
 @withRouter
 @connect((store) => ({
   store,
