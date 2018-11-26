@@ -92,11 +92,8 @@ const WorkItemTitle = styled.h3`
   text-transform: uppercase;
 
   ${breakpoint.up('m')`
-    font-size: 24px;
-    margin-bottom: 50px;
-    height: 750px;
+    font-size: 30px;
   `}
-
 `
 
 const WorkItemTags = styled.ul`

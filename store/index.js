@@ -4,7 +4,6 @@ import thunkMiddleware from 'redux-thunk';
 import reducer from './reducers';
 
 export const initialState = {
-  navColor: 'red',
   hasMouseLeftNextSlide: true,
   slider: {
   }
