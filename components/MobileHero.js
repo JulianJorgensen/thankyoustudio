@@ -3,18 +3,37 @@ import styled from 'styled-components';
 import LandingHero from 'components/LandingHero';
 
 const Wrapper = styled.div`
+  position: relative;
   height: 100vw;
   width: 100%;
-  background-color: red;
+  background-color: black;
+  background-image: url(${props => props.imageSrc});
+  background-position: center center;
+  background-size: cover;
 `
 
-export default ({ isMobile, isLanding }) => {
+const Content = styled.div`
+  position: absolute;
+  bottom: 40px;
+  left: 40px;
+`
+
+const Title = styled.h1`
+`
+
+const SubTitle = styled.h2`
+`
+
+export default ({ isMobile, isLanding, title, subtitle, imageSrc }) => {
   if (!isMobile) return null;
   if (isLanding) return <LandingHero />
 
   return (
-    <Wrapper>
-      <h2>Ismobile!!</h2>
+    <Wrapper imageSrc={imageSrc}>
+      <Content>
+        <Title>{title}</Title>
+        <SubTitle>{subtitle}</SubTitle>
+      </Content>
     </Wrapper>
   )
 }

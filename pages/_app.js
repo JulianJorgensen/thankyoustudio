@@ -29,16 +29,24 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
-    font-size: 70px;
+    font-size: 40px;
+
+    ${breakpoint.up('m')`
+      font-size: 70px;
+    `}
   }
 
   h2 {
-    font-size: 40px;
+    font-size: 30px;
     line-height: 54px;
+
+    ${breakpoint.up('m')`
+      font-size: 40px;
+    `}
   }
 
   h3 {
-    font-size: 30px;
+    font-size: 25px;
 
     ${breakpoint.up('m')`
       font-size: 40px;

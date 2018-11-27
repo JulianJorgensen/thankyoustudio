@@ -21,7 +21,12 @@ const Lead = styled.div`
 `
 
 export default (props) => (
-  <Case title="Ferrari" isMobile={props.isMobile}>
+  <Case
+    isMobile={props.isMobile}
+    title="Ferrari"
+    subtitle="Design. Experiences."
+    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg"
+  >
     <Header black>
       <Title>Rrrrrrwww Ferrari distillery</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>

@@ -21,7 +21,12 @@ const Lead = styled.div`
 `
 
 export default (props) => (
-  <Case title="Copenhagen Distillery" isMobile={props.isMobile}>
+  <Case 
+    isMobile={props.isMobile}
+    title="Copenhagen Distillery"
+    subtitle="Design. Experiences."
+    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg"
+  >
     <Header>
       <Title>Something about copenhagen distillery</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>

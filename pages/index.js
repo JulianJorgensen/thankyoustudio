@@ -1,5 +1,5 @@
 import React from 'react';
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import Case from 'components/Case';
 import { LAYOUT } from 'utils/variables';

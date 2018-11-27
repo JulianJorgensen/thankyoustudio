@@ -8,6 +8,7 @@ import * as actions from 'store/actions';
 import { EASINGS, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Footer from 'layout/components/Footer';
+const MobileHero = dynamic(import('components/MobileHero'));
 
 const Wrapper = styled.div`
   position: absolute;
@@ -48,7 +49,7 @@ export default class Case extends Component {
   }
 
   render() {
-    const { children, store, title, ...props } = this.props;
+    const { children, store, title, subtitle, imageSrc, isMobile, ...props } = this.props;
 
     const renderTitle = () => {
       if (!title) return META.TITLE;
@@ -60,6 +61,12 @@ export default class Case extends Component {
         <Head>
           <title>{renderTitle()}</title>
         </Head>
+        <MobileHero 
+          isMobile={isMobile}
+          title={title}
+          subtitle={subtitle}
+          imageSrc={imageSrc}
+        />
         <Content>
           {children}
         </Content>
