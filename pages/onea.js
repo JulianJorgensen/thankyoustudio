@@ -26,7 +26,7 @@ export default (props) => (
     title="Onea"
     subtitle="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg"
-  />
+  >
     <Header>
       <Title>Onea is...</Title>
       <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
