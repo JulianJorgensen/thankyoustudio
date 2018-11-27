@@ -17,7 +17,7 @@ const Content = styled.div`
   bottom: 40px;
   left: 40px;
 `
-
+ 
 const Title = styled.h1`
 `
 
