@@ -123,12 +123,17 @@ const PlayReel = styled.div`
 `
 
 const Statement = styled.div`
-  width: 600px;
+  max-width: 80%;
   margin-top: 80px;
   text-align: center;
-  font-size: 28px;
+  font-size: 22px;
   font-weight: light;
   opacity: 0.7;
+
+  ${breakpoint.up('m')`
+    font-size: 28px;
+    width: 600px;
+  `}
 `
 
 @connect((store) => ({
