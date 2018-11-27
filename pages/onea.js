@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Case from 'components/Case';
+import Case from 'layout/components/Case';
 
 const Header = styled.div`
   padding: 300px 50vw 300px 80px;

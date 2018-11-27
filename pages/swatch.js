@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
-import Case from 'components/Case';
+import Case from 'layout/components/Case';
 import Video from 'components/Video';
 import Cta from 'components/Cta';
 import SwatchWatchesImg from 'assets/images/swatch-watches.png';

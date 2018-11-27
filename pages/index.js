@@ -1,7 +1,7 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import Case from 'components/Case';
+import Case from 'layout/components/Case';
 import { LAYOUT } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
@@ -35,8 +35,7 @@ const Lead = styled.div`
 `
 
 export default (props) => (
-  <Case isPrimaryPage whiteContent {...props}>
-    <MobileHero isLanding isMobile={props.isMobile} />
+  <Case isLanding whiteContent {...props}>
     <Section>
       <IdentifySimplifyAmplify />
     </Section>
