@@ -110,6 +110,13 @@ export default class FancySlider extends Component {
 
   triggerNextClick() {
     const { dispatch, store } = this.props;
+
+    if (this.state.isSliding) return;
+
+    this.setState({
+      isSliding: true
+    });
+
     let nextSlide
     if (store.activeSlide.index === SlideItems.length - 1) {
       nextSlide = SlideItems[0];
@@ -131,6 +138,12 @@ export default class FancySlider extends Component {
     Router.push({
       pathname: '/' + nextSlide.slug.toLowerCase()
     }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');
+
+    setTimeout(() => {
+      this.setState({
+        isSliding: false
+      });
+    }, TIMINGS.SET_IS_SLIDING_FALSE);
   }
 
   handleNextMouseLeave() {
@@ -232,8 +245,10 @@ export default class FancySlider extends Component {
                     isSliding={isSliding}
                     isLandingVideoPlaying={isLandingVideoPlaying}
                     image={SlideItemData.image}
+                    video={SlideItemData.video}
                     background={SlideItemData.background}
                     contentColor={SlideItemData.whiteContent ? 'white' : 'black'}
+                    fadeToBlack={SlideItemData.fadeToBlack}
                     hasMouseLeftNextSlide={hasMouseLeftNextSlide}
                     onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
                     fontsLoaded={fontsLoaded}

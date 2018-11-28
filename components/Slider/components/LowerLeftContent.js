@@ -87,7 +87,7 @@ export default class LowerLeftContent extends Component {
     this.headerAnimation = null;
 
     this.handleOnScroll = this.handleOnScroll.bind(this);
-    this.updateHeaderPosition = throttle(this.updateHeaderPosition, 15);
+    this.updateHeaderStyles = throttle(this.updateHeaderStyles, 15);
     this.removeScrollEventListener = this.removeScrollEventListener.bind(this);
   }
 
@@ -126,10 +126,10 @@ export default class LowerLeftContent extends Component {
     if (this.props.isSliding) return;
     if (!this.headerEl) return;
 
-    this.updateHeaderPosition();
+    this.updateHeaderStyles();
   }
 
-  updateHeaderPosition() {
+  updateHeaderStyles() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     if (scrollTop > 1000) return;
 
@@ -139,7 +139,17 @@ export default class LowerLeftContent extends Component {
       this.setState({ hideSubtitle: false });
     }
     if (!this.headerEl) return;
-    this.headerAnimation = TweenLite.set(this.headerEl, {top: scrollTop/3});
+
+    if (this.props.fadeToBlack) {
+      this.headerAnimation = TweenLite.set(this.headerEl, {
+        top: scrollTop/3,
+        color: this.props.fadeToBlack ? `rgb(${255-scrollTop/3}, ${255-scrollTop/3}, ${255-scrollTop/3})` : ''
+      });
+    } else {
+      this.headerAnimation = TweenLite.set(this.headerEl, {
+        top: scrollTop/3
+      });
+    }
   }
 
   render() {

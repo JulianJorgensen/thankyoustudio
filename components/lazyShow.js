@@ -9,7 +9,9 @@ const Observer = dynamic(import('react-intersection-observer'), {
 
 const Wrapper = styled.div`
   transform: translateY(${props => props.inview ? '0' : '100px'});
-  transition: transform 1s;
+  opacity: ${props => props.inview ? '1' : '0'};
+  transition: transform 1s, opacity 1s;
+  transition-delay: ${props => props.delay}ms;
 `
 
 export default class LazyShow extends Component {
@@ -39,7 +41,7 @@ export default class LazyShow extends Component {
     if (!this.state.loaded) return <div></div>;
 
     return (
-      <Wrapper inview={this.state.inView ? 1 : 0}>
+      <Wrapper {...props} inview={this.state.inView ? 1 : 0}>
         <Observer {...props} tag="div" onChange={this.handleOnChange} triggerOnce={true}>
           {children}
         </Observer>

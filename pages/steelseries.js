@@ -6,10 +6,10 @@ import FullCaseVideo from 'components/Case/FullCaseVideo';
 export default (props) => (
   <Case
     isMobile={props.isMobile}
-    title="Swatch"
+    title="Steelseries"
     subtitle="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg"
+    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg"
   >
-    <FullCaseVideo vimeoId="89115423" />
+    <FullCaseVideo vimeoId="215641222" />
   </Case>
 )

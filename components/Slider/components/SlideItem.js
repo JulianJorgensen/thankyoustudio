@@ -39,7 +39,7 @@ const Wrapper = styled.div`
     position: fixed;
     width: ${(props.isCondensed || props.isLandingVideoPlaying) ? '0' : props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
     z-index: ${props.isLandingVideoPlaying ? '0' : '6'};
-    will-change: width;
+    // will-change: width;
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;

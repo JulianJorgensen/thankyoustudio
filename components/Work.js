@@ -2,69 +2,44 @@ import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
-import { EASINGS } from 'utils/variables';
+import { EASINGS, breakpoint, LAYOUT } from 'utils/variables';
 import media from 'utils/mediaQueries';
-import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
   color: white;
-  display: flex;
-  flex-directions: column;
-  justify-content: center;
-  color: ${props => props.textColor};
+  padding: 0 30px;
 `
 
 const WorkItems = styled.div`
+  display: grid;
+  grid-gap: 30px;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(400px, auto);
+  grid-auto-flow: dense;
   width: 100%;
-  column-count: 2;
-  column-gap: 20px;
-  break-inside: avoid-column;
-
-  ${breakpoint.up('m')`
-    column-gap: 50px;
-  `}
 `
 
 const WorkItem = styled(LazyShow)`
   position: relative;
-  break-inside: avoid-column;
-  height: 350px;
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   cursor: pointer;
+  height: 100%;
   overflow: hidden;
-  color: ${props => props.whitecontent ? 'white' : 'black'};
-
-  ${breakpoint.up('m')`
-    margin-bottom: 50px;
-    height: 750px;
+  color: black;
+  ${props => props.whitecontent && `
+    color: white;
   `}
-
-  li {
-    border-color: ${props => props.whitecontent ? 'white' : 'black'};
-  }
-
-  ${props => props.alignright && `
-    margin-left: auto;
+  ${props => props.withPadding && `
+    padding: 10px;
   `}
-
-  ${props => props.vertical && `
-    max-width: 525px;
+  ${props => props.verticalSpan2 && `
+    grid-row-end: span 2;
   `}
-
-  ${props => props.horizontal && `
-    width: 100%;
-    height: 250px;
-
-    ${breakpoint.up('m')`
-      height: 525px;
-    `}
+  ${props => props.horizontalSpan2 && `
+    grid-column-end: span 2;
   `}
-
-  ${props => props.square && `
-    max-width: 525px;
-    max-height: 525px;
-  `}
-
 `
 
 const WorkItemImage = styled.div`
@@ -74,7 +49,7 @@ const WorkItemImage = styled.div`
   transition: transform 1s ${EASINGS.EASE_OUT_SHINE};
   height: 100%;
 
-  &:hover {
+  ${WorkItem}:hover & {
     transform: scale(1.05);
   }
 `
@@ -88,23 +63,115 @@ const WorkItemContent = styled.div`
 `
 
 const WorkItemTitle = styled.h3`
-  font-size: 18px;
+  position: absolute;
+  bottom: 20px;
+  font-size: 25px;
   text-transform: uppercase;
+  transition: bottom 0.2s ${EASINGS.EASE_OUT_SHINE};
 
   ${breakpoint.up('m')`
-    font-size: 30px;
+    font-size: 70px;
   `}
+
+  ${WorkItem}:hover & {
+    bottom: 42px;
+  }
 `
 
 const WorkItemTags = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.25s ${EASINGS.EASE_OUT_SHINE};
+
+  ${WorkItem}:hover & {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  li {
+    border: 1px solid black;
+    color: black;
+
+    ${props => props.whitecontent && `
+      border: 1px solid white;
+      color: white;
+    `}
+  }
 `
 
 const WorkItemTag = styled.li`
-  border-width: 1px;
-  border-style: solid;
-  border-radius: 3px;
+  margin-right: 10px;
+  margin-top: 5px;
+  padding: 2px 4px;
+
+  ${breakpoint.up('m')`
+    padding: 4px 8px;
+  `}
+`
+
+const TextItem = styled(LazyShow)`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  cursor: pointer;
+  height: 100%;
+  padding: 10px;
+  grid-row-end: span 2;
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+
+  ${props => props.reverse && `
+    color: black;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  `}
+`
+
+const TextItemHeader = styled.h3`
+  font-size: 70px;
+  line-height: 70px;
+  padding-right: 32%;
+  text-transform: uppercase;
+  ${props => props.whiteBg && `
+    background-color: white;
+    color: black;
+  `}
+`
+
+const FeaturedServices = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 60%;
+
+  li {
+    border: 1px solid white;
+    color: white;
+  
+    ${TextItem}:hover & {
+      border-color: black;
+      color: black;
+    }
+  
+    ${props => props.reverse && `
+      border-color: black;
+      color: black;
+  
+      ${TextItem}:hover & {
+        border-color: white;
+        color: white;
+      }
+    `}  
+  }
+`
+
+const FeaturedService = styled.li`
   margin-right: 5px;
   margin-top: 5px;
   padding: 2px 4px;
@@ -117,12 +184,40 @@ const WorkItemTag = styled.li`
 export default (props) => (
   <Wrapper {...props}>
     <WorkItems>
+    <Link href="/onea" as="/work/onea" scroll={false}>
+        <WorkItem verticalSpan2 horizontalSpan2 whitecontent>
+            <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg" />
+            <WorkItemContent>
+              <WorkItemTitle>Onea</WorkItemTitle>
+              <WorkItemTags whitecontent>
+                <WorkItemTag>Branding</WorkItemTag>
+                <WorkItemTag>Design</WorkItemTag>
+                <WorkItemTag>Development</WorkItemTag>
+              </WorkItemTags>
+            </WorkItemContent>
+        </WorkItem>
+      </Link>
+
+      <Link href="/about" scroll={false}>
+        <TextItem reverse={props.reverseTextItems}>
+          <TextItemHeader>Capabilities</TextItemHeader>
+          <FeaturedServices reverse={props.reverseTextItems}>
+            <FeaturedService>Strategy</FeaturedService>
+            <FeaturedService>Brand</FeaturedService>
+            <FeaturedService>Design</FeaturedService>
+            <FeaturedService>Web development</FeaturedService>
+            <FeaturedService>Video + Photography</FeaturedService>
+            <FeaturedService>Content development</FeaturedService>
+          </FeaturedServices>
+        </TextItem>
+      </Link>
+
       <Link href="/swatch" as="/work/swatch" scroll={false}>
-        <WorkItem horizontal={1} whitecontent={1}>
+        <WorkItem whitecontent delay={200}>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Swatch</WorkItemTitle>
-            <WorkItemTags>
+            <WorkItemTags whitecontent>
               <WorkItemTag>Branding</WorkItemTag>
               <WorkItemTag>Design</WorkItemTag>
               <WorkItemTag>Development</WorkItemTag>
@@ -132,10 +227,10 @@ export default (props) => (
       </Link>
 
       <Link href="/onea" as="/work/onea" scroll={false}>
-        <WorkItem vertical={1} alignright={1}>
+        <WorkItem delay={300}>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg" />
           <WorkItemContent>
-            <WorkItemTitle>Onea test</WorkItemTitle>
+            <WorkItemTitle>Onea</WorkItemTitle>
             <WorkItemTags>
               <WorkItemTag>Branding</WorkItemTag>
               <WorkItemTag>Design</WorkItemTag>
@@ -146,7 +241,7 @@ export default (props) => (
       </Link>
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
-        <WorkItem vertical={1} alignright={1}>
+        <WorkItem delay={400}>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
@@ -161,11 +256,11 @@ export default (props) => (
 
 
       <Link href="/ferrari" as="/work/ferrari" scroll={false}>
-        <WorkItem vertical={1} alignright={1} whitecontent={1}>
+        <WorkItem whitecontent>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Ferrari</WorkItemTitle>
-            <WorkItemTags>
+            <WorkItemTags whitecontent>
               <WorkItemTag>Branding</WorkItemTag>
               <WorkItemTag>Design</WorkItemTag>
               <WorkItemTag>Development</WorkItemTag>
@@ -175,7 +270,7 @@ export default (props) => (
       </Link>
 
       <Link href="/swatch" as="/work/swatch" scroll={false}>
-        <WorkItem square={1} alignright={1}>
+        <WorkItem>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Swatch</WorkItemTitle>
@@ -189,7 +284,7 @@ export default (props) => (
       </Link>
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
-        <WorkItem vertical={1}>
+        <WorkItem verticalSpan2 vertical>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
@@ -203,7 +298,7 @@ export default (props) => (
       </Link>
 
       <Link href="/romeo" as="/work/romeo" scroll={false}>
-        <WorkItem square={1}>
+        <WorkItem square>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Romeo</WorkItemTitle>
@@ -217,7 +312,7 @@ export default (props) => (
       </Link>
 
       <Link href="/copenhagen" as="/work/copenhagen" scroll={false}>
-        <WorkItem vertical={1}>
+        <WorkItem vertical>
           <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg" />
           <WorkItemContent>
             <WorkItemTitle>Copenhagen Distellery</WorkItemTitle>
@@ -230,19 +325,6 @@ export default (props) => (
         </WorkItem>
       </Link>
 
-      <Link href="/onea" as="/work/onea" scroll={false}>
-        <WorkItem horizontal={1} whitecontent={1}>
-          <WorkItemImage src="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg" />
-          <WorkItemContent>
-            <WorkItemTitle>Onea</WorkItemTitle>
-            <WorkItemTags>
-              <WorkItemTag>Branding</WorkItemTag>
-              <WorkItemTag>Design</WorkItemTag>
-              <WorkItemTag>Development</WorkItemTag>
-            </WorkItemTags>
-          </WorkItemContent>
-        </WorkItem>
-      </Link>
     </WorkItems>
   </Wrapper>
 )

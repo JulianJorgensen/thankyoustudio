@@ -143,7 +143,9 @@ export default class LandingSlide extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      wipeTeaser: true
+    };
     this.fullReelEl = null;
     this.teaserVideoEl = null;
     this.playTeaser = this.playTeaser.bind(this);
@@ -184,12 +186,12 @@ export default class LandingSlide extends Component {
 
     return (
       <Wrapper>
-        <LandingVideo poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg" wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline muted>
+        {/* <LandingVideo poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg" wipe={wipeTeaser} ref={el => this.teaserVideoEl = el} playsInline muted>
           <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
-        </LandingVideo>
+        </LandingVideo> */}
 
         <Inner hide={playFullReel}>
-          <LandingVideo
+          {/* <LandingVideo
             poster="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-placeholder.jpg"
             wipe={wipeTeaser}
             ref={el => this.teaserVideoEl = el}
@@ -198,7 +200,7 @@ export default class LandingSlide extends Component {
             muted
           >
             <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Thankyou-landingpage_15.mp4" type="video/mp4" />
-          </LandingVideo>
+          </LandingVideo> */}
 
           <Content show={wipeTeaser}>
             <PlayReel onClick={this.handleTogglePlayReel} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play full reel</PlayReel>

@@ -9,8 +9,8 @@ import Logo from 'components/Logo';
 import Cta from 'components/Cta';
 
 const Wrapper = styled.footer`
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   width: 100%;
   padding: 80px 40px;
 
@@ -91,7 +91,7 @@ const SocialMediaIcons = styled.div`
     height: 30px;
     margin-left: 15px;
     path {
-      fill: white;
+      fill: black;
     }
   }
 
@@ -111,13 +111,14 @@ export default class Footer extends Component {
           <ContactUs>
             <Headline>Got a project?</Headline>
             <Subheadline>Let's talk</Subheadline>
-            <Cta href="/contact" label="Contact us" white />
+            <Cta href="/contact" label="Contact us" />
           </ContactUs>
         </LeftCol>
         <RightCol>
           <Nav>
-            <NavItem><Link href="/about"><a>About</a></Link></NavItem>
+            <NavItem><Link href="/ventures"><a>Ventures</a></Link></NavItem>
             <NavItem><Link href="/work"><a>Work</a></Link></NavItem>
+            <NavItem><Link href="/about"><a>About</a></Link></NavItem>
             <NavItem><Link href="/contact"><a>Contact</a></Link></NavItem>
           </Nav>
           <Locations>

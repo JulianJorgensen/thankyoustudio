@@ -6,7 +6,7 @@ import FullCaseVideo from 'components/Case/FullCaseVideo';
 export default (props) => (
   <Case
     isMobile={props.isMobile}
-    title="Swatch"
+    title="Swatch Irony Chrono"
     subtitle="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg"
   >

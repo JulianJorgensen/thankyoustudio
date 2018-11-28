@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
+import Footer from 'layout/components/Footer';
 import withReduxStore from 'store/with-redux-store';
 import { createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
@@ -49,7 +50,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 25px;
 
     ${breakpoint.up('m')`
-      font-size: 40px;
+      font-size: 34px;
     `}
   }
 

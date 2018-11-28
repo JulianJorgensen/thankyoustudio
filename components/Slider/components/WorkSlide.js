@@ -1,13 +1,18 @@
 import React from 'react';
+import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import { EASINGS } from 'utils/variables';
-import Video from 'components/Video';
 import LowerleftContent from './LowerLeftContent';
 import media from 'utils/mediaQueries';
+
+const SlideVideo = dynamic(import('./SlideVideo'));
 
 const Wrapper = styled.div`
   width: 100%;
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const Image = styled.div`
@@ -18,13 +23,13 @@ const Image = styled.div`
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  background-image: url(${props => props.image});
+  background-image: url(${props => props.src});
   transition: transform 6s ${EASINGS.EASE_OUT_SHINE};
   transition-delay: 0.4s;
   transform: scale(1);
 
   ${props => props.isActive && `
-    transform: scale(1.05);
+    // transform: scale(1.05);
   `}
 
   ${media.tablet`
@@ -32,14 +37,21 @@ const Image = styled.div`
   `}
 `
 
-const StyledVideo = styled(Video)`
-  opacity: 0.5;
+const Video = styled.video`
 `
 
-export default ({ title, subtitle, image, vimeoId, isActive, isNext, fontsLoaded, contentColor }) => (
+export default ({ title, subtitle, image, video, isActive, isNext, fontsLoaded, contentColor, fadeToBlack }) => (
   <Wrapper>
-    <LowerleftContent title={title} subtitle={subtitle} isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} contentColor={contentColor} />
-    <Image isNext={isNext} isActive={isActive} image={image} />
-    {vimeoId ? <StyledVideo vimeoId={vimeoId} isActive={isActive} background sliderVideo /> : ''}
+    <LowerleftContent
+      title={title}
+      subtitle={subtitle}
+      isActive={isActive}
+      isNext={isNext}
+      fontsLoaded={fontsLoaded}
+      contentColor={contentColor}
+      fadeToBlack={fadeToBlack}
+    />
+    {image ? <Image isNext={isNext} isActive={isActive} src={image} /> : ''}
+    {video ? <SlideVideo video={video} isActive={isActive} /> : ''}
   </Wrapper>
 )

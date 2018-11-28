@@ -14,14 +14,14 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  padding: 200px 0 100px;
+  padding: 100px 0 100px;
   background-color: black;
   color: white;
-  min-height: 100vh;
+  min-height: calc(100vh - 300px);
   opacity: 1;
 
   ${media.tablet`
-    padding: 200px ${LAYOUT.EDGE_MARGIN};
+    padding: 120px 0;
   `}
 `
 

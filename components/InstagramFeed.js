@@ -17,7 +17,6 @@ const Wrapper = styled.div`
   align-items: center;
   margin-top: 220px;
   min-height: 600px;
-  background-color: black;
 
   ${media.tablet`
     min-height: 500px;

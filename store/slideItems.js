@@ -9,7 +9,22 @@ export default [
     subtitle: "Design. Experiences. Culture.",
     background: "black",
     image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",
-    whiteContent: true
+    whiteContent: true,
+    fadeToBlack: true
+  },
+  {
+    slug: "universal-robots",
+    title: "Universal Robots",
+    subtitle: "Design. Experiences. Culture.",
+    background: "white",
+    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
+  },
+  {
+    slug: "steelseries",
+    title: "Steelseries",
+    subtitle: "Design. Experiences. Culture.",
+    background: "white",
+    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg",
   },
   {
     slug: "copenhagen",
@@ -19,11 +34,11 @@ export default [
     image: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg'
   },
   {
-    slug: "romeo",
-    title: "Romeo",
+    slug: "swatch-chrono",
+    title: "Swatch Irony Chrono",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
-    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo-cover.jpg",
+    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",
     whiteContent: true
   },
   {
@@ -31,7 +46,7 @@ export default [
     title: "Ferrari",
     subtitle: "Design. Experiences. Culture.",
     background: "black",
-    image: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg',
+    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
     whiteContent: true
   },
   {

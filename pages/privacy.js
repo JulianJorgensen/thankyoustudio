@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DefaultPage from 'components/DefaultPage';
+import DefaultPage from 'layout/components/DefaultPage';
 import styled from 'styled-components';
 
 const Content = styled.div`

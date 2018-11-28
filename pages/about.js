@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import DefaultPage from 'components/DefaultPage';
+import DefaultPage from 'layout/components/DefaultPage';
 import IdentifySimplifyAmplify from 'components/IdentifySimplifyAmplify';
 import { LAYOUT } from 'utils/variables';
 

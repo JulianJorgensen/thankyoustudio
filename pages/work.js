@@ -1,5 +1,5 @@
 import React from 'react';
-import DefaultPage from 'components/DefaultPage';
+import DefaultPage from 'layout/components/DefaultPage';
 import Work from 'components/Work';
 
 export default (props) => (

@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   width: 100%;
   background-color: #fafafa;
 
+  img, video {
+    display: block;
+  }
+
   ${media.tablet`
     top: 100vh;
   `}
@@ -57,36 +61,38 @@ export default class Case extends Component {
     }
 
     return (
-      <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
-        <Head>
-          <title>{renderTitle()}</title>
-        </Head>
-        <MobileHero
-          isMobile={isMobile}
-          title={title}
-          subtitle={subtitle}
-          imageSrc={imageSrc}
-          isLanding={isLanding}
-        />
-        <Content>
-          {children}
-        </Content>
-        <Footer />
-        <style jsx global>{`
-          .fade-enter.case-page, .fade-exit.case-page {
-            transition: transform ${TIMINGS.CASE_WRAPPER};
+        <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
+          <Head>
+            <title>{renderTitle()}</title>
+          </Head>
+          {isMobile ?
+            <MobileHero
+              isMobile={isMobile}
+              title={title}
+              subtitle={subtitle}
+              imageSrc={imageSrc}
+              isLanding={isLanding}
+            /> : ''
           }
+          <Content>
+            {children}
+          </Content>
+          <Footer />
+          <style jsx global>{`
+            .fade-enter.case-page, .fade-exit.case-page {
+              transition: transform ${TIMINGS.CASE_WRAPPER};
+            }
 
-          .fade-exit.case-page {
-            transform: translateX(0px);
-          }
+            .fade-exit.case-page {
+              transform: translateX(0px);
+            }
 
-          .fade-exit-active.case-page {
-            transform: translateX(-100px);
-          }
-        `}
-        </style>
-      </Wrapper>
+            .fade-exit-active.case-page {
+              transform: translateX(-100px);
+            }
+          `}
+          </style>
+        </Wrapper>
     )
   }
 }

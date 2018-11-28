@@ -1,24 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
+import CaseIntro from 'components/Case/Intro';
 
-const Header = styled.div`
-  padding: 300px 50vw 300px 80px;
-  width: 100%;
-
-  ${props => props.black && `
-    background-color: black;
-    color: white;
-  `}
+const Scuderia = styled.div`
+  padding: 150px;
+  display: flex;
+  justify-content: center;
+  background: url('http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/scuderia_ferrari_bg.jpg') center center no-repeat;
+  background-size: cover;
 `
 
-const Title = styled.h2`
-  font-size: 70px;
+const FerrariWebcast = styled.div`
+  padding: 150px;
+  display: flex;
+  justify-content: center;
 `
 
-const Lead = styled.div`
-  font-size: 25px;
-`
 
 export default (props) => (
   <Case
@@ -27,24 +25,34 @@ export default (props) => (
     subtitle="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg"
   >
-    <Header black>
-      <Title>Rrrrrrwww Ferrari distillery</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
+    <CaseIntro dark>
+      <h2>IDENTIFY</h2>
+      <p>Present the 2015 Ferrari F1 car to the world. Feed the overwhelming existing respect and love for the brand. Bring the fans front row together with the press.</p>
+      <p>Make it instant, live and global.</p>
 
-    <Header>
-      <Title>Some more of the case</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
+      <h2>SIMPLIFY</h2>
+      <p>Create a real-time online “live” event that is being built up through a partly exposed film – climaxing with the reveal of the F1 car. A film about the heritage, the team, the car – all for the fans! </p>
+      <p>Launch the film in chapters to tease for the online live launch and simultaneously build up the site to a fully fledged experience site.</p>
 
-    <Header black>
-      <Title>Ferrari</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
+      <h2>AMPLIFY</h2>
+      <p>We created four chapters: THE LEGACY, THE PEOPLE, THE SECRET, THE REVELATION.</p>
+      <p>Building tension and gaining emotional value through a potential reach of 35 million fans until the precise moment the full website is launched presenting car, drivers, interviews, tech specs and other PR material.</p>
+    </CaseIntro>
+    <img src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/thank-you-ferrari-2.jpg" alt="Ferrari" />
 
-    <Header>
-      <Title>Ferrari...</Title>
-      <Lead>Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.</Lead>
-    </Header>
+    <FerrariWebcast>
+      <video autoPlay muted loop>
+        <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari%20web-optimized.mp4" type="video/mp4" />
+      </video>
+    </FerrariWebcast>
+
+    <Scuderia>
+      <video autoPlay muted loop>
+        <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/LOGO-SCUDERIA-web.mp4" type="video/mp4" />
+      </video>
+    </Scuderia>
+
+    <img src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/thank-you-ferrari.jpg" alt="Ferrari" />
+
   </Case>
 )
