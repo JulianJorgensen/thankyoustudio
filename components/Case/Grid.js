@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import LazyShow from 'components/lazyShow';
 import { aspectRatio } from 'utils/styleUtils';
 import { breakpoint } from 'utils/variables';
 
@@ -32,9 +33,11 @@ const Grid = styled.div`
 `
 
 export default ({ children, ratio, ...props }) => (
-  <Wrapper {...props}>
-    <Grid {...props} ratio={aspectRatio(ratio)}>
-      {children}
-    </Grid>
-  </Wrapper>
+  <LazyShow delay={200}>
+    <Wrapper>
+      <Grid {...props} ratio={aspectRatio(ratio)}>
+        {children}
+      </Grid>
+    </Wrapper>
+  </LazyShow>
 )

@@ -59,8 +59,8 @@ const Title = styled.h1`
   color: inherit;
 
   ${media.tablet`
-    font-size: 140px;
-    line-height: 130px;
+    font-size: 130px;
+    line-height: 120px;
   `}
 `
 
@@ -142,12 +142,12 @@ export default class LowerLeftContent extends Component {
 
     if (this.props.fadeToBlack) {
       this.headerAnimation = TweenLite.set(this.headerEl, {
-        top: scrollTop/3,
+        top: scrollTop/2.7,
         color: this.props.fadeToBlack ? `rgb(${255-scrollTop/3}, ${255-scrollTop/3}, ${255-scrollTop/3})` : ''
       });
     } else {
       this.headerAnimation = TweenLite.set(this.headerEl, {
-        top: scrollTop/3
+        top: scrollTop/2.7
       });
     }
   }

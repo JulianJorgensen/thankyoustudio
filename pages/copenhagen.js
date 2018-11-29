@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
-import CaseIntro from 'components/Case/Intro';
-import CaseHeader from 'components/Case/Header';
 import Grid from 'components/Case/Grid';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
+import { breakpoint } from 'utils/variables';
 
 const LogoSection = styled.div`
   display: flex;
@@ -20,8 +19,25 @@ const Text = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 40px;
+  font-size: 25px;
   font-weight: bold;
+  padding: 20px;
+
+  ${breakpoint.up('m')`
+    padding: 0;
+    font-size: 40px;
+  `}
+`
+
+const IntroText = styled(Text)`
+  display: block;
+  align-items: flex-end;
+
+  ${breakpoint.up('m')`
+    padding: 290px 40px 10px;
+    column-count: 2;
+    column-gap: 60px;
+  `}
 `
 
 export default (props) => (
@@ -31,6 +47,7 @@ export default (props) => (
     subtitle="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg"
   >
+    <IntroText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</IntroText>
 
     <FullCaseVideo vimeoId="262509870" />
 
