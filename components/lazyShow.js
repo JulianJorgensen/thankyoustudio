@@ -42,7 +42,7 @@ export default class LazyShow extends Component {
     const { children, ...props } = this.props;
     const { inView, loaded } = this.state;
 
-    if (!loaded) return <div></div>;
+    if (!loaded) return null;
 
     return (
         <Wrapper {...props} inview={inView ? 1 : 0}>

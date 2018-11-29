@@ -29,7 +29,7 @@ export default (props) => (
       <LeadText>16x9</LeadText>
     </Grid>
     <Grid cols="2" bgColor="#540071" ratio="16x9">
-      <LeadText>16x9</LeadText>      
+      <LeadText>16x9</LeadText>
       <LeadText>16x9</LeadText>
     </Grid>
     <Grid bgColor="#9100c2" ratio="3x2">

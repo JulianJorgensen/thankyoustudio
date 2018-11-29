@@ -1,10 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import { aspectRatio } from 'utils/styleUtils';
+import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.div`
   display: flex;
-  margin: 20px 40px;
+  margin: 10px 0;
+
+  ${breakpoint.up('m')`
+    margin: 20px 40px;
+  `}
 `
 
 const Grid = styled.div`
@@ -13,6 +18,10 @@ const Grid = styled.div`
 
   ${props => props.cols == "2" && `
     grid-template-columns: 1fr 1fr;
+    grid-gap: 10px;
+  `}
+
+  ${props => props.cols == "2" && breakpoint.up('m')`
     grid-gap: 20px;
   `}
 

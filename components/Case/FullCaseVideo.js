@@ -16,7 +16,7 @@ const StyledVimeo = styled(Vimeo)`
 `
 
 export default ({ children, ...props }) => (
-  <Wrapper>
+  <Wrapper delay={700}>
     <StyledVimeo {...props} />
   </Wrapper>
 )
