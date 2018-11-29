@@ -3,14 +3,19 @@ import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
 import Grid from 'components/Case/Grid';
+import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const LeadText = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 80px;
+  font-size: 35px;
   width: 100%;
   color: white;
+
+  ${breakpoint.up('m')`
+    font-size: 80px;
+  `}
 `
 
 export default (props) => (
@@ -41,6 +46,21 @@ export default (props) => (
       <LeadText>3x4</LeadText>      
       <LeadText>3x4</LeadText>
     </Grid>
+    <Grid bgColor="#e392ff" ratio="1x1">
+      <LeadText>1x1</LeadText>      
+    </Grid>
+    <Grid cols="2" bgColor="#e392ff" ratio="1x1">
+      <LeadText>1x1</LeadText>      
+      <LeadText>1x1</LeadText>      
+    </Grid>
+    <Grid bgColor="#f0c5ff" ratio="2x3">
+      <LeadText>2x3</LeadText>      
+    </Grid>
+    <Grid cols="2" bgColor="#f0c5ff" ratio="2x3">
+      <LeadText>2x3</LeadText>      
+      <LeadText>2x3</LeadText>      
+    </Grid>
+
     <FullCaseVideo vimeoId="89115423" />
   </Case>
 )

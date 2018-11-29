@@ -17,6 +17,9 @@ export function aspectRatio(ratio) {
     case '2x3':
       aspectRatioPercentage = '150%';
       break;
+    case '1x1':
+      aspectRatioPercentage = '100%';
+      break;
     default:
       aspectRatioPercentage = '56.25%';
   }
