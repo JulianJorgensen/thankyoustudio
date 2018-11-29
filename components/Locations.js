@@ -7,9 +7,9 @@ const Wrapper = styled.ul`
 
 const Locations = styled.ul`
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
   list-style-type: none;
-  color: ${props => props.dark ? 'black' : 'white'};
+  width: 600px;
 `
 
 
@@ -24,6 +24,7 @@ const LocationItem = styled.li`
 
 const LocationTitle = styled.h3`
   font-weight: bold;
+  font-size: 24px;
 `
 
 const LocationAddress = styled.div`

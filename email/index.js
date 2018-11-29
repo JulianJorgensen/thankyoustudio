@@ -2,7 +2,7 @@ const Mailer = require('./Mailer');
 
 const EmailClass = (req, res) => {
   const {
-    template, subject, name, email, ...context
+    template, name, email, ...context
   } = req.body;
 
   const adminContact = {
@@ -12,7 +12,7 @@ const EmailClass = (req, res) => {
   const mailOptions = {
     from: { name, address: email },
     to: adminContact,
-    subject,
+    subject: 'New message',
     template: {
       name: `./email/templates/${template}.pug`,
       engine: 'pug',

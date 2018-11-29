@@ -40,32 +40,14 @@ export default({
     />
     {touched.email && errors.email && <div>{errors.email}</div>}
     <StyledInput
-      type="phone"
-      name="phone"
-      onChange={handleChange}
-      onBlur={handleBlur}
-      label="Phone"
-      disabled={isSubmitting}
-    />
-    {touched.phone && errors.phone && <div>{errors.phone}</div>}
-    <StyledInput
-      type="text"
-      name="subject"
-      onChange={handleChange}
-      onBlur={handleBlur}
-      label="Subject"
-      disabled={isSubmitting}
-    />
-    {touched.subject && errors.subject && <div>{errors.subject}</div>}
-    <StyledInput
       multiline
-      rows={4}
+      rows={10}
       label="Message"
       name="message"
       onChange={handleChange}
       disabled={isSubmitting}
     />
     {touched.message && errors.message && <div>{errors.message}</div>}
-    <Cta type="submit" white label={isSubmitting ? 'Sending...' : 'Contact'} onClick={handleSubmit} disabled={isSubmitting} primary />
+    <Cta type="submit" label={isSubmitting ? 'Sending...' : 'Contact'} onClick={handleSubmit} disabled={isSubmitting} primary />
   </Form>
 );

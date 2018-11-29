@@ -9,7 +9,7 @@ const Content = styled.div`
 `
 
 export default (props) => (
-  <DefaultPage whiteContent title="About" {...props}>
+  <DefaultPage title="About" {...props}>
     <Content>
       <IdentifySimplifyAmplify whiteContent />
     </Content>

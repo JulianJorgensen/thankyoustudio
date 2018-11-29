@@ -15,10 +15,15 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   padding: 100px 0 100px;
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   min-height: calc(100vh - 300px);
   opacity: 1;
+
+  ${props => props.dark && `
+    background-color: black;
+    color: white;
+  `}
 
   ${media.tablet`
     padding: 120px 0;
@@ -30,8 +35,13 @@ const Content = styled.div`
 }))
 export default class DefaultPage extends Component {
   componentDidMount() {
-    const { dispatch, whiteContent } = this.props;
-    if (whiteContent) dispatch(actions.setNavColorWhite(true));
+    const { dispatch, dark } = this.props;
+
+    if (dark) {
+      dispatch(actions.setNavColorWhite(true));
+    } else {
+      dispatch(actions.setNavColorWhite(false));
+    }
   }
 
   render() {
@@ -87,11 +97,15 @@ export default class DefaultPage extends Component {
     }
 
     return (
-      <Wrapper fontsLoaded={fontsLoaded} isScrollNSliding={slider.isScrollNSliding} className='default-page'>
+      <Wrapper
+        fontsLoaded={fontsLoaded}
+        isScrollNSliding={slider.isScrollNSliding}
+        className='default-page'
+      >
         <Head>
           <title>{title} {META.DESCRIPTION}</title>
         </Head>
-        <Content className="content">
+        <Content className="content" dark={this.props.dark}>
           {children}
         </Content>
         <Footer />

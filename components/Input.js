@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     position: absolute;
     transform: scaleX(0);
     transition: transform 200ms cubic-bezier(0.0, 0, 0.2, 1) 0ms;
-    border-bottom: 2px solid #1976d2;
+    border-bottom: 3px solid white;
     pointer-events: none;
   }
 
@@ -43,15 +43,15 @@ const Wrapper = styled.div`
 const InputStyles = `
   font: inherit;
   border: 0;
-  margin: 0;
-  padding: 6px 10px 7px;
+  margin: 8px 0 0 0;
+  padding: 10px 10px 12px;
   display: block;
   min-width: 0;
   flex-grow: 1;
   box-sizing: content-box;
   background: none;
   -webkit-tap-highlight-color: transparent;
-  background-color: #f5f5f5;
+  background-color: white;
   width: 100%;
   box-sizing: border-box;
 
@@ -73,7 +73,7 @@ const Label = styled.label`
   z-index: 2;
   top: 0;
   left: 0;
-  font-size: 11px;
+  font-size: 16px;
 `
 
 export default class Input extends Component {

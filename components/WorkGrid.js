@@ -7,16 +7,25 @@ import media from 'utils/mediaQueries';
 
 const Wrapper = styled.div`
   color: white;
-  padding: 0 30px;
+  padding: 0;
+
+  ${breakpoint.up('l')`
+    padding: 0 30px;
+  `}
 `
 
 const WorkItems = styled.div`
   display: grid;
-  grid-gap: 30px;
-  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;
+  grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: minmax(400px, auto);
   grid-auto-flow: dense;
   width: 100%;
+
+  ${breakpoint.up('l')`
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 30px;
+  `}
 `
 
 const WorkItem = styled(LazyShow)`
@@ -60,33 +69,37 @@ const WorkItemContent = styled.div`
   padding: 20px;
   z-index: 2;
   width: 100%;
-`
-
-const WorkItemTitle = styled.h3`
-  position: absolute;
-  bottom: 20px;
-  font-size: 25px;
-  text-transform: uppercase;
-  transition: bottom 0.2s ${EASINGS.EASE_OUT_SHINE};
 
   ${breakpoint.up('m')`
-    font-size: 70px;
+    transform: translateY(50px);
+    transition: all 0.25s ${EASINGS.EASE_OUT_SHINE};
   `}
 
   ${WorkItem}:hover & {
-    bottom: 42px;
+    transform: translateY(0);
   }
+`
+
+const WorkItemTitle = styled.h3`
+  font-size: 25px;
+  text-transform: uppercase;
+
+  ${breakpoint.up('m')`
+    font-size: 70px;
+    line-height: 70px;
+  `}
 `
 
 const WorkItemTags = styled.ul`
   display: flex;
   flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.25s ${EASINGS.EASE_OUT_SHINE};
+
+  ${breakpoint.up('m')`
+    opacity: 0;
+    transition: all 0.25s ${EASINGS.EASE_OUT_SHINE};
+  `}
 
   ${WorkItem}:hover & {
-    transform: translateY(0);
     opacity: 1;
   }
 
@@ -118,7 +131,12 @@ const TextItem = styled(LazyShow)`
   cursor: pointer;
   height: 100%;
   padding: 10px;
-  grid-row-end: span 2;
+  grid-column-end: span 2;
+
+  ${breakpoint.up('m')`
+    grid-column-end: span 1;
+    grid-row-end: span 2;
+  `}
 
   &:hover {
     background-color: white;
@@ -135,13 +153,19 @@ const TextItem = styled(LazyShow)`
 `
 
 const TextItemHeader = styled.h3`
-  font-size: 70px;
-  line-height: 70px;
+  font-size: 40px;
+  line-height: 40px;
   padding-right: 32%;
   text-transform: uppercase;
+
   ${props => props.whiteBg && `
     background-color: white;
     color: black;
+  `}
+
+  ${breakpoint.up('l')`
+    font-size: 70px;
+    line-height: 70px;
   `}
 `
 

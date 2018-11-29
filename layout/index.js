@@ -10,6 +10,9 @@ import LayoutDefault from './components/LayoutDefault';
 @connect()
 export default class Layout extends Component {
   componentDidMount() {
+    // require polyfill for intersection observer only in client side
+    require('intersection-observer');
+
     this.initFontObserver();
     window.scrollTo(0, 0);
   }

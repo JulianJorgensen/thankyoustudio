@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 
-const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
-});
-
+const Observer = dynamic(import('react-intersection-observer'));
 
 const Wrapper = styled.div`
   transform: translateY(${props => props.inview ? '0' : '100px'});
   opacity: ${props => props.inview ? '1' : '0'};
   transition: transform 1s, opacity 1s;
   transition-delay: ${props => props.delay}ms;
+
+  ${props => props.noAnimation && `
+    transform: none;
+    opacity: 1;
+    transition-property: none;
+    transition-delay: 0;
+  `}
 `
 
 export default class LazyShow extends Component {
@@ -23,7 +27,6 @@ export default class LazyShow extends Component {
   }
 
   componentDidMount() {
-
     this.setState({
       loaded: true
     });
@@ -37,15 +40,16 @@ export default class LazyShow extends Component {
 
   render() {
     const { children, ...props } = this.props;
+    const { inView, loaded } = this.state;
 
-    if (!this.state.loaded) return <div></div>;
+    if (!loaded) return <div></div>;
 
     return (
-      <Wrapper {...props} inview={this.state.inView ? 1 : 0}>
-        <Observer {...props} tag="div" onChange={this.handleOnChange} triggerOnce={true}>
-          {children}
-        </Observer>
-      </Wrapper>
+        <Wrapper {...props} inview={inView ? 1 : 0}>
+          <Observer {...props} tag="div" onChange={this.handleOnChange} triggerOnce={true}>
+            {inView && children}
+          </Observer>
+        </Wrapper>
     )
   }
 }

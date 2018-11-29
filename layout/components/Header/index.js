@@ -115,8 +115,6 @@ export default class Header extends Component {
       windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
     }
 
-    console.log('fixed', fixed);
-    console.log('scrolling', slider.isScrollNSliding);
     const page = router.asPath.split('/')[1];
 
     return (

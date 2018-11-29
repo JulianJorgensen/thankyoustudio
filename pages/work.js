@@ -1,9 +1,9 @@
 import React from 'react';
 import DefaultPage from 'layout/components/DefaultPage';
-import Work from 'components/Work';
+import WorkGrid from 'components/WorkGrid';
 
 export default (props) => (
-  <DefaultPage whiteContent title="Our work" {...props}>
-    <Work textColor="white" />
+  <DefaultPage dark title="Our work" {...props}>
+    <WorkGrid textColor="white" />
   </DefaultPage>
 )

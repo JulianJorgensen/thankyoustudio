@@ -6,17 +6,28 @@ const Wrapper = styled.div`
 `
 
 const Video = styled(Vimeo)`
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 0;
+  height: 0;
   width: 100%;
+  overflow: hidden;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `
 
 export default class VimeoVideo extends Component {
   render() {
     const { vimeoId, className, ...otherProps } = this.props;
-
     return (
-      <Wrapper>
+      <Wrapper className={className}>
         <Video
-          className={className}
           video={vimeoId}
           {...otherProps}
         />

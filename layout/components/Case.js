@@ -45,9 +45,6 @@ const Content = styled.div`
 }))
 export default class Case extends Component {
   componentDidMount() {
-    // require polyfill for intersection observer only in client side
-    require('intersection-observer');
-
     const { dispatch, whiteContent } = this.props;
     if (whiteContent) dispatch(actions.setNavColorWhite(true));
   }

@@ -52,7 +52,7 @@ const Wrapper = styled.div`
       right: 0;
       z-index: 100;
       height: 100vh;
-      width: 5vw;
+      width: 3vw;
     }
 
     &:hover {
