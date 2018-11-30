@@ -13,7 +13,7 @@ const Text = styled.div`
 
   ${breakpoint.up('m')`
     padding: 0;
-    font-size: 40px;
+    font-size: 35px;
   `}
 `
 
