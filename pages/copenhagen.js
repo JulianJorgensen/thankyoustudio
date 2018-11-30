@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
-import Grid from 'components/Case/Grid';
+import Grid from 'components/Grid';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
 import Text from 'components/Text';
 import Image from 'components/Image';
@@ -37,7 +37,7 @@ export default (props) => (
       <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_henrik_02.jpg" />
     </Grid>
 
-    <Grid ratio="4x3">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_barrel.jpg" />
     </Grid>
 
@@ -46,15 +46,15 @@ export default (props) => (
       <Text>Building a brand from the ground up</Text>
     </Grid>
 
-    <Grid ratio="4x3">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_gin_black.jpg" />
     </Grid>
 
-    <Grid ratio="4x3">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gins_lineup.jpg" />
     </Grid>
 
-    <Grid ratio="4x3">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_01.jpg" />
     </Grid>
 
@@ -68,7 +68,7 @@ export default (props) => (
       <Text>Building a brand from the ground up</Text>
     </Grid>
 
-    <Grid ratio="4x3">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_01.jpg" />
     </Grid>
 
@@ -77,11 +77,11 @@ export default (props) => (
       <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_03.jpg" />
     </Grid>
 
-    <Grid ratio="3x4">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_aquavit.jpg" />
     </Grid>
 
-    <Grid ratio="4x3">
+    <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_snaps_lineup.jpg" />
     </Grid>
   </Case>

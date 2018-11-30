@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LandingHero from 'components/LandingHero';
+import { LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: relative;
@@ -15,7 +16,7 @@ const Wrapper = styled.div`
 const Content = styled.div`
   position: absolute;
   bottom: 40px;
-  left: 40px;
+  left: ${LAYOUT.MOBILE.EDGE_MARGIN};
 `
  
 const Title = styled.h1`

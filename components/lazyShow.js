@@ -39,7 +39,7 @@ export default class LazyShow extends Component {
   }
 
   render() {
-    const { children, className, ...props } = this.props;
+    const { children, ...props } = this.props;
     const { inView, loaded } = this.state;
 
     if (!loaded) return null;

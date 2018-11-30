@@ -28,7 +28,7 @@ const WorkItems = styled.div`
   `}
 `
 
-const WorkItem = styled(LazyShow)`
+const WorkItem = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -51,7 +51,7 @@ const WorkItem = styled(LazyShow)`
   `}
 `
 
-const WorkItemImage = styled.div`
+const WorkItemImage = styled(LazyShow)`
   position: relative;
   background: url(${props => props.src}) center center no-repeat;
   background-size: cover;

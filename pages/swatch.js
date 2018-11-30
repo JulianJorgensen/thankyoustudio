@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
-import Grid from 'components/Case/Grid';
+import Grid from 'components/Grid';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const LeadText = styled.div`

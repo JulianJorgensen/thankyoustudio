@@ -12,7 +12,7 @@ const StyledWorkGrid = styled(WorkGrid)`
 
 export default (props) => (
   <Case isLanding {...props}>
-    <StyledWorkGrid reverseTextItems />
+    <StyledWorkGrid dark reverseTextItems />
 
     <InstagramFeed />
   </Case>

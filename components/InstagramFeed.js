@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
-import { EASINGS, INSTAGRAM } from 'utils/variables';
 import dynamic from 'next/dynamic';
+import { aspectRatio } from 'utils/styleUtils';
+import { EASINGS, INSTAGRAM } from 'utils/variables';
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
@@ -41,20 +42,17 @@ const Posts = styled.div`
 
 const Post = styled.div`
   position: relative;
-  height: 150px;
   overflow: hidden;
-
-  ${media.tablet`
-    height: 250px;
-  `}
+  ${aspectRatio('1x1')}
 `
 
 const PostImage = styled.div`
+  position: absolute;
   width: 100%;
   height: 100%;
   background: url(${props => props.imageLowRes}) center center no-repeat;
   background-size: cover;
-  transform: scale(1.02);
+  transform: scale(1);
   transition: transform 0.5s ${EASINGS.EASE_OUT_SHINE};
 
   ${Post}:hover & {
