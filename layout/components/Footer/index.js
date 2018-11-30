@@ -7,30 +7,34 @@ import VimeoIcon from 'assets/icons/FontAwesome/brands/vimeo.svg';
 import FacebookIcon from 'assets/icons/FontAwesome/brands/facebook.svg';
 import Logo from 'components/Logo';
 import Cta from 'components/Cta';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.footer`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background-color: black;
   color: white;
   width: 100%;
-  padding: 80px 40px;
+  padding: 80px ${LAYOUT.MOBILE.EDGE_MARGIN};
 
-  ${media.tablet`
-    display: flex;
+  ${breakpoint.up('m')`
+    padding: 80px ${LAYOUT.EDGE_MARGIN};
+    flex-direction: row;
     justify-content: space-between;
-    height: 300px;
+  `}
+  `
+
+const Details = styled.div`
+  text-align: center;
+  ${breakpoint.up('m')`
+    text-align: right;
   `}
 `
 
-const LeftCol = styled.div`
-  position: relative;
-`
-
-const RightCol = styled.div`
-`
-
-
 const Nav = styled.nav`
   display: flex;
+  margin-top: 40px;
   margin-bottom: 20px;
 `
 
@@ -44,7 +48,10 @@ const NavItem = styled.div`
 `
 
 const ContactUs = styled.div`
-  padding-left: 80px;
+  text-align: center;
+  ${breakpoint.up('m')`
+    text-align: left;
+  `}
 `
 
 const Headline = styled.div`
@@ -58,33 +65,36 @@ const Subheadline = styled.div`
 `
 
 const StyledLogo = styled(Logo)`
-  position: absolute;
-  left: 0;
-  top: 0;
-  transform: rotate(-90deg) translateX(-100%);
-  transform-origin: left top;
+  margin: 60px 0 30px;
+  display: flex;
+  justify-content: center;
+
+  // position: absolute;
+  // left: 0;
+  // top: 0;
+  // transform: rotate(-90deg) translateX(-100%);
+  // transform-origin: left top;
 `
 
 const Locations = styled.div`
+  display: flex;
+  justify-content: center;
   opacity: 0.6;
   margin-bottom: 20px;
-
-  ${media.tablet`
-    text-align: right;
-  `}
 `
 
 const Location = styled.div`
-  margin-bottom: 10px;
+  margin-right: 10px;
 
   &:last-child {
-    margin-bottom: 0;
+    margin-right: 0;
   }
 `
 
 const SocialMediaIcons = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center;
 
   svg {
     width: 30px;
@@ -94,10 +104,6 @@ const SocialMediaIcons = styled.div`
       fill: white;
     }
   }
-
-  ${media.tablet`
-    justify-content: flex-end;
-  `}
 `
 
 export default class Footer extends Component {
@@ -105,34 +111,32 @@ export default class Footer extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <LeftCol>
-          <StyledLogo />
+      <Wrapper>          
           <ContactUs>
             <Headline>Got a project?</Headline>
             <Subheadline>Let's talk</Subheadline>
             <Cta white href="/contact" label="Contact us" />
           </ContactUs>
-        </LeftCol>
-        <RightCol>
-          <Nav>
-            <NavItem><Link href="/ventures"><a>Ventures</a></Link></NavItem>
-            <NavItem><Link href="/work"><a>Work</a></Link></NavItem>
-            <NavItem><Link href="/about"><a>About</a></Link></NavItem>
-            <NavItem><Link href="/contact"><a>Contact</a></Link></NavItem>
-          </Nav>
-          <Locations>
-            <Location>Copenhagen</Location>
-            <Location>Reykjavik</Location>
-            <Location>San Francisco</Location>
-          </Locations>
-          <SocialMediaIcons>
-            <Link href="/privacy"><a>Privacy</a></Link>
-            <a href="http://www.instagram.com/explore/tags/thankyouculture/" target="new"><InstagramIcon /></a>
-            <a href="http://vimeo.com/thankyoustudio/" target="new"><VimeoIcon /></a>
-            <a href="http://facebook.com/thankyoustudio/" target="new"><FacebookIcon /></a>
-          </SocialMediaIcons>
-        </RightCol>
+          <Details>
+            <StyledLogo />
+            <Nav>
+              <NavItem><Link href="/ventures"><a>Ventures</a></Link></NavItem>
+              <NavItem><Link href="/work"><a>Work</a></Link></NavItem>
+              <NavItem><Link href="/about"><a>About</a></Link></NavItem>
+              <NavItem><Link href="/contact"><a>Contact</a></Link></NavItem>
+            </Nav>
+            <Locations>
+              <Location>Copenhagen</Location>
+              <Location>Reykjavik</Location>
+              <Location>San Francisco</Location>
+            </Locations>
+            <SocialMediaIcons>
+              <Link href="/privacy"><a>Privacy</a></Link>
+              <a href="http://www.instagram.com/explore/tags/thankyouculture/" target="new"><InstagramIcon /></a>
+              <a href="http://vimeo.com/thankyoustudio/" target="new"><VimeoIcon /></a>
+              <a href="http://facebook.com/thankyoustudio/" target="new"><FacebookIcon /></a>
+            </SocialMediaIcons>
+          </Details>
       </Wrapper>
     );
   }

@@ -106,7 +106,7 @@ export default class Header extends Component {
   }
 
   render() {
-    const { store, router } = this.props;
+    const { store, router, isMobile } = this.props;
     const { fixed } = this.state;
     const { activeSlide, slider, mobileNav, navColor } = store;
 
@@ -122,7 +122,7 @@ export default class Header extends Component {
         onUnpin={this.handleOnUnpin}
         onPin={this.handleOnPin}
         onUnfix={this.handleOnUnfix}
-        pinStart={300}
+        pinStart={isMobile ? LAYOUT.MOBILE.HEADER_DISAPPEAR : LAYOUT.HEADER_DISAPPEAR}
         fixed={fixed}
         color={navColor}
         scrollnsliding={slider.isScrollNSliding}

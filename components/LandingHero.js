@@ -116,12 +116,6 @@ export default class LandingSlide extends Component {
     this.handleCloseReel = this.handleCloseReel.bind(this);
   }
 
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ loadReel: true });
-    }, 3000);
-  }
-
   playTeaser() {
     let videoDuration = this.teaserVideoEl.duration;
     this.teaserVideoEl.play();
@@ -147,7 +141,7 @@ export default class LandingSlide extends Component {
 
   render() {
     const { store } = this.props;
-    const { loadReel, playReel } = this.state;
+    const { playReel } = this.state;
 
     return (
       <Wrapper>
@@ -158,7 +152,7 @@ export default class LandingSlide extends Component {
           </Content>
         </Inner>
 
-        {loadReel && <Reel play={playReel} />}
+        <Reel play={playReel} />
         {playReel && <CloseReel onClick={this.handleCloseReel}><CloseIcon /></CloseReel>}
       </Wrapper>  
     )

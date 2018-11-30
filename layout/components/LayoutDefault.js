@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 @connect((store) => ({
   store,
 }))
-export default class Layout extends Component {
+export default class LayoutDefault extends Component {
   constructor() {
     super();
 

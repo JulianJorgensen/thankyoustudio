@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import styled from 'styled-components';
-import { FONTS, EASINGS } from 'utils/variables';
+import { FONTS, EASINGS, LAYOUT, breakpoint } from 'utils/variables';
 
 const Wrapper = styled.nav`
   position: fixed;
@@ -32,7 +32,11 @@ const Nav = styled.nav`
   text-align: left;
   font-size: 30px;
   pointer-events: auto;
-  padding: 40px;
+  padding: ${LAYOUT.MOBILE.EDGE_MARGIN};
+
+  ${breakpoint.up('m')`
+    padding: ${LAYOUT.EDGE_MARGIN};
+  `}
 `
 
 const NavItem = styled.li`

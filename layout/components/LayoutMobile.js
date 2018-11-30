@@ -16,7 +16,7 @@ const Wrapper = styled.div`
 @connect((store) => ({
   store,
 }))
-export default class Layout extends Component {
+export default class LayoutMobile extends Component {
   constructor() {
     super();
 
@@ -62,7 +62,7 @@ export default class Layout extends Component {
         onSwipedLeft={this.handleSwipedLeft}
       >
         <Wrapper>
-          <Header />
+          <Header isMobile={true} />
           {children}
         </Wrapper>
         <style jsx global>{`
