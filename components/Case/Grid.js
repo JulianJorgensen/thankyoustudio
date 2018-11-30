@@ -1,12 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import LazyShow from 'components/lazyShow';
 import { aspectRatio } from 'utils/styleUtils';
-import { breakpoint } from 'utils/variables';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
   display: flex;
-  margin: 10px 0;
+  margin: ${LAYOUT.MOBILE.EDGE_MARGIN};
 
   ${breakpoint.up('m')`
     margin: 20px 40px;
@@ -19,7 +18,7 @@ const Grid = styled.div`
 
   ${props => props.cols == "2" && `
     grid-template-columns: 1fr 1fr;
-    grid-gap: 10px;
+    grid-gap: ${LAYOUT.MOBILE.EDGE_MARGIN};
   `}
 
   ${props => props.cols == "2" && breakpoint.up('m')`
@@ -33,11 +32,9 @@ const Grid = styled.div`
 `
 
 export default ({ children, ratio, ...props }) => (
-  <LazyShow delay={200}>
-    <Wrapper>
-      <Grid {...props} ratio={aspectRatio(ratio)}>
-        {children}
-      </Grid>
-    </Wrapper>
-  </LazyShow>
+  <Wrapper>
+    <Grid {...props} ratio={aspectRatio(ratio)}>
+      {children}
+    </Grid>
+  </Wrapper>
 )

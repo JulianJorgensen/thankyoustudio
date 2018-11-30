@@ -29,7 +29,7 @@ export const LAYOUT = {
   CONTAINER_WIDTH: '1100px',
   EDGE_MARGIN: '40px',
   MOBILE: {
-    EDGE_MARGIN: '30px'
+    EDGE_MARGIN: '6px'
   }
 }
 
