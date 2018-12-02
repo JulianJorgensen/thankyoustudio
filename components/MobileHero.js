@@ -15,11 +15,12 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   position: absolute;
-  bottom: 40px;
+  bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
   left: ${LAYOUT.MOBILE.EDGE_MARGIN};
 `
- 
+
 const Title = styled.h1`
+  text-transform: uppercase;
 `
 
 const SubTitle = styled.h2`

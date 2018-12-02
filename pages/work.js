@@ -1,9 +1,9 @@
 import React from 'react';
 import DefaultPage from 'layout/components/DefaultPage';
-import WorkGrid from 'components/WorkGrid';
+import Cases from 'components/Cases';
 
 export default (props) => (
   <DefaultPage dark title="Our work" {...props}>
-    <WorkGrid textColor="white" />
+    <Cases textColor="white" />
   </DefaultPage>
 )

@@ -7,9 +7,9 @@ const NavLink = styled.div`
   position: relative;
   margin-right: 25px;
   color: inherit;
-  overflow-x: hidden;
 
   ${props => props.logo &&`
+    display: block;
     position: relative;
     z-index: 99;
 
@@ -18,10 +18,6 @@ const NavLink = styled.div`
       height: 40px;
       transition: all 0.3s ease;
     }
-  `}
-
-  ${props => props.logo && `
-    display: block;
   `}
 
   ${props => props.logo && breakpoint.up('m')`
@@ -44,6 +40,7 @@ const NavLink = styled.div`
 const NavLinkText = styled.div`  
   font-weight: bold;
   font-size: 20px;
+  line-height: 100%;
   letter-spacing: 3px;
   text-transform: uppercase;
 `
@@ -59,6 +56,7 @@ const NavLinkLine = styled.div`
 
   ${breakpoint.up('m')`
     display: block;
+    position: absolute;
 
     ${NavLink}:hover & {
       width: 100%;
@@ -70,9 +68,9 @@ const NavLinkLine = styled.div`
   `}
 `
 
-export default ({ active, anchor, navColor, ...otherProps }) => (
-  <NavLink {...otherProps}>
+export default ({ active, anchor, navColor, ...props }) => (
+  <NavLink {...props}>
     <NavLinkText>{anchor}</NavLinkText>
-    <NavLinkLine active={active} navColor={navColor} />
+    {!props.logo && <NavLinkLine active={active} navColor={navColor} />}
   </NavLink>
 )

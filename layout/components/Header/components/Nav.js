@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Router from 'next/router';
 import Link from 'components/Link';
-import media from 'utils/mediaQueries';
 import styled from 'styled-components';
 import NavItem from './NavItem';
 import Logo from 'components/Logo';
@@ -24,7 +24,10 @@ const Wrapper = styled.div`
 
 const StyledLogo = styled(Logo)`
   font-size: 30px;
-  line-height: 30px;
+
+  * {
+    transform: translate(100%, 15%);
+  }
 `
 
 export default class Nav extends Component {
@@ -33,9 +36,9 @@ export default class Nav extends Component {
     return (
       <Wrapper navColor={navColor} mobileActive={mobileActive}>
         <Link href="/"><NavItem navColor={navColor} anchor={<StyledLogo />} logo /></Link>
-        <Link href="/work"><NavItem active={page === 'work'} navColor={navColor} anchor="Work" /></Link>
-        <Link href="/about"><NavItem active={page === 'about'} navColor={navColor} anchor="About" /></Link>
-        <Link href="/contact"><NavItem active={page === 'contact'} navColor={navColor} anchor="Contact" /></Link>
+        <Link href="/work"><NavItem onMouseEnter={() => {Router.prefetch('/work');console.log('prefetching work')}} active={page === 'work'} navColor={navColor} anchor="Work" /></Link>
+        <Link href="/about"><NavItem onMouseEnter={() => Router.prefetch('/about')} active={page === 'about'} navColor={navColor} anchor="About" /></Link>
+        <Link href="/contact"><NavItem onMouseEnter={() => Router.prefetch('/contact')} active={page === 'contact'} navColor={navColor} anchor="Contact" /></Link>
       </Wrapper>
     )
   }

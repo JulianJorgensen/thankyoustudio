@@ -4,7 +4,7 @@ import FontFaceObserver from 'fontfaceobserver';
 import * as actions from 'store/actions';
 import withAnalytics from 'utils/withAnalytics';
 import LayoutMobile from './components/LayoutMobile';
-import LayoutDefault from './components/LayoutDefault';
+import LayoutDesktop from './components/LayoutDesktop';
 
 @withAnalytics
 @connect()
@@ -27,6 +27,6 @@ export default class Layout extends Component {
 
   render() {
     if (this.props.isMobile) return <LayoutMobile {...this.props} />;
-    return <LayoutDefault {...this.props} />;
+    return <LayoutDesktop {...this.props} />;
   }
 }

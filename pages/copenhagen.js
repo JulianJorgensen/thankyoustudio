@@ -5,17 +5,9 @@ import Grid from 'components/Grid';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
 import Text from 'components/Text';
 import Image from 'components/Image';
-import { breakpoint } from 'utils/variables';
-
-const LogoSection = styled.div`
-  display: flex;
-  justify-content: center;
-  background-color: white;
-  padding: 200px 0;
-`
 
 export default (props) => (
-  <Case 
+  <Case
     isMobile={props.isMobile}
     title="Copenhagen Distillery"
     subtitle="Design. Experiences."
@@ -41,9 +33,8 @@ export default (props) => (
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_barrel.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9">
-      <Text></Text>
-      <Text>Building a brand from the ground up</Text>
+    <Grid cols="2" ratio="16x9" collapseOnMobile>
+      <Text columnStart="2">Building a brand from the ground up</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -63,9 +54,8 @@ export default (props) => (
       <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_03.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9">
-      <Text></Text>
-      <Text>Building a brand from the ground up</Text>
+    <Grid cols="2" ratio="16x9" collapseOnMobile>
+      <Text columnStart="2">Building a brand from the ground up</Text>
     </Grid>
 
     <Grid ratio="16x9">

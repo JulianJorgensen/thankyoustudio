@@ -31,7 +31,7 @@ const StyledHeadroom = styled(Headroom)`
     pointer-events: none;
 
     ${breakpoint.down('m')`
-      padding: 20px ${LAYOUT.MOBILE.EDGE_MARGIN};
+      padding: ${LAYOUT.MOBILE.EDGE_MARGIN};
     `}
 
     ${breakpoint.up('m')`

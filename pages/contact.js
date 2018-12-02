@@ -8,13 +8,19 @@ import { breakpoint, LAYOUT } from 'utils/variables';
 const Content = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 60px 40px 0;
-  width: 50%;
-  margin-right: 100px;
+  padding: 60px ${LAYOUT.MOBILE.EDGE_MARGIN} 0;
+
+  ${breakpoint.up('m')`
+    width: 50%;
+    margin-right: 100px;
+    padding: 60px 40px 0;
+  `}
 `
 
 const StyledLocations = styled(Locations)`
-  margin-bottom: 100px;
+  ${breakpoint.up('m')`
+    margin-bottom: 100px;
+  `}
 `
 
 const Careers = styled.div`

@@ -38,11 +38,12 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h2 {
-    font-size: 30px;
-    line-height: 54px;
+    font-size: 25px;
+    line-height: 35px;
 
     ${breakpoint.up('m')`
       font-size: 40px;
+      line-height: 54px;
     `}
   }
 

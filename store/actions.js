@@ -5,7 +5,7 @@ import { TIMINGS } from 'utils/variables';
 export const updateActiveSlide = (slug) => dispatch => {
   let slide = {};
 
-  if (slug) {
+  if (slug && slug !== '/') {
     slide = SlideItems.find(obj => obj.slug.toLowerCase() == slug.toLowerCase());
     slide.index = SlideItems.findIndex(obj => obj === slide);
   } else {

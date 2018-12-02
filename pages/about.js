@@ -11,7 +11,6 @@ const Content = styled.div`
 export default (props) => (
   <DefaultPage title="About" {...props}>
     <Content>
-      <IdentifySimplifyAmplify whiteContent />
     </Content>
   </DefaultPage>
 )

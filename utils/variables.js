@@ -49,16 +49,15 @@ export const META = {
 }
 
 export const TIMINGS = {
-  CASE_WRAPPER: '0.5s',
-  DEFAULT_PAGE_WRAPPER: '0.5s',  
+  CASE_WRAPPER: '0.4s',
+  DEFAULT_PAGE_WRAPPER: '0.4s',  
   SLIDE_ITEM_WRAPPER: '0.5s',
   SLIDER: '0.5s',
   SET_IS_SCROLL_N_SLIDING_FALSE: 600,
   SET_IS_SLIDING_FALSE: 600,
-  PAGE_TRANSITION_TIMEOUT: 500,
-  SCROLL_TO_TOP: 480, // the number has to be less than the slider animation to prevent a flickering
-  SET_AUTO_SCROLL_TIMEOUT: 6000,
-  SCROLL_DURATION: 500,
+  PAGE_TRANSITION_TIMEOUT: 600,
+  SCROLL_TO_TOP: 550, // the number has to be less than the slider animation to prevent a flickering
+  SCROLL_DURATION: 600,
 }
 
 // slow motion timings
@@ -71,7 +70,6 @@ export const TIMINGS = {
 //   PAGE_TRANSITION_TIMEOUT: 50000,
 //   SET_IS_SLIDING_FALSE: 50000,
 //   SCROLL_TO_TOP: 48000, // the number has to be less than the slider animation to prevent a flickering
-//   SET_AUTO_SCROLL_TIMEOUT: 6000,
 //   SCROLL_DURATION: 50000,
 // }
 

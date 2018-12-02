@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import Cta from 'components/Cta';
+import Button from 'components/Button';
 import Input from 'components/Input';
 
 const Form = styled.form`
@@ -48,6 +48,6 @@ export default({
       disabled={isSubmitting}
     />
     {touched.message && errors.message && <div>{errors.message}</div>}
-    <Cta type="submit" label={isSubmitting ? 'Sending...' : 'Contact'} onClick={handleSubmit} disabled={isSubmitting} primary />
+    <Button type="submit" label={isSubmitting ? 'Sending...' : 'Contact'} onClick={handleSubmit} disabled={isSubmitting} primary />
   </Form>
 );

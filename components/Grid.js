@@ -16,12 +16,13 @@ const Grid = styled.div`
   display: grid;
   width: 100%;
 
-  ${props => props.cols == "2" && `
+  ${props => props.cols == "2" && !props.collapseOnMobile && `
     grid-template-columns: 1fr 1fr;
     grid-gap: ${LAYOUT.MOBILE.EDGE_MARGIN};
   `}
 
   ${props => props.cols == "2" && breakpoint.up('m')`
+    grid-template-columns: 1fr 1fr;
     grid-gap: 20px;
   `}
 

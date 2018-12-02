@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
 import Router, { withRouter } from 'next/router';
 import styled from 'styled-components';
-import { animateScroll as scroll } from 'react-scroll'
-
 import SlideItem from './components/SlideItem';
 import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
@@ -12,18 +10,15 @@ import SlideItems from 'store/slideItems';
 import media from 'utils/mediaQueries';
 import { EASINGS, TIMINGS } from 'utils/variables';
 
-const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
-});
-
 const Slider = styled.div`
   display: none;
   height: 100vw;
-  width: ${props => props.isCondensed ? '0%' : '100%'};
+  width: 100%;
+  transform: translateX(${props => props.isCondensed ? '100%' : '0%'});
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
-  transition: width ${TIMINGS.SLIDER} ${EASINGS.EASE_IN_OUT_CUSTOM};
+  transition: transform ${TIMINGS.SLIDER} ${EASINGS.EASE_IN_OUT_CUSTOM};
   pointer-events: none;
 
   ${media.tablet`
@@ -93,6 +88,9 @@ export default class FancySlider extends Component {
 
   handleBackClick() {
     const { dispatch, store } = this.props;
+
+    if (!store.activeSlide) return;
+
     let prevSlide;
     if (store.activeSlide.index === 0) {
       prevSlide = SlideItems[SlideItems.length - 1];
@@ -102,20 +100,23 @@ export default class FancySlider extends Component {
 
     dispatch(actions.setHasMouseLeftNextSlide(true));
     dispatch(actions.setAutoScroll(false));
+    dispatch(actions.updateActiveSlide(prevSlide.slug.toLowerCase()));
 
-    Router.push({
-      pathname: '/' + prevSlide.slug.toLowerCase()
-    }, prevSlide.slug ? '/work/' + prevSlide.slug.toLowerCase() : '/');
+    setTimeout(() => {
+      this.props.dispatch(actions.setIsSliding(false));
+
+      // first push to new page after slide transition (to prevent janking)
+      Router.push({
+        pathname: '/' + prevSlide.slug.toLowerCase()
+      }, prevSlide.slug ? '/work/' + prevSlide.slug.toLowerCase() : '/');
+    }, TIMINGS.SET_IS_SLIDING_FALSE);
   }
 
   triggerNextClick() {
     const { dispatch, store } = this.props;
 
-    if (this.state.isSliding) return;
-
-    this.setState({
-      isSliding: true
-    });
+    if (!store.activeSlide) return;
+    if (store.isSliding) return;
 
     let nextSlide
     if (store.activeSlide.index === SlideItems.length - 1) {
@@ -134,26 +135,24 @@ export default class FancySlider extends Component {
       dispatch(actions.setHasMouseLeftNextSlide(false));
     }
 
-    // change to the actual new url
-    Router.push({
-      pathname: '/' + nextSlide.slug.toLowerCase()
-    }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');
+    dispatch(actions.updateActiveSlide(nextSlide.slug.toLowerCase()));
 
+    // set is sliding (we need to have certain styles for a slide when sliding)
+    this.props.dispatch(actions.setIsSliding(true));
     setTimeout(() => {
-      this.setState({
-        isSliding: false
-      });
-    }, TIMINGS.SET_IS_SLIDING_FALSE);
+      this.props.dispatch(actions.setIsSliding(false));
+
+      // first push to new page after slide transition (to prevent janking)
+      Router.push({
+        pathname: '/' + nextSlide.slug.toLowerCase()
+      }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');  
+    }, TIMINGS.SET_IS_SLIDING_FALSE)
   }
 
   handleNextMouseLeave() {
     const { dispatch, router } = this.props;
 
     dispatch(actions.setHasMouseLeftNextSlide(true));
-  }
-
-  onCtaClick() {
-    scroll.scrollTo(window.innerHeight);
   }
 
   handleIsInViewChange(inView) {
@@ -184,10 +183,6 @@ export default class FancySlider extends Component {
     );
 
     return (
-      <Observer
-        onChange={this.handleIsInViewChange}
-        tag="div"
-      >
         <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
           <BackButton 
             contentColor={navColor}
@@ -200,9 +195,6 @@ export default class FancySlider extends Component {
             {
               SlideItems.map((SlideItemData, i) => {
                 const isActive = activeSlide.index === i;
-
-                // if mobile only show the active slide
-                if (this.props.isMobile && !isActive) return;
 
                 // detect if is previous
                 let isPrevious;
@@ -235,7 +227,6 @@ export default class FancySlider extends Component {
                     title={SlideItemData.title}
                     subtitle={SlideItemData.subtitle}
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
-                    onCtaClickHandler={this.onCtaClick}
                     isPrevious={isPrevious}
                     wasPrevious={wasPrevious}
                     isActive={isActive}
@@ -258,7 +249,6 @@ export default class FancySlider extends Component {
             }
           </Slides>
         </Slider>
-      </Observer>
     );
   }
 }

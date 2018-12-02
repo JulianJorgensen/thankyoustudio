@@ -30,16 +30,12 @@ const Wrapper = styled.div`
     overflow: visible;
   `}
 
-  ${props => props.isPrevious && props.isSliding && `
-    // overflow: visible;
-  `}
-
   ${props => props.isNext && `
     display: none;
     position: fixed;
     width: ${(props.isCondensed || props.isLandingVideoPlaying) ? '0' : props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
-    z-index: ${props.isLandingVideoPlaying ? '0' : '6'};
-    // will-change: width;
+    z-index: 6;
+    will-change: width;
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;

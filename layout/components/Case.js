@@ -77,7 +77,6 @@ export default class Case extends Component {
           <Footer />
           <style jsx global>{`
             .fade-enter.case-page, .fade-exit.case-page {
-              transition: transform ${TIMINGS.CASE_WRAPPER};
             }
 
             .fade-exit.case-page {
@@ -85,6 +84,7 @@ export default class Case extends Component {
             }
 
             .fade-exit-active.case-page {
+              opacity: 0;
               transform: translateX(-100px);
             }
           `}

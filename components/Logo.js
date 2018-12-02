@@ -3,8 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
-  display: flex;
-  align-items: flex-end;
+  display: inline-block;
   font-weight: bold;
   font-size: 30px;
   letter-spacing: -1px;
@@ -13,11 +12,12 @@ const Wrapper = styled.div`
 `
 
 const Small = styled.div`
+  display: block;
   position: absolute;
   bottom: 0;
   right: 0;
-  transform: translate(100%, -393%);
-  line-height: 0.3em;
+  transform: translate(100%, -68%);
+  line-height: 100%;
   font-size: 0.3em;
 `
 

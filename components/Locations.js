@@ -6,10 +6,13 @@ const Wrapper = styled.ul`
 `
 
 const Locations = styled.ul`
-  display: flex;
-  justify-content: space-between;
   list-style-type: none;
-  width: 600px;
+
+  ${breakpoint.up('m')`
+    display: flex;
+    justify-content: space-between;
+    width: 600px;
+  `}
 `
 
 

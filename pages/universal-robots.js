@@ -2,6 +2,23 @@ import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
+import Grid from 'components/Grid';
+import Text from 'components/Text';
+import Image from 'components/Image';
+import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
+
+const LeadText = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 35px;
+  width: 100%;
+  color: white;
+
+  ${breakpoint.up('m')`
+    font-size: 80px;
+  `}
+`
 
 export default (props) => (
   <Case
@@ -11,16 +28,6 @@ export default (props) => (
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg"
   >
    <FullCaseVideo vimeoId="303070427" />
-
-       <Grid ratio="16x9">
-      <Image lazy delay={200} src="" />
-    </Grid>
-
-
-    <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_henrik.jpg" />
-      <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_brygge.jpg" />
-    </Grid>
 
     <Grid bgColor="#540071" ratio="16x9">
       <LeadText>16x9</LeadText>
