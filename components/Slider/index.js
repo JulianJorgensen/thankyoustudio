@@ -14,12 +14,15 @@ const Slider = styled.div`
   display: none;
   height: 100vw;
   width: 100%;
-  transform: translateX(${props => props.isCondensed ? '100%' : '0%'});
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
   transition: transform ${TIMINGS.SLIDER} ${EASINGS.EASE_IN_OUT_CUSTOM};
   pointer-events: none;
+
+  ${props => props.isCondensed && `
+    transform: translateX(100%);
+  `}
 
   ${media.tablet`
     display: block;
@@ -118,15 +121,11 @@ export default class FancySlider extends Component {
     if (!store.activeSlide) return;
     if (store.isSliding) return;
 
-    let nextSlide
+    let nextSlide;
     if (store.activeSlide.index === SlideItems.length - 1) {
       nextSlide = SlideItems[0];
     } else {
       nextSlide = SlideItems[store.activeSlide.index + 1];
-    }
-
-    if (store.usePrevAsNextSlide) {
-      nextSlide = store.prevSlide;
     }
 
     if (!nextSlide) nextSlide = SlideItems[0];
@@ -136,16 +135,22 @@ export default class FancySlider extends Component {
     }
 
     dispatch(actions.updateActiveSlide(nextSlide.slug.toLowerCase()));
+    dispatch(actions.setIsScrollNSliding());
+    dispatch(actions.setIsSliding(true));
+    dispatch(actions.setHeaderSolid(false));
+
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, TIMINGS.SCROLL_TO_TOP);
 
     // set is sliding (we need to have certain styles for a slide when sliding)
-    this.props.dispatch(actions.setIsSliding(true));
     setTimeout(() => {
-      this.props.dispatch(actions.setIsSliding(false));
-
       // first push to new page after slide transition (to prevent janking)
       Router.push({
         pathname: '/' + nextSlide.slug.toLowerCase()
       }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');  
+
+      dispatch(actions.setIsSliding(false));
     }, TIMINGS.SET_IS_SLIDING_FALSE)
   }
 
@@ -211,7 +216,7 @@ export default class FancySlider extends Component {
                 } else {
                   wasPrevious = i === SlideItems.length - 1;
                 }
-                
+
                 // detect if is next
                 let isNext;
                 if (usePrevAsNextSlide && prevSlide) {

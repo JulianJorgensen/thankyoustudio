@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
-import CaseIntro from 'components/Case/Intro';
+import Text from 'components/Text';
 
 const Scuderia = styled.div`
   padding: 150px;
@@ -25,7 +25,7 @@ export default (props) => (
     subtitle="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg"
   >
-    <CaseIntro dark>
+    <Text intro>
       <h2>IDENTIFY</h2>
       <p>Present the 2015 Ferrari F1 car to the world. Feed the overwhelming existing respect and love for the brand. Bring the fans front row together with the press.</p>
       <p>Make it instant, live and global.</p>
@@ -37,7 +37,7 @@ export default (props) => (
       <h2>AMPLIFY</h2>
       <p>We created four chapters: THE LEGACY, THE PEOPLE, THE SECRET, THE REVELATION.</p>
       <p>Building tension and gaining emotional value through a potential reach of 35 million fans until the precise moment the full website is launched presenting car, drivers, interviews, tech specs and other PR material.</p>
-    </CaseIntro>
+    </Text>
     <img src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/thank-you-ferrari-2.jpg" alt="Ferrari" />
 
     <FerrariWebcast>

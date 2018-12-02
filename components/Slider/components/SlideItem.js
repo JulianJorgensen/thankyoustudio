@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   pointer-events: none;
   overflow: hidden;
 
-  ${props => props.isActive && !props.isCondensed && `
+  ${props => props.isActive && `
     position: absolute;
     width: 100%;
     z-index: 5;
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   ${props => props.isNext && `
     display: none;
     position: fixed;
-    width: ${(props.isCondensed || props.isLandingVideoPlaying) ? '0' : props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
+    width: ${props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
     z-index: 6;
     will-change: width;
     opacity: 1;
@@ -150,7 +150,7 @@ export default class SlideItem extends Component {
       }
     }
   
-    if (props.isPrevious && !props.isCondensed) {
+    if (props.isPrevious) {
       styles = {
         position: 'absolute',
         width: '100%',

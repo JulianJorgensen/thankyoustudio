@@ -6,6 +6,7 @@ import { LAYOUT } from 'utils/variables';
 
 const Content = styled.div`
   padding: 0 ${LAYOUT.MOBILE.EDGE_MARGIN};
+  min-height: calc(100vh - 100px);
 `
 
 export default (props) => (

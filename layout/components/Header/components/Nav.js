@@ -36,7 +36,7 @@ export default class Nav extends Component {
     return (
       <Wrapper navColor={navColor} mobileActive={mobileActive}>
         <Link href="/"><NavItem navColor={navColor} anchor={<StyledLogo />} logo /></Link>
-        <Link href="/work"><NavItem onMouseEnter={() => {Router.prefetch('/work');console.log('prefetching work')}} active={page === 'work'} navColor={navColor} anchor="Work" /></Link>
+        <Link href="/work"><NavItem onMouseEnter={() => Router.prefetch('/work')} active={page === 'work'} navColor={navColor} anchor="Work" /></Link>
         <Link href="/about"><NavItem onMouseEnter={() => Router.prefetch('/about')} active={page === 'about'} navColor={navColor} anchor="About" /></Link>
         <Link href="/contact"><NavItem onMouseEnter={() => Router.prefetch('/contact')} active={page === 'contact'} navColor={navColor} anchor="Contact" /></Link>
       </Wrapper>

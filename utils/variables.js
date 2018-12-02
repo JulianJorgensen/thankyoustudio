@@ -49,14 +49,14 @@ export const META = {
 }
 
 export const TIMINGS = {
-  CASE_WRAPPER: '0.4s',
-  DEFAULT_PAGE_WRAPPER: '0.4s',  
+  CASE_WRAPPER: '0.5s',
+  DEFAULT_PAGE_WRAPPER: '0.5s',  
   SLIDE_ITEM_WRAPPER: '0.5s',
   SLIDER: '0.5s',
   SET_IS_SCROLL_N_SLIDING_FALSE: 600,
   SET_IS_SLIDING_FALSE: 600,
   PAGE_TRANSITION_TIMEOUT: 600,
-  SCROLL_TO_TOP: 550, // the number has to be less than the slider animation to prevent a flickering
+  SCROLL_TO_TOP: 400, // the number has to be less than the slider animation to prevent a flickering
   SCROLL_DURATION: 600,
 }
 

@@ -27,17 +27,18 @@ export default class Link extends Component {
     const isCase = (hrefExploded[1] === 'work' && hrefExploded[2]);
     const slug = isCase ? hrefExploded[2] : hrefExploded[1];
 
-    dispatch(actions.updateActiveSlide(isCase ? slug : '/'));
+    if (isCase) dispatch(actions.updateActiveSlide(slug));
+    if (isHome) dispatch(actions.updateActiveSlide('/'));
+
     dispatch(actions.setIsScrollNSliding());
     dispatch(actions.setIsSliding(true));
 
     if (isCase || isHome) {
       dispatch(actions.condenseSlider(false));
-      dispatch(actions.setHeaderSolid(false));  
+      dispatch(actions.setHeaderSolid(false));
     } else {
       dispatch(actions.condenseSlider(true));
       dispatch(actions.setHasMouseLeftNextSlide(true));
-      this.setActiveSlideToPrevious();
     }
 
     setTimeout(() => {
@@ -50,7 +51,7 @@ export default class Link extends Component {
       }, isCase ? `/work/${slug}` : `/${slug}`);
 
       dispatch(actions.setIsSliding(false));
-    }, isCase || isHome ? TIMINGS.SET_IS_SLIDING_FALSE : 0);
+    }, isCase ? TIMINGS.SET_IS_SLIDING_FALSE : 50);
   }
 
   setActiveSlideToPrevious() {
