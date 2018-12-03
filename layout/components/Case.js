@@ -50,7 +50,7 @@ export default class Case extends Component {
   }
 
   render() {
-    const { children, store, title, subtitle, imageSrc, isLanding, isMobile, ...props } = this.props;
+    const { children, store, title, teaserText, imageSrc, isLanding, isMobile, ...props } = this.props;
 
     const renderTitle = () => {
       if (!title) return META.TITLE;
@@ -66,7 +66,7 @@ export default class Case extends Component {
             <MobileHero
               isMobile={isMobile}
               title={title}
-              subtitle={subtitle}
+              teaserText={teaserText}
               imageSrc={imageSrc}
               isLanding={isLanding}
             /> : ''

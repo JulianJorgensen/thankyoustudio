@@ -4,30 +4,21 @@ import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { FONTS, EASINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
+import ChevronDown from 'assets/icons/FontAwesome/regular/chevron-down.svg';
+import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
   position: absolute;
   z-index: 99;
   left: 40px;
-  bottom: 40px;
+  bottom: 60px;
   width: 100%;
   max-width: calc(100vw - 40px);
   opacity: 0;
-  transition: opacity 0.2s, left 0.4s ${EASINGS.EASE_OUT_SHINE};
-  // transition-delay: 0.3s;
   color: ${props => props.contentColor};
 
   ${props => props.fontsLoaded && `
     opacity: 1;
-  `}
-
-  ${props => props.isActive && `
-    left: 40px;
-  `}
-
-  ${props => props.isNext && `
-    left: 100px;
-    transition: none;
   `}
 
   ${media.tablet`
@@ -57,24 +48,30 @@ const Title = styled.h1`
   font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
   color: inherit;
+  opacity: ${props => props.isNext ? '0.6' : '1'};
 
   ${media.tablet`
-    font-size: 130px;
-    line-height: 120px;
+    font-size: 70px;
+    line-height: 70px;
   `}
 `
 
-const SubTitle = styled.h2`
-  font-size: 20px;
-  font-weight: 300;
-  font-family: ${FONTS.PRIMARY};
-  margin-top: 6px;
-  opacity: ${props => props.hide || props.isNext ? '0' : '1'};
+const TeaserText = styled(Text)`
+  margin: 14px 0 0;
+  opacity: ${props => props.hide || props.isNext ? '0.3' : '1'};
   transition: opacity 0.2s;
+  max-width: 40vw;
+`
 
-  ${media.tablet`
-    font-size: 26px;
-  `}
+const StyledChevronDown = styled(ChevronDown)`
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  opacity: ${props => props.hide ? '0' : '1'};
+
+  path {
+    fill: white;
+  }
 `
 
 export default class LowerLeftContent extends Component {
@@ -134,9 +131,9 @@ export default class LowerLeftContent extends Component {
     if (scrollTop > 1000) return;
 
     if (scrollTop > 80) {
-      this.setState({ hideSubtitle: true });
+      this.setState({ scrolledDown: true });
     } else {
-      this.setState({ hideSubtitle: false });
+      this.setState({ scrolledDown: false });
     }
     if (!this.headerEl) return;
 
@@ -153,15 +150,17 @@ export default class LowerLeftContent extends Component {
   }
 
   render() {
-    const { fontsLoaded, isActive, isNext, title, subtitle, contentColor } = this.props;
+    const { fontsLoaded, isActive, isNext, title, teaserText, contentColor } = this.props;
+    const { scrolledDown } = this.state;
 
     return (
       <Wrapper isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} contentColor={contentColor}>
         <Content isActive={isActive}>
           <Header ref={div => this.headerEl = div}>
-            <Title>{title}</Title>
-            <SubTitle hide={this.state.hideSubtitle} isNext={isNext}>{subtitle}</SubTitle>
+            <Title isNext={isNext}>{title}</Title>
+            <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
+          {isActive && <StyledChevronDown hide={scrolledDown} />}
         </Content>
       </Wrapper>
     )

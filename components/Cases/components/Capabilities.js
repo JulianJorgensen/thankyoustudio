@@ -54,20 +54,16 @@ const Capabilities = styled.ul`
   max-width: 60%;
 
   li {
-    border: 1px solid white;
     color: white;
 
     ${Wrapper}:hover & {
-      border-color: black;
       color: black;
     }
 
     ${props => props.reverse && `
-      border-color: black;
       color: black;
 
       ${Wrapper}:hover & {
-        border-color: white;
         color: white;
       }
     `}  

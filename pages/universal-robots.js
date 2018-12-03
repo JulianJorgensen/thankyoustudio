@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
 import Grid from 'components/Grid';
-import Text from 'components/Text';
-import Image from 'components/Image';
+import Text from 'components/Case/Text';
+import Image from 'components/Case/Image';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const LeadText = styled.div`
@@ -24,7 +24,7 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Universal Robots"
-    subtitle="Design. Experiences."
+    teaserText="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg"
   >
    <FullCaseVideo vimeoId="303070427" />

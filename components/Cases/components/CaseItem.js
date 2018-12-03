@@ -61,8 +61,8 @@ const CaseItemTitle = styled.h3`
   text-transform: uppercase;
 
   ${breakpoint.up('m')`
-    font-size: 70px;
-    line-height: 70px;
+    font-size: 45px;
+    line-height: 45px;
   `}
 `
 
@@ -80,11 +80,10 @@ const CaseItemTags = styled.ul`
   }
 
   li {
-    border: 1px solid black;
+    background-color: white;
     color: black;
 
     ${props => props.whitecontent && `
-      border: 1px solid white;
       color: white;
     `}
   }

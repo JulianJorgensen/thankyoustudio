@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
 import Grid from 'components/Grid';
-import Text from 'components/Text';
-import Image from 'components/Image';
+import Text from 'components/Case/Text';
+import Image from 'components/Case/Image';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Swatch"
-    subtitle="Design. Experiences."
+    teaserText="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg"
   >
     <Text intro>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</Text>

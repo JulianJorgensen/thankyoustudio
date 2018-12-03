@@ -40,11 +40,11 @@ const Image = styled.div`
 const Video = styled.video`
 `
 
-export default ({ title, subtitle, image, video, isActive, isNext, fontsLoaded, contentColor, fadeToBlack }) => (
+export default ({ title, teaserText, image, video, isActive, isNext, fontsLoaded, contentColor, fadeToBlack }) => (
   <Wrapper>
     <LowerleftContent
       title={title}
-      subtitle={subtitle}
+      teaserText={teaserText}
       isActive={isActive}
       isNext={isNext}
       fontsLoaded={fontsLoaded}

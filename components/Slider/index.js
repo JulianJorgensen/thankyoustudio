@@ -183,13 +183,11 @@ export default class FancySlider extends Component {
       isLandingVideoPlaying
     } = this.props.store;
 
-    if (!activeSlide) return (
-      <div></div>
-    );
+    if (!activeSlide) return null;
 
     return (
         <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
-          <BackButton 
+          <BackButton
             contentColor={navColor}
             show={hasMouseLeftNextSlide}
             onClick={this.handleBackClick}
@@ -224,13 +222,13 @@ export default class FancySlider extends Component {
                 } else {
                   isNext = ((activeSlide.index === i - 1) || (activeSlide.index === (SlideItems.length - 1) && i === 0));
                 }
-
+                console.log('slideitemdata', SlideItemData);
                 return (
                   <SlideItem
                     key={`i-${SlideItemData.slug}`}
                     slug={SlideItemData.slug}
                     title={SlideItemData.title}
-                    subtitle={SlideItemData.subtitle}
+                    teaserText={SlideItemData.teaserText}
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     isPrevious={isPrevious}
                     wasPrevious={wasPrevious}

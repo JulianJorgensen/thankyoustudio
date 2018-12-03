@@ -7,7 +7,7 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Steelseries"
-    subtitle="Design. Experiences."
+    teaserText="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg"
   >
     <FullCaseVideo vimeoId="215641222" />

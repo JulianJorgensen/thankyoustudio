@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
-import Text from 'components/Text';
+import Text from 'components/Case/Text';
 
 const Scuderia = styled.div`
   padding: 150px;
@@ -22,7 +22,7 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Ferrari"
-    subtitle="Design. Experiences."
+    teaserText="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg"
   >
     <Text intro>

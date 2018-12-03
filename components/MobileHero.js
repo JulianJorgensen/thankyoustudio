@@ -23,10 +23,10 @@ const Title = styled.h1`
   text-transform: uppercase;
 `
 
-const SubTitle = styled.h2`
+const TeaserText = styled.p`
 `
 
-export default ({ isMobile, isLanding, title, subtitle, imageSrc }) => {
+export default ({ isMobile, isLanding, title, teaserText, imageSrc }) => {
   if (!isMobile) return null;
   if (isLanding) return <LandingHero />
 
@@ -34,7 +34,7 @@ export default ({ isMobile, isLanding, title, subtitle, imageSrc }) => {
     <Wrapper imageSrc={imageSrc}>
       <Content>
         <Title>{title}</Title>
-        <SubTitle>{subtitle}</SubTitle>
+        <TeaserText>{teaserText}</TeaserText>
       </Content>
     </Wrapper>
   )

@@ -3,14 +3,14 @@ import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import Grid from 'components/Grid';
 import FullCaseVideo from 'components/Case/FullCaseVideo';
-import Text from 'components/Text';
-import Image from 'components/Image';
+import Text from 'components/Case/Text';
+import Image from 'components/Case/Image';
 
 export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Copenhagen Distillery"
-    subtitle="Design. Experiences."
+    teaserText="Design. Experiences."
     imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg"
   >
     <Text intro>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</Text>

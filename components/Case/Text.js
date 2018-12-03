@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import { breakpoint } from 'utils/variables';
+import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
   ${breakpoint.up('m')`
@@ -9,16 +10,13 @@ const Wrapper = styled.div`
   `}
 `
 
-const Text = styled.div`
+const StyledText = styled(Text)`
   display: flex;
   align-items: center;
-  font-size: 25px;
-  font-weight: bold;
   padding: 10px 6px;
 
   ${breakpoint.up('m')`
     padding: 0;
-    font-size: 35px;
   `}
 
   ${props => props.intro && `
@@ -36,9 +34,9 @@ const Text = styled.div`
 export default ({ children, columnStart, ...props }) => (
   <Wrapper columnStart={columnStart}>
     <LazyShow delay={200}>
-      <Text {...props}>
+      <StyledText {...props}>
         {children}
-      </Text>
+      </StyledText>
     </LazyShow>
   </Wrapper>
 )
