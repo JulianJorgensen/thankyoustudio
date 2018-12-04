@@ -57,7 +57,7 @@ export const TIMINGS = {
   SET_IS_SCROLL_N_SLIDING_FALSE: 600,
   SET_IS_SLIDING_FALSE: 600,
   PAGE_TRANSITION_TIMEOUT: 600,
-  SCROLL_TO_TOP: 400, // the number has to be less than the slider animation to prevent a flickering
+  SCROLL_TO_TOP: 600, // the number has to be less than the slider animation to prevent a flickering
   SCROLL_DURATION: 600,
 }
 
@@ -68,8 +68,8 @@ export const TIMINGS = {
 //   SLIDE_ITEM_WRAPPER: '50s',
 //   SLIDER: '50s',
 //   SET_IS_SCROLL_N_SLIDING_FALSE: 50000,
-//   PAGE_TRANSITION_TIMEOUT: 50000,
 //   SET_IS_SLIDING_FALSE: 50000,
+//   PAGE_TRANSITION_TIMEOUT: 50000,
 //   SCROLL_TO_TOP: 48000, // the number has to be less than the slider animation to prevent a flickering
 //   SCROLL_DURATION: 50000,
 // }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Router from 'next/router';
-import Link from 'next/link';
+import Link from 'components/Link';
 import styled from 'styled-components';
 import { breakpoint, LAYOUT } from 'utils/variables';
 
