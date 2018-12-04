@@ -78,6 +78,41 @@ export default (props) => (
       <FullCaseVideo vimeoId="304165281" />
     </Grid>
 
+    <Grid cols="2" ratio="16x9" collapseOnMobile>
+      <Text>Keep it fresh<br />Book and authers are the comodeties of a publischer. Putting them into a context makes them more acceible</Text>
+    </Grid>
+
+    <Grid ratio="16x9">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_collage.jpg" />
+    </Grid>
+
+    <Grid ratio="16x9">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_collage_02.jpg" />
+    </Grid>
+
+    <Grid cols="2" ratio="16x9" collapseOnMobile>
+      <Text>Examples<br />Here is what it colud look like</Text>
+    </Grid>
+
+    <Grid cols="2" ratio="3x4">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_anti_guru.jpg" />
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_sig_nej.jpg" />
+    </Grid>
+
+    <Grid cols="2" ratio="16x9">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_bus_poster.jpg" />
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_banner.jpg" />
+    </Grid>
+
+    <Grid ratio="16x9">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_frames.jpg" />
+    </Grid>
+
+    <Grid cols="2" ratio="3x4">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_magazine.jpg" />
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_magazine_02.jpg" />
+    </Grid>
+
     {/* <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_pink.jpg" />
     </Grid>
