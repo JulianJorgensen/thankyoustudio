@@ -107,7 +107,8 @@ const Tags = styled.ul`
 
 const Tag = styled.li`
   margin-right: 6px;
-  font-size: 12px;
+  font-size: 10px;
+  opacity: 0.8;
 
   ${breakpoint.up('m')`
     margin-right: 10px;

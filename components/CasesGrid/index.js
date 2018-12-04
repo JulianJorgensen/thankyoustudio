@@ -14,8 +14,8 @@ const Wrapper = styled.div`
 
 const CaseItems = styled.div`
   display: grid;
-  grid-gap: ${LAYOUT.MOBILE.EDGE_MARGIN};
   grid-template-columns: repeat(2, 1fr);
+  grid-gap: 6px;
   grid-auto-flow: dense;
   width: 100%;
 
