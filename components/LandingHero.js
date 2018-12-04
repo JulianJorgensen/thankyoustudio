@@ -105,15 +105,16 @@ const Statement = styled.div`
 `
 
 const Teaser = styled.video`
-  display: none;
   position: absolute;
   top: 0;
-  left: 0;
-  min-height: 102vh;
-  min-width: 100vw;
+  left: 50%;
+  height: 70vh;
+  transform: translateX(-50%);
 
   ${breakpoint.up('m')`
-    display: block;
+    height: auto;
+    min-height: 102vh;
+    min-width: 100vw;
   `}
 `
 
