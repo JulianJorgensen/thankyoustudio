@@ -69,6 +69,7 @@ export default class Case extends Component {
               teaserText={teaserText}
               imageSrc={imageSrc}
               isLanding={isLanding}
+              {...props}
             /> : ''
           }
           <Content>

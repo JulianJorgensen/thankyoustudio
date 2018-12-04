@@ -11,6 +11,10 @@ const Wrapper = styled.div`
   background-image: url(${props => props.imageSrc});
   background-position: center center;
   background-size: cover;
+
+  ${props => props.whiteContent && `
+    color: white;
+  `}
 `
 
 const Content = styled.div`
@@ -23,18 +27,14 @@ const Title = styled.h1`
   text-transform: uppercase;
 `
 
-const TeaserText = styled.p`
-`
-
-export default ({ isMobile, isLanding, title, teaserText, imageSrc }) => {
+export default ({ isMobile, isLanding, title, teaserText, whiteContent, imageSrc }) => {
   if (!isMobile) return null;
   if (isLanding) return <LandingHero />
 
   return (
-    <Wrapper imageSrc={imageSrc}>
+    <Wrapper imageSrc={imageSrc} whiteContent={whiteContent}>
       <Content>
         <Title>{title}</Title>
-        <TeaserText>{teaserText}</TeaserText>
       </Content>
     </Wrapper>
   )

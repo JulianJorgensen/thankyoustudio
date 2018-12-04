@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
-import { breakpoint } from 'utils/variables';
+import { breakpoint, LAYOUT } from 'utils/variables';
 import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
@@ -13,15 +13,10 @@ const Wrapper = styled.div`
 const StyledText = styled(Text)`
   display: flex;
   align-items: center;
-  padding: 10px 6px;
+  padding: 30px 0;
 
   ${breakpoint.up('m')`
     padding: 0;
-  `}
-
-  ${props => props.intro && `
-    display: block;
-    align-items: flex-end;
   `}
 
   ${props => props.intro && breakpoint.up('m')`

@@ -89,7 +89,7 @@ const Tags = styled.ul`
   display: flex;
   flex-wrap: wrap;
   margin-left: ${LAYOUT.MOBILE.EDGE_MARGIN};
-  margin-top: 10px;
+  margin-top: 6px;
 
   ${breakpoint.up('m')`
     margin-top: 15px;
