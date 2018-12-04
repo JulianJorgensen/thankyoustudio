@@ -5,29 +5,30 @@ import styled from 'styled-components';
 import * as actions from 'store/actions';
 import Footer from 'layout/components/Footer';
 import media from 'utils/mediaQueries';
-import { LAYOUT, META, TIMINGS } from 'utils/variables';
+import { breakpoint, LAYOUT, META, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
   overflow: hidden;
   width: 100%;
-`
-
-const Content = styled.div`
-  padding: 100px 0 100px;
   background-color: white;
   color: black;
-  min-height: calc(100vh - 300px);
-  opacity: 1;
 
   ${props => props.dark && `
     background-color: black;
     color: white;
   `}
+`
 
-  ${media.tablet`
+const Content = styled.div`
+  padding: 100px 0 40px;
+  min-height: calc(100vh - 300px);
+  opacity: 1;
+
+  ${breakpoint.up('m')`
     padding: 120px 0;
   `}
+
 `
 
 @connect((store) => ({
@@ -46,7 +47,7 @@ export default class DefaultPage extends Component {
 
   render() {
     const { children, title, isMobile } = this.props;
-    const { slider, fontsLoaded } = this.props.store;
+    const { slider, fontsLoaded, condenseSlider } = this.props.store;
 
     const renderPageTransitionStyles = () => {
       if (!isMobile) return (
@@ -54,43 +55,44 @@ export default class DefaultPage extends Component {
         .fade-enter.default-page,
         .fade-enter-active.default-page,
         .fade-enter-done.default-page{
-          z-index: 4;
-          transition: top ${TIMINGS.DEFAULT_PAGE_WRAPPER};
+          z-index: 6;
         }
 
         .fade-enter.default-page {
           position: fixed;
-          z-index: 4;
-          top: 50vh;
+          transform: translateX(-100%);
         }
 
         .fade-enter-active.default-page {
-          z-index: 4;
-          top: 0;
+          transform: translateX(0);
+          transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;
         }
 
         .fade-enter.default-page .content {
+          transform: translateX(-15%);
           opacity: 0;
         }
 
         .fade-enter-active.default-page .content,
         .fade-enter-done.default-page .content{
+          transform: translateX(0);
           opacity: 1;
-          transition: opacity ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-in;
+          transition: transform 0.8s ease-out, opacity 0.4s ease-out 0.4s;
         }
 
-        .fade-exit-enter.default-page {
-          z-index: 3;
-        }
-
-        .fade-exit.default-page .content {
-          opacity: 0;
-        }
-
+        .fade-exit-enter.default-page,
         .fade-exit-active.default-page {
           z-index: 3;
         }
 
+        .fade-exit-enter.default-page.slider-not-condensed {
+          transform: translateX(0%);
+        }
+
+        .fade-exit-active.default-page.slider-not-condensed {
+          transform: translateX(-100%);
+          transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;          
+        }
       `}
       </style>
       )
@@ -100,12 +102,13 @@ export default class DefaultPage extends Component {
       <Wrapper
         fontsLoaded={fontsLoaded}
         isScrollNSliding={slider.isScrollNSliding}
-        className='default-page'
+        dark={this.props.dark}
+        className={`default-page ${!condenseSlider && 'slider-not-condensed'}`}
       >
         <Head>
           <title>{title} {META.DESCRIPTION}</title>
         </Head>
-        <Content className="content" dark={this.props.dark}>
+        <Content className="content">
           {children}
         </Content>
         <Footer />

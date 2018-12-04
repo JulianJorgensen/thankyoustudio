@@ -8,7 +8,7 @@ export default [
     teaserText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "black",
-    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Swatch_skin_frontpage.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",
     whiteContent: true,
     fadeToBlack: true
@@ -21,6 +21,15 @@ export default [
     background: "white",
     image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
+  },
+  {
+    slug: "gyldendal",
+    title: "Gyldendal",
+    teaserText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac",
+    tags: ["Design.", "Experiences.", "Culture."],
+    background: "white",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/cover.jpg",
   },
   {
     slug: "steelseries",

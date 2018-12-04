@@ -17,11 +17,11 @@ const Slider = styled.div`
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
   right: 0;
-  transition: transform ${TIMINGS.SLIDER} ${EASINGS.EASE_IN_OUT_CUSTOM};
+  transition: transform ${TIMINGS.SLIDER} ease-out;
   pointer-events: none;
 
   ${props => props.isCondensed && `
-    transform: translateX(100%);
+    transform: translateX(5%);
   `}
 
   ${media.tablet`
@@ -222,7 +222,7 @@ export default class FancySlider extends Component {
                 } else {
                   isNext = ((activeSlide.index === i - 1) || (activeSlide.index === (SlideItems.length - 1) && i === 0));
                 }
-                console.log('slideitemdata', SlideItemData);
+
                 return (
                   <SlideItem
                     key={`i-${SlideItemData.slug}`}

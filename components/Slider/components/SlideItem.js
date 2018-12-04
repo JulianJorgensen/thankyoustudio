@@ -57,6 +57,10 @@ const Wrapper = styled.div`
     }
   `}
 
+  ${props => props.isNext && props.isLandingVideoPlaying && `
+    width: 0;
+  `}
+
   ${props => props.isNext && media.tablet`
     display: block;
   `}
@@ -169,7 +173,7 @@ export default class SlideItem extends Component {
         onMouseEnter={() => props.isNext ? this.handleNextSlideHoverWhenHidden(true) : ''}
         onMouseLeave={() => props.isNext ? this.handleNextSlideHoverWhenHidden(false) : ''}
       >
-        { props.slug === '' ? <LandingSlide /> : <WorkSlide {...props} /> }
+        { props.slug === '' ? <LandingSlide isActive={props.isActive} /> : <WorkSlide {...props} /> }
       </Wrapper>
     )
   }

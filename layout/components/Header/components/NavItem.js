@@ -6,25 +6,11 @@ const NavLink = styled.div`
   display: none;
   position: relative;
   margin-right: 25px;
-  color: inherit;
 
   ${props => props.logo &&`
     display: block;
     position: relative;
     z-index: 99;
-
-    svg {
-      width: 40px;
-      height: 40px;
-      transition: all 0.3s ease;
-    }
-  `}
-
-  ${props => props.logo && breakpoint.up('m')`
-    svg {
-      width: 30px;
-      height: 30px;
-    }
   `}
 
   ${breakpoint.up('m')`
@@ -51,7 +37,7 @@ const NavLinkLine = styled.div`
   height: 8px;
   bottom: -10px;
   left: 0;
-  transition: width 0.2s ease-in 0s;
+  transition: all 0.2s ease 0s;
   width: 0%;
 
   ${breakpoint.up('m')`

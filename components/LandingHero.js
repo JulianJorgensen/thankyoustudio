@@ -44,6 +44,8 @@ const Inner = styled.div`
 `
 
 const Content = styled.div`
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -102,6 +104,14 @@ const Statement = styled.div`
   `}
 `
 
+const Teaser = styled.video`
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 102vh;
+  min-width: 100vw;
+`
+
 @connect((store) => ({
   store,
 }))
@@ -110,19 +120,27 @@ export default class LandingSlide extends Component {
     super();
     this.state = {};
 
-    this.teaserVideoEl = null;
-    this.playTeaser = this.playTeaser.bind(this);
+    this.teaserEl = null;
     this.handleOnPlayClick = this.handleOnPlayClick.bind(this);
     this.handleCloseReel = this.handleCloseReel.bind(this);
   }
 
-  playTeaser() {
-    let videoDuration = this.teaserVideoEl.duration;
-    this.teaserVideoEl.play();
+  componentDidMount(newProps) {
+    this.teaserEl.play();
+  }
+
+  componentWillUpdate(newProps) {
+    if (newProps.isActive) {
+      this.teaserEl.play();
+    } else {
+      this.teaserEl.pause();
+    }
   }
 
   handleOnPlayClick() {
     const { dispatch } = this.props;
+
+    this.teaserEl.pause();
 
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
@@ -132,6 +150,8 @@ export default class LandingSlide extends Component {
 
   handleCloseReel() {
     const { dispatch } = this.props;
+
+    this.teaserEl.play();
 
     dispatch(actions.landingVideoPlaying(false));
     this.setState({
@@ -145,11 +165,14 @@ export default class LandingSlide extends Component {
 
     return (
       <Wrapper>
-        <Inner>
+        <Inner hide={playReel}>
           <Content>
-            <PlayReel onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play full reel</PlayReel>
+            <PlayReel onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play reel</PlayReel>
             <Statement fontsLoaded={store.fontsLoaded}>THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
           </Content>
+          <Teaser ref={el => this.teaserEl = el} muted autoPlay loop>
+            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANK%20YOU%20teaser.mp4" type="video/mp4" />
+          </Teaser>
         </Inner>
 
         <Reel play={playReel} />

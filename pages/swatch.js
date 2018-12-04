@@ -17,7 +17,7 @@ export default (props) => (
     <Text intro>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</Text>
 
     <Grid ratio="16x9">
-      <FullCaseVideo vimeoId="262509870" />
+      <FullCaseVideo vimeoId="304158078" />
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>

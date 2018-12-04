@@ -25,7 +25,7 @@ const Wrapper = styled.div`
     left: 6px;
     height: 3px;
     width: 30px;
-    background-color: ${props => props.navColor};
+    background-color: ${props => props.fixed ? 'black' : props.navColor};
     transition: all 0.3s ease;
 
     ${breakpoint.up('m')`

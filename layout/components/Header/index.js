@@ -15,7 +15,8 @@ const StyledHeadroom = styled(Headroom)`
   width: 100%;
   pointer-events: none;
   opacity: 0;
-  transition: opacity 0.1s;
+  transition: all 0.2s ease 0s;
+  color: ${props => props.color};
 
   ${props => props.fontsloaded && `
     opacity: 1;
@@ -24,9 +25,8 @@ const StyledHeadroom = styled(Headroom)`
   .headroom {
     background-color: transparent;
     transition: all 0.3s;
-    transition-delay: 0.2s;
     display: flex;
-    align-items: center;  
+    align-items: center;
     justify-content: space-between;
     pointer-events: none;
 
@@ -48,7 +48,8 @@ const StyledHeadroom = styled(Headroom)`
 
   ${props => props.fixed && `
     .headroom {
-      background-color: ${props.color === 'white' ? 'black' : 'white'};
+      background-color: white;
+      color: black;
       transition-delay: 0.6s;
 
       ${props.scrollnsliding && `
@@ -129,7 +130,7 @@ export default class Header extends Component {
         fontsloaded={store.fontsLoaded}
       >
         <Nav navColor={navColor} page={page} mobileActive={mobileNav} />
-        <Bars navColor={navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
+        <Bars fixed={fixed} navColor={navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
         <MobileNav active={mobileNav} />
       </StyledHeadroom>
     );

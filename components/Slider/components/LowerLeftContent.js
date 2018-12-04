@@ -48,17 +48,17 @@ const Title = styled.h1`
   font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
   color: inherit;
-  opacity: ${props => props.isNext ? '0.6' : '1'};
+  opacity: ${props => props.isNext ? '0.2' : '1'};
 
   ${media.tablet`
-    font-size: 70px;
-    line-height: 70px;
+    font-size: 75px;
+    line-height: 75px;
   `}
 `
 
 const TeaserText = styled(Text)`
-  margin: 14px 0 0;
-  opacity: ${props => props.hide || props.isNext ? '0.3' : '1'};
+  margin: 20px 0 10px;
+  opacity: ${props => props.hide || props.isNext ? '0.1' : '1'};
   transition: opacity 0.2s;
   max-width: 40vw;
 `
@@ -70,7 +70,7 @@ const StyledChevronDown = styled(ChevronDown)`
   opacity: ${props => props.hide ? '0' : '1'};
 
   path {
-    fill: white;
+    fill: ${props => props.contentColor};
   }
 `
 
@@ -160,7 +160,7 @@ export default class LowerLeftContent extends Component {
             <Title isNext={isNext}>{title}</Title>
             <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
-          {isActive && <StyledChevronDown hide={scrolledDown} />}
+          {isActive && <StyledChevronDown hide={scrolledDown} contentColor={contentColor} />}
         </Content>
       </Wrapper>
     )

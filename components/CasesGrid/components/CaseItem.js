@@ -4,11 +4,12 @@ import LazyShow from 'components/lazyShow';
 import Link from 'components/Link';
 import { EASINGS, breakpoint, LAYOUT } from 'utils/variables';
 
-const Wrapper = styled(Link)`
+const Wrapper = styled.div`
+  margin-bottom: 30px;
+`
+
+const ImageWrapper = styled(Link)`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   cursor: pointer;
   height: 100%;
   overflow: hidden;
@@ -27,19 +28,20 @@ const Wrapper = styled(Link)`
   `}
 `
 
-const CaseItemImage = styled(LazyShow)`
+const Image = styled.div`
   position: relative;
   background: url(${props => props.src}) center center no-repeat;
   background-size: cover;
   transition: transform 1s ${EASINGS.EASE_OUT_SHINE};
-  height: 100%;
+  width: 100%;
+  padding-bottom: 75%;
 
   ${Wrapper}:hover & {
     transform: scale(1.05);
   }
 `
 
-const CaseItemContent = styled.div`
+const Content = styled.div`
   position: absolute;
   bottom: 0;
   padding: 20px;
@@ -56,59 +58,68 @@ const CaseItemContent = styled.div`
   }
 `
 
-const CaseItemTitle = styled.h3`
-  font-size: 25px;
+const Title = styled.h3`
+  position: absolute;
+  left: ${LAYOUT.MOBILE.EDGE_MARGIN};
+  bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
+  z-index: 2;
+  font-size: 20px;
   text-transform: uppercase;
+  max-width: 60%;
+
+  ${breakpoint.up('m')`
+    left: 15px;
+    bottom: 15px;
+    font-size: 30px;
+    line-height: 45px;
+  `}
 
   ${breakpoint.up('m')`
     font-size: 45px;
-    line-height: 45px;
   `}
 `
 
-const CaseItemTags = styled.ul`
+const Tags = styled.ul`
   display: flex;
   flex-wrap: wrap;
+  margin-left: ${LAYOUT.MOBILE.EDGE_MARGIN};
+  margin-top: 10px;
 
   ${breakpoint.up('m')`
-    opacity: 0;
-    transition: all 0.25s ${EASINGS.EASE_OUT_SHINE};
+    margin-top: 15px;
+    margin-left: 15px;
   `}
 
-  ${Wrapper}:hover & {
-    opacity: 1;
-  }
-
   li {
-    background-color: white;
-    color: black;
+    color: white;
 
     ${props => props.whitecontent && `
-      color: white;
+      color: black;
     `}
   }
 `
 
-const CaseItemTag = styled.li`
+const Tag = styled.li`
   margin-right: 10px;
-  margin-top: 5px;
-  padding: 2px 4px;
 
   ${breakpoint.up('m')`
-    padding: 4px 8px;
+    margin-right: 10px;
   `}
 `
 
-export default ({ slug, title, tags, bgImage, ...props }) => (
-  <Wrapper {...props} href={`/work/${slug}`}>
-    <CaseItemImage src={bgImage} />
-    <CaseItemContent>
-      <CaseItemTitle>{title}</CaseItemTitle>
-      <CaseItemTags whitecontent={props.whiteContent}>
-        {tags.map(tag => (
-          <CaseItemTag>{tag}</CaseItemTag>
-        ))}
-      </CaseItemTags>
-    </CaseItemContent>
-  </Wrapper>
+export default ({ slug, title, tags, bgImage, noAnimation, ...props }) => (
+  <LazyShow noAnimation={noAnimation}>
+    <Wrapper>
+        <ImageWrapper href={`/work/${slug}`} {...props}>
+          <Title>{title}</Title>
+          <Image src={bgImage} />
+        </ImageWrapper>
+
+        <Tags whitecontent={props.whiteContent}>
+          {tags.map(tag => (
+            <Tag>{tag}</Tag>
+          ))}
+        </Tags>
+    </Wrapper>
+  </LazyShow>
 )

@@ -3,17 +3,17 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
 
-const Cases = dynamic(import('components/Cases'));
+const CasesGrid = dynamic(import('components/CasesGrid'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
 
-const StyledCases = styled(Cases)`
+const StyledCasesGrid = styled(CasesGrid)`
   margin-top: 200px;
 `
 
 export default (props) => (
   <Case isLanding {...props}>
-    <StyledCases dark reverseTextItems />
+    {/* <StyledCasesGrid dark reverseTextItems /> */}
 
-    <InstagramFeed />
+    {/* <InstagramFeed /> */}
   </Case>
 )

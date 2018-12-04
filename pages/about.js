@@ -10,7 +10,7 @@ const Content = styled.div`
 `
 
 export default (props) => (
-  <DefaultPage title="About" {...props}>
+  <DefaultPage dark title="About" {...props}>
     <Content>
     </Content>
   </DefaultPage>

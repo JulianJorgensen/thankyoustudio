@@ -34,7 +34,7 @@ export default class Reel extends Component {
   componentDidMount() {
     setTimeout(() => {
       this.setState({ loadPlayer: true });
-    }, 3000);
+    }, 2000);
   }
 
   render() {

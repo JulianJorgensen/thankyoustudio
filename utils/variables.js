@@ -7,6 +7,7 @@ export const BREAKPOINTS_NEW = {
   m: 768,
   l: 992,
   xl: 1200,
+  xxl: 1400,
 }
 
 export const breakpoint = styledBreakpoint(BREAKPOINTS_NEW);
@@ -30,7 +31,7 @@ export const LAYOUT = {
   EDGE_MARGIN: '40px',
   HEADER_DISAPPEAR: 300,
   MOBILE: {
-    EDGE_MARGIN: '6px',
+    EDGE_MARGIN: '10px',
     HEADER_DISAPPEAR: 0
   }
 }
@@ -52,7 +53,7 @@ export const TIMINGS = {
   CASE_WRAPPER: '0.5s',
   DEFAULT_PAGE_WRAPPER: '0.5s',  
   SLIDE_ITEM_WRAPPER: '0.5s',
-  SLIDER: '0.5s',
+  SLIDER: '0.8s',
   SET_IS_SCROLL_N_SLIDING_FALSE: 600,
   SET_IS_SLIDING_FALSE: 600,
   PAGE_TRANSITION_TIMEOUT: 600,
