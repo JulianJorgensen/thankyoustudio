@@ -131,10 +131,6 @@ export default class LandingSlide extends Component {
     this.handleCloseReel = this.handleCloseReel.bind(this);
   }
 
-  componentDidMount(newProps) {
-    this.teaserEl.play();
-  }
-
   componentWillUpdate(newProps) {
     if (newProps.isActive) {
       this.teaserEl.play();
