@@ -2,7 +2,7 @@ import styledBreakpoint from '@humblebee/styled-components-breakpoint';
 
 export const BREAKPOINTS_NEW = {
   xxs: 0,
-  xs: 400,
+  xs: 375,
   s: 576,
   m: 768,
   l: 992,
