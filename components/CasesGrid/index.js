@@ -10,11 +10,6 @@ import SlideItems from 'store/slideItems';
 
 const Wrapper = styled.div`
   color: white;
-  margin: 0 ${LAYOUT.MOBILE.EDGE_MARGIN};
-
-  ${breakpoint.up('l')`
-    margin: 0 ${LAYOUT.EDGE_MARGIN};
-  `}
 `
 
 const CaseItems = styled.div`

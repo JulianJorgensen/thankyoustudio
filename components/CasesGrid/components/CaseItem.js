@@ -5,7 +5,11 @@ import Link from 'components/Link';
 import { EASINGS, breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+
+  ${breakpoint.up('m')`
+    margin-bottom: 30px;
+  `}
 `
 
 const ImageWrapper = styled(Link)`
@@ -63,7 +67,7 @@ const Title = styled.h3`
   left: ${LAYOUT.MOBILE.EDGE_MARGIN};
   bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
   z-index: 2;
-  font-size: 20px;
+  font-size: 22px;
   text-transform: uppercase;
   max-width: 60%;
 
@@ -101,9 +105,11 @@ const Tags = styled.ul`
 
 const Tag = styled.li`
   margin-right: 10px;
+  font-size: 12px;
 
   ${breakpoint.up('m')`
     margin-right: 10px;
+    font-size: auto;
   `}
 `
 
