@@ -105,11 +105,16 @@ const Statement = styled.div`
 `
 
 const Teaser = styled.video`
+  display: none;
   position: absolute;
   top: 0;
   left: 0;
   min-height: 102vh;
   min-width: 100vw;
+
+  ${breakpoint.up('m')`
+    display: block;
+  `}
 `
 
 @connect((store) => ({

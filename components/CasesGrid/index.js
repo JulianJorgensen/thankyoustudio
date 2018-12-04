@@ -43,12 +43,12 @@ export default (props) => {
         {/* <Capabilities /> */}
         <CaseItem {...getCaseData('ferrari')} whitecontent delay={200} />
         <CaseItem {...getCaseData('copenhagen')} delay={300} />
-        <CaseItem {...getCaseData('swatch')} delay={400} />
-        <CaseItem {...getCaseData('onea')} delay={400} />
-        <CaseItem {...getCaseData('ferrari')} delay={400} />
+        <CaseItem {...getCaseData('swatch')} whitecontent delay={400} />
+        <CaseItem {...getCaseData('onea')} whitecontent delay={400} />
+        <CaseItem {...getCaseData('ferrari')} whitecontent delay={400} />
         <CaseItem {...getCaseData('copenhagen')} verticalSpan2 vertical />
-        <CaseItem {...getCaseData('onea')} square />
-        <CaseItem {...getCaseData('ferrari')} vertical />
+        <CaseItem {...getCaseData('onea')} whitecontent square />
+        <CaseItem {...getCaseData('ferrari')} whitecontent vertical />
       </CaseItems>
     </Wrapper>
   )
