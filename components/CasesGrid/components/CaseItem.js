@@ -68,6 +68,7 @@ const Title = styled.h3`
   bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
   z-index: 2;
   font-size: 22px;
+  line-height: 22px;
   text-transform: uppercase;
   max-width: 60%;
 
@@ -75,11 +76,12 @@ const Title = styled.h3`
     left: 15px;
     bottom: 15px;
     font-size: 30px;
-    line-height: 45px;
+    line-height: 30px;
   `}
 
   ${breakpoint.up('m')`
     font-size: 45px;
+    line-height: 45px;
   `}
 `
 
@@ -104,12 +106,12 @@ const Tags = styled.ul`
 `
 
 const Tag = styled.li`
-  margin-right: 10px;
+  margin-right: 6px;
   font-size: 12px;
 
   ${breakpoint.up('m')`
     margin-right: 10px;
-    font-size: auto;
+    font-size: initial;
   `}
 `
 
