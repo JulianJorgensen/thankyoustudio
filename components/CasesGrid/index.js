@@ -10,18 +10,28 @@ import SlideItems from 'store/slideItems';
 
 const Wrapper = styled.div`
   color: white;
+
+  ${breakpoint.up('l')`
+    margin: ${LAYOUT.EDGE_MARGIN};
+  `}
 `
 
 const CaseItems = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 6px;
-  grid-auto-flow: dense;
   width: 100%;
 
-  ${breakpoint.up('l')`
-    grid-template-columns: repeat(3, 1fr);
+  ${breakpoint.up('xs')`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 6px;
+    grid-auto-flow: dense;
+  `}
+
+  ${breakpoint.up('m')`
     grid-gap: 30px;
+  `}
+
+  ${breakpoint.up('xl')`
+    grid-template-columns: repeat(3, 1fr);
   `}
 `
 
