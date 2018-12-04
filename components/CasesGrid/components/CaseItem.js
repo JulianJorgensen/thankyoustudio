@@ -45,23 +45,6 @@ const Image = styled.div`
   }
 `
 
-const Content = styled.div`
-  position: absolute;
-  bottom: 0;
-  padding: 20px;
-  z-index: 2;
-  width: 100%;
-
-  ${breakpoint.up('m')`
-    transform: translateY(50px);
-    transition: all 0.25s ${EASINGS.EASE_OUT_SHINE};
-  `}
-
-  ${Wrapper}:hover & {
-    transform: translateY(0);
-  }
-`
-
 const Title = styled.h3`
   position: absolute;
   left: ${LAYOUT.MOBILE.EDGE_MARGIN};
@@ -95,14 +78,6 @@ const Tags = styled.ul`
     margin-top: 15px;
     margin-left: 15px;
   `}
-
-  li {
-    color: white;
-
-    ${props => props.whitecontent && `
-      color: black;
-    `}
-  }
 `
 
 const Tag = styled.li`

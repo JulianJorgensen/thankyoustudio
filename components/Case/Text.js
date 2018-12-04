@@ -13,7 +13,10 @@ const Wrapper = styled.div`
 const StyledText = styled(Text)`
   display: flex;
   align-items: center;
-  padding: 30px 0;
+
+  ${props => props.intro && `
+    padding: 30px ${LAYOUT.MOBILE.EDGE_MARGIN};
+  `}
 
   ${breakpoint.up('m')`
     padding: 0;

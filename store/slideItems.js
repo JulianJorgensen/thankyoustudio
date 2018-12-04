@@ -37,7 +37,7 @@ export default [
     teaserText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg",
   },
   {
@@ -46,7 +46,7 @@ export default [
     teaserText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    image: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg',
+    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg'
   },
   {

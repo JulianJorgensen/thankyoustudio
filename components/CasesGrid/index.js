@@ -9,8 +9,6 @@ import Capabilities from './components/Capabilities';
 import SlideItems from 'store/slideItems';
 
 const Wrapper = styled.div`
-  color: white;
-
   ${breakpoint.up('l')`
     margin: ${LAYOUT.EDGE_MARGIN};
   `}
@@ -18,6 +16,11 @@ const Wrapper = styled.div`
 
 const CaseItems = styled.div`
   width: 100%;
+  color: white;
+
+  ${props => props.onWhite && `
+    color: black;
+  `}
 
   ${breakpoint.up('xs')`
     display: grid;
@@ -48,7 +51,7 @@ export default (props) => {
 
   return (
     <Wrapper {...props}>
-      <CaseItems>
+      <CaseItems onWhite={props.onWhite}>
         <CaseItem {...getCaseData('onea')} verticalSpan2 horizontalSpan2 whitecontent noAnimation />
         {/* <Capabilities /> */}
         <CaseItem {...getCaseData('ferrari')} whitecontent delay={200} />

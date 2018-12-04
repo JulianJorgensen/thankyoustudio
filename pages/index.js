@@ -12,8 +12,7 @@ const StyledCasesGrid = styled(CasesGrid)`
 
 export default (props) => (
   <Case isLanding {...props}>
-    {/* <StyledCasesGrid dark reverseTextItems /> */}
-
-    {/* <InstagramFeed /> */}
+    <StyledCasesGrid onWhite />
+    <InstagramFeed />
   </Case>
 )
