@@ -1,14 +1,13 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import Router from 'next/router';
 import styled from 'styled-components';
-import * as actions from 'store/actions';
 import { LAYOUT, TIMINGS, breakpoint } from 'utils/variables';
 import CaseItem from './components/CaseItem';
 import Capabilities from './components/Capabilities';
 import SlideItems from 'store/slideItems';
 
 const Wrapper = styled.div`
+  min-height: 100vh;
+
   ${breakpoint.up('l')`
     margin: ${LAYOUT.EDGE_MARGIN};
   `}
@@ -38,7 +37,7 @@ const CaseItems = styled.div`
   `}
 `
 
-export default (props) => {
+export default ({ className, ...props }) => {
   const getCaseData = (slug) => {
     const caseData = SlideItems.find(obj => obj.slug == slug);
     return {
@@ -52,16 +51,16 @@ export default (props) => {
   return (
     <Wrapper {...props}>
       <CaseItems onWhite={props.onWhite}>
-        <CaseItem {...getCaseData('onea')} verticalSpan2 horizontalSpan2 whitecontent noAnimation />
+        <CaseItem {...getCaseData('onea')} whitecontent {...props} />
         {/* <Capabilities /> */}
-        <CaseItem {...getCaseData('ferrari')} whitecontent delay={200} />
-        <CaseItem {...getCaseData('copenhagen')} delay={300} />
-        <CaseItem {...getCaseData('swatch')} whitecontent delay={400} />
-        <CaseItem {...getCaseData('onea')} whitecontent delay={400} />
-        <CaseItem {...getCaseData('ferrari')} whitecontent delay={400} />
-        <CaseItem {...getCaseData('copenhagen')} verticalSpan2 vertical />
-        <CaseItem {...getCaseData('onea')} whitecontent square />
-        <CaseItem {...getCaseData('ferrari')} whitecontent vertical />
+        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
+        <CaseItem {...getCaseData('copenhagen')} {...props} />
+        <CaseItem {...getCaseData('swatch')} whitecontent {...props} />
+        <CaseItem {...getCaseData('onea')} whitecontent {...props} />
+        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
+        <CaseItem {...getCaseData('copenhagen')} {...props} />
+        <CaseItem {...getCaseData('onea')} whitecontent {...props} />
+        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
       </CaseItems>
     </Wrapper>
   )

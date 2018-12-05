@@ -1,4 +1,5 @@
 import React from 'react';
+import Router from 'next/router';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import Link from 'components/Link';
@@ -91,9 +92,9 @@ const Tag = styled.li`
   `}
 `
 
-export default ({ slug, title, tags, bgImage, noAnimation, ...props }) => (
-  <LazyShow noAnimation={noAnimation}>
-    <Wrapper>
+export default ({ slug, title, tags, bgImage, animateFromLeft, onMouseEnter, ...props }) => (
+  <LazyShow animateFromLeft={animateFromLeft}>
+    <Wrapper onMouseEnter={() => Router.prefetch(`/${slug}`)}>
         <ImageWrapper href={`/work/${slug}`} {...props}>
           <Title>{title}</Title>
           <Image src={bgImage} />

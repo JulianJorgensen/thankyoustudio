@@ -5,7 +5,10 @@ import dynamic from 'next/dynamic';
 const Observer = dynamic(import('react-intersection-observer'));
 
 const Wrapper = styled.div`
-  transform: translateY(${props => props.inview ? '0' : '100px'});
+  transform: ${props => props.animateFromLeft ?
+    'translateX(-100px)' :
+    'translateY(100px)'
+  };
   opacity: ${props => props.inview ? '1' : '0'};
   transition: transform 1s, opacity 1s;
   transition-delay: ${props => props.delay}ms;
@@ -15,6 +18,10 @@ const Wrapper = styled.div`
     opacity: 1;
     transition-property: none;
     transition-delay: 0;
+  `}
+
+  ${props => props.inview && `
+    transform: translate(0, 0);
   `}
 `
 

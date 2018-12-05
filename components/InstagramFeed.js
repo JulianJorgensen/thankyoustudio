@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   min-height: 600px;
 
   ${media.tablet`
-    min-height: 500px;
+    min-height: 900px;
   `}
 `
 
