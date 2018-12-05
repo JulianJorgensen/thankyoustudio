@@ -32,7 +32,6 @@ const Wrapper = styled.div`
 
   ${props => props.isActive && props.isSliding && `
     position: fixed;
-    z-index: 1;
   `}
 
   ${props => props.isNext && `
