@@ -95,5 +95,6 @@ export const confirmFontsLoaded = () => dispatch => {
 }
 
 export const setIsSliding = (isSliding) => dispatch => {
+  console.log('setting is sliding', isSliding)
   return dispatch({ type: actionTypes.SET_IS_SLIDING, isSliding })
 }

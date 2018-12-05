@@ -28,14 +28,6 @@ export default class Link extends Component {
     const slug = isCase ? hrefExploded[2] : hrefExploded[1];
     const isSliderActive = !store.condenseSlider;
 
-    setTimeout(() => {
-      Router.push({
-        pathname: `/${slug}`
-      }, isCase ? `/work/${slug}` : `/${slug}`);
-
-      dispatch(actions.setIsSliding(false));
-    }, isCase && isSliderActive ? TIMINGS.SET_IS_SLIDING_FALSE : 0);
-
     if (isCase) dispatch(actions.updateActiveSlide(slug));
     if (isHome) dispatch(actions.updateActiveSlide('/'));
 
@@ -43,12 +35,22 @@ export default class Link extends Component {
     dispatch(actions.setIsSliding(true));
 
     if (isCase || isHome) {
+      console.log('expand slider again');
       dispatch(actions.condenseSlider(false));
       dispatch(actions.setHeaderSolid(false));
     } else {
+      console.log('condense slider');
       dispatch(actions.condenseSlider(true));
       dispatch(actions.setHasMouseLeftNextSlide(true));
     }
+
+    setTimeout(() => {
+      Router.push({
+        pathname: `/${slug}`
+      }, isCase ? `/work/${slug}` : `/${slug}`);
+
+      dispatch(actions.setIsSliding(false));
+    }, isCase && isSliderActive ? TIMINGS.SET_IS_SLIDING_FALSE : 0);
 
     setTimeout(() => {
       window.scrollTo(0, 0);

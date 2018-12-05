@@ -9,6 +9,7 @@ import { breakpoint, LAYOUT, META, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
+  z-index: 7;
   overflow: hidden;
   width: 100%;
   background-color: white;
@@ -28,7 +29,6 @@ const Content = styled.div`
   ${breakpoint.up('m')`
     padding: 120px 0;
   `}
-
 `
 
 @connect((store) => ({
@@ -55,7 +55,7 @@ export default class DefaultPage extends Component {
         .fade-enter.default-page,
         .fade-enter-active.default-page,
         .fade-enter-done.default-page{
-          z-index: 6;
+          z-index: 7;
         }
 
         .fade-enter.default-page {
@@ -70,19 +70,19 @@ export default class DefaultPage extends Component {
 
         .fade-exit-enter.default-page,
         .fade-exit-active.default-page {
-          z-index: 3;
+          z-index: 6;
         }
 
         .fade-exit-enter.default-page.slider-is-active {
           transform: translateX(0%);
-          z-index: 5;
+          z-index: 6;
         }
 
         .fade-exit-active.default-page.slider-is-active {
           transform: translateX(-100%);
           transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-in;
+          z-index: 6;
         }
-
 
         // inner content transitions styles below
 

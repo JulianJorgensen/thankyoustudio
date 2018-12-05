@@ -16,18 +16,18 @@ const Slider = styled.div`
   width: 100%;
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
-  right: 0;
-  transition: transform ${TIMINGS.SLIDER} ease-out;
+  left: 0;
+  transition: left ${TIMINGS.SLIDER} ease-out;
   pointer-events: none;
-
-  ${props => props.isCondensed && `
-    transform: translateX(5%);
-  `}
 
   ${media.tablet`
     display: block;
     position: absolute;
     height: 100vh;
+  `}
+
+  ${props => props.isCondensed && `
+    left: 5%;
   `}
 `
 
@@ -186,7 +186,9 @@ export default class FancySlider extends Component {
     if (!activeSlide) return null;
 
     return (
-        <Slider isCondensed={condenseSlider} isScrollNSliding={slider.isScrollNSliding}>
+        <Slider
+          isCondensed={condenseSlider}
+        >
           <BackButton
             contentColor={navColor}
             show={hasMouseLeftNextSlide}

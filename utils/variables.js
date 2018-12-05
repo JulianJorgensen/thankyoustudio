@@ -54,17 +54,17 @@ export const TIMINGS = {
   DEFAULT_PAGE_WRAPPER: '0.5s',  
   SLIDE_ITEM_WRAPPER: '0.5s',
   SLIDER: '0.8s',
-  SET_IS_SCROLL_N_SLIDING_FALSE: 600,
-  SET_IS_SLIDING_FALSE: 600,
+  SET_IS_SCROLL_N_SLIDING_FALSE: 800,
+  SET_IS_SLIDING_FALSE: 800,
   PAGE_TRANSITION_TIMEOUT: 600,
-  SCROLL_TO_TOP: 600, // the number has to be less than the slider animation to prevent a flickering
+  SCROLL_TO_TOP: 550, // the number has to be less than the slider animation to prevent a flickering
   SCROLL_DURATION: 600,
 }
 
 // slow motion timings
 // export const TIMINGS = {
 //   CASE_WRAPPER: '50s',
-//   DEFAULT_PAGE_WRAPPER: '50s',  
+//   DEFAULT_PAGE_WRAPPER: '50s',
 //   SLIDE_ITEM_WRAPPER: '50s',
 //   SLIDER: '50s',
 //   SET_IS_SCROLL_N_SLIDING_FALSE: 50000,

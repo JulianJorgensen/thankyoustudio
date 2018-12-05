@@ -30,6 +30,11 @@ const Wrapper = styled.div`
     overflow: visible;
   `}
 
+  ${props => props.isActive && props.isSliding && `
+    position: fixed;
+    z-index: 1;
+  `}
+
   ${props => props.isNext && `
     display: none;
     position: fixed;
