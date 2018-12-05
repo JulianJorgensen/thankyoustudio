@@ -73,23 +73,27 @@ export default class DefaultPage extends Component {
           z-index: 3;
         }
 
-        .fade-exit-enter.default-page.slider-not-condensed {
+        .fade-exit-enter.default-page.slider-is-active {
           transform: translateX(0%);
+          z-index: 5;
         }
 
-        .fade-exit-active.default-page.slider-not-condensed {
+        .fade-exit-active.default-page.slider-is-active {
           transform: translateX(-100%);
-          transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;          
+          transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-in;
         }
 
 
         // inner content transitions styles below
 
         .fade-enter-active.default-page .content,
-        .fade-enter-done.default-page .content,
+        .fade-enter-done.default-page .content {
+          transition: transform 0.8s ease-out, opacity 0.3s ease-out;
+        }
+
         .fade-exit-active.default-page .content,
         .fade-exit-done.default-page .content {
-          transition: transform 0.8s ease-out, opacity 0.4s ease-out;
+          transition: transform 0.3s ease-in, opacity 0.2s ease-in;
         }
 
         .fade-enter.default-page .content {
@@ -123,7 +127,7 @@ export default class DefaultPage extends Component {
         fontsLoaded={fontsLoaded}
         isScrollNSliding={slider.isScrollNSliding}
         dark={this.props.dark}
-        className={`default-page ${!condenseSlider && 'slider-not-condensed'}`}
+        className={`default-page ${!condenseSlider && 'slider-is-active'}`}
       >
         <Head>
           <title>{title} {META.DESCRIPTION}</title>

@@ -21,11 +21,20 @@ export default class Link extends Component {
   }
 
   handleOnClick() {
-    const { dispatch, href } = this.props;
+    const { dispatch, href, store } = this.props;
     const hrefExploded = href.split('/');
     const isHome = href === '/';
     const isCase = (hrefExploded[1] === 'work' && hrefExploded[2]);
     const slug = isCase ? hrefExploded[2] : hrefExploded[1];
+    const isSliderActive = !store.condenseSlider;
+
+    setTimeout(() => {
+      Router.push({
+        pathname: `/${slug}`
+      }, isCase ? `/work/${slug}` : `/${slug}`);
+
+      dispatch(actions.setIsSliding(false));
+    }, isCase && isSliderActive ? TIMINGS.SET_IS_SLIDING_FALSE : 0);
 
     if (isCase) dispatch(actions.updateActiveSlide(slug));
     if (isHome) dispatch(actions.updateActiveSlide('/'));
@@ -44,14 +53,6 @@ export default class Link extends Component {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, TIMINGS.SCROLL_TO_TOP);
-
-    setTimeout(() => {
-      Router.push({
-        pathname: `/${slug}`
-      }, isCase ? `/work/${slug}` : `/${slug}`);
-
-      dispatch(actions.setIsSliding(false));
-    }, isCase ? TIMINGS.SET_IS_SLIDING_FALSE : 50);
   }
 
   setActiveSlideToPrevious() {

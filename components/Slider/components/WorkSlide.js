@@ -29,7 +29,7 @@ const Image = styled.div`
   transform: scale(1);
 
   ${props => props.isActive && `
-    // transform: scale(1.05);
+    transform: scale(1.05);
   `}
 
   ${media.tablet`

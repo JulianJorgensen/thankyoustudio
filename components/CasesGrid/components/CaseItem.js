@@ -92,8 +92,8 @@ const Tag = styled.li`
   `}
 `
 
-export default ({ slug, title, tags, bgImage, animateFromLeft, onMouseEnter, ...props }) => (
-  <LazyShow animateFromLeft={animateFromLeft}>
+export default ({ slug, title, tags, bgImage, animateFromLeft, noAnimation, onMouseEnter, ...props }) => (
+  <LazyShow animateFromLeft={animateFromLeft} noAnimation={noAnimation}>
     <Wrapper onMouseEnter={() => Router.prefetch(`/${slug}`)}>
         <ImageWrapper href={`/work/${slug}`} {...props}>
           <Title>{title}</Title>
