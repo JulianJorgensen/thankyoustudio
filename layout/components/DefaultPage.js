@@ -89,7 +89,7 @@ export default class DefaultPage extends Component {
         .fade-enter-done.default-page .content,
         .fade-exit-active.default-page .content,
         .fade-exit-done.default-page .content {
-          transition: transform 0.7s ease-out, opacity 0.5s ease-out;
+          transition: transform 0.8s ease-out, opacity 0.4s ease-out;
         }
 
         .fade-enter.default-page .content {
@@ -101,7 +101,7 @@ export default class DefaultPage extends Component {
         .fade-enter-done.default-page .content {
           transform: translateX(0);
           opacity: 1;
-          transition-delay: 0.3s;
+          transition-delay: 0.4s;
         }
 
         .fade-exit.default-page .content {

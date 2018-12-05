@@ -102,7 +102,7 @@ export default ({ slug, title, tags, bgImage, animateFromLeft, onMouseEnter, ...
 
         <Tags whitecontent={props.whiteContent}>
           {tags.map(tag => (
-            <Tag>{tag}</Tag>
+            <Tag key={tag}>{tag}</Tag>
           ))}
         </Tags>
     </Wrapper>
