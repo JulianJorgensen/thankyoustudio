@@ -43,7 +43,7 @@ const Wrapper = styled.div`
     opacity: 1;
     cursor: pointer;
     pointer-events: auto;
-    transition-duration: ${props.wasPrevious ? '0s' : '0.5s'};
+    transition-duration: 0.5s;
 
     &:before {
       content: '';

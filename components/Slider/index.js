@@ -42,14 +42,18 @@ const BackButton = styled.div`
   position: absolute;
   top: 50%;
   left: 30px;
-  z-index: 5;
-  opacity: ${props => props.hasMouseLeftNextSlide ? '1' : '0'};
+  z-index: 6;
+  opacity: 1;
   cursor: pointer;
   pointer-events: auto;
+  
+  ${props => props.hide && `
+    display: none;
+  `}
 
   svg {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     path {
       fill: ${props => props.contentColor};
       transition: fill 0.2s;
@@ -194,8 +198,8 @@ export default class FancySlider extends Component {
         >
           <BackButton
             contentColor={navColor}
-            show={hasMouseLeftNextSlide}
             onClick={this.handleBackClick}
+            hide={activeSlide.index === 0}
           >
             <ChevronLeftIcon />
           </BackButton>
