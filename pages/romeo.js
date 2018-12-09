@@ -6,8 +6,7 @@ export default (props) => (
   <Case 
     isMobile={props.isMobile}
     title="Romeo"
-    teaserText="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/romeo-cover.jpg"
+    slug="romeo"
   >
   {/* <img src={RomeoCasePlaceholder} /> */}
   </Case>

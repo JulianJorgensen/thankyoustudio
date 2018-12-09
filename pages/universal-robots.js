@@ -24,8 +24,7 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Universal Robots"
-    teaserText="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg"
+    slug="universal-robots"
   >
    <FullCaseVideo vimeoId="303070427" />
 

@@ -10,11 +10,8 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Copenhagen Distillery"
-    teaserText="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/copenhagen-cover.jpg"
+    slug="copenhagen"
   >
-    <Text intro>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.</Text>
-
     <Grid ratio="16x9">
       <FullCaseVideo vimeoId="262509870" />
     </Grid>

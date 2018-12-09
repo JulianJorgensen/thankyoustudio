@@ -111,9 +111,10 @@ export default class FancySlider extends Component {
     dispatch(actions.setHasMouseLeftNextSlide(true));
     dispatch(actions.setAutoScroll(false));
     dispatch(actions.updateActiveSlide(prevSlide.slug.toLowerCase()));
+    dispatch(actions.setIsSliding(true));
 
     setTimeout(() => {
-      this.props.dispatch(actions.setIsSliding(false));
+      dispatch(actions.setIsSliding(false));
 
       // first push to new page after slide transition (to prevent janking)
       Router.push({

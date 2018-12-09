@@ -3,10 +3,11 @@ import { connect } from 'react-redux';
 import Head from 'next/head';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import { scroller } from 'react-scroll'
 import * as actions from 'store/actions';
+import slideItems from 'store/slideItems';
 import { EASINGS, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
+import Text from 'components/Case/Text';
 import Footer from 'layout/components/Footer';
 const MobileHero = dynamic(import('components/MobileHero'));
 
@@ -23,13 +24,6 @@ const Wrapper = styled.div`
     top: 100vh;
   `}
 `
-
-// ${props => props.isPrimaryPage && props.usePrevAsNextSlide && `
-// transition: opacity 0s, width 0.5s !important;
-// transition-timing-function: ${EASINGS.EASE_IN_OUT_CUSTOM};
-// transition-delay: 0s !important;
-// z-index: 4;
-// `}
 
 const Content = styled.div`
   position: relative;
@@ -50,11 +44,36 @@ export default class Case extends Component {
   }
 
   render() {
-    const { children, store, title, teaserText, imageSrc, isLanding, isMobile, ...props } = this.props;
+    const { children, store, title, slug, isLanding, isMobile, ...props } = this.props;
 
     const renderTitle = () => {
       if (!title) return META.TITLE;
       return `${title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.`;
+    }
+
+    const renderMobileHero = () => {
+      const slide = slideItems.find(obj => obj.slug === slug);
+      return (
+        <MobileHero
+          isMobile={isMobile}
+          title={slide.title}
+          imageSrc={slide.mobile.imageThumb}
+          isLanding={isLanding}
+        />
+      )
+    }
+
+    const renderIntroText = () => {
+      const slide = slideItems.find(obj => obj.slug === slug);
+      if (!slide) return;
+      if (isMobile) return (
+        <Text intro>
+          {slide.teaserText}<br /><br />
+          {slide.introText}
+        </Text>
+      )
+
+      return <Text intro>{slide.introText}</Text>
     }
 
     return (
@@ -62,17 +81,9 @@ export default class Case extends Component {
           <Head>
             <title>{renderTitle()}</title>
           </Head>
-          {isMobile ?
-            <MobileHero
-              isMobile={isMobile}
-              title={title}
-              teaserText={teaserText}
-              imageSrc={imageSrc}
-              isLanding={isLanding}
-              {...props}
-            /> : ''
-          }
+          {isMobile && renderMobileHero()}
           <Content>
+            {renderIntroText()}
             {children}
           </Content>
           <Footer />

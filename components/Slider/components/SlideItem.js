@@ -61,6 +61,10 @@ const Wrapper = styled.div`
     }
   `}
 
+  ${props => props.isNext && props.isSliding && `
+    pointer-events: none;
+  `}
+
   ${props => props.isNext && props.isLandingVideoPlaying && `
     width: 0;
   `}

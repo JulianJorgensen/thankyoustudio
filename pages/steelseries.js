@@ -10,11 +10,8 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Steelseries"
-    teaserText="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg"
+    slug="steelseries"
   >
-    <Text intro>Taking a brand from startup to worldwide sales Keeping the hardcore gamers and reach for a wider audience.</Text>
-
     <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_mouse_exploded.jpg" />
     </Grid>

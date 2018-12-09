@@ -22,8 +22,7 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Ferrari"
-    teaserText="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg"
+    slug="ferrari"
   >
     <Text intro>
       <h2>IDENTIFY</h2>

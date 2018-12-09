@@ -7,8 +7,7 @@ export default (props) => (
   <Case
     isMobile={props.isMobile}
     title="Swatch Irony Chrono"
-    teaserText="Design. Experiences."
-    imageSrc="http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg"
+    slug="swatch-chrono"
   >
     <FullCaseVideo vimeoId="89115423" />
   </Case>

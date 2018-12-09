@@ -27,7 +27,7 @@ const Title = styled.h1`
   text-transform: uppercase;
 `
 
-export default ({ isMobile, isLanding, title, teaserText, whiteContent, imageSrc }) => {
+export default ({ isMobile, isLanding, title, whiteContent, imageSrc }) => {
   if (!isMobile) return null;
   if (isLanding) return <LandingHero />
 
