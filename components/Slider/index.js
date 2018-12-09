@@ -78,6 +78,9 @@ export default class FancySlider extends Component {
 
   addArrowKeyEvents() {
     document.onkeydown = (e) => {
+      const { store } = this.props;
+      if (store.condenseSlider) return;
+
       switch (e.keyCode) {
         case 37:
           this.handleBackClick();

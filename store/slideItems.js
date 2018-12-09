@@ -67,7 +67,8 @@ export default [
     background: "black",
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg',
-    whiteContent: true
+    whiteContent: true,
+    fadeToBlack: true
   },
   {
     slug: "onea",

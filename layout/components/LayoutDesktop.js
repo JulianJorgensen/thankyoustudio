@@ -78,8 +78,16 @@ export default class LayoutDesktop extends Component {
     // Server side route change
     Router.beforePopState(({ url, as: asUrl }) => {
       const { dispatch, router, store } = this.props;
+      const urlExploded = asUrl.split('/');
+      const isCase = (asUrl === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
 
-      dispatch(actions.updateActiveSlide(url.substr(1)));
+      if (isCase && store.condenseSlider) {
+        dispatch(actions.condenseSlider(false));
+      }
+
+      if (isCase && !store.condenseSlider) {
+        dispatch(actions.updateActiveSlide(url.substr(1)));
+      }
 
       this.props.dispatch(actions.setIsSliding(true));
       setTimeout(() => {
