@@ -3,6 +3,7 @@ import Router from 'next/router';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import Link from 'components/Link';
+import Image from 'components/Image';
 import { EASINGS, breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
@@ -16,30 +17,19 @@ const Wrapper = styled.div`
 const ImageWrapper = styled(Link)`
   position: relative;
   cursor: pointer;
-  height: 100%;
   overflow: hidden;
   color: black;
+  padding-bottom: 56,25%;
+
   ${props => props.whitecontent && `
     color: white;
   `}
-  ${props => props.withPadding && `
-    padding: 10px;
-  `}
-  ${props => props.verticalSpan2 && `
-    grid-row-end: span 2;
-  `}
-  ${props => props.horizontalSpan2 && `
-    grid-column-end: span 2;
-  `}
 `
 
-const Image = styled.div`
+const StyledImage = styled(Image)`
   position: relative;
-  background: url(${props => props.src}) center center no-repeat;
-  background-size: cover;
-  transition: transform 1s ${EASINGS.EASE_OUT_SHINE};
+  transition: transform 1s ${EASINGS.EASE_OUT_SHINE}, opacity 0.2s ease;
   width: 100%;
-  padding-bottom: 75%;
 
   ${Wrapper}:hover & {
     transform: scale(1.05);
@@ -97,7 +87,7 @@ export default ({ slug, title, tags, bgImage, animateFromLeft, noAnimation, onMo
     <Wrapper onMouseEnter={() => Router.prefetch(`/${slug}`)}>
         <ImageWrapper href={`/work/${slug}`} {...props}>
           <Title>{title}</Title>
-          <Image src={bgImage} />
+          <StyledImage src={bgImage} />
         </ImageWrapper>
 
         <Tags whitecontent={props.whiteContent}>

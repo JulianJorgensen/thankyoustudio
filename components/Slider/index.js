@@ -151,7 +151,7 @@ export default class FancySlider extends Component {
       }, nextSlide.slug ? '/work/' + nextSlide.slug.toLowerCase() : '/');  
 
       dispatch(actions.setIsSliding(false));
-    }, TIMINGS.SET_IS_SLIDING_FALSE)
+    }, TIMINGS.PAGE_TRANSITION_TIMEOUT)
   }
 
   handleNextMouseLeave() {

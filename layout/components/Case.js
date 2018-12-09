@@ -82,11 +82,13 @@ export default class Case extends Component {
 
             .fade-exit.case-page {
               transform: translateX(0px);
+              opacity: 1;
             }
 
             .fade-exit-active.case-page {
               transform: translateX(100px);
-              transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;          
+              transition: all ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;
+              opacity: 0;
             }
           `}
           </style>

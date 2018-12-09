@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
-import { breakpoint } from 'utils/variables';
 
 const Image = styled.img`
   opacity: 0;
@@ -12,7 +11,7 @@ const Image = styled.img`
   `}
 `
 
-export default class CaseImage extends Component {
+export default class ImageComponent extends Component {
   constructor() {
     super();
 
@@ -25,22 +24,10 @@ export default class CaseImage extends Component {
   }
   
   render() {
-    const { children, delay, ...props } = this.props;
+    const { delay, ...props } = this.props;
 
-    if (props.lazy) {
-      return (
-        <LazyShow delay={delay}>
-          <Image onLoad={this.handleImageLoaded} loaded={this.state.loaded} {...props}>
-            {children}
-          </Image>
-        </LazyShow>
-      )
-    }
-  
     return (
-      <Image loaded={this.state.loaded} {...props}>
-        {children}
-      </Image>
+      <Image onLoad={this.handleImageLoaded} loaded={this.state.loaded} {...props} />
     )
   }
 }
