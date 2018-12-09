@@ -8,6 +8,7 @@ import slideItems from 'store/slideItems';
 import { EASINGS, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Text from 'components/Case/Text';
+import CasesGrid from 'components/CasesGrid';
 import Footer from 'layout/components/Footer';
 const MobileHero = dynamic(import('components/MobileHero'));
 
@@ -85,6 +86,7 @@ export default class Case extends Component {
           <Content>
             {renderIntroText()}
             {children}
+            <CasesGrid />
           </Content>
           <Footer />
           <style jsx global>{`
