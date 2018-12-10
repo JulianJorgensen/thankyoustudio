@@ -100,10 +100,10 @@ export default [
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/cover.jpg",
+    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/cover.jpg",
+      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     }
   },
   {

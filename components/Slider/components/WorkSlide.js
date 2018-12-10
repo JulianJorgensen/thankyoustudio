@@ -37,9 +37,6 @@ const Image = styled.div`
   `}
 `
 
-const Video = styled.video`
-`
-
 export default ({ title, teaserText, image, video, isActive, isNext, fontsLoaded, contentColor, fadeToBlack }) => (
   <Wrapper>
     <LowerleftContent
@@ -51,7 +48,7 @@ export default ({ title, teaserText, image, video, isActive, isNext, fontsLoade
       contentColor={contentColor}
       fadeToBlack={fadeToBlack}
     />
-    {image ? <Image isNext={isNext} isActive={isActive} src={image} /> : ''}
-    {video ? <SlideVideo video={video} isActive={isActive} /> : ''}
+    {image && (isActive || isNext) ? <Image isNext={isNext} isActive={isActive} src={image} /> : ''}
+    {video && (isActive || isNext) ? <SlideVideo video={video} isActive={isActive} /> : ''}
   </Wrapper>
 )
