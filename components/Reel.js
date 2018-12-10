@@ -26,26 +26,15 @@ const StyledVimeo = styled(Vimeo)`
 `
 
 export default class Reel extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ loadPlayer: true });
-    }, 2000);
-  }
-
   render() {
     const { play } = this.props;
 
     return (
       <Wrapper show={play}>
-        {this.state.loadPlayer && <StyledVimeo
+        <StyledVimeo
           video="233816544"
           paused={!play}
-        />}
+        />
       </Wrapper>
     )
   }
