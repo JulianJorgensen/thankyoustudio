@@ -51,16 +51,18 @@ export default ({ className, ...props }) => {
   return (
     <Wrapper {...props}>
       <CaseItems onWhite={props.onWhite}>
-        <CaseItem {...getCaseData('onea')} whitecontent {...props} />
-        {/* <Capabilities /> */}
-        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
-        <CaseItem {...getCaseData('copenhagen')} {...props} />
         <CaseItem {...getCaseData('swatch')} whitecontent {...props} />
-        <CaseItem {...getCaseData('onea')} whitecontent {...props} />
+        <CaseItem {...getCaseData('amazon')} whitecontent {...props} />
         <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
         <CaseItem {...getCaseData('copenhagen')} {...props} />
+        <CaseItem {...getCaseData('universal-robots')} {...props} />
         <CaseItem {...getCaseData('onea')} whitecontent {...props} />
-        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
+        <CaseItem {...getCaseData('gyldendal')} whitecontent {...props} />
+        <CaseItem {...getCaseData('steelseries')} whitecontent {...props} />
+        <CaseItem {...getCaseData('swatch-scuba-libra')} {...props} />
+        <CaseItem {...getCaseData('swatch-chrono')} whitecontent {...props} />
+        <CaseItem {...getCaseData('bundesliga')} {...props} />
+        {/* <Capabilities /> */}
       </CaseItems>
     </Wrapper>
   )

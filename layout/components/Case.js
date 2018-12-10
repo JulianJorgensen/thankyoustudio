@@ -86,7 +86,7 @@ export default class Case extends Component {
           <Content>
             {renderIntroText()}
             {children}
-            <CasesGrid />
+            {!isLanding && <CasesGrid onWhite />}
           </Content>
           <Footer />
           <style jsx global>{`
