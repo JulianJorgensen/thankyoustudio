@@ -236,9 +236,7 @@ export default class FancySlider extends Component {
                 return (
                   <SlideItem
                     key={`i-${SlideItemData.slug}`}
-                    slug={SlideItemData.slug}
-                    title={SlideItemData.title}
-                    teaserText={SlideItemData.teaserText}
+                    slideItemData={SlideItemData}
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     isPrevious={isPrevious}
                     wasPrevious={wasPrevious}
@@ -248,11 +246,6 @@ export default class FancySlider extends Component {
                     isScrollNSliding={slider.isScrollNSliding}
                     isSliding={isSliding}
                     isLandingVideoPlaying={isLandingVideoPlaying}
-                    image={SlideItemData.image}
-                    video={SlideItemData.video}
-                    background={SlideItemData.background}
-                    contentColor={SlideItemData.whiteContent ? 'white' : 'black'}
-                    fadeToBlack={SlideItemData.fadeToBlack}
                     hasMouseLeftNextSlide={hasMouseLeftNextSlide}
                     onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
                     fontsLoaded={fontsLoaded}

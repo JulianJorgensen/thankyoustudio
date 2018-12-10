@@ -37,18 +37,18 @@ const Image = styled.div`
   `}
 `
 
-export default ({ title, teaserText, image, video, isActive, isNext, fontsLoaded, contentColor, fadeToBlack }) => (
+export default (props) => (
   <Wrapper>
     <LowerleftContent
-      title={title}
-      teaserText={teaserText}
-      isActive={isActive}
-      isNext={isNext}
-      fontsLoaded={fontsLoaded}
-      contentColor={contentColor}
-      fadeToBlack={fadeToBlack}
+      title={props.title}
+      teaserText={props.teaserText}
+      isActive={props.isActive}
+      isNext={props.isNext}
+      fontsLoaded={props.fontsLoaded}
+      contentColor={props.contentColor}
+      fadeToBlack={props.fadeToBlack}
     />
-    {image && (isActive || isNext) ? <Image isNext={isNext} isActive={isActive} src={image} /> : ''}
-    {video && (isActive || isNext) ? <SlideVideo video={video} isActive={isActive} /> : ''}
+    {props.image && props.isDirty ? <Image {...props} /> : ''}
+    {props.video && <SlideVideo {...props} />}
   </Wrapper>
 )

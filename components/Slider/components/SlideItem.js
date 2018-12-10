@@ -90,6 +90,8 @@ export default class SlideItem extends Component {
 
   componentDidMount() {
     this.toggleScrollEventListener();
+
+    this.setIsDirty();
   }
 
   componentDidUpdate(prevProps) {
@@ -97,12 +99,21 @@ export default class SlideItem extends Component {
 
     if (!prevProps) return;
     if (prevProps == this.props) return;
-    
+
     // handle scroll animation of next slide
     if (prevProps.isNext && isNext) return;
     if (prevProps.isActive && isActive) return;
     if (prevProps.isPrevious && isPrevious) return;
     this.toggleScrollEventListener();
+    this.setIsDirty();
+  }
+
+  setIsDirty() {
+    if (!this.props.isActive) return;
+
+    this.setState({
+      isDirty: true
+    });
   }
 
   toggleScrollEventListener() {
@@ -152,7 +163,7 @@ export default class SlideItem extends Component {
   }
 
   render() {
-    const { onClickHandler, onCtaClickHandler, ...props } = this.props;
+    const { onClickHandler, onCtaClickHandler, slideItemData, ...props } = this.props;
 
     let styles = {};
 
@@ -174,6 +185,7 @@ export default class SlideItem extends Component {
     return (
       <Wrapper
         {...props}
+        {...slideItemData}
         ref={el => this.slideEl = el}
         onClick={onClickHandler}
         className={props.isActive ? 'wrapper is-active' : 'wrapper'}
@@ -181,7 +193,7 @@ export default class SlideItem extends Component {
         onMouseEnter={() => props.isNext ? this.handleNextSlideHoverWhenHidden(true) : ''}
         onMouseLeave={() => props.isNext ? this.handleNextSlideHoverWhenHidden(false) : ''}
       >
-        { props.slug === '' ? <LandingSlide isActive={props.isActive} /> : <WorkSlide {...props} /> }
+        { slideItemData.slug === '' ? <LandingSlide isActive={props.isActive} /> : <WorkSlide isDirty={this.state.isDirty} {...slideItemData} {...props} /> }
       </Wrapper>
     )
   }
