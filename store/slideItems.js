@@ -12,10 +12,10 @@ export default [
     whiteContent: true,
     fadeToBlack: true,
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Swatch_skin_frontpage.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",
+    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Swatch_skin_frontpage.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/images/swatch-cover.jpg",  
+      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",  
     }
   },
   {
@@ -44,10 +44,10 @@ export default [
     whiteContent: true,
     fadeToBlack: true,
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
-    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg',
+    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
     mobile: {
       video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/ferrari-cover.jpg',  
+      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
     }
   },
   {
