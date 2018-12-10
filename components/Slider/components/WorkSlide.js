@@ -48,7 +48,7 @@ export default (props) => (
       contentColor={props.contentColor}
       fadeToBlack={props.fadeToBlack}
     />
-    {props.image && props.isDirty ? <Image {...props} /> : ''}
-    {props.video && <SlideVideo {...props} />}
+    {(props.image && props.isDirty) ? <Image {...props} /> : ''}
+    {props.video && (props.isDirty || props.isNext) && <SlideVideo {...props} />}
   </Wrapper>
 )
