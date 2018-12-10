@@ -13,6 +13,7 @@ export default [
     fadeToBlack: true,
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Swatch_skin_frontpage.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-poster.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Swatch_skin_frontpage.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",  
@@ -29,6 +30,7 @@ export default [
     fadeToBlack: true,
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_fire_CameraExplode.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon-poster.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_fire_CameraExplode.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
@@ -45,6 +47,7 @@ export default [
     fadeToBlack: true,
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
+    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
     mobile: {
       video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
       imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
@@ -59,6 +62,7 @@ export default [
     background: "white",
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
+    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
     mobile: {
       video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
       imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg'  
@@ -73,6 +77,7 @@ export default [
     background: "white",
     image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
     mobile: {
       image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",  
@@ -87,6 +92,7 @@ export default [
     background: "white",
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/videos/onea_cover.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',
+    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',
     mobile: {
       video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/videos/onea_cover.mp4',
       imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',  
@@ -101,6 +107,7 @@ export default [
     background: "white",
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
@@ -115,6 +122,7 @@ export default [
     background: "white",
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",  
@@ -131,6 +139,7 @@ export default [
     fadeToBlack: true,
     video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
@@ -147,6 +156,7 @@ export default [
     fadeToBlack: true,
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/videos/bundesliga-cover.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/thumb.jpg',
+    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/thumb.jpg',
     mobile: {
       video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/videos/bundesliga-cover.mp4',
       imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/thumb.jpg',

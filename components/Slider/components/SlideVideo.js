@@ -46,7 +46,7 @@ export default class SlideVideo extends Component {
 
     return (
       <Wrapper>
-        <Video ref={el => this.videoEl = el} poster={props.imageThumb} muted loop>
+        <Video ref={el => this.videoEl = el} poster={props.poster} muted loop>
           {props.isDirty && <source src={props.video} type="video/mp4" />}
         </Video>
       </Wrapper>
