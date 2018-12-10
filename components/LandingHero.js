@@ -129,12 +129,7 @@ export default class LandingSlide extends Component {
     this.teaserEl = null;
     this.handleOnPlayClick = this.handleOnPlayClick.bind(this);
     this.handleCloseReel = this.handleCloseReel.bind(this);
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({ loadPlayer: true });
-    }, 2000);
+    this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
   }
 
   componentWillUpdate(newProps) {
@@ -167,6 +162,12 @@ export default class LandingSlide extends Component {
     });
   }
 
+  handleLoadPlayer() {
+    this.setState({
+      loadPlayer: true
+    });
+  }
+
   render() {
     const { store } = this.props;
     const { playReel, loadPlayer } = this.state;
@@ -175,7 +176,7 @@ export default class LandingSlide extends Component {
       <Wrapper>
         <Inner hide={playReel}>
           <Content>
-            <PlayReel onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play reel</PlayReel>
+            <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play reel</PlayReel>
             <Statement fontsLoaded={store.fontsLoaded}>THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
           </Content>
           <Teaser ref={el => this.teaserEl = el} muted autoPlay loop>
