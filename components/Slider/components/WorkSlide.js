@@ -45,7 +45,7 @@ export default (props) => (
       isActive={props.isActive}
       isNext={props.isNext}
       fontsLoaded={props.fontsLoaded}
-      contentColor={props.contentColor}
+      whiteContent={props.whiteContent}
       fadeToBlack={props.fadeToBlack}
     />
     {(props.image && props.isDirty) ? <Image {...props} /> : ''}

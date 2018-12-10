@@ -23,7 +23,8 @@ const StyledText = styled(Text)`
   `}
 
   ${props => props.intro && breakpoint.up('m')`
-    padding: 315px 40px 40px;
+    display: block;
+    padding: 350px 40px 80px;
     column-count: 2;
     column-gap: 60px;
   `}

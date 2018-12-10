@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: calc(100vw - 40px);
   opacity: 0;
-  color: ${props => props.contentColor};
+  color: ${props => props.whiteContent ? 'white' : 'black'};
 
   ${props => props.fontsLoaded && `
     opacity: 1;
@@ -70,7 +70,7 @@ const StyledChevronDown = styled(ChevronDown)`
   opacity: ${props => props.hide ? '0' : '1'};
 
   path {
-    fill: ${props => props.contentColor};
+    fill: ${props => props.whiteContent ? 'white' : 'black'};
   }
 `
 
@@ -139,28 +139,28 @@ export default class LowerLeftContent extends Component {
 
     if (this.props.fadeToBlack) {
       this.headerAnimation = TweenLite.set(this.headerEl, {
-        top: scrollTop/2.7,
+        top: scrollTop/2.5,
         color: this.props.fadeToBlack ? `rgb(${255-scrollTop/3}, ${255-scrollTop/3}, ${255-scrollTop/3})` : ''
       });
     } else {
       this.headerAnimation = TweenLite.set(this.headerEl, {
-        top: scrollTop/2.7
+        top: scrollTop/2.5
       });
     }
   }
 
   render() {
-    const { fontsLoaded, isActive, isNext, title, teaserText, contentColor } = this.props;
+    const { fontsLoaded, isActive, isNext, title, teaserText, whiteContent } = this.props;
     const { scrolledDown } = this.state;
 
     return (
-      <Wrapper isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} contentColor={contentColor}>
+      <Wrapper isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} whiteContent={whiteContent}>
         <Content isActive={isActive}>
           <Header ref={div => this.headerEl = div}>
             <Title isNext={isNext}>{title}</Title>
             <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
-          {isActive && <StyledChevronDown hide={scrolledDown} contentColor={contentColor} />}
+          {isActive && <StyledChevronDown hide={scrolledDown} whiteContent={whiteContent} />}
         </Content>
       </Wrapper>
     )

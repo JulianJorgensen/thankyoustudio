@@ -18,7 +18,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>Your Move” emphasises the feeling of exhilarating freedom and playful provocation inherent in movement. Most importantly, it positions SKIN as an extension of those values.</Text>
+      <Text>The campaign is based on the watch’s almost weightless design and how that feature can make the wearer feel both free and confident. “Your Move” is about the thrill of the unknown, the beauty of movement and the anticipation of change. A playful celebration of both freedom and movement.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -38,7 +38,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>By uniting the model and the watch’s physical movements through graphic continuity and exaggerated scale, we’ve positioned SKIN as a vital part of female movement, empowerment and freedom.</Text>
+      <Text>By uniting the model’s and the watch’s physical movements as they float freely we created unique graphic continuity that was able to stretch across all platforms. Positioning SKIN as a vital part of female empowerment and freedom.</Text>
     </Grid>
 
     <Grid cols="2" ratio="16x9">
@@ -57,7 +57,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>To extend the life and reach we produced a behind the scene film, to feed social media.</Text>
+      <Text>To extend the life and reach of the campaign we also released a behind-the-scenes film on social media. Showing the process of creating the campaign.</Text>
     </Grid>
 
   </Case>

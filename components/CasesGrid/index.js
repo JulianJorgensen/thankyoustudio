@@ -60,7 +60,6 @@ export default ({ className, ...props }) => {
         <CaseItem {...getCaseData('gyldendal')} whitecontent {...props} />
         <CaseItem {...getCaseData('steelseries')} whitecontent {...props} />
         <CaseItem {...getCaseData('swatch-scuba-libra')} {...props} />
-        <CaseItem {...getCaseData('swatch-chrono')} whitecontent {...props} />
         <CaseItem {...getCaseData('bundesliga')} {...props} />
         {/* <Capabilities /> */}
       </CaseItems>

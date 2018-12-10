@@ -31,12 +31,12 @@ export default (props) => (
       <FullCaseVideo vimeoId="146097470" />
     </Grid>
 
-    <Grid cols="2" ratio="4x3">
+    <Grid cols="2" ratio="3x2">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-01.jpg" />
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-02.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="4x3">
+    <Grid cols="2" ratio="3x2">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-03.jpg" />
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-hublot.jpg" />
     </Grid>
@@ -51,7 +51,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>A film about the heritage, the team, the car – all for the fans! Launch the film in chapters to tease for the online live launch and simultaneously build up the site to a fully fledged experience site.</Text>
+      <Text>The four chapters, THE LEGACY, THE PEOPLE, THE SECRET and THE REVELATION, were released one by one in order to build tension and create emotional value for the potential reach of over 35 million fans until the precise moment of the launch of the full Ferrari website. Revealing the new car, interviews with drivers, tech specs and other PR material.</Text>
     </Grid>
 
     <Grid ratio="16x9">

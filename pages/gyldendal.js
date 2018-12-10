@@ -19,7 +19,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>From corporate to colorfull<br />Opgaven for Gyldendal+ er at gøre litterære oplevelser til en større del af danskernes dagligdag.</Text>
+      <Text>Our challenge entailed reshaping their visual framework and brand structure which should feel new without disregarding the brand’s existing legacy.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -41,7 +41,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>Easy and freindly<br />Using graphic design to help moving an organisation, it has to inspiring and leave space for creativety yrt cosistant. Few elements and beautiful visiualizations.</Text>
+      <Text>This visual identity also had to be flexible enough for a complex organisation to fit it into their every need but also unified enough to stay consistent across all of their platforms.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -76,7 +76,7 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>Keep it fresh<br />Book and authers are the comodeties of a publischer. Putting them into a context makes them more acceible</Text>
+      <Text>The end result is demonstrated in a brand new design guide applicable across departments.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -85,10 +85,6 @@ export default (props) => (
 
     <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal_collage_02.jpg" />
-    </Grid>
-
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>Examples<br />Here is what it colud look like</Text>
     </Grid>
 
     <Grid cols="2" ratio="3x4">
