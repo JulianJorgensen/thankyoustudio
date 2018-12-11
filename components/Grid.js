@@ -34,7 +34,7 @@ const Grid = styled.div`
 
 export default ({ children, ratio, ...props }) => (
   <Wrapper>
-    <Grid {...props} ratio={aspectRatio(ratio)}>
+    <Grid {...props} ratio={ratio && aspectRatio(ratio)}>
       {children}
     </Grid>
   </Wrapper>

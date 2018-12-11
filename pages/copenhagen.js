@@ -30,8 +30,8 @@ export default (props) => (
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_barrel.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text columnStart="2">Inside the rustic walls of the distillery itself, we built a custom distillation lab dubbed ‘The Black Box’— where all the magic happens. We put the heart of innovation inside the walls of historic stones. A monolith of the future housed within the past, The Black Box is a representation of our design language where tradition and innovation merge.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding columnStart="2">Inside the rustic walls of the distillery itself, we built a custom distillation lab dubbed ‘The Black Box’— where all the magic happens. We put the heart of innovation inside the walls of historic stones. A monolith of the future housed within the past, The Black Box is a representation of our design language where tradition and innovation merge.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -51,8 +51,8 @@ export default (props) => (
       <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_03.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text columnStart="2">The blend of modern and handmade expresses the core of Copenhagen Distillery. The philosophy reaches beyond the visual identity, driving the brand, the culture and the product. You can sense our philosophy in every bottle: each one is unique, numbered and signed by the master distiller.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding columnStart="2">The blend of modern and handmade expresses the core of Copenhagen Distillery. The philosophy reaches beyond the visual identity, driving the brand, the culture and the product. You can sense our philosophy in every bottle: each one is unique, numbered and signed by the master distiller.</Text>
     </Grid>
 
     <Grid ratio="16x9">

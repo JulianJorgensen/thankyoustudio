@@ -28,6 +28,10 @@ export default (props) => (
     slug="ferrari"
   >
     <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="305773161" />
+    </Grid>
+
+    <Grid ratio="16x9">
       <FullCaseVideo vimeoId="146097470" />
     </Grid>
 
@@ -50,8 +54,8 @@ export default (props) => (
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-mechanics.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>The four chapters, THE LEGACY, THE PEOPLE, THE SECRET and THE REVELATION, were released one by one in order to build tension and create emotional value for the potential reach of over 35 million fans until the precise moment of the launch of the full Ferrari website. Revealing the new car, interviews with drivers, tech specs and other PR material.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>The four chapters, THE LEGACY, THE PEOPLE, THE SECRET and THE REVELATION, were released one by one in order to build tension and create emotional value for the potential reach of over 35 million fans until the precise moment of the launch of the full Ferrari website. Revealing the new car, interviews with drivers, tech specs and other PR material.</Text>
     </Grid>
 
     <Grid ratio="16x9">

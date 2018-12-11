@@ -19,9 +19,11 @@ export default (props) => (
       <FullCaseVideo vimeoId="140289777" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>Bundesliga, the German professional association football league, has the highest average stadium attendance in the world but to give TV viewer at home the feeling of “being there”, we drew inspiration from the huge LED screens at the stadium.</Text>
-      <Text>Based on this simple idea, we created a tight yet dynamic graphic framework for the opening ceremony, which was broadcasted worldwide to 200 million people.</Text> 
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>
+        <p>Bundesliga, the German professional association football league, has the highest average stadium attendance in the world but to give TV viewer at home the feeling of “being there”, we drew inspiration from the huge LED screens at the stadium.</p>
+        <p>Based on this simple idea, we created a tight yet dynamic graphic framework for the opening ceremony, which was broadcasted worldwide to 200 million people.</p>
+      </Text>
     </Grid>
 
     <Grid ratio="16x9">

@@ -124,7 +124,7 @@ const Teaser = styled.video`
 `
 
 const StyledLogo = styled(Logo)`
-  font-size: 70px;
+  font-size: inherit;
   color: #9c9c9c;
 `
 

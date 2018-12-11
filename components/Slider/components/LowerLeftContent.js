@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
+import { animateScroll as scroll } from 'react-scroll';
 import { FONTS, EASINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import ChevronDown from 'assets/icons/FontAwesome/regular/chevron-down.svg';
@@ -52,7 +53,7 @@ const Title = styled.h1`
   font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
   color: inherit;
-  opacity: ${props => props.isNext ? '0.2' : '1'};
+  opacity: 1;
   transition-property: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: ease;
@@ -82,7 +83,7 @@ const TitleAlt = styled(Title)`
 
 const TeaserText = styled(Text)`
   margin: 20px 0 10px;
-  opacity: ${props => props.hide || props.isNext ? '0.1' : '1'};
+  opacity: 1;
   transition: opacity 0.2s;
   max-width: 40vw;
 `
@@ -92,6 +93,7 @@ const StyledChevronDown = styled(ChevronDown)`
   width: 30px;
   height: 30px;
   opacity: ${props => props.hide ? '0' : '1'};
+  cursor: pointer;
 
   path {
     fill: ${props => props.whiteContent ? 'white' : 'black'};
@@ -101,7 +103,7 @@ const StyledChevronDown = styled(ChevronDown)`
 const PreTitle = styled(Title)`
   position: absolute;
   top: 0;
-  transform: translateY(-148%);
+  transform: translateY(-150%);
   transition: opacity 0.3s ease;
 
   ${props => props.hide && `
@@ -121,6 +123,7 @@ export default class LowerLeftContent extends Component {
     this.handleOnScroll = this.handleOnScroll.bind(this);
     this.updateHeaderStyles = throttle(this.updateHeaderStyles, 15);
     this.removeScrollEventListener = this.removeScrollEventListener.bind(this);
+    this.triggerScrollDown = this.triggerScrollDown.bind(this);
   }
 
   componentDidMount() {
@@ -189,6 +192,10 @@ export default class LowerLeftContent extends Component {
     }
   }
 
+  triggerScrollDown() {
+    scroll.scrollTo(window.innerHeight + 100);
+  }
+
   render() {
     const { fontsLoaded, isActive, isNext, preTitle, title, titleAlt, teaserText, whiteContent } = this.props;
     const { scrolledDown } = this.state;
@@ -202,7 +209,13 @@ export default class LowerLeftContent extends Component {
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
             <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
-          {isActive && <StyledChevronDown hide={scrolledDown} whiteContent={whiteContent} />}
+          {isActive && 
+            <StyledChevronDown 
+              hide={scrolledDown}
+              whiteContent={whiteContent}
+              onClick={this.triggerScrollDown}
+            />
+          }
         </Content>
       </Wrapper>
     )

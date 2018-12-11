@@ -5,6 +5,9 @@ import { breakpoint, LAYOUT } from 'utils/variables';
 import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
+  padding-top: ${props => props.topPadding ? '200px' : '0'};
+  padding-bottom: ${props => props.bottomPadding ? '200px' : '0'};
+
   ${breakpoint.up('m')`
     grid-column-start: ${props => props.columnStart};
   `}
@@ -12,7 +15,13 @@ const Wrapper = styled.div`
 
 const StyledText = styled(Text)`
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  p {
+    font-size: inherit;
+    line-height: inherit;
+  }
 
   ${props => props.intro && `
     padding: 30px ${LAYOUT.MOBILE.EDGE_MARGIN};
@@ -31,7 +40,7 @@ const StyledText = styled(Text)`
 `
 
 export default ({ children, columnStart, ...props }) => (
-  <Wrapper columnStart={columnStart}>
+  <Wrapper columnStart={columnStart} topPadding={props.topPadding} bottomPadding={props.bottomPadding}>
     <LazyShow delay={200}>
       <StyledText {...props}>
         {children}

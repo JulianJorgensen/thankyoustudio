@@ -18,8 +18,8 @@ export default (props) => (
       <FullCaseVideo vimeoId="304158078" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>The campaign is based on the watch’s almost weightless design and how that feature can make the wearer feel both free and confident. “Your Move” is about the thrill of the unknown, the beauty of movement and the anticipation of change. A playful celebration of both freedom and movement.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>The campaign is based on the watch’s almost weightless design and how that feature can make the wearer feel both free and confident. “Your Move” is about the thrill of the unknown, the beauty of movement and the anticipation of change. A playful celebration of both freedom and movement.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -42,8 +42,8 @@ export default (props) => (
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_lightblue_watch.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>By uniting the model’s and the watch’s physical movements as they float freely we created unique graphic continuity that was able to stretch across all platforms. Positioning SKIN as a vital part of female empowerment and freedom.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>By uniting the model’s and the watch’s physical movements as they float freely we created unique graphic continuity that was able to stretch across all platforms. Positioning SKIN as a vital part of female empowerment and freedom.</Text>
     </Grid>
 
     <Grid cols="2" ratio="16x9">
@@ -61,17 +61,8 @@ export default (props) => (
       <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_your_move_02.jpg" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>To extend the life and reach of the campaign we also released a behind-the-scenes film on social media. Showing the process of creating the campaign.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>To extend the life and reach of the campaign we also released a behind-the-scenes film on social media. Showing the process of creating the campaign.</Text>
     </Grid>
-
-    <Grid ratio="16x9">
-      <FullCaseVideo vimeoId="97100741" />
-    </Grid>
-
-    <Grid ratio="16x9">
-      <FullCaseVideo vimeoId="97101211" />
-    </Grid>
-
   </Case>
 )

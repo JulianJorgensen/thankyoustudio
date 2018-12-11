@@ -18,8 +18,8 @@ export default (props) => (
       <FullCaseVideo vimeoId="304155100" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>Our challenge entailed reshaping their visual framework and brand structure which should feel new without disregarding the brand’s existing legacy.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>Our challenge entailed reshaping their visual framework and brand structure which should feel new without disregarding the brand’s existing legacy.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -40,8 +40,8 @@ export default (props) => (
       <Video src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/gyldendal_logoanimation.mp4" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>This visual identity also had to be flexible enough for a complex organisation to fit it into their every need but also unified enough to stay consistent across all of their platforms.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>This visual identity also had to be flexible enough for a complex organisation to fit it into their every need but also unified enough to stay consistent across all of their platforms.</Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -75,8 +75,8 @@ export default (props) => (
       <FullCaseVideo vimeoId="304165281" />
     </Grid>
 
-    <Grid cols="2" ratio="16x9" collapseOnMobile>
-      <Text>The end result is demonstrated in a brand new design guide applicable across departments.</Text>
+    <Grid cols="2" collapseOnMobile>
+      <Text topPadding bottomPadding>The end result is demonstrated in a brand new design guide applicable across departments.</Text>
     </Grid>
 
     <Grid ratio="16x9">

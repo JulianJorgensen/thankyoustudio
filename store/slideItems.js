@@ -136,11 +136,13 @@ export default [
     introText: "Since early 2015, we have been working with SteelSeries to develop their brand and build a solid foundation for them to grow into a major global player in a rapidly expanding market.",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
+    whiteContent: true,
+    fadeToBlack: true,
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/SteelseriesCover.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
     poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
+      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/SteelseriesCover.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",  
     }
   },
