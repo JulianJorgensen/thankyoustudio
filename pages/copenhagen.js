@@ -71,5 +71,9 @@ export default (props) => (
     <Grid ratio="16x9">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_snaps_lineup.jpg" />
     </Grid>
+
+    <Grid ratio="3x2">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen-distillery_behind.jpg" />
+    </Grid>
   </Case>
 )

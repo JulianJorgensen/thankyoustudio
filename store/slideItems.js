@@ -1,11 +1,12 @@
 export default [
   {
     slug: "",
+    // whiteContent: true
   },
   {
     slug: "swatch",
     title: "Swatch",
-    teaserText: "Re-launching an iconic watch collection with a global 360° campaign celebrating the beauty of movement and freedom.",
+    teaserText: "Re-launching an iconic watch collection with a global 360° campaign",
     introText: "In 1997, Swatch launched it’s very first SKIN watch - the thinnest watch in the world. 20 years later we helped them re-launch the collection with a new design catering to a new generation of strong and self-confident women.",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "black",
@@ -28,11 +29,11 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_fire_CameraExplode.mp4",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_CameraExplode.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
     poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_fire_CameraExplode.mp4",
+      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_CameraExplode.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
     }
   },
@@ -45,12 +46,10 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
+    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
-    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
     mobile: {
-      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Cases_%20Ferrari%20background-web.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
+      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
     }
   },
   {
@@ -92,40 +91,10 @@ export default [
     background: "white",
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/videos/onea_cover.mp4',
     imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',
-    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',
+    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea_poster.jpg',
     mobile: {
       video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/videos/onea_cover.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/images/onea-cover.jpg',  
-    }
-  },
-  {
-    slug: "gyldendal",
-    title: "Gyldendal",
-    teaserText: "Rebuilding a brand and bringing the largest and oldest publishing house in Denmark into the digital age.",
-    introText: "To secure their position as market leader in the face of new competitors, even newer technologies and an everchanging landscape online. Gyldendal needed to be connected to contemporary culture.",
-    tags: ["Design.", "Experiences.", "Culture."],
-    background: "white",
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
-    mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
-    }
-  },
-  {
-    slug: "steelseries",
-    title: "Steelseries",
-    teaserText: "Transforming a small start-up into a worldwide brand without sacrifing their original fanbase",
-    introText: "Since early 2015, we have been working with SteelSeries to develop their brand and build a solid foundation for them to grow into a major global player in a rapidly expanding market.",
-    tags: ["Design.", "Experiences.", "Culture."],
-    background: "white",
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
-    mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",  
+      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea_poster.jpg',  
     }
   },
   {
@@ -146,10 +115,40 @@ export default [
     }
   },
   {
+    slug: "gyldendal",
+    title: "Gyldendal",
+    teaserText: "Rebuilding a brand and bringing the largest and oldest publishing house in Denmark into the digital age.",
+    introText: "To secure their position as market leader in the face of new competitors, even newer technologies and an everchanging landscape online. Gyldendal needed to be connected to contemporary culture.",
+    tags: ["Design.", "Experiences.", "Culture."],
+    background: "white",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    mobile: {
+      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    }
+  },
+  {
+    slug: "steelseries",
+    title: "Steelseries",
+    teaserText: "Transforming a small start-up into a worldwide brand",
+    introText: "Since early 2015, we have been working with SteelSeries to develop their brand and build a solid foundation for them to grow into a major global player in a rapidly expanding market.",
+    tags: ["Design.", "Experiences.", "Culture."],
+    background: "white",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
+    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
+    mobile: {
+      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/steelseries-cover_alt.mp4",
+      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",  
+    }
+  },
+  {
     slug: "bundesliga",
     title: "Bundesliga",
-    teaserText: "Developing a graphic theme and film for the Bundesliga Sesason Opening — presenting all 18 clubs by their club logos and game footage from the previous season.",
-    introText: "We were also tasked with designing banners within the same design format and produce a soundtrack to support the trailer for the opening ceremony performed on the field.",
+    teaserText: "Bringing the TV viewer to the stadium",
+    introText: "We were to develop a graphic theme and film for the Bundesliga Season Opening. Presenting all 18 football clubs by their club logos and game footage from the previous season. We were also tasked with designing banners within the same design format and produce a soundtrack to support the trailer for the opening ceremony performed on the field.",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "black",
     whiteContent: true,

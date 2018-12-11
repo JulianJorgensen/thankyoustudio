@@ -5,6 +5,7 @@ import FullCaseVideo from 'components/Case/FullCaseVideo';
 import Grid from 'components/Grid';
 import Text from 'components/Case/Text';
 import Image from 'components/Case/Image';
+import Video from 'components/Case/Video';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 export default (props) => (
@@ -33,6 +34,10 @@ export default (props) => (
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_catalogue_spread.jpg" />
     </Grid>
 
+    <Grid ratio="16x9">
+      <Video src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_timessquare.mp4" />
+    </Grid>
+
     <Grid ratio="2x3">
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_lightblue_watch.jpg" />
     </Grid>
@@ -58,6 +63,14 @@ export default (props) => (
 
     <Grid cols="2" ratio="16x9" collapseOnMobile>
       <Text>To extend the life and reach of the campaign we also released a behind-the-scenes film on social media. Showing the process of creating the campaign.</Text>
+    </Grid>
+
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="97100741" />
+    </Grid>
+
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="97101211" />
     </Grid>
 
   </Case>

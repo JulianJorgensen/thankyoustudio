@@ -49,7 +49,7 @@ export default ({ className, ...props }) => {
   }
 
   return (
-    <Wrapper {...props}>
+    <Wrapper className={className} {...props}>
       <CaseItems onWhite={props.onWhite}>
         <CaseItem {...getCaseData('swatch')} whitecontent {...props} />
         <CaseItem {...getCaseData('amazon')} whitecontent {...props} />
@@ -57,9 +57,9 @@ export default ({ className, ...props }) => {
         <CaseItem {...getCaseData('copenhagen')} {...props} />
         <CaseItem {...getCaseData('universal-robots')} {...props} />
         <CaseItem {...getCaseData('onea')} whitecontent {...props} />
+        <CaseItem {...getCaseData('swatch-scuba-libra')} {...props} />
         <CaseItem {...getCaseData('gyldendal')} whitecontent {...props} />
         <CaseItem {...getCaseData('steelseries')} whitecontent {...props} />
-        <CaseItem {...getCaseData('swatch-scuba-libra')} {...props} />
         <CaseItem {...getCaseData('bundesliga')} {...props} />
         {/* <Capabilities /> */}
       </CaseItems>

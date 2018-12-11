@@ -55,11 +55,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <FullCaseVideo vimeoId="146097470" />
-    </Grid>
-
-    <Grid ratio="16x9">
-      <FullCaseVideo vimeoId="146097470" />
+      <FullCaseVideo vimeoId="305741089" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">

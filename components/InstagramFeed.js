@@ -16,27 +16,27 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 220px;
-  min-height: 600px;
+  margin-top: 150px;
+  min-height: 250px;
+`
 
-  ${media.tablet`
-    min-height: 900px;
-  `}
+const Headline = styled.h2`
+  margin-bottom: 20px;
 `
 
 const Posts = styled.div`
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: repeat(4, 1fr);
   width: 100%;
   transition: opacity 0.6s;
   opacity: ${props => props.active ? '1' : '0'};
 
   ${media.tablet`
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(4, 1fr);
   `}
 
   ${media.desktop`
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: repeat(8, 1fr);
   `}
 `
 
@@ -52,7 +52,7 @@ const PostImage = styled.div`
   height: 100%;
   background: url(${props => props.imageLowRes}) center center no-repeat;
   background-size: cover;
-  transform: scale(1);
+  transform: scale(1.01);
   transition: transform 0.5s ${EASINGS.EASE_OUT_SHINE};
 
   ${Post}:hover & {
@@ -122,6 +122,7 @@ export default class InstagramFeed extends Component {
     return (
       <Observer onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
         <Wrapper>
+          <Headline>We're fun &amp; creative</Headline>
           <Posts active={posts}>
             {renderPosts()}
           </Posts>

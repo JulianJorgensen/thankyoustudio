@@ -17,6 +17,10 @@ export default (props) => (
       <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_go_dive.jpg" />
     </Grid>
 
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="97100740" />
+    </Grid>
+
     <Grid cols="2" ratio="16x9" collapseOnMobile>
       <Text>We decided to highlight the watch line’s bright colour palette and marine theme by designing massive neon sea creatures using digital neon lights. The creatures swim through the campaign in open air with the simple message of: Go Dive!</Text>
     </Grid>

@@ -45,6 +45,11 @@ const Wrapper = styled.div`
     pointer-events: auto;
     transition-duration: 0.5s;
 
+    &:hover {
+      width: 15vw;
+      transition-duration: 0.5s;
+    }
+
     &:before {
       content: '';
       position: fixed;
@@ -54,11 +59,6 @@ const Wrapper = styled.div`
       height: 100vh;
       width: 3vw;
     }
-
-    &:hover {
-      width: 15vw;
-      transition-duration: 0.5s;
-    }
   `}
 
   ${props => props.isNext && props.isSliding && `
@@ -67,6 +67,10 @@ const Wrapper = styled.div`
 
   ${props => props.isNext && props.isLandingVideoPlaying && `
     width: 0;
+
+    &:before {
+      display: none;
+    }
   `}
 
   ${props => props.isNext && media.tablet`

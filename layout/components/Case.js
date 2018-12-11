@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
 import slideItems from 'store/slideItems';
-import { EASINGS, META, TIMINGS } from 'utils/variables';
+import { LAYOUT, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Text from 'components/Case/Text';
 import CasesGrid from 'components/CasesGrid';
@@ -33,6 +33,10 @@ const Content = styled.div`
   img {
     width: 100%;
   }
+`
+
+const CasesGridTitle = styled.h2`
+  margin: 300px ${LAYOUT.EDGE_MARGIN} 10px;
 `
 
 @connect((store) => ({
@@ -86,7 +90,12 @@ export default class Case extends Component {
           <Content>
             {renderIntroText()}
             {children}
-            {!isLanding && <CasesGrid onWhite />}
+            {!isLanding && 
+              <div>
+                <CasesGridTitle>Other cases</CasesGridTitle>
+                <CasesGrid onWhite />
+              </div>
+            }
           </Content>
           <Footer />
           <style jsx global>{`

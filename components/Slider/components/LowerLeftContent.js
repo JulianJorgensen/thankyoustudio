@@ -39,20 +39,44 @@ const Header = styled.div`
 `
 
 const Title = styled.h1`
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: flex-end;
+  height: 150px;
+
   font-size: 60px;
   line-height: 55px;
-  margin-top: 16px;
-  margin-bottom: -20px;
   margin-left: -4px;
   font-weight: 800;
   font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
   color: inherit;
   opacity: ${props => props.isNext ? '0.2' : '1'};
+  transition-property: opacity, transform;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transform: translateY(-100%);
+
+  ${props => props.hide && `
+    opacity: 0;
+    transform: translateX(-100px) translateY(-100%);
+  `}
 
   ${media.tablet`
     font-size: 75px;
     line-height: 75px;
+  `}
+`
+
+const TitleAlt = styled(Title)`
+  position: absolute;
+  opacity: 0;
+  transform: translateX(100px) translateY(-100%);
+
+  ${props => props.show && `
+    opacity: 1;
+    transform: translateX(0) translateY(-100%);
   `}
 `
 
@@ -72,6 +96,17 @@ const StyledChevronDown = styled(ChevronDown)`
   path {
     fill: ${props => props.whiteContent ? 'white' : 'black'};
   }
+`
+
+const PreTitle = styled(Title)`
+  position: absolute;
+  top: 0;
+  transform: translateY(-148%);
+  transition: opacity 0.3s ease;
+
+  ${props => props.hide && `
+    opacity: 0;
+  `}
 `
 
 export default class LowerLeftContent extends Component {
@@ -137,27 +172,34 @@ export default class LowerLeftContent extends Component {
     }
     if (!this.headerEl) return;
 
+    this.animateHeader();
+  }
+
+  animateHeader() {
+    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+    this.headerAnimation = TweenLite.set(this.headerEl, {
+      top: scrollTop/2.5
+    });
+
     if (this.props.fadeToBlack) {
       this.headerAnimation = TweenLite.set(this.headerEl, {
-        top: scrollTop/2.5,
-        color: this.props.fadeToBlack ? `rgb(${255-scrollTop/3}, ${255-scrollTop/3}, ${255-scrollTop/3})` : ''
-      });
-    } else {
-      this.headerAnimation = TweenLite.set(this.headerEl, {
-        top: scrollTop/2.5
+        color: this.props.fadeToBlack ? `rgb(${255-(scrollTop/2 - 80)}, ${255-(scrollTop/2 - 80)}, ${255-(scrollTop/2 - 80)})` : ''
       });
     }
   }
 
   render() {
-    const { fontsLoaded, isActive, isNext, title, teaserText, whiteContent } = this.props;
+    const { fontsLoaded, isActive, isNext, preTitle, title, titleAlt, teaserText, whiteContent } = this.props;
     const { scrolledDown } = this.state;
 
     return (
       <Wrapper isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} whiteContent={whiteContent}>
         <Content isActive={isActive}>
           <Header ref={div => this.headerEl = div}>
-            <Title isNext={isNext}>{title}</Title>
+            {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
+            <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
+            {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
             <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
           {isActive && <StyledChevronDown hide={scrolledDown} whiteContent={whiteContent} />}

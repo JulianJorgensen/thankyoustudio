@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
-import PlayIcon from 'assets/icons/FontAwesome/regular/play-circle.svg';
-import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import styled from 'styled-components';
+import LowerleftContent from 'components/Slider/components/LowerLeftContent';
+import PlayIcon from 'assets/icons/FontAwesome/solid/play-circle.svg';
+import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
+import Logo from 'components/Logo';
 import * as actions from 'store/actions';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
+import ClientCarousel from './components/ClientCarousel';
 
 const Reel = dynamic(import('components/Reel'));
 
 const Wrapper = styled.div`
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   height: 70vh;
@@ -39,7 +41,7 @@ const Inner = styled.div`
   ${breakpoint.up('m')`
     position: absolute;
     right: 10vw;
-    width: 90vw;
+    width: calc(90vw - 15px);
   `}
 `
 
@@ -62,9 +64,8 @@ const PlayReel = styled.div`
   font-size: 26px;
 
   svg {
-    width: 50px;
-    height: 50px;
-    margin-right: 15px;
+    width: 150px;
+    height: 150px;
     path {
       fill: black;
     }
@@ -85,8 +86,12 @@ const CloseReel = styled.div`
   z-index: 200;
   cursor: pointer;
   svg {
-    width: 50px;
-    height: 50px;
+    width: 60px;
+    height: 60px;
+
+    path {
+      fill: white;
+    }
   }
 `
 
@@ -118,6 +123,11 @@ const Teaser = styled.video`
   `}
 `
 
+const StyledLogo = styled(Logo)`
+  font-size: 70px;
+  color: #9c9c9c;
+`
+
 @connect((store) => ({
   store,
 }))
@@ -133,11 +143,21 @@ export default class LandingSlide extends Component {
   }
 
   componentWillUpdate(newProps) {
+    const { isActive, store } = this.props;
+    const wasActive = (this.props.isActive && !newProps.isActive) || (!store.condenseSlider && newProps.store.condenseSlider);
+
     if (newProps.isActive) {
       this.teaserEl.play();
-    } else {
-      this.teaserEl.pause();
     }
+
+    if (wasActive) {
+      this.teaserEl.pause();
+      this.handleCloseReel();
+    }
+  }
+
+  componentWillUnmount() {
+    this.handleCloseReel();
   }
 
   handleOnPlayClick() {
@@ -152,9 +172,11 @@ export default class LandingSlide extends Component {
   }
 
   handleCloseReel() {
-    const { dispatch } = this.props;
+    const { dispatch, isActive } = this.props;
 
-    this.teaserEl.play();
+    if (isActive) {
+      this.teaserEl.play();
+    }
 
     dispatch(actions.landingVideoPlaying(false));
     this.setState({
@@ -169,15 +191,24 @@ export default class LandingSlide extends Component {
   }
 
   render() {
-    const { store } = this.props;
-    const { playReel, loadPlayer } = this.state;
+    const { store, ...props } = this.props;
+    const { playReel, loadPlayer, clientTitle } = this.state;
 
     return (
       <Wrapper>
         <Inner hide={playReel}>
+          <LowerleftContent
+            preTitle={<StyledLogo />}
+            title={<ClientCarousel />}
+            titleAlt="You're welcome"
+            teaserText="THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences."
+            isActive
+            fontsLoaded
+            // whiteContent
+            // fadeToBlack
+          />
           <Content>
-            <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> Play reel</PlayReel>
-            <Statement fontsLoaded={store.fontsLoaded}>THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences.</Statement>
+            <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /></PlayReel>
           </Content>
           <Teaser ref={el => this.teaserEl = el} muted autoPlay loop>
             <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANK%20YOU%20teaser.mp4" type="video/mp4" />

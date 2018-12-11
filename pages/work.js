@@ -3,7 +3,7 @@ import DefaultPage from 'layout/components/DefaultPage';
 import CasesGrid from 'components/CasesGrid';
 
 export default (props) => (
-  <DefaultPage dark title="Our work" {...props}>
-    <CasesGrid textColor="white" noAnimation />
+  <DefaultPage title="Our work" {...props}>
+    <CasesGrid onWhite noAnimation />
   </DefaultPage>
 )
