@@ -26,8 +26,12 @@ const Grid = styled.div`
     grid-gap: 20px;
   `}
 
-  * {
+  > * {
     background-color: ${props => props.bgColor};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     ${props => props.ratio}
   }
 `

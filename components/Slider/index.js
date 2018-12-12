@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import dynamic from 'next/dynamic';
+import throttle from 'lodash.throttle';
 import Router, { withRouter } from 'next/router';
+import { animateScroll as scroll } from 'react-scroll';
 import styled from 'styled-components';
 import SlideItem from './components/SlideItem';
 import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
@@ -74,6 +75,8 @@ export default class FancySlider extends Component {
     this.handleNextMouseLeave = this.handleNextMouseLeave.bind(this);
     this.triggerNextClick = this.triggerNextClick.bind(this);
     this.handleIsInViewChange = this.handleIsInViewChange.bind(this);
+    this.handleOnKeyDown = throttle(this.handleOnKeyDown, 200).bind(this);
+    this.handleOnKeyUp = this.handleOnKeyUp.bind(this);
   }
 
   componentDidMount() {
@@ -81,19 +84,52 @@ export default class FancySlider extends Component {
   }
 
   addArrowKeyEvents() {
-    document.onkeydown = (e) => {
-      const { store } = this.props;
-      if (store.condenseSlider) return;
+    document.onkeydown = this.handleOnKeyDown;
+    document.onkeyup = this.handleOnKeyUp;
+  }
 
-      switch (e.keyCode) {
-        case 37:
-          this.handleBackClick();
-          break;
-        case 39:
-          this.triggerNextClick();
-          break;
-      }
-    };
+  handleOnKeyUp(e) {
+    this.setState({
+      keyDown: false
+    });
+  }
+
+  handleOnKeyDown(e) {
+    e.preventDefault();
+    const { store } = this.props;
+    if (store.condenseSlider) return;
+    if (this.state.keyDown) return;
+
+    this.setState({
+      keyDown: true
+    });
+
+    switch (e.keyCode) {
+      case 37: // arrow left
+        this.handleBackClick();
+        break;
+      case 38: // arrow up
+        this.triggerFastScrollUp();
+        break;
+      case 39: // arrow right
+        this.triggerNextClick();
+        break;
+      case 40: // arrow down
+        this.triggerFastScrollDown();
+        break;
+    }
+  }
+
+  triggerFastScrollDown() {
+    scroll.scrollMore(window.innerHeight, {
+      duration: 700
+    });
+  }
+
+  triggerFastScrollUp() {
+    scroll.scrollMore(-window.innerHeight, {
+      duration: 700
+    });
   }
 
   handleBackClick() {

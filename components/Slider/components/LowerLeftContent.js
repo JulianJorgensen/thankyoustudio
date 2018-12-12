@@ -193,7 +193,9 @@ export default class LowerLeftContent extends Component {
   }
 
   triggerScrollDown() {
-    scroll.scrollTo(window.innerHeight + 100);
+    scroll.scrollTo(window.innerHeight + 100, {
+      smooth: "easeInQuart"
+    });
   }
 
   render() {

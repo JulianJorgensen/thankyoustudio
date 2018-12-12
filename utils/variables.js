@@ -19,7 +19,8 @@ export const BREAKPOINTS = {
 }
 
 export const TRACKING = {
-  GOOGLE_ANALYTICS: 'UA-98361509-1'
+  GOOGLE_ANALYTICS: 'UA-98361509-1',
+  HOTJAR_ID: '1125017'
 }
 
 export const FONTS = {
@@ -78,3 +79,5 @@ export const INSTAGRAM = {
   ACCESS_TOKEN: '54020099.f5cbc94.7b9691e1a2614731b18da6c190dfe604',
   NUMBER_OF_POSTS: 8
 }
+
+export const isProd = process.env.NODE_ENV === 'production';
