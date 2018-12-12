@@ -1,0 +1,35 @@
+{
+  "presets": [
+    "next/babel"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./"],
+        "alias": {
+          "components": "./components",
+          "layout": "./layout",
+          "assets": "./assets",
+          "fonts": "./assets/fonts",
+          "store": "./store",
+          "utils": "./utils"
+        }
+      }
+    ],
+    [
+      "styled-components",
+      { 
+        "ssr": true, 
+        "displayName": true,
+        "preprocess": false
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators", 
+      { "legacy": true }
+    ],
+    "transform-class-properties",
+    "inline-react-svg"
+  ]
+}
