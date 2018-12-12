@@ -88,7 +88,7 @@ const TeaserText = styled(Text)`
   max-width: 40vw;
 `
 
-const StyledChevronDown = styled(ChevronDown)`
+const StyledChevronDown = styled.div`
   position: absolute;
   width: 30px;
   height: 30px;
@@ -216,7 +216,9 @@ export default class LowerLeftContent extends Component {
               hide={scrolledDown}
               whiteContent={whiteContent}
               onClick={this.triggerScrollDown}
-            />
+            >
+              <ChevronDown />
+            </StyledChevronDown>
           }
         </Content>
       </Wrapper>

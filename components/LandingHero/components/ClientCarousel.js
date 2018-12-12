@@ -76,7 +76,8 @@ export default class ClientCarousel extends Component {
       <List>
         {clientTitles.map((clientTitle, i) => {
           return (
-            <TitleItem 
+            <TitleItem
+              key={`title-item-${i}`}
               active={i === this.state.clientTitle}
               isNext={i === 0 && this.state.clientTitle === clientTitles.length-1 ? true : i === this.state.clientTitle + 1}
             >

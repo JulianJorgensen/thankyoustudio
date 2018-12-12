@@ -134,8 +134,7 @@ export default class InstagramFeed extends Component {
 
   render() {
     const { posts } = this.state;
-    console.log('posts', posts);
-
+ 
     return (
       <Observer onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
         <Wrapper>

@@ -51,4 +51,4 @@ export default (props) => (
       <FullCaseVideo vimeoId="305963078" />
     </Grid>
   </Case>
-)
+);

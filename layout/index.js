@@ -8,7 +8,7 @@ import LayoutMobile from './components/LayoutMobile';
 import LayoutDesktop from './components/LayoutDesktop';
 import { isProd, TRACKING } from 'utils/variables';
 
-const hotjar = dynamic(() => import('react-hotjar').hotjar);
+const reactHotjar = dynamic(() => import('react-hotjar'));
 
 @withAnalytics
 @connect()
@@ -23,7 +23,7 @@ export default class Layout extends Component {
     // HOTJAR Site tracking
     if (isProd) {
       console.log('HOTJAR running!');
-      hotjar.initialize(TRACKING.HOTJAR_ID, 6);
+      reactHotjar.hotjar.initialize(TRACKING.HOTJAR_ID, 6);
     }
   }
 
