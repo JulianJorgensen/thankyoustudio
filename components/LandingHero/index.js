@@ -64,11 +64,10 @@ const PlayReel = styled.div`
   font-weight: bold;
   cursor: pointer;
   font-size: 26px;
-  opacity: 0;
   transition: opacity 0.2s;
 
-  ${props => props.fontsLoaded && `
-    opacity: 1;
+  ${props => props.hide && `
+    opacity: 0;
   `}
 
   svg {
@@ -109,20 +108,6 @@ const CloseReel = styled.div`
       fill: white;
     }
   }
-`
-
-const Teaser = styled.video`
-  position: absolute;
-  top: 0;
-  left: 50%;
-  height: 70vh;
-  transform: translateX(-50%);
-
-  ${breakpoint.up('m')`
-    height: auto;
-    min-height: 102vh;
-    min-width: 100vw;
-  `}
 `
 
 const StyledLogo = styled(Logo)`
@@ -204,21 +189,29 @@ export default class LandingSlide extends Component {
         <Inner hide={playReel}>
           <LowerleftContent
             preTitle={<StyledLogo />}
-            title={<ClientCarousel />}
+            title={<ClientCarousel isActive={props.isActive} />}
             titleAlt="You're welcome"
             teaserText="THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences."
-            isActive
+            isActive={props.isActive}
             fontsLoaded
             whiteContent
             fadeToBlack
           />
           <Content>
-            <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> <PlayText>Play reel</PlayText></PlayReel>
+            <PlayReel
+              onMouseEnter={this.handleLoadPlayer}
+              onClick={this.handleOnPlayClick}
+              fontsLoaded={store.fontsLoaded}
+              hide={!props.isActive}
+            >
+              <PlayIcon />
+              <PlayText>Play reel</PlayText>
+            </PlayReel>
             <SlideVideo
-                video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_2.mp4"
-                isDirty
-                isActive={props.isActive}
-              />
+              video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_2.mp4"
+              isActive={props.isActive}
+              isDirty
+            />
           </Content>
         </Inner>
 

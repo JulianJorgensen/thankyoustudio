@@ -138,7 +138,7 @@ export default class InstagramFeed extends Component {
     return (
       <Observer onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
         <Wrapper>
-          <Headline>We are fun &amp; creative</Headline>
+          <Headline>Culture is the heart of our work</Headline>
           <Posts>
             {posts.map((post, i) => (
               <Post key={`instagram-item-${i}`} active={post && post.images}>

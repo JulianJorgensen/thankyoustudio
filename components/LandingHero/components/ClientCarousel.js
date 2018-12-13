@@ -63,8 +63,24 @@ export default class ClientCarousel extends Component {
     this.initClientTitleCarousel();
   }
 
+  componentDidUpdate(oldProps) {
+    if (this.props.isActive && !oldProps.isActive) {
+      this.initClientTitleCarousel();
+      this.setState({
+        isActive: true
+      });
+    } else {
+      if (!this.props.isActive && oldProps.isActive) {
+        clearInterval(this.interval);
+        this.setState({
+          isActive: false
+        });
+      }
+    }
+  }
+
   initClientTitleCarousel() {
-    setInterval(() => {
+    this.interval = setInterval(() => {
       this.setState({
         clientTitle: this.state.clientTitle === clientTitles.length - 1 ? 0 : this.state.clientTitle + 1
       });
