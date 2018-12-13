@@ -9,6 +9,7 @@ import Logo from 'components/Logo';
 import * as actions from 'store/actions';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 import ClientCarousel from './components/ClientCarousel';
+import SlideVideo from 'components/Slider/components/SlideVideo';
 
 const Reel = dynamic(import('components/Reel'));
 
@@ -25,7 +26,6 @@ const Wrapper = styled.div`
     top: 0;
     right: 0;
     height: 100vh;
-    padding-right: 10vw;
   `}
 `
 
@@ -40,8 +40,7 @@ const Inner = styled.div`
 
   ${breakpoint.up('m')`
     position: absolute;
-    right: 10vw;
-    width: calc(90vw - 15px);
+    width: 100%;
   `}
 `
 
@@ -57,6 +56,7 @@ const Content = styled.div`
 
 const PlayReel = styled.div`
   position: relative;
+  z-index: 4;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -137,7 +137,6 @@ export default class LandingSlide extends Component {
     super();
     this.state = {};
 
-    this.teaserEl = null;
     this.handleOnPlayClick = this.handleOnPlayClick.bind(this);
     this.handleCloseReel = this.handleCloseReel.bind(this);
     this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
@@ -147,12 +146,16 @@ export default class LandingSlide extends Component {
     const { isActive, store } = this.props;
     const wasActive = (this.props.isActive && !newProps.isActive) || (!store.condenseSlider && newProps.store.condenseSlider);
 
-    if (newProps.isActive) {
-      this.teaserEl.play();
+    if (newProps.isActive && this.state.pauseTeaser) {
+      this.setState({
+        pauseTeaser: false
+      });
     }
 
     if (wasActive) {
-      this.teaserEl.pause();
+      this.setState({
+        pauseTeaser: true
+      });
       this.handleCloseReel();
     }
   }
@@ -164,11 +167,10 @@ export default class LandingSlide extends Component {
   handleOnPlayClick() {
     const { dispatch } = this.props;
 
-    this.teaserEl.pause();
-
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
-      playReel: true
+      playReel: true,
+      pauseTeaser: true
     });
   }
 
@@ -176,7 +178,9 @@ export default class LandingSlide extends Component {
     const { dispatch, isActive } = this.props;
 
     if (isActive) {
-      this.teaserEl.play();
+      this.setState({
+        pauseTeaser: false
+      });
     }
 
     dispatch(actions.landingVideoPlaying(false));
@@ -210,10 +214,12 @@ export default class LandingSlide extends Component {
           />
           <Content>
             <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> <PlayText>Play reel</PlayText></PlayReel>
+            <SlideVideo
+                video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_2.mp4"
+                isDirty
+                isActive={props.isActive}
+              />
           </Content>
-          <Teaser ref={el => this.teaserEl = el} muted autoPlay loop>
-            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_2.mp4" type="video/mp4" />
-          </Teaser>
         </Inner>
 
         {loadPlayer && <Reel play={playReel} />}
