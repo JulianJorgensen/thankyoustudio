@@ -29,10 +29,6 @@ const Wrapper = styled.div`
 const Content = styled.div`
   position: relative;
   width: 100%;
-
-  img {
-    width: 100%;
-  }
 `
 
 const CasesGridTitle = styled.h2`

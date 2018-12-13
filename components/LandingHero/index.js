@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import LowerleftContent from 'components/Slider/components/LowerLeftContent';
-import PlayIcon from 'assets/icons/FontAwesome/solid/play-circle.svg';
+import PlayIcon from 'assets/icons/Play_button_black.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import Logo from 'components/Logo';
 import * as actions from 'store/actions';
@@ -56,27 +56,43 @@ const Content = styled.div`
 `
 
 const PlayReel = styled.div`
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-transform: uppercase;
   font-weight: bold;
   cursor: pointer;
   font-size: 26px;
-
-  svg {
-    width: 150px;
-    height: 150px;
-    path {
-      fill: black;
-    }
-  }
-
   opacity: 0;
   transition: opacity 0.2s;
 
   ${props => props.fontsLoaded && `
     opacity: 1;
   `}
+
+  svg {
+    width: 170px;
+    height: 170px;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover svg {
+    transform: scale(1.2);
+  }
+`
+
+const PlayText = styled.div`
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+
+  ${PlayReel}:hover & {
+    opacity: 1;
+    transform: translateY(140%);
+  }
 `
 
 const CloseReel = styled.div`
@@ -93,20 +109,6 @@ const CloseReel = styled.div`
       fill: white;
     }
   }
-`
-
-const Statement = styled.div`
-  max-width: 80%;
-  margin-top: 80px;
-  text-align: center;
-  font-size: 22px;
-  font-weight: light;
-  opacity: 0.7;
-
-  ${breakpoint.up('m')`
-    font-size: 28px;
-    width: 600px;
-  `}
 `
 
 const Teaser = styled.video`
@@ -192,7 +194,7 @@ export default class LandingSlide extends Component {
 
   render() {
     const { store, ...props } = this.props;
-    const { playReel, loadPlayer, clientTitle } = this.state;
+    const { playReel, loadPlayer } = this.state;
 
     return (
       <Wrapper>
@@ -208,7 +210,7 @@ export default class LandingSlide extends Component {
             // fadeToBlack
           />
           <Content>
-            <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /></PlayReel>
+            <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> <PlayText>Play reel</PlayText></PlayReel>
           </Content>
           <Teaser ref={el => this.teaserEl = el} muted autoPlay loop>
             <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANK%20YOU%20teaser.mp4" type="video/mp4" />

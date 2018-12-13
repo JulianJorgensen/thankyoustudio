@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
@@ -17,7 +17,6 @@ const Wrapper = styled.div`
   justify-content: flex-end;
   align-items: center;
   margin-top: 150px;
-  min-height: 250px;
 `
 
 const Headline = styled.h2`
@@ -28,8 +27,7 @@ const Posts = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   width: 100%;
-  transition: opacity 0.6s;
-  opacity: ${props => props.active ? '1' : '0'};
+  background-color: black;
 
   ${media.tablet`
     grid-template-columns: repeat(4, 1fr);
@@ -43,7 +41,36 @@ const Posts = styled.div`
 const Post = styled.div`
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+  opacity: 0;
   ${aspectRatio('1x1')}
+
+  ${props => props.active && `
+    opacity: 1;
+  `}
+
+  &:nth-child(2) {
+    transition-delay: 0.05s;
+  }
+  &:nth-child(3) {
+    transition-delay: 0.1s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0.25s;
+  }
+  &:nth-child(5) {
+    transition-delay: 0.3s;
+  }
+  &:nth-child(6) {
+    transition-delay: 0.35s;
+  }
+  &:nth-child(7) {
+    transition-delay: 0.4s;
+  }
+  &:nth-child(8) {
+    transition-delay: 0.5s;
+  }
+
 `
 
 const PostImage = styled.div`
@@ -83,14 +110,15 @@ export default class InstagramFeed extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      posts: Array(INSTAGRAM.NUMBER_OF_POSTS).fill(undefined)
+    };
     this.handleIsInView = this.handleIsInView.bind(this);
     this.loadInstagramFeed = this.loadInstagramFeed.bind(this);
   }
 
   handleIsInView(inView) {
     if (inView) {
-      console.log('handle is in view');
       this.loadInstagramFeed();  
     }
   }
@@ -101,30 +129,23 @@ export default class InstagramFeed extends Component {
 
     this.setState({
       posts: data.data
-    });
+    });  
   }
 
   render() {
     const { posts } = this.state;
 
-    const renderPosts = () => {
-      if (!posts) return;
-      return (
-        posts.map((post) => (
-          <Post key={post.id} active>
-            <PostImage imageLowRes={post.images.low_resolution.url} />
-            <PostContent>{post.caption.text}</PostContent>
-          </Post>
-        ))
-      )
-    }
-
     return (
       <Observer onChange={this.handleIsInView} threshold={0} triggerOnce={true}>
         <Wrapper>
-          <Headline>We're fun &amp; creative</Headline>
-          <Posts active={posts}>
-            {renderPosts()}
+          <Headline>We are fun &amp; creative</Headline>
+          <Posts>
+            {posts.map((post, i) => (
+              <Post key={`instagram-item-${i}`} active={post && post.images}>
+                {post && <PostImage imageLowRes={post.images.low_resolution.url} />}
+                {post && <PostContent>{post.caption.text}</PostContent>}
+              </Post>
+            ))}
           </Posts>
         </Wrapper>
       </Observer> 

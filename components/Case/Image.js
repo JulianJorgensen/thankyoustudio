@@ -1,11 +1,19 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import { breakpoint } from 'utils/variables';
 
+const ImageWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: ${props => props.bgColor ? props.bgColor : 'transparent'};
+`
+
 const Image = styled.img`
   opacity: 0;
   transition: opacity 0.2s ease;
+  width: ${props => props.inline ? 'auto' : '100%'};
 
   ${props => props.loaded && `
     opacity: 1;
@@ -25,22 +33,26 @@ export default class CaseImage extends Component {
   }
   
   render() {
-    const { children, delay, ...props } = this.props;
+    const { children, delay, bgColor, ...props } = this.props;
 
     if (props.lazy) {
       return (
-        <LazyShow delay={delay}>
-          <Image onLoad={this.handleImageLoaded} loaded={this.state.loaded} {...props}>
-            {children}
-          </Image>
+        <LazyShow delay={delay} bgColor={bgColor}>
+          <ImageWrapper>
+            <Image onLoad={this.handleImageLoaded} loaded={this.state.loaded} {...props}>
+              {children}
+            </Image>
+          </ImageWrapper>
         </LazyShow>
       )
     }
   
     return (
-      <Image loaded={this.state.loaded} {...props}>
-        {children}
-      </Image>
+      <ImageWrapper bgColor={bgColor}>
+        <Image loaded={this.state.loaded} {...props}>
+          {children}
+        </Image>
+      </ImageWrapper>
     )
   }
 }

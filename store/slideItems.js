@@ -70,15 +70,15 @@ export default [
   {
     slug: "universal-robots",
     title: "Universal Robots",
-    teaserText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac",
-    introText: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam pulvinar mi in nulla placerat, id ultricies leo fermentum. Proin in ex urna. Proin sodales id risus ac eleifend. Pellentesque habitant morbi tristique senectus et netus et malesuada fames.",
+    teaserText: "It’s all about celebrating the 25.000 gold edition robot. So let’s make a party!",
+    introText: "You are invited, but actually this party is really for UR robots themselves. And to make this a special thing to remember all the other 24.999 robots are invited – and not just for the party, but for the all the preparations as well. We set out to create a cinematic music narrative with a aesthetic inspiration paying homage to old school music dance videos. We explore  the opportunity to personify the UR robots by giving them musical influence. Starting with 3 small movies showing the “behind the scenes” of all the preparations to create excitement for the release of the main film, the celebration film.",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "white",
-    image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
+    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/videos/universal-robots-cover.mp4",
     imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
+    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-poster.jpg",
     mobile: {
-      image: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",
+      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/videos/universal-robots-cover.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-still.jpg",  
     }
   },

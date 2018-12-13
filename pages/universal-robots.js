@@ -26,45 +26,29 @@ export default (props) => (
     title="Universal Robots"
     slug="universal-robots"
   >
-   <FullCaseVideo vimeoId="303070427" />
-
-    <Grid bgColor="#540071" ratio="16x9">
-      <LeadText>16x9</LeadText>
+    <Grid ratio="16x9">
+      <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-01.jpg" />
     </Grid>
 
-    <Grid cols="2" bgColor="#540071" ratio="16x9">
-      <LeadText>16x9</LeadText>
-      <LeadText>16x9</LeadText>
-    </Grid>
-    <Grid bgColor="#9100c2" ratio="3x2">
-      <LeadText>3x2</LeadText>      
-    </Grid>
-    <Grid cols="2" bgColor="#9100c2" ratio="3x2">
-      <LeadText>3x2</LeadText>      
-      <LeadText>3x2</LeadText>
-    </Grid>
-    <Grid bgColor="#bd4de3" ratio="4x3">
-      <LeadText>4x3</LeadText>      
-    </Grid>
-    <Grid cols="2" bgColor="#bd4de3" ratio="3x4">
-      <LeadText>3x4</LeadText>      
-      <LeadText>3x4</LeadText>
-    </Grid>
-    <Grid bgColor="#e392ff" ratio="1x1">
-      <LeadText>1x1</LeadText>      
-    </Grid>
-    <Grid cols="2" bgColor="#e392ff" ratio="1x1">
-      <LeadText>1x1</LeadText>      
-      <LeadText>1x1</LeadText>      
-    </Grid>
-    <Grid bgColor="#f0c5ff" ratio="2x3">
-      <LeadText>2x3</LeadText>      
-    </Grid>
-    <Grid cols="2" bgColor="#f0c5ff" ratio="2x3">
-      <LeadText>2x3</LeadText>      
-      <LeadText>2x3</LeadText>      
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="305963043" />
     </Grid>
 
-    <FullCaseVideo vimeoId="89115423" />
+    <Grid cols="2" ratio="16x9">
+      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-02.jpg" />
+      <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-03.jpg" />
+    </Grid>
+
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="305962839" />
+    </Grid>
+
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="305963113" />
+    </Grid>
+
+    <Grid ratio="16x9">
+      <FullCaseVideo vimeoId="305963078" />
+    </Grid>
   </Case>
 )

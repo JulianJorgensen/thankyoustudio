@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
+import { hotjar } from 'react-hotjar';
 import * as actions from 'store/actions';
 import withAnalytics from 'utils/withAnalytics';
 import LayoutMobile from './components/LayoutMobile';
 import LayoutDesktop from './components/LayoutDesktop';
+import { isProd, TRACKING } from 'utils/variables';
 
 @withAnalytics
 @connect()
@@ -15,6 +17,12 @@ export default class Layout extends Component {
 
     this.initFontObserver();
     window.scrollTo(0, 0);
+
+    // HOTJAR Site tracking
+    if (isProd) {
+      console.log('HOTJAR running!');
+      hotjar.initialize(TRACKING.HOTJAR_ID, 6);
+    }
   }
 
   initFontObserver() {
