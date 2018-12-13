@@ -131,16 +131,7 @@ export default class LandingSlide extends Component {
     const { isActive, store } = this.props;
     const wasActive = (this.props.isActive && !newProps.isActive) || (!store.condenseSlider && newProps.store.condenseSlider);
 
-    if (newProps.isActive && this.state.pauseTeaser) {
-      this.setState({
-        pauseTeaser: false
-      });
-    }
-
     if (wasActive) {
-      this.setState({
-        pauseTeaser: true
-      });
       this.handleCloseReel();
     }
   }
@@ -155,18 +146,11 @@ export default class LandingSlide extends Component {
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
       playReel: true,
-      pauseTeaser: true
     });
   }
 
   handleCloseReel() {
     const { dispatch, isActive } = this.props;
-
-    if (isActive) {
-      this.setState({
-        pauseTeaser: false
-      });
-    }
 
     dispatch(actions.landingVideoPlaying(false));
     this.setState({
@@ -208,7 +192,7 @@ export default class LandingSlide extends Component {
               <PlayText>Play reel</PlayText>
             </PlayReel>
             <SlideVideo
-              video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_2.mp4"
+              video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_black_2.mp4"
               isActive={props.isActive}
               isDirty
             />
