@@ -1,7 +1,7 @@
 export default [
   {
     slug: "",
-    // whiteContent: true
+    whiteContent: true
   },
   {
     slug: "swatch",

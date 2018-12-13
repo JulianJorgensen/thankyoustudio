@@ -18,7 +18,7 @@ const Wrapper = styled.div`
   height: 70vh;
   width: 100%;
   background-color: white;
-  color: black;
+  color: white;
 
   ${breakpoint.up('m')`
     position: absolute;
@@ -127,7 +127,6 @@ const Teaser = styled.video`
 
 const StyledLogo = styled(Logo)`
   font-size: inherit;
-  color: #9c9c9c;
 `
 
 @connect((store) => ({
@@ -206,14 +205,14 @@ export default class LandingSlide extends Component {
             teaserText="THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences."
             isActive
             fontsLoaded
-            // whiteContent
-            // fadeToBlack
+            whiteContent
+            fadeToBlack
           />
           <Content>
             <PlayReel onMouseEnter={this.handleLoadPlayer} onClick={this.handleOnPlayClick} fontsLoaded={store.fontsLoaded}><PlayIcon /> <PlayText>Play reel</PlayText></PlayReel>
           </Content>
           <Teaser ref={el => this.teaserEl = el} muted autoPlay loop>
-            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANK%20YOU%20teaser.mp4" type="video/mp4" />
+            <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_2.mp4" type="video/mp4" />
           </Teaser>
         </Inner>
 

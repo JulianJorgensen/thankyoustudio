@@ -3,7 +3,7 @@ import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { animateScroll as scroll } from 'react-scroll';
-import { FONTS, EASINGS } from 'utils/variables';
+import { FONTS, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import ChevronDown from 'assets/icons/FontAwesome/regular/chevron-down.svg';
 import Text from 'components/Typography/Text';
@@ -153,7 +153,11 @@ export default class LowerLeftContent extends Component {
 
   removeScrollEventListener() {
     if (!this.headerEl) return;
-    this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
+
+    setTimeout(() => {
+      this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
+    }, TIMINGS.SET_IS_SLIDING_FALSE);
+
     document.removeEventListener('scroll', this.handleOnScroll);
   }
 

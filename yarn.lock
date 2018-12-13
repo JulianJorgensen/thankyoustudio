@@ -5406,6 +5406,13 @@ react-ga@^2.5.3:
     prop-types "^15.6.0"
     react "^15.6.2 || ^16.0"
 
+react-gsap@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-gsap/-/react-gsap-1.1.0.tgz#d75978ffd582fb79ea98fc7ca547647ec187c163"
+  integrity sha512-1dcLblymckJOPZ0IWEai86e/RHNssbDy7SQkTkDUBYmrR6SgZOI+oG585RVM9gsTG2gV0wLCZ92qQ4x7Io+a7g==
+  dependencies:
+    gsap "^2.0.2"
+
 react-headroom@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/react-headroom/-/react-headroom-2.2.4.tgz#e931bf5f91d0ea2c2fbf0f156a2b82d7db6cbe3b"
@@ -5456,6 +5463,11 @@ react-scroll@^1.7.10:
   dependencies:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.8"
+
+react-scrollmagic@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-scrollmagic/-/react-scrollmagic-2.0.0.tgz#4bebd3138bea9affb9ab7b7f7eac48438ac218de"
+  integrity sha512-Sx+9Y01yJ50ktU1SEpKaVW8jv2UClH1mtHTeBT2kQqQ3ZfqRpy1Kqm6/qvS0ATLM2E6jd7326lIETr8YHwpoQQ==
 
 react-swipeable@^4.3.0:
   version "4.3.0"
