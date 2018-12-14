@@ -98,6 +98,7 @@ const StyledChevronDown = styled.div`
   height: 30px;
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
+  pointer-events: auto;
 
   path {
     fill: ${props => props.whiteContent ? 'white' : 'black'};

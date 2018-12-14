@@ -5,7 +5,9 @@
     "dev": "node server.js",
     "build": "next build",
     "heroku-postbuild": "yarn build",
-    "start": "NODE_ENV=production node server.js"
+    "start": "NODE_ENV=production node server.js",
+    "deploy:staging": "git push staging",
+    "deploy:prod": "git push production"
   },
   "dependencies": {
     "@humblebee/styled-components-breakpoint": "^2.1.4",
