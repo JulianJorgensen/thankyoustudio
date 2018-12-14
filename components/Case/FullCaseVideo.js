@@ -8,7 +8,7 @@ const StyledVimeo = styled(Vimeo)`
 `
 
 export default ({ children, ...props }) => (
-  <LazyShow delay={300}>
+  <LazyShow delay={500} fadeIn>
     <StyledVimeo {...props} />
   </LazyShow>
 )

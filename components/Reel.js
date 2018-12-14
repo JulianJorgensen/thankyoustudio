@@ -32,7 +32,7 @@ export default class Reel extends Component {
     return (
       <Wrapper show={play}>
         <StyledVimeo
-          video="233816544"
+          video="306390266"
           paused={!play}
         />
       </Wrapper>
