@@ -17,6 +17,7 @@ const Wrapper = styled.div`
   max-width: calc(100vw - 40px);
   opacity: 0;
   color: ${props => props.whiteContent ? 'white' : 'black'};
+  pointer-events: none;
 
   ${props => props.fontsLoaded && `
     opacity: 1;
@@ -29,6 +30,7 @@ const Wrapper = styled.div`
 
 const Content = styled.div`
   opacity: 1;
+  pointer-events: none;
 
   ${props => props.isActive && `
     opacity: 1;
@@ -45,6 +47,7 @@ const Title = styled.h1`
   display: flex;
   align-items: flex-end;
   height: 150px;
+  pointer-events: none;
 
   font-size: 60px;
   line-height: 55px;
@@ -86,6 +89,7 @@ const TeaserText = styled(Text)`
   opacity: 1;
   transition: opacity 0.2s;
   max-width: 40vw;
+  pointer-events: none;
 `
 
 const StyledChevronDown = styled.div`

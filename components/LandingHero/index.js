@@ -68,6 +68,7 @@ const PlayReel = styled.div`
 
   ${props => props.hide && `
     opacity: 0;
+    pointer-events: none;
   `}
 
   svg {

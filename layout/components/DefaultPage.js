@@ -22,12 +22,12 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  padding: 100px 0 40px;
+  padding: 100px ${props => props.withPadding ? LAYOUT.MOBILE.EDGE_MARGIN : '0'} 40px;
   min-height: calc(100vh - 300px);
   opacity: 1;
 
   ${breakpoint.up('m')`
-    padding: 120px 0;
+    padding: 120px ${props => props.withPadding ? LAYOUT.EDGE_MARGIN : '0'};
   `}
 `
 
@@ -132,7 +132,7 @@ export default class DefaultPage extends Component {
         <Head>
           <title>{title} {META.DESCRIPTION}</title>
         </Head>
-        <Content className="content">
+        <Content className="content" withPadding={this.props.withPadding}>
           {children}
         </Content>
         <Footer />

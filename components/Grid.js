@@ -30,7 +30,7 @@ const Grid = styled.div`
     background-color: ${props => props.bgColor};
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:  center;
     width: 100%;
     ${props => props.ratio}
   }

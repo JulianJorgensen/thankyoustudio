@@ -20,6 +20,15 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  ::selection {
+    color: black;
+    background-color: #EDEDED;
+  }
+  ::-moz-selection {
+    color: black;
+    background-color: #EDEDED;
+  }
+
   a {
     color: inherit;
     text-decoration: none;
