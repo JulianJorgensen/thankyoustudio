@@ -6,10 +6,13 @@ import NavItem from './NavItem';
 import Logo from 'components/Logo';
 
 const Wrapper = styled.div`
+  position: relative;
+  z-index: 2;
   display: flex;
   align-items: flex-end;
   user-select: none;
   pointer-events: auto;
+  color: ${props => props.navColor};
 
   ${props => props.mobileActive && `
     position: relative;
@@ -31,7 +34,7 @@ export default class Nav extends Component {
   render() {
     const { navColor, page, mobileActive } = this.props;
     return (
-      <Wrapper mobileActive={mobileActive}>
+      <Wrapper mobileActive={mobileActive} navColor={navColor}>
         <Link href="/"><NavItem navColor={navColor} anchor={<StyledLogo />} logo /></Link>
         <Link href="/work"><NavItem onMouseEnter={() => Router.prefetch('/work')} active={page === 'work'} navColor={navColor} anchor="Work" /></Link>
         <Link href="/about"><NavItem onMouseEnter={() => Router.prefetch('/about')} active={page === 'about'} navColor={navColor} anchor="About" /></Link>
