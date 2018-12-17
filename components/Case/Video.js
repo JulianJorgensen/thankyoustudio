@@ -10,8 +10,8 @@ const Video = styled.video`
 export default ({ children, src, delay, ...props }) => {
   if (props.lazy) {
     return (
-      <LazyShow delay={delay} autoPlay loop>
-        <Video {...props}>
+      <LazyShow delay={delay}>
+        <Video {...props} playsInline autoPlay loop>
           <source src={src} type="video/mp4" />
         </Video>
       </LazyShow>
@@ -19,7 +19,7 @@ export default ({ children, src, delay, ...props }) => {
   }
 
   return (
-    <Video {...props} autoPlay loop>
+    <Video {...props} autoPlay playsInline loop>
       <source src={src} type="video/mp4" />
     </Video>
   )
