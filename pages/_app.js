@@ -114,10 +114,10 @@ export default class MyApp extends App {
     if (!reduxStore) return;
 
     if (window.innerWidth < BREAKPOINTS_NEW.m) {
-      if (this.props.isMobile || reduxStore.isMobile) return;
+      if (reduxStore.isMobile) return;
       this.props.reduxStore.dispatch(actions.setIsMobile(true));
     } else {
-      if (!this.props.isMobile && !reduxStore.isMobile) return;
+      if (!reduxStore.isMobile) return;
       this.props.reduxStore.dispatch(actions.setIsMobile(false));
     }
   }
