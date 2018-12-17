@@ -37,7 +37,7 @@ const Wrapper = styled.div`
   ${props => props.isNext && `
     display: none;
     position: fixed;
-    width: ${props.hasMouseLeftNextSlide ? '10vw' : '15vw'};
+    width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
     z-index: 6;
     will-change: width;
     opacity: 1;

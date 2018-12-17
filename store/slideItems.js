@@ -10,7 +10,6 @@ export default [
     introText: "Our job was to present the 2015 Ferrari F1 car to the world. Building on the overwhelming existing respect for the brand, we were to bring the fans to the front row along with the press. We achieved this by creating a global, real-time, online event that was built up over a period of time, climaxing with the reveal of the F1 car. We created a four chapter film focusing on Ferrari’s heritage, the team and the car — all for the fans.",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "black",
-    showPortfolioNav: true,
     whiteContent: true,
     fadeToBlack: true,
     video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',

@@ -41,7 +41,7 @@ export const LAYOUT = {
 export const HERO = {
   LOWER_LEFT_MAX_TOP_POSITION: 1000,
   MOBILE: {
-    LOWER_LEFT_MAX_TOP_POSITION: 450,
+    LOWER_LEFT_MAX_TOP_POSITION: 760,
   }
 }
 

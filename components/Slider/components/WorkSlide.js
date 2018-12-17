@@ -36,6 +36,26 @@ const Image = styled.div`
   `}
 `
 
+const PortfolioNav = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 10;
+  bottom: 260px;
+  right: 30px;
+  color: white;
+  min-width: 10vw;
+
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 3px;
+  background-color: black;
+  padding: 10px 0 10px 15px;
+
+  ${breakpoint.up('m') `
+    display: block;
+  `}
+`
+
 export default (props) => (
   <Wrapper>
     <LowerleftContent
