@@ -237,7 +237,7 @@ export default class LowerLeftContent extends Component {
             {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
             <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
-            <TeaserText bold isNext={isNext}>{this.state.scrollTop} {teaserText}</TeaserText>
+            <TeaserText bold isNext={isNext}>{this.props.store.isMobile ? 'isMobile' : 'not mobile'} {this.state.scrollTop} {teaserText}</TeaserText>
           </Header>
           {isActive && 
             <StyledChevronDown 
