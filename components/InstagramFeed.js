@@ -25,6 +25,7 @@ const Wrapper = styled.div`
 
 const Headline = styled.h2`
   margin-bottom: 20px;
+  max-width: 70vw;
 `
 
 const Posts = styled.div`
@@ -104,7 +105,8 @@ const PostContent = styled.div`
   width: 100%;
   opacity: 0;
   transition: opacity 0.5s ${EASINGS.EASE_OUT_SHINE};
-  font-size: 11px;
+  font-size: 9px;
+  line-height: 10px;
 
   ${breakpoint.up('m')`
     font-size: initial;

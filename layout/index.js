@@ -34,7 +34,7 @@ export default class Layout extends Component {
   }
 
   render() {
-    if (this.props.isMobile) return <LayoutMobile {...this.props} />;
+    if (this.props.isMobile) return <LayoutDesktop {...this.props} />;
     return <LayoutDesktop {...this.props} />;
   }
 }
