@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { animateScroll as scroll } from 'react-scroll';
-import { FONTS, TIMINGS } from 'utils/variables';
+import { breakpoint, HERO, LAYOUT, FONTS, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import ChevronDown from 'assets/icons/FontAwesome/regular/chevron-down.svg';
 import Text from 'components/Typography/Text';
@@ -11,8 +12,8 @@ import Text from 'components/Typography/Text';
 const Wrapper = styled.div`
   position: absolute;
   z-index: 98;
-  left: 40px;
-  bottom: 60px;
+  left: ${LAYOUT.MOBILE.EDGE_MARGIN};
+  bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
   width: 100%;
   max-width: calc(100vw - 40px);
   opacity: 0;
@@ -23,8 +24,10 @@ const Wrapper = styled.div`
     opacity: 1;
   `}
 
-  ${media.tablet`
+  ${breakpoint.up('m')`
     width: 50vw;
+    left: 40px;
+    bottom: 60px;
   `}
 `
 
@@ -49,9 +52,8 @@ const Title = styled.h1`
   height: 150px;
   pointer-events: none;
 
-  font-size: 60px;
-  line-height: 55px;
-  margin-left: -4px;
+  font-size: 40px;
+  line-height: 40px;
   font-weight: 800;
   font-family: ${FONTS.PRIMARY};
   text-transform: uppercase;
@@ -67,7 +69,8 @@ const Title = styled.h1`
     transform: translateX(-100px) translateY(-100%);
   `}
 
-  ${media.tablet`
+  ${breakpoint.up('m')`
+    margin-left: -4px;
     font-size: 75px;
     line-height: 75px;
   `}
@@ -88,8 +91,11 @@ const TeaserText = styled(Text)`
   margin: 20px 0 10px;
   opacity: 1;
   transition: opacity 0.2s;
-  max-width: 40vw;
   pointer-events: none;
+
+  ${breakpoint.up('m')`
+    max-width: 40vw;
+  `}
 `
 
 const StyledChevronDown = styled.div`
@@ -116,6 +122,9 @@ const PreTitle = styled(Title)`
   `}
 `
 
+@connect((store) => ({
+  store,
+}))
 export default class LowerLeftContent extends Component {
   constructor(props){
     super(props);
@@ -148,7 +157,7 @@ export default class LowerLeftContent extends Component {
     this.removeScrollEventListener();
   }
 
-  toggleScrollEventListener(prevProps) {
+  toggleScrollEventListener() {
     if (this.props.isActive) {
       document.addEventListener('scroll', this.handleOnScroll);
     } else {
@@ -175,7 +184,9 @@ export default class LowerLeftContent extends Component {
 
   updateHeaderStyles() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    if (scrollTop > 1000) return;
+
+    if (this.props.store.isMobile && scrollTop > HERO.MOBILE.LOWER_LEFT_MAX_TOP_POSITION) return;
+    if (scrollTop > HERO.LOWER_LEFT_MAX_TOP_POSITION) return;
 
     if (scrollTop > 80) {
       this.setState({ scrolledDown: true });
@@ -188,15 +199,20 @@ export default class LowerLeftContent extends Component {
   }
 
   animateHeader() {
-    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const { isMobile } = this.props.store;
+
+    let movementSpeed = 2.5;
+    let colorSwitchSpeed = isMobile ? 1.2 : 2;
+    let colorSwitchOffset = 80;
 
     this.headerAnimation = TweenLite.set(this.headerEl, {
-      top: scrollTop/2.5
+      top: scrollTop/movementSpeed
     });
 
     if (this.props.fadeToBlack) {
       this.headerAnimation = TweenLite.set(this.headerEl, {
-        color: this.props.fadeToBlack ? `rgb(${255-(scrollTop/2 - 80)}, ${255-(scrollTop/2 - 80)}, ${255-(scrollTop/2 - 80)})` : ''
+        color: this.props.fadeToBlack && `rgb(${255-(scrollTop/colorSwitchSpeed - colorSwitchOffset)}, ${255-(scrollTop/colorSwitchSpeed - colorSwitchOffset)}, ${255-(scrollTop/colorSwitchSpeed - colorSwitchOffset)})`
       });
     }
   }

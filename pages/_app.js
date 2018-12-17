@@ -1,12 +1,11 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import dynamic from 'next/dynamic';
-import Footer from 'layout/components/Footer';
 import withReduxStore from 'store/with-redux-store';
 import { createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import * as actions from 'store/actions';
 import { FONTS, META, TIMINGS } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
@@ -86,11 +85,10 @@ export default class MyApp extends App {
   constructor() {
     super();
 
-    this.state = {};
     this.checkScreenSizes = this.checkScreenSizes.bind(this);
   }
 
-  static async getInitialProps({Component, ctx}) {
+  static async getInitialProps({reduxStore, Component, ctx}) {
     const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
     const isMobile = mobilecheck(userAgent);
 
@@ -98,7 +96,11 @@ export default class MyApp extends App {
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-    
+
+    if (pageProps.store) {
+      pageProps.store.dispatch(actions.setIsMobile(isMobile));
+    }
+
     return { pageProps, isMobile };
   }
 
@@ -108,22 +110,21 @@ export default class MyApp extends App {
   }
 
   checkScreenSizes() {
+    const { reduxStore } = this.props;
+    if (!reduxStore) return;
+
     if (window.innerWidth < BREAKPOINTS_NEW.m) {
-      if (this.props.isMobile || this.state.isMobile) return;
-      this.setState({
-        isMobile: true
-      });
+      if (this.props.isMobile || reduxStore.isMobile) return;
+      this.props.reduxStore.dispatch(actions.setIsMobile(true));
     } else {
-      if (!this.props.isMobile && !this.state.isMobile) return;
-      this.setState({
-        isMobile: false
-      });
+      if (!this.props.isMobile && !reduxStore.isMobile) return;
+      this.props.reduxStore.dispatch(actions.setIsMobile(false));
     }
   }
 
   render () {
     const { Component, pageProps, reduxStore } = this.props
-    const isMobile = this.props.isMobile || this.state.isMobile;
+    const isMobile = this.props.isMobile || reduxStore.isMobile;
 
     return (
       <Container>

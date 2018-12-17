@@ -50,7 +50,8 @@ export default class Case extends Component {
   }
 
   render() {
-    const { children, store, title, slug, isLanding, isMobile, ...props } = this.props;
+    const { children, store, title, slug, isLanding, ...props } = this.props;
+    const { isMobile } = store;
 
     const renderTitle = () => {
       if (!title) return META.TITLE;
@@ -72,12 +73,12 @@ export default class Case extends Component {
     const renderIntroText = () => {
       const slide = slideItems.find(obj => obj.slug === slug);
       if (!slide) return;
-      if (isMobile) return (
-        <Text intro>
-          {slide.teaserText}<br /><br />
-          {slide.introText}
-        </Text>
-      )
+      // if (isMobile) return (
+      //   <Text intro>
+      //     {slide.teaserText}<br /><br />
+      //     {slide.introText}
+      //   </Text>
+      // )
 
       return <Text intro>{slide.introText}</Text>
     }

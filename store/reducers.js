@@ -71,6 +71,11 @@ export default (state = initialState, action) => {
         ...state,
         isSliding: action.isSliding
       };
+    case actionTypes.SET_IS_MOBILE:
+      return {
+        ...state,
+        isMobile: action.isMobile
+      };
 
     default: return state
   }

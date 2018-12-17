@@ -26,7 +26,7 @@ export default class Layout extends Component {
   }
 
   initFontObserver() {
-    const font = new FontFaceObserver('Helvetica Neue')
+    const font = new FontFaceObserver('Helvetica Neue');
 
     font.load().then(() => {
       this.props.dispatch(actions.confirmFontsLoaded());

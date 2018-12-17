@@ -38,6 +38,7 @@ const Slides = styled.div`
 `
 
 const BackButton = styled.div`
+  display: none;
   position: absolute;
   top: 50%;
   left: 30px;
@@ -45,9 +46,9 @@ const BackButton = styled.div`
   opacity: 1;
   cursor: pointer;
   pointer-events: auto;
-  
-  ${props => props.hide && `
-    display: none;
+
+  ${breakpoint.up('m') `
+    display: ${props => props.hide ? 'none' : 'block'};
   `}
 
   svg {

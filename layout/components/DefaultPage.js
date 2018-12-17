@@ -46,8 +46,8 @@ export default class DefaultPage extends Component {
   }
 
   render() {
-    const { children, title, isMobile } = this.props;
-    const { slider, fontsLoaded, condenseSlider } = this.props.store;
+    const { children, title } = this.props;
+    const { slider, fontsLoaded, condenseSlider, isMobile } = this.props.store;
 
     const renderPageTransitionStyles = () => {
       if (!isMobile) return (

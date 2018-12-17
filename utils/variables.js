@@ -38,6 +38,13 @@ export const LAYOUT = {
   }
 }
 
+export const HERO = {
+  LOWER_LEFT_MAX_TOP_POSITION: 1000,
+  MOBILE: {
+    LOWER_LEFT_MAX_TOP_POSITION: 450,
+  }
+}
+
 export const EASINGS = {
   EASE_IN_OUT_QUAD: 'cubic-bezier(0.455, 0.03, 0.515, 0.955)',
   EASE_OUT_SHINE: 'cubic-bezier(.39,.575,.565,1)',
