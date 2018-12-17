@@ -4,7 +4,7 @@ import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import { aspectRatio } from 'utils/styleUtils';
-import { EASINGS, INSTAGRAM } from 'utils/variables';
+import { breakpoint, EASINGS, INSTAGRAM } from 'utils/variables';
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
@@ -16,7 +16,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  margin-top: 150px;
+  margin-top: 80px;
+
+  ${breakpoint.up('m')`
+    margin-top: 150px;
+  `}
 `
 
 const Headline = styled.h2`
@@ -100,6 +104,11 @@ const PostContent = styled.div`
   width: 100%;
   opacity: 0;
   transition: opacity 0.5s ${EASINGS.EASE_OUT_SHINE};
+  font-size: 11px;
+
+  ${breakpoint.up('m')`
+    font-size: initial;
+  `}
 
   &:hover {
     opacity: 0.8;

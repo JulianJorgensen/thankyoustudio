@@ -29,7 +29,7 @@ const Title = styled.h1`
 
 export default ({ isMobile, isLanding, title, whiteContent, imageSrc }) => {
   if (!isMobile) return null;
-  if (isLanding) return <LandingHero />
+  if (isLanding) return <LandingHero isMobile={isMobile} />
 
   return (
     <Wrapper imageSrc={imageSrc} whiteContent={whiteContent}>

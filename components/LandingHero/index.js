@@ -14,6 +14,7 @@ import SlideVideo from 'components/Slider/components/SlideVideo';
 const Reel = dynamic(import('components/Reel'));
 
 const Wrapper = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   height: 70vh;
@@ -194,7 +195,7 @@ export default class LandingSlide extends Component {
             </PlayReel>
             <SlideVideo
               video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_black_2.mp4"
-              isActive={props.isActive}
+              isActive={props.isMobile || props.isActive}
               isDirty
             />
           </Content>

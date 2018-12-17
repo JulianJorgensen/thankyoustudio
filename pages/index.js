@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import Case from 'layout/components/Case';
 import Text from 'components/Typography/Text';
-import { LAYOUT } from 'utils/variables';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const CasesGrid = dynamic(import('components/CasesGrid'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
@@ -12,8 +12,13 @@ const StyledCasesGrid = styled(CasesGrid)`
 `
 
 const IntroText = styled(Text)`
-  margin: 350px ${LAYOUT.EDGE_MARGIN} 0;
-  width: 40vw;
+  margin: 50px ${LAYOUT.MOBILE.EDGE_MARGIN};
+  width: 100%;
+
+  ${breakpoint.up('m')`
+    margin: 350px ${LAYOUT.EDGE_MARGIN} 0;
+    width: 40vw;
+  `}
 `
 
 export default (props) => (

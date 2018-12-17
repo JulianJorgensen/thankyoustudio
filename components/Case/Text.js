@@ -5,10 +5,12 @@ import { breakpoint, LAYOUT } from 'utils/variables';
 import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
-  padding-top: ${props => props.topPadding ? '200px' : '0'};
-  padding-bottom: ${props => props.bottomPadding ? '200px' : '0'};
+  padding-top: ${props => props.topPadding ? '100px' : '0'};
+  padding-bottom: ${props => props.bottomPadding ? '100px' : '0'};
 
   ${breakpoint.up('m')`
+    padding-top: ${props => props.topPadding ? '200px' : '0'};
+    padding-bottom: ${props => props.bottomPadding ? '200px' : '0'};  
     grid-column-start: ${props => props.columnStart};
   `}
 `
@@ -23,12 +25,12 @@ const StyledText = styled(Text)`
     line-height: inherit;
   }
 
-  ${props => props.intro && `
-    padding: 30px ${LAYOUT.MOBILE.EDGE_MARGIN};
-  `}
-
   ${breakpoint.up('m')`
     padding: 0;
+  `}
+
+  ${props => props.intro && `
+    padding: 30px ${LAYOUT.MOBILE.EDGE_MARGIN};
   `}
 
   ${props => props.intro && breakpoint.up('m')`

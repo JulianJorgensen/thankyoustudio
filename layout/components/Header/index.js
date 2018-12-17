@@ -20,7 +20,11 @@ const Wrapper = styled.header`
   transition-duration: 0.6s;
   transition-timing-function: ease;
   color: ${props => props.color};
-  padding: 30px ${LAYOUT.EDGE_MARGIN};
+  padding: 20px ${LAYOUT.MOBILE.EDGE_MARGIN};
+
+  ${breakpoint.up('m')`
+    padding: 30px ${LAYOUT.EDGE_MARGIN};
+  `}
 
   ${props => props.hide && `
     transform: translateY(-100%);
@@ -160,7 +164,7 @@ export default class Header extends Component {
         ref={div => this.headerEl = div}
       >
         <Nav navColor={isSolid ? 'black' : navColor} page={page} mobileActive={mobileNav} />
-        {/* <Bars navColor={isSolid ? 'black' : navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} /> */}
+        <Bars navColor={isSolid ? 'black' : navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
         <MobileNav active={mobileNav} />
       </Wrapper>
     );

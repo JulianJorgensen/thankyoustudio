@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   position: absolute;
   overflow: hidden;
   right: 0;
+  height: 100%;
 `
 
 const VideoWrapper = styled.div`

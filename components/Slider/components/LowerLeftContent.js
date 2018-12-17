@@ -10,7 +10,7 @@ import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
   position: absolute;
-  z-index: 99;
+  z-index: 98;
   left: 40px;
   bottom: 60px;
   width: 100%;

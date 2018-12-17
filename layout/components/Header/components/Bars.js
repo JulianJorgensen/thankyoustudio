@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 import media from 'utils/mediaQueries';
-import { breakpoint } from 'utils/variables';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
-  position: relative;
+  position: absolute;
+  right: ${LAYOUT.MOBILE.EDGE_MARGIN};
+  top: 20px;
   z-index: 100;
   width: 40px;
   height: 30px;

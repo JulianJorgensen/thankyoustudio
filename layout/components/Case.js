@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
 import slideItems from 'store/slideItems';
-import { LAYOUT, META, TIMINGS } from 'utils/variables';
+import { breakpoint, LAYOUT, META, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import Text from 'components/Case/Text';
 import CasesGrid from 'components/CasesGrid';
@@ -32,7 +32,11 @@ const Content = styled.div`
 `
 
 const CasesGridTitle = styled.h2`
-  margin: 300px ${LAYOUT.EDGE_MARGIN} 10px;
+  margin: 100px ${LAYOUT.MOBILE.EDGE_MARGIN} 10px;
+
+  ${breakpoint.up('m')`
+    margin: 300px ${LAYOUT.EDGE_MARGIN} 10px;
+  `}
 `
 
 @connect((store) => ({
@@ -57,9 +61,9 @@ export default class Case extends Component {
       return (
         <MobileHero
           isMobile={isMobile}
-          title={slide.title}
-          imageSrc={slide.mobile.imageThumb}
           isLanding={isLanding}
+          title={slide && slide.title}
+          imageSrc={slide && slide.mobile.imageThumb}
         />
       )
     }
