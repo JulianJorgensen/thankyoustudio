@@ -6,21 +6,21 @@ import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.div`
   width: 100%;
-  opacity: ${props => props.fadeIn ? 0 : 1};
-  transition: transform 1s, opacity 1s;
+  opacity: 0;
+  transition: transform 0.75s, opacity 0.75s;
   transition-delay: ${props => props.delay}ms;
 
   ${breakpoint.down('m')`
     transform: ${props => props.animateFromLeft ?
-      'translateX(-100px)' :
-      'translateY(100px)'
+      'translateX(-60px)' :
+      'translateY(60px)'
     };
   `}
 
   ${breakpoint.up('m')`
     transform: ${props => props.animateFromLeft ?
-      'translateX(-100px)' :
-      'translateY(200px)'
+      'translateX(-60px)' :
+      'translateY(60px)'
     };
   `}
 

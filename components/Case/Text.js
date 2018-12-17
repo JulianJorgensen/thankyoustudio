@@ -5,8 +5,8 @@ import { breakpoint, LAYOUT } from 'utils/variables';
 import Text from 'components/Typography/Text';
 
 const Wrapper = styled.div`
-  padding-top: ${props => props.topPadding ? '100px' : '0'};
-  padding-bottom: ${props => props.bottomPadding ? '100px' : '0'};
+  padding-top: ${props => props.topPadding ? '80px' : '0'};
+  padding-bottom: ${props => props.bottomPadding ? '80px' : '0'};
 
   ${breakpoint.up('m')`
     padding-top: ${props => props.topPadding ? '200px' : '0'};

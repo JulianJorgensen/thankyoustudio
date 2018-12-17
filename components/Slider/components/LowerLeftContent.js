@@ -8,6 +8,7 @@ import { breakpoint, HERO, LAYOUT, FONTS, TIMINGS } from 'utils/variables';
 import media from 'utils/mediaQueries';
 import ChevronDown from 'assets/icons/FontAwesome/regular/chevron-down.svg';
 import Text from 'components/Typography/Text';
+import Cta from 'components/Cta';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -27,7 +28,7 @@ const Wrapper = styled.div`
   ${breakpoint.up('m')`
     width: 50vw;
     left: 40px;
-    bottom: 60px;
+    bottom: 40px;
   `}
 `
 
@@ -95,21 +96,14 @@ const TeaserText = styled(Text)`
   pointer-events: none;
 
   ${breakpoint.up('m')`
-    max-width: 40vw;
+    max-width: 50vw;
   `}
 `
 
-const StyledChevronDown = styled.div`
-  position: absolute;
-  width: 30px;
-  height: 30px;
+const StyledCta = styled(Cta)`
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
   pointer-events: auto;
-
-  path {
-    fill: ${props => props.whiteContent ? 'white' : 'black'};
-  }
 `
 
 const PreTitle = styled(Title)`
@@ -236,15 +230,14 @@ export default class LowerLeftContent extends Component {
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
             <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
-          {isActive && 
-            <StyledChevronDown 
-              hide={scrolledDown}
-              whiteContent={whiteContent}
-              onClick={this.triggerScrollDown}
-            >
-              <ChevronDown />
-            </StyledChevronDown>
-          }
+          <StyledCta 
+            hide={!isActive || scrolledDown}
+            whiteContent={whiteContent}
+            onClick={this.triggerScrollDown}
+            whiteContent={whiteContent}
+          >
+            Read more
+          </StyledCta>
         </Content>
       </Wrapper>
     )

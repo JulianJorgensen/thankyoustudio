@@ -35,7 +35,7 @@ const Wrapper = styled.div`
 
   ${props => props.isNext && `
     position: fixed;
-    width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
+    width: 0;
     z-index: 6;
     will-change: width;
     opacity: 1;
@@ -58,8 +58,8 @@ const Wrapper = styled.div`
       width: 3vw;
     }
 
-    ${breakpoint.down('m') && `
-      width: 0 !important;
+    ${breakpoint.up('m') && `
+      width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
     `}
   `}
 
