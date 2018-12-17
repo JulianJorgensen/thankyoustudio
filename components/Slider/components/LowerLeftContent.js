@@ -185,7 +185,9 @@ export default class LowerLeftContent extends Component {
 
   updateHeaderStyles() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
+    this.setState({
+      scrollTop
+    });
     if (this.props.store.isMobile && scrollTop > HERO.MOBILE.LOWER_LEFT_MAX_TOP_POSITION) return;
     if (scrollTop > HERO.LOWER_LEFT_MAX_TOP_POSITION) return;
 
@@ -235,7 +237,7 @@ export default class LowerLeftContent extends Component {
             {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
             <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
-            <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
+            <TeaserText bold isNext={isNext}>{this.state.scrollTop} {teaserText}</TeaserText>
           </Header>
           {isActive && 
             <StyledChevronDown 
