@@ -50,7 +50,7 @@ export default class DefaultPage extends Component {
     const { slider, fontsLoaded, condenseSlider, isMobile } = this.props.store;
 
     const renderPageTransitionStyles = () => {
-      if (!isMobile) return (
+      return (
       <style jsx global>{`
         .fade-enter.default-page,
         .fade-enter-active.default-page,
