@@ -14,16 +14,24 @@ const Wrapper = styled.div`
 const VideoWrapper = styled.div`
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 70vh;
+
+  ${breakpoint.up('m')`
+    height: 100vh;
+  `}
 `
 
 const Video = styled.video`
-  min-height: 100vh;
+  min-height: 70vh;
   min-width: 100vw;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  ${breakpoint.up('m')`
+    min-height: 100vh;
+  `}
 `
 
 export default class SlideVideo extends Component {
