@@ -9,11 +9,11 @@ import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
 import media from 'utils/mediaQueries';
-import { EASINGS, TIMINGS } from 'utils/variables';
+import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 
 const Slider = styled.div`
-  display: none;
-  height: 100vw;
+  position: absolute;
+  height: ${LAYOUT.MOBILE.HERO_HEIGHT};
   width: 100%;
   overflow-y: ${props => props.isCondensed ? 'hidden' : 'visible'};
   top: 0;
@@ -21,12 +21,10 @@ const Slider = styled.div`
   transition: left ${TIMINGS.SLIDER} ease-out;
   pointer-events: none;
 
-  ${media.tablet`
-    display: block;
-    position: absolute;
+  ${breakpoint.up('m')`
     height: 100vh;
   `}
-
+  
   ${props => props.isCondensed && `
     left: 5%;
   `}

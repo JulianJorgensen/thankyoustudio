@@ -16,14 +16,15 @@ const Wrapper = styled.div`
   position: absolute;
   width: 100%;
   background-color: #fafafa;
-
-  img, video {
-    display: block;
-  }
+  top: ${LAYOUT.MOBILE.HERO_HEIGHT};
 
   ${media.tablet`
     top: 100vh;
   `}
+
+  img, video {
+    display: block;
+  }
 `
 
 const Content = styled.div`
@@ -86,7 +87,7 @@ export default class Case extends Component {
           <Head>
             <title>{renderTitle()}</title>
           </Head>
-          {isMobile && renderMobileHero()}
+          {/* {isMobile && renderMobileHero()} */}
           <Content>
             {renderIntroText()}
             {children}

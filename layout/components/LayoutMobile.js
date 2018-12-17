@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Router, { withRouter } from 'next/router';
 import Swipeable from 'react-swipeable';
 import Header from 'layout/components/Header';
+import Slider from 'components/Slider';
 import * as actions from 'store/actions';
 import { TIMINGS } from 'utils/variables';
 import withAnalytics from 'utils/withAnalytics';
@@ -63,6 +64,7 @@ export default class LayoutMobile extends Component {
       >
         <Wrapper>
           <Header isMobile={true} />
+          <Slider />
           {children}
         </Wrapper>
         <style jsx global>{`

@@ -33,7 +33,8 @@ export const LAYOUT = {
   HEADER_DISAPPEAR: 300,
   MOBILE: {
     EDGE_MARGIN: '10px',
-    HEADER_DISAPPEAR: 0
+    HEADER_DISAPPEAR: 0,
+    HERO_HEIGHT: '70vh'
   }
 }
 
