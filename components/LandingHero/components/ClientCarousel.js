@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Logo from 'components/Logo';
+import { breakpoint } from 'utils/variables';
 
 const clientTitles = [
   'Swatch',
@@ -31,8 +32,12 @@ const List = styled.ul`
   bottom: 0;
   display: flex;
   align-items: flex-end;
-  height: 150px;
+  height: 80px;
   width: 90vw;
+
+  ${breakpoint.up('m')`
+    height: 150px;
+  `}
 `
 
 const TitleItem = styled.li`

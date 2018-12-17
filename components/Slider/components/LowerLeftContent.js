@@ -49,7 +49,7 @@ const Title = styled.h1`
   top: 0;
   display: flex;
   align-items: flex-end;
-  height: 150px;
+  height: 80px;
   pointer-events: none;
 
   font-size: 40px;
@@ -70,6 +70,7 @@ const Title = styled.h1`
   `}
 
   ${breakpoint.up('m')`
+    height: 150px;
     margin-left: -4px;
     font-size: 75px;
     line-height: 75px;
@@ -99,12 +100,17 @@ const TeaserText = styled(Text)`
 `
 
 const StyledChevronDown = styled.div`
+  display: none;
   position: absolute;
   width: 30px;
   height: 30px;
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
   pointer-events: auto;
+
+  ${breakpoint.up('m')`
+    display: block;
+  `}
 
   path {
     fill: ${props => props.whiteContent ? 'white' : 'black'};
