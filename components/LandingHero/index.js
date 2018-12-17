@@ -180,8 +180,8 @@ export default class LandingSlide extends Component {
             teaserText="THANK YOU is a full-service agency, busy designing and crafting beautiful digital products, brands, and experiences."
             isActive={props.isActive}
             fontsLoaded
-            whiteContent
-            fadeToBlack
+            // whiteContent
+            // fadeToBlack
           />
           <Content>
             <PlayReel
@@ -194,7 +194,7 @@ export default class LandingSlide extends Component {
               <PlayText>Play reel</PlayText>
             </PlayReel>
             <SlideVideo
-              video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Ferrari_landing_black_2.mp4"
+              video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANK%20YOU%20teaser.mp4"
               isActive={props.isMobile || props.isActive}
               isDirty
             />

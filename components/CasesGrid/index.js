@@ -6,7 +6,6 @@ import Capabilities from './components/Capabilities';
 import SlideItems from 'store/slideItems';
 
 const Wrapper = styled.div`
-  min-height: 100vh;
 
   ${breakpoint.up('l')`
     margin: ${LAYOUT.EDGE_MARGIN};

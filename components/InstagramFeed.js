@@ -110,6 +110,7 @@ const PostContent = styled.div`
 
   ${breakpoint.up('m')`
     font-size: initial;
+    line-height: initial;
   `}
 
   &:hover {

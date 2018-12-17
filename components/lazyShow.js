@@ -2,32 +2,45 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import Observer from 'react-intersection-observer';
+import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.div`
   width: 100%;
-  transform: ${props => props.animateFromLeft ?
-    'translateX(-100px)' :
-    'translateY(200px)'
-  };
   opacity: ${props => props.fadeIn ? 0 : 1};
   transition: transform 1s, opacity 1s;
   transition-delay: ${props => props.delay}ms;
-  
-  ${props => props.bgColor && `
-    background-color: ${props.bgColor};
+
+  ${breakpoint.down('m')`
+    transform: ${props => props.animateFromLeft ?
+      'translateX(-100px)' :
+      'translateY(100px)'
+    };
   `}
 
-  ${props => props.noAnimation && `
-    transform: none;
-    opacity: 1;
-    transition-property: none;
-    transition-delay: 0;
+  ${breakpoint.up('m')`
+    transform: ${props => props.animateFromLeft ?
+      'translateX(-100px)' :
+      'translateY(200px)'
+    };
   `}
 
-  ${props => props.inview && `
-    transform: translate(0, 0);
-    opacity: 1;
-  `}
+  &&& {
+    ${props => props.inview && `
+      transform: translate(0, 0);
+      opacity: 1;
+    `}
+
+    ${props => props.bgColor && `
+      background-color: ${props.bgColor};
+    `}
+
+    ${props => props.noAnimation && `
+      transform: none;
+      opacity: 1;
+      transition-property: none;
+      transition-delay: 0;
+    `}
+  }
 `
 
 const StyledObserver = styled(Observer)`
