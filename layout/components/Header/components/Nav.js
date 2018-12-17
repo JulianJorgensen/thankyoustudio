@@ -11,7 +11,6 @@ const Wrapper = styled.div`
   display: flex;
   align-items: flex-end;
   user-select: none;
-  pointer-events: auto;
   color: ${props => props.navColor};
 
   ${props => props.mobileActive && `

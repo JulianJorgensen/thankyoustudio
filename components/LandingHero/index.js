@@ -66,6 +66,7 @@ const PlayReel = styled.div`
   cursor: pointer;
   font-size: 26px;
   transition: opacity 0.2s;
+  top: -56px; // this is a hack to compensate for mobile overlayed navigation
 
   ${props => props.hide && `
     opacity: 0;
@@ -73,14 +74,22 @@ const PlayReel = styled.div`
   `}
 
   svg {
-    width: 170px;
-    height: 170px;
+    width: 120px;
+    height: 120px;
     transition: transform 0.3s ease;
   }
 
   &:hover svg {
     transform: scale(1.2);
   }
+
+  ${breakpoint.up('m')`
+    svg {
+      width: 170px;
+      height: 170px;
+      transition: transform 0.3s ease;
+    }
+  `}
 `
 
 const PlayText = styled.div`
@@ -89,6 +98,8 @@ const PlayText = styled.div`
   opacity: 0;
   transform: translateY(100%);
   transition: all 0.3s ease;
+  width: 200px;
+  text-align: center;
 
   ${PlayReel}:hover & {
     opacity: 1;

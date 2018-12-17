@@ -4,6 +4,22 @@ export default [
     // whiteContent: true
   },
   {
+    slug: "ferrari",
+    title: "Ferrari",
+    teaserText: "Revealing the F1 car to the world by putting the fans in the front seat",
+    introText: "Our job was to present the 2015 Ferrari F1 car to the world. Building on the overwhelming existing respect for the brand, we were to bring the fans to the front row along with the press. We achieved this by creating a global, real-time, online event that was built up over a period of time, climaxing with the reveal of the F1 car. We created a four chapter film focusing on Ferrari’s heritage, the team and the car — all for the fans.",
+    tags: ["Design.", "Experiences.", "Culture."],
+    background: "black",
+    showPortfolioNav: true,
+    whiteContent: true,
+    fadeToBlack: true,
+    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
+    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
+    mobile: {
+      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
+    }
+  },
+  {
     slug: "swatch",
     title: "Swatch",
     teaserText: "Re-launching an iconic watch collection with a global 360° campaign",
@@ -35,21 +51,6 @@ export default [
     mobile: {
       video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_CameraExplode.mp4",
       imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
-    }
-  },
-  {
-    slug: "ferrari",
-    title: "Ferrari",
-    teaserText: "Revealing the F1 car to the world by putting the fans in the front seat",
-    introText: "Our job was to present the 2015 Ferrari F1 car to the world. Building on the overwhelming existing respect for the brand, we were to bring the fans to the front row along with the press. We achieved this by creating a global, real-time, online event that was built up over a period of time, climaxing with the reveal of the F1 car. We created a four chapter film focusing on Ferrari’s heritage, the team and the car — all for the fans.",
-    tags: ["Design.", "Experiences.", "Culture."],
-    background: "black",
-    whiteContent: true,
-    fadeToBlack: true,
-    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
-    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
-    mobile: {
-      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
     }
   },
   {

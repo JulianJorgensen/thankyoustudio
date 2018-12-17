@@ -61,6 +61,30 @@ const BackButton = styled.div`
   }
 `
 
+const PortfolioNav = styled.div`
+  display: none;
+  position: absolute;
+  z-index: 10;
+  top: 20px;
+  right: 30px;
+  color: white;
+  min-width: 10vw;
+
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  background-color: black;
+  padding: 10px 0 10px 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+
+  ${breakpoint.up('m') `
+    display: block;
+  `}
+`
+
 @withRouter
 @connect((store) => ({
   store,
@@ -232,6 +256,7 @@ export default class FancySlider extends Component {
         <Slider
           isCondensed={condenseSlider}
         >
+          <PortfolioNav>Portfolio</PortfolioNav>
           <BackButton
             contentColor={navColor}
             onClick={this.handleBackClick}

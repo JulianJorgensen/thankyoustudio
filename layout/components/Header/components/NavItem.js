@@ -6,6 +6,7 @@ const NavLink = styled.div`
   display: none;
   position: relative;
   margin-right: 25px;
+  pointer-events: auto;
 
   ${props => props.logo &&`
     display: block;

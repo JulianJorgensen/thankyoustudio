@@ -50,9 +50,9 @@ export default ({ className, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
       <CaseItems onWhite={props.onWhite}>
+        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
         <CaseItem {...getCaseData('swatch')} whitecontent {...props} />
         <CaseItem {...getCaseData('amazon')} whitecontent {...props} />
-        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
         <CaseItem {...getCaseData('copenhagen')} {...props} />
         <CaseItem {...getCaseData('universal-robots')} {...props} />
         <CaseItem {...getCaseData('onea')} whitecontent {...props} />
