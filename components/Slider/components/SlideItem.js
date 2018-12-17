@@ -4,8 +4,7 @@ import { TweenLite } from 'gsap';
 import throttle from 'lodash.throttle';
 import LandingSlide from 'components/LandingHero';
 import WorkSlide from './WorkSlide';
-import { EASINGS, TIMINGS } from 'utils/variables';
-import media from 'utils/mediaQueries';
+import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
@@ -35,7 +34,6 @@ const Wrapper = styled.div`
   `}
 
   ${props => props.isNext && `
-    display: none;
     position: fixed;
     width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
     z-index: 6;
@@ -59,6 +57,10 @@ const Wrapper = styled.div`
       height: 100vh;
       width: 3vw;
     }
+
+    ${breakpoint.down('m') && `
+      width: 0 !important;
+    `}
   `}
 
   ${props => props.isNext && props.isSliding && `
@@ -71,10 +73,6 @@ const Wrapper = styled.div`
     &:before {
       display: none;
     }
-  `}
-
-  ${props => props.isNext && media.tablet`
-    display: block;
   `}
 
   background: ${props => props.background ? props.background : ''};
