@@ -185,9 +185,6 @@ export default class LowerLeftContent extends Component {
 
   updateHeaderStyles() {
     let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    this.setState({
-      scrollTop
-    });
     if (this.props.store.isMobile && scrollTop > HERO.MOBILE.LOWER_LEFT_MAX_TOP_POSITION) return;
     if (scrollTop > HERO.LOWER_LEFT_MAX_TOP_POSITION) return;
 
@@ -207,7 +204,7 @@ export default class LowerLeftContent extends Component {
 
     let movementSpeed = 2.5;
     let colorSwitchSpeed = isMobile ? 1.2 : 2;
-    let colorSwitchOffset = 80;
+    let colorSwitchOffset = isMobile ? 150 : 80;
 
     this.headerAnimation = TweenLite.set(this.headerEl, {
       top: scrollTop/movementSpeed
@@ -237,7 +234,7 @@ export default class LowerLeftContent extends Component {
             {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
             <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
-            <TeaserText bold isNext={isNext}>{this.props.store.isMobile ? 'isMobile' : 'not mobile'} {this.state.scrollTop} {teaserText}</TeaserText>
+            <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
           {isActive && 
             <StyledChevronDown 
