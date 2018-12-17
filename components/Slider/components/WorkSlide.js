@@ -1,9 +1,8 @@
 import React from 'react';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
-import { EASINGS } from 'utils/variables';
+import { breakpoint, EASINGS, LAYOUT } from 'utils/variables';
 import LowerleftContent from './LowerLeftContent';
-import media from 'utils/mediaQueries';
 
 const SlideVideo = dynamic(import('./SlideVideo'));
 
@@ -19,7 +18,7 @@ const Image = styled.div`
   position: absolute;
   right: 0;
   width: 100vw;
-  height: 100vw;
+  height: ${LAYOUT.MOBILE.HERO_HEIGHT};
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -32,7 +31,7 @@ const Image = styled.div`
     transform: scale(1.05);
   `}
 
-  ${media.tablet`
+  ${breakpoint.up('m')`
     height: 100vh;
   `}
 `

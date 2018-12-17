@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   position: absolute;
   z-index: 98;
   left: ${LAYOUT.MOBILE.EDGE_MARGIN};
-  bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
+  bottom: 40px;
   width: 100%;
   max-width: calc(100vw - 40px);
   opacity: 0;
@@ -100,17 +100,12 @@ const TeaserText = styled(Text)`
 `
 
 const StyledChevronDown = styled.div`
-  display: none;
   position: absolute;
   width: 30px;
   height: 30px;
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
   pointer-events: auto;
-
-  ${breakpoint.up('m')`
-    display: block;
-  `}
 
   path {
     fill: ${props => props.whiteContent ? 'white' : 'black'};

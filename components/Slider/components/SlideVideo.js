@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
-import { EASINGS, TIMINGS } from 'utils/variables';
+import { EASINGS, TIMINGS, LAYOUT } from 'utils/variables';
 import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.div`
@@ -14,7 +14,7 @@ const Wrapper = styled.div`
 const VideoWrapper = styled.div`
   position: relative;
   width: 100vw;
-  height: 70vh;
+  height: ${LAYOUT.MOBILE.HERO_HEIGHT};
 
   ${breakpoint.up('m')`
     height: 100vh;
@@ -22,7 +22,7 @@ const VideoWrapper = styled.div`
 `
 
 const Video = styled.video`
-  min-height: 70vh;
+  min-height: ${LAYOUT.MOBILE.HERO_HEIGHT};
   min-width: 100vw;
   position: absolute;
   top: 50%;
