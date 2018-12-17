@@ -131,8 +131,7 @@ export default class MyApp extends App {
         <Head>
           <title>{META.TITLE}</title>
           <meta name="description" content={META.DESCRIPTION} />
-
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
           <meta charSet="utf-8" />
           <link rel="shortcut icon" href={favicon} />
           <link rel="canonical" href={META.CANONICAL} />
