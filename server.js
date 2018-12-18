@@ -18,7 +18,7 @@ app.prepare()
 
   // enable ssl redirect on prod
   if (!dev) {
-    app.use(sslRedirect());
+    server.use(sslRedirect());
   }
 
   // compression
