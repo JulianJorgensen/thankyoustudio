@@ -26,7 +26,7 @@ const Wrapper = styled.nav`
   `}
 `
 
-const Nav = styled.nav`
+const Nav = styled.ul`
   color: white;
   list-style-type: none;
   text-align: left;
