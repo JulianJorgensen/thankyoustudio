@@ -279,7 +279,7 @@ export default class FancySlider extends Component {
 
                 return (
                   <SlideItem
-                    key={`i-${SlideItemData.slug}`}
+                    key={`slide-item-${i}`}
                     slideItemData={SlideItemData}
                     onClickHandler={isNext ? this.triggerNextClick : () => {}}
                     isPrevious={isPrevious}
@@ -294,6 +294,7 @@ export default class FancySlider extends Component {
                     onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
                     fontsLoaded={fontsLoaded}
                     showNextSlide={isNext && this.state.showNextSlide}
+                    isFirstWorkSlide={i === 1}
                   />
                 )
               })

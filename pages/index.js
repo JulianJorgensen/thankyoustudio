@@ -23,7 +23,12 @@ const IntroText = styled(Text)`
 
 export default (props) => (
   <Case isLanding {...props}>
-    <IntroText>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam quis lacinia nisi. Nulla cursus non urna rhoncus blandit. Sed vel purus lorem. Donec eleifend vestibulum odio, non aliquet felis fermentum in.</IntroText>
+    <IntroText>
+      <p>What started as three Scandinavian designers collaborating in 2006 has grown into a playground for multi-disciplinary creatives situated in the hearts of both Copenhagen and Reykjavík.</p>
+      <p>We are now a team of innovative designers, engineers, strategists, researchers and creatives lead by our three fearless founders to build the new generation of meaningful brands, exceptional products and outstanding services.</p>
+      <p>Our process starts with identifying a brand’s purpose, their true nature and why they exist. We then simplify the brand message we create in collaboration with the brand before amplifying it to the world. Through this method we build consistent brand systems that are both instantly recognisable and connected to contemporary culture.</p>
+      <p>We continually challenge our clients to stand out amidst increasing clutter in the global market with a clear purpose and a true connection to consumers. We achieve success through ongoing collaboration and co-creation, partnering up with our clients to solve not only communication issues, but real world business issues. Together we triumph. Let’s talk.</p>
+    </IntroText>
     <StyledCasesGrid onWhite />
     <InstagramFeed />
   </Case>

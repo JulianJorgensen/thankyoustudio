@@ -22,7 +22,7 @@ const Wrapper = styled.div`
 
 const StyledLogo = styled(Logo)`
   font-size: 30px;
-  margin-right: 7px;
+  margin-right: 11px;
 
   * {
     transform: translate(100%, 15%);

@@ -33,7 +33,7 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.div`
-  opacity: 1;
+  opacity: 0.7;
   pointer-events: none;
 
   ${props => props.isActive && `
@@ -104,6 +104,12 @@ const StyledCta = styled(Cta)`
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
   pointer-events: auto;
+  transition: opacity 0.2s ease;
+`
+
+const TopCta = styled(StyledCta)`
+  position: absolute;
+  top: -90px;
 `
 
 const PreTitle = styled(Title)`
@@ -182,7 +188,7 @@ export default class LowerLeftContent extends Component {
     if (this.props.store.isMobile && scrollTop > HERO.MOBILE.LOWER_LEFT_MAX_TOP_POSITION) return;
     if (scrollTop > HERO.LOWER_LEFT_MAX_TOP_POSITION) return;
 
-    if (scrollTop > 80) {
+    if (scrollTop > 50) {
       this.setState({ scrolledDown: true });
     } else {
       this.setState({ scrolledDown: false });
@@ -218,12 +224,18 @@ export default class LowerLeftContent extends Component {
   }
 
   render() {
-    const { fontsLoaded, isActive, isNext, preTitle, title, titleAlt, teaserText, whiteContent } = this.props;
+    const { fontsLoaded, isActive, isNext, isLanding, preTitle, title, titleAlt, teaserText, whiteContent, isFirstWorkSlide } = this.props;
     const { scrolledDown } = this.state;
 
     return (
       <Wrapper isActive={isActive} isNext={isNext} fontsLoaded={fontsLoaded} whiteContent={whiteContent}>
         <Content isActive={isActive}>
+          <TopCta
+            whiteContent={whiteContent}
+            hide={!isFirstWorkSlide || isActive}
+          >
+            See case
+          </TopCta>
           <Header ref={div => this.headerEl = div}>
             {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
             <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
@@ -231,10 +243,9 @@ export default class LowerLeftContent extends Component {
             <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
           <StyledCta 
-            hide={!isActive || scrolledDown}
+            hide={isLanding || !isActive || scrolledDown}
             whiteContent={whiteContent}
             onClick={this.triggerScrollDown}
-            whiteContent={whiteContent}
           >
             Read more
           </StyledCta>

@@ -43,11 +43,6 @@ const Wrapper = styled.div`
     pointer-events: auto;
     transition-duration: 0.5s;
 
-    &:hover {
-      width: 15vw;
-      transition-duration: 0.5s;
-    }
-
     &:before {
       content: '';
       position: fixed;
@@ -56,6 +51,15 @@ const Wrapper = styled.div`
       z-index: 100;
       height: 100vh;
       width: 3vw;
+    }
+
+    &:hover {
+      width: 15vw;
+      transition-duration: 0.5s;
+
+      &:before {
+        pointer-events: none;
+      }
     }
 
     ${breakpoint.up('m') && `

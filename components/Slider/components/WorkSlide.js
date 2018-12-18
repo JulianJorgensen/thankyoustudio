@@ -57,7 +57,7 @@ const PortfolioNav = styled.div`
 `
 
 export default (props) => (
-  <Wrapper>
+  <Wrapper isActive={props.isActive}>
     <LowerleftContent
       title={props.title}
       teaserText={props.teaserText}
@@ -66,6 +66,7 @@ export default (props) => (
       fontsLoaded={props.fontsLoaded}
       whiteContent={props.whiteContent}
       fadeToBlack={props.fadeToBlack}
+      isFirstWorkSlide={props.isFirstWorkSlide}
     />
     {(props.image && props.isDirty) ? <Image {...props} /> : ''}
     {props.video && (props.isDirty || props.isNext) && <SlideVideo {...props} />}
