@@ -13,7 +13,7 @@ export default (props) => (
     slug="steelseries"
   >
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_headphones.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/steelseries/steelseries_headphones.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -25,15 +25,15 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_headset_closeup.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/steelseries/steelseries_headset_closeup.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_rise_to_the_challenge.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/steelseries/steelseries_rise_to_the_challenge.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_boxes.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/steelseries/steelseries_boxes.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -41,8 +41,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_mouse_birdsview.jpg" />
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_rival_700.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/steelseries/steelseries_mouse_birdsview.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/steelseries/steelseries_rival_700.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>

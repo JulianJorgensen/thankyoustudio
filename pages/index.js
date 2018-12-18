@@ -13,7 +13,6 @@ const StyledCasesGrid = styled(CasesGrid)`
 
 const IntroText = styled(Text)`
   margin: 180px ${LAYOUT.MOBILE.EDGE_MARGIN} 60px;
-  width: 100%;
 
   ${breakpoint.up('m')`
     margin: 350px ${LAYOUT.EDGE_MARGIN} 0;

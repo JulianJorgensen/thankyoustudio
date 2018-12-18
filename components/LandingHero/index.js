@@ -53,6 +53,10 @@ const Content = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
+
+  ${breakpoint.up('m')`
+    width: 90%;
+  `}
 `
 
 const PlayReel = styled.div`
@@ -206,7 +210,7 @@ export default class LandingSlide extends Component {
               <PlayText>Play reel</PlayText>
             </PlayReel>
             <SlideVideo
-              video="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/THANK%20YOU%20teaser.mp4"
+              video="https://cdn.thankyoustudio.com/videos/THANK%20YOU%20teaser.mp4"
               isActive={props.isMobile || props.isActive}
               isDirty
             />

@@ -27,7 +27,7 @@ export default (props) => (
     slug="universal-robots"
   >
     <Grid ratio="16x9">
-      <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-01.jpg" />
+      <Image lazy delay={300} src="https://cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-01.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -35,8 +35,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-02.jpg" />
-      <Image lazy delay={300} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-03.jpg" />
+      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-02.jpg" />
+      <Image lazy delay={300} src="https://cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-03.jpg" />
     </Grid>
 
     <Grid ratio="16x9">

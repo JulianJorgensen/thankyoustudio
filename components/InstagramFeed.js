@@ -25,7 +25,6 @@ const Wrapper = styled.div`
 
 const Headline = styled.h2`
   margin-bottom: 20px;
-  max-width: 70vw;
 `
 
 const Posts = styled.div`
