@@ -28,8 +28,8 @@ const SocialMediaIcons = styled.div`
 export default () => (
   <SocialMediaIcons>
     <Link href="/privacy"><a>Privacy</a></Link>
-    <a href="http://www.instagram.com/explore/tags/thankyouculture/" target="new"><InstagramIcon /></a>
-    <a href="http://vimeo.com/thankyoustudio/" target="new"><VimeoIcon /></a>
-    <a href="http://facebook.com/thankyoustudio/" target="new"><FacebookIcon /></a>
+    <a href="http://www.instagram.com/explore/tags/thankyouculture/" target="new" alt="Instagram"><InstagramIcon /></a>
+    <a href="http://vimeo.com/thankyoustudio/" target="new" alt="Vimeo"><VimeoIcon /></a>
+    <a href="http://facebook.com/thankyoustudio/" target="new" alt="Facebook"><FacebookIcon /></a>
   </SocialMediaIcons>
 );

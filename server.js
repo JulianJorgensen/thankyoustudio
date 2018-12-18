@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const next = require('next');
 const compression = require('compression');
+const sslRedirect = require('heroku-ssl-redirect');
 
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -14,8 +15,14 @@ const email = require('./email');
 app.prepare()
 .then(() => {
   const server = express();
+
+  // enable ssl redirect
+  app.use(sslRedirect());
+
+  // compression
   server.use(compression());
 
+  // bodyparser
   server.use(bodyParser.json());
   server.use(bodyParser.urlencoded({ extended: false }));
 
