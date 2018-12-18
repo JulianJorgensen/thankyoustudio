@@ -5,7 +5,6 @@ const compression = require('compression');
 const sslRedirect = require('heroku-ssl-redirect');
 
 const dev = process.env.NODE_ENV !== 'production';
-const sslOn = process.env.SSL_ON;
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
@@ -18,7 +17,7 @@ app.prepare()
   const server = express();
 
   // enable ssl redirect on prod
-  if (sslOn) {
+  if (!dev) {
     server.use(sslRedirect());
   }
 
