@@ -5,7 +5,7 @@
     "dev": "node server.js",
     "build": "next build",
     "heroku-postbuild": "yarn build",
-    "start": "NODE_ENV=production node server.js",
+    "start": "node server.js",
     "deploy:staging": "git push staging",
     "deploy:prod": "git push production"
   },

@@ -171,7 +171,7 @@ export default class LowerLeftContent extends Component {
 
     setTimeout(() => {
       this.headerAnimation = TweenLite.set(this.headerEl, {top: 0});
-      if (fadeToBlack) {
+      if (this.props.fadeToBlack) {
         this.headerAnimation = TweenLite.set(this.headerEl, {color: 'white'});
       }
     }, TIMINGS.SET_IS_SLIDING_FALSE);
