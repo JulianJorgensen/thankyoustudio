@@ -134,7 +134,7 @@ export default class MyApp extends App {
           <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
           <meta charSet="utf-8" />
           <link rel="shortcut icon" href={favicon} />
-          <link rel="canonical" href={META.CANONICAL} />
+          {/* <link rel="canonical" href={META.CANONICAL} /> */}
         </Head>
         <Provider store={reduxStore}>
           <Layout isMobile={isMobile}>
