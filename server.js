@@ -16,8 +16,10 @@ app.prepare()
 .then(() => {
   const server = express();
 
-  // enable ssl redirect
-  app.use(sslRedirect());
+  // enable ssl redirect on prod
+  if (!dev) {
+    app.use(sslRedirect());
+  }
 
   // compression
   server.use(compression());
