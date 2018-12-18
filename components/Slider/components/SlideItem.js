@@ -61,10 +61,10 @@ const Wrapper = styled.div`
         pointer-events: none;
       }
     }
+  `}
 
-    ${breakpoint.up('m') && `
-      width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
-    `}
+  ${props => props.isNext && breakpoint.m`
+    width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
   `}
 
   ${props => props.isNext && props.isSliding && `
