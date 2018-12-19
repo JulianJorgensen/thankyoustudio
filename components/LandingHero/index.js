@@ -170,7 +170,7 @@ export default class LandingSlide extends Component {
 
     this.checkPlayerRef = setInterval(() => {
       // play the reel once the player is ready
-      if (this.state.playerReady) {
+      if (this.player) {
         this.playReel();
         clearInterval(this.checkPlayerRef);
       }

@@ -43,6 +43,7 @@ export default class Reel extends Component {
   }
 
   handleOnVisibilityChange(inView) {
+    console.log('inView?', inView);
     this.setState({
       inView
     });
