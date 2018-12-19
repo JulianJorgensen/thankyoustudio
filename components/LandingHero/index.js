@@ -11,7 +11,7 @@ import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 import ClientCarousel from './components/ClientCarousel';
 import SlideVideo from 'components/Slider/components/SlideVideo';
 
-const Reel = dynamic(import('components/Reel'));
+const Reel = dynamic(import('./components/Reel'));
 
 const Wrapper = styled.div`
   position: relative;
@@ -217,7 +217,7 @@ export default class LandingSlide extends Component {
           </Content>
         </Inner>
 
-        {loadPlayer && <Reel play={playReel} />}
+        {loadPlayer && <Reel play={playReel} onEnded={this.handleCloseReel} />}
         {playReel && <CloseReel onClick={this.handleCloseReel}><CloseIcon /></CloseReel>}
       </Wrapper>
     )
