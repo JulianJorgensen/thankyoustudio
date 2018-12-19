@@ -163,20 +163,19 @@ export default class LandingSlide extends Component {
   }
 
   handleOnPlayClick() {
-    const { dispatch } = this.props;
-
     this.handleLoadPlayer();
 
     this.checkPlayerRef = setInterval(() => {
       // play the reel once the playerRef is defined
       if (this.player) {
-
+        clearInterval(this.checkPlayerRef);
         this.playReel();
       }
     }, 30);
   }
 
   playReel() {
+    const { dispatch } = this.props;
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
       playReel: true,
