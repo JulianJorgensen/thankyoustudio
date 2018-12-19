@@ -79,17 +79,17 @@ const PlayReel = styled.div`
     pointer-events: none;
   `}
 
-  svg {
-    width: 120px;
-    height: 120px;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: scale(1.2);
-  }
-
   ${breakpoint.up('m')`
+    svg {
+      width: 120px;
+      height: 120px;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover svg {
+      transform: scale(1.2);
+    }
+
     svg {
       width: 170px;
       height: 170px;
@@ -166,14 +166,14 @@ export default class LandingSlide extends Component {
 
     this.handleLoadPlayer();
 
-    if (screenfull.enabled) {
-      screenfull.request(findDOMNode(this.player));
-    }
-
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
       playReel: true,
     });
+
+    if (screenfull.enabled) {
+      screenfull.request(findDOMNode(this.player));
+    }
   }
 
   handleCloseReel() {
