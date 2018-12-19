@@ -14,7 +14,7 @@ export default (props) => (
     slug="swatch-scuba-libra"
   >
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_yellow.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_yellow.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -26,8 +26,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="3x4">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_go_deep.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_splash.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_go_deep.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_splash.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -35,7 +35,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_octopus_blue.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_octopus_blue.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -43,8 +43,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_store.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_shop_02.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_store.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_shop_02.jpg" />
     </Grid>
 
     <Grid ratio="16x9">

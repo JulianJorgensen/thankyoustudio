@@ -228,7 +228,7 @@ export default class LandingSlide extends Component {
             // fadeToBlack
           />
           <SlideVideo
-            video="https://cdn.thankyoustudio.com/videos/THANK%20YOU%20teaser.mp4"
+            video="//cdn.thankyoustudio.com/videos/THANK%20YOU%20teaser.mp4"
             isActive={props.isMobile || props.isActive}
             isDirty
           />

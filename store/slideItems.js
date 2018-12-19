@@ -12,10 +12,10 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: 'https://cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
-    imageThumb: 'https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
+    video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
     mobile: {
-      video: 'https://cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
+      video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
     }
   },
   {
@@ -27,12 +27,12 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "https://cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
-    imageThumb: "https://cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
-    poster: "https://cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster.jpg",
+    video: "//cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster.jpg",
     mobile: {
-      video: "https://cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
-      imageThumb: "https://cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",  
+      video: "//cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",  
     }
   },
   {
@@ -44,12 +44,12 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "https://cdn.thankyoustudio.com/cases/amazon/videos/amazon_CameraExplode.mp4",
-    imageThumb: "https://cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
-    poster: "https://cdn.thankyoustudio.com/cases/amazon/images/amazon-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/amazon/videos/amazon_CameraExplode.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/amazon/images/amazon-poster.jpg",
     mobile: {
-      video: "https://cdn.thankyoustudio.com/cases/amazon/videos/amazon_CameraExplode.mp4",
-      imageThumb: "https://cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
+      video: "//cdn.thankyoustudio.com/cases/amazon/videos/amazon_CameraExplode.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
     }
   },
   {
@@ -59,12 +59,12 @@ export default [
     introText: "The distillery revives a 250 year artisan history with a desire to shake up the world of spirits. It is a joint venture between THANK YOU Studio and master distiller Henrik Brinks. Our journey started in 2014 and we are already fast becoming an iconic spirit brand representing Copenhagen worldwide.",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    video: 'https://cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
-    imageThumb: 'https://cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
-    poster: 'https://cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
+    video: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
     mobile: {
-      video: 'https://cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
-      imageThumb: 'https://cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg'  
+      video: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg'  
     }
   },
   {
@@ -74,12 +74,12 @@ export default [
     introText: "You are invited, but actually this party is really for UR robots themselves. And to make this a special thing to remember all the other 24.999 robots are invited – and not just for the party, but for the all the preparations as well. We set out to create a cinematic music narrative with a aesthetic inspiration paying homage to old school music dance videos. We explore  the opportunity to personify the UR robots by giving them musical influence. Starting with 3 small movies showing the “behind the scenes” of all the preparations to create excitement for the release of the main film, the celebration film.",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "white",
-    video: "https://cdn.thankyoustudio.com/cases/universal-robots/videos/universal-robots-cover.mp4",
-    imageThumb: "https://cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-still.jpg",
-    poster: "https://cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/universal-robots/videos/universal-robots-cover.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-still.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-poster.jpg",
     mobile: {
-      video: "https://cdn.thankyoustudio.com/cases/universal-robots/videos/universal-robots-cover.mp4",
-      imageThumb: "https://cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-still.jpg",  
+      video: "//cdn.thankyoustudio.com/cases/universal-robots/videos/universal-robots-cover.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-still.jpg",  
     }
   },
   {
@@ -89,12 +89,12 @@ export default [
     introText: "ONE A is a Danish design company that produces advanced architectural lighting systems and smart lighting products for high-end living spaces.",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "white",
-    video: 'https://cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
-    imageThumb: 'https://cdn.thankyoustudio.com/images/onea-cover.jpg',
-    poster: 'https://cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',
+    video: '//cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/images/onea-cover.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',
     mobile: {
-      video: 'https://cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
-      imageThumb: 'https://cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',  
+      video: '//cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',  
     }
   },
   {
@@ -106,12 +106,12 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
-    imageThumb: "https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
-    poster: "https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+    video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
     mobile: {
-      video: "https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
-      imageThumb: "https://cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+      video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
     }
   },
   {
@@ -121,12 +121,12 @@ export default [
     introText: "To secure their position as market leader in the face of new competitors, even newer technologies and an everchanging landscape online. Gyldendal needed to be connected to contemporary culture.",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    video: "https://cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-    imageThumb: "https://cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
-    poster: "https://cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    video: "//cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     mobile: {
-      video: "https://cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-      imageThumb: "https://cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+      video: "//cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     }
   },
   {
@@ -138,12 +138,12 @@ export default [
     background: "white",
     whiteContent: true,
     fadeToBlack: true,
-    video: "https://cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
-    imageThumb: "https://cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
-    poster: "https://cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
+    video: "//cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
     mobile: {
-      video: "https://cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
-      imageThumb: "https://cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",  
+      video: "//cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",  
     }
   },
   {
@@ -155,12 +155,12 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: 'https://cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
-    imageThumb: 'https://cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
-    poster: 'https://cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
+    video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
     mobile: {
-      video: 'https://cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
-      imageThumb: 'https://cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
+      video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
     }
   },
 ];

@@ -10,7 +10,7 @@ const Scuderia = styled.div`
   padding: 150px;
   display: flex;
   justify-content: center;
-  background: url('https://cdn.thankyoustudio.com/cases/ferrari/images/scuderia_ferrari_bg.jpg') center center no-repeat;
+  background: url('//cdn.thankyoustudio.com/cases/ferrari/images/scuderia_ferrari_bg.jpg') center center no-repeat;
   background-size: cover;
 `
 
@@ -36,22 +36,22 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="3x2">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-01.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-02.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-01.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-02.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="3x2">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-03.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-hublot.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-03.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-hublot.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-pirelli.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-pirelli.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-archive.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-mechanics.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-archive.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-mechanics.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -63,8 +63,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-04.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/ferrari/images/ferrari-vettel.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-04.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-vettel.jpg" />
     </Grid>
 
   </Case>

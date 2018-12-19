@@ -14,17 +14,17 @@ export default (props) => (
   >
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-dark.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-dark.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="1x1">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-02.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-cylinder.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-02.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-cylinder.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="2x3">
-      <Image lazy delay={200} bgColor="white" inline src="https://cdn.thankyoustudio.com/cases/onea/images/onea-logo.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-standing-light.jpg" />
+      <Image lazy delay={200} bgColor="white" inline src="//cdn.thankyoustudio.com/cases/onea/images/onea-logo.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-standing-light.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -35,8 +35,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="1x1">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-gradient-dark.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-gradient-light.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-gradient-dark.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-gradient-light.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -44,12 +44,12 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-storm-long.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-storm-long.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="2x3">
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-storm-base-tube.jpg" />
-      <Image lazy delay={200} src="https://cdn.thankyoustudio.com/cases/onea/images/onea-lightning-table.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-storm-base-tube.jpg" />
+      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-lightning-table.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
