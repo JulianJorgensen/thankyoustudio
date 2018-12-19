@@ -161,19 +161,21 @@ export default class LandingSlide extends Component {
     this.handleCloseReel();
   }
 
-  async handleOnPlayClick() {
+  handleOnPlayClick() {
     const { dispatch } = this.props;
 
-    await this.handleLoadPlayer();
+    this.handleLoadPlayer();
 
-    dispatch(actions.landingVideoPlaying(true));
-    this.setState({
-      playReel: true,
-    });
-
-    if (screenfull.enabled) {
-      screenfull.request(findDOMNode(this.player));
-    }
+    setTimeout(() => {
+      dispatch(actions.landingVideoPlaying(true));
+      this.setState({
+        playReel: true,
+      });
+  
+      if (screenfull.enabled) {
+        screenfull.request(findDOMNode(this.player));
+      }  
+    }, 500);
   }
 
   handleCloseReel() {
@@ -189,11 +191,10 @@ export default class LandingSlide extends Component {
     });
   }
 
-  async handleLoadPlayer() {
+  handleLoadPlayer() {
     this.setState({
       loadPlayer: true
     });
-    return true;
   }
 
   setPlayerRef(player) {
@@ -236,7 +237,7 @@ export default class LandingSlide extends Component {
           </Content>
         </Inner>
 
-        {loadPlayer && <Reel ref={this.setPlayerRef} play={playReel} onEnded={this.handleCloseReel} onPause={this.handleCloseReel} onStart={this.handleOnPlayClick} />}
+        {loadPlayer && <Reel ref={this.setPlayerRef} play={playReel} onEnded={this.handleCloseReel} onPause={this.handleCloseReel} onStart={this.handleOnPlayClick} /> }
         {playReel && <CloseReel onClick={this.handleCloseReel}><CloseIcon /></CloseReel>}
       </Wrapper>
     )
