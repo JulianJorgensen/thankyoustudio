@@ -24,6 +24,20 @@ const Wrapper = styled.div`
   ${props => props.show && `
     opacity: 1;
   `}
+
+  ${props => props.fixedMode && `
+    position: fixed;
+    transform: none;
+    min-height: auto;
+    min-width: auto;
+    width: 20vw;
+    height: 0;
+    padding-bottom: 56.25%;
+    top: auto;
+    left: auto;
+    right: 0;
+    bottom: 0;
+  `}
 `
 
 const StyledReactPlayer = styled(ReactPlayer)`
@@ -43,10 +57,9 @@ export default class Reel extends Component {
   }
 
   handleOnVisibilityChange(inView) {
-    console.log('inView?', inView);
-    this.setState({
-      inView
-    });
+    // this.setState({
+    //   fixedMode: !inView
+    // });
   }
 
   render() {
@@ -63,10 +76,10 @@ export default class Reel extends Component {
             onStart={onStart}
             onReady={onReady}
             playing={play}
-            pip={true}
             width='100%'
             height='100%'
             controls
+            // fixedMode={this.state.fixedMode}
           />
         </Wrapper>
       </Observer>

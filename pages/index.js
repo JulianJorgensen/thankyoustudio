@@ -23,10 +23,10 @@ const IntroText = styled(Text)`
 export default (props) => (
   <Case isLanding {...props}>
     <IntroText>
-      <p>What started as three Scandinavian designers collaborating in 2006 has grown into a playground for multi-disciplinary creatives situated in the hearts of both Copenhagen and Reykjavík.</p>
-      <p>We are now a team of innovative designers, engineers, strategists, researchers and creatives lead by our three fearless founders to build the new generation of meaningful brands, exceptional products and outstanding services.</p>
-      <p>Our process starts with identifying a brand’s purpose, their true nature and why they exist. We then simplify the brand message we create in collaboration with the brand before amplifying it to the world. Through this method we build consistent brand systems that are both instantly recognisable and connected to contemporary culture.</p>
-      <p>We continually challenge our clients to stand out amidst increasing clutter in the global market with a clear purpose and a true connection to consumers. We achieve success through ongoing collaboration and co-creation, partnering up with our clients to solve not only communication issues, but real world business issues. Together we triumph. Let’s talk.</p>
+      <p>We like to keep things simple. To us, designing is about making sense of complex matters — translating them into world class digital products, brands and experiences, that make people happy and companies succeed.</p>
+      <p>We are a full-service agency, and at our offices in Copenhagen, San Francisco and Reykjavík, you’ll meet a tight knitted team —each one a specialist in their skill set, but with a curious mind for surrounding areas.</p>
+      <p>Throughout our 12 years, we’ve had the pleasure of challenging and redefining solid brands with both a history and an iconic status. We’ve also nursed fresh new faces with big ideas and eyes at the moon.</p>
+      <p>Our work is always authentic at heart, meaningful in spirit and crafted for impact.</p>
     </IntroText>
     <StyledCasesGrid onWhite />
     <InstagramFeed />

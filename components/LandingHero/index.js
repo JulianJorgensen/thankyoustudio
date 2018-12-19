@@ -230,7 +230,7 @@ export default class LandingSlide extends Component {
             preTitle={<StyledLogo />}
             title={<ClientCarousel isActive={props.isActive} />}
             titleAlt="You're welcome"
-            teaserText="We are a full-service studio, designing and crafting exceptional digital products, brands and meaningful experiences."
+            teaserText="We are a full-service agency that create world class digital products, brands and experiences."
             isActive={props.isActive}
             isLanding
             fontsLoaded
@@ -238,7 +238,7 @@ export default class LandingSlide extends Component {
             // fadeToBlack
           />
           <SlideVideo
-            video="//cdn.thankyoustudio.com/videos/THANK%20YOU%20teaser.mp4"
+            video="//cdn.thankyoustudio.com/videos/Homepage_cover_2.mp4"
             isActive={props.isMobile || props.isActive}
             isDirty
           />

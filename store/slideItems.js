@@ -15,7 +15,7 @@ export default [
     video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
     imageThumb: '//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
     mobile: {
-      video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
+      video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrai_cover_9_16.mp4',
     }
   },
   {
@@ -31,7 +31,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
     poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
+      video: "//cdn.thankyoustudio.com/videos/Swatch_skin_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",  
     }
   },
@@ -48,7 +48,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
     poster: "//cdn.thankyoustudio.com/cases/amazon/images/amazon-poster.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/cases/amazon/videos/amazon_CameraExplode.mp4",
+      video: "//cdn.thankyoustudio.com/cases/amazon/videos/Amazon_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
     }
   },
@@ -63,7 +63,7 @@ export default [
     imageThumb: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
     poster: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
     mobile: {
-      video: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
+      video: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/CD_cover_9_16.mp4',
       imageThumb: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg'  
     }
   },
@@ -78,7 +78,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-still.jpg",
     poster: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-poster.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/cases/universal-robots/videos/universal-robots-cover.mp4",
+      video: "//cdn.thankyoustudio.com/cases/universal-robots/videos/Universalrobots_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-still.jpg",  
     }
   },
@@ -93,7 +93,7 @@ export default [
     imageThumb: '//cdn.thankyoustudio.com/images/onea-cover.jpg',
     poster: '//cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',
     mobile: {
-      video: '//cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
+      video: '//cdn.thankyoustudio.com/cases/onea/videos/Onaa_cover_9_16.mp4',
       imageThumb: '//cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',  
     }
   },
@@ -110,7 +110,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
     poster: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
+      video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/Swatchscuba_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
     }
   },
@@ -125,7 +125,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     poster: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+      video: "//cdn.thankyoustudio.com/cases/gyldendal/video/Gyldendal_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
     }
   },
@@ -142,7 +142,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
     poster: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
+      video: "//cdn.thankyoustudio.com/cases/steelseries/videos/Steelseries_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",  
     }
   },
@@ -159,7 +159,7 @@ export default [
     imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
     poster: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
     mobile: {
-      video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
+      video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/Bundesliga_cover_9_16.mp4',
       imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
     }
   },
