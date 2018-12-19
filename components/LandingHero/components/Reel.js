@@ -63,7 +63,7 @@ export default class Reel extends Component {
             onStart={onStart}
             onReady={onReady}
             playing={play}
-            pip={play && !this.state.inView}
+            pip={true}
             width='100%'
             height='100%'
             controls

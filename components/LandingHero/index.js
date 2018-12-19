@@ -244,7 +244,7 @@ export default class LandingSlide extends Component {
           />
           <Content>
             <PlayReel
-              // onMouseEnter={this.handleLoadPlayer}
+              onMouseEnter={!store.isMobile && this.handleLoadPlayer}
               onClick={this.handleOnPlayClick}
               fontsLoaded={store.fontsLoaded}
               hide={!props.isActive}
