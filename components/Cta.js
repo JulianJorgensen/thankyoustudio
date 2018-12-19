@@ -49,11 +49,15 @@ const StyledChevronRight = styled(ChevronRight)`
   path {
     fill: ${props => props.whiteContent ? appleBlueDarkTheme : appleBlue};
   }
+
+  ${props => props.down && `
+    transform: rotate(90deg);
+  `}
 `
 
 export default ({ children, ...props}) => (
   <Wrapper {...props}>
     <Text whiteContent={props.whiteContent}>{children}</Text>
-    <StyledChevronRight whiteContent={props.whiteContent} />
+    <StyledChevronRight whiteContent={props.whiteContent} down={props.downArrow} />
   </Wrapper>
 );

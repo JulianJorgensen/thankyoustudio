@@ -147,6 +147,7 @@ export default class LandingSlide extends Component {
     this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
     this.setPlayerRef = this.setPlayerRef.bind(this);
     this.playReel = this.playReel.bind(this);
+    this.handleOnReady = this.handleOnReady.bind(this);
   }
 
   componentWillUpdate(newProps) {
@@ -168,8 +169,8 @@ export default class LandingSlide extends Component {
     if (this.state.playReel) return;
 
     this.checkPlayerRef = setInterval(() => {
-      // play the reel once the playerRef is defined
-      if (this.player) {
+      // play the reel once the player is ready
+      if (this.state.playerReady) {
         this.playReel();
         clearInterval(this.checkPlayerRef);
       }
@@ -212,6 +213,12 @@ export default class LandingSlide extends Component {
     this.player = player;
   }
 
+  handleOnReady() {
+    this.setState({
+      playerReady: true
+    });
+  }
+
   render() {
     const { store, ...props } = this.props;
     const { playReel, loadPlayer } = this.state;
@@ -248,7 +255,16 @@ export default class LandingSlide extends Component {
           </Content>
         </Inner>
 
-        {loadPlayer && <Reel ref={this.setPlayerRef} play={playReel} onEnded={this.handleCloseReel} onPause={this.handleCloseReel} onStart={this.handleOnPlayClick} /> }
+        {loadPlayer &&
+          <Reel
+            ref={this.setPlayerRef}
+            play={playReel}
+            onEnded={this.handleCloseReel}
+            onReady={this.handleOnReady}
+            onPause={this.handleCloseReel}
+            onStart={this.handleOnPlayClick}
+          />
+        }
         {playReel && <CloseReel onClick={this.handleCloseReel}><CloseIcon /></CloseReel>}
       </Wrapper>
     )

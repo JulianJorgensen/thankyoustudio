@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Vimeo from '@u-wave/react-vimeo';
+import Observer from 'react-intersection-observer';
 import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
@@ -35,23 +35,40 @@ const StyledReactPlayer = styled(ReactPlayer)`
 `
 
 export default class Reel extends Component {
+  constructor() {
+    super();
+    this.state = {};
+
+    this.handleOnVisibilityChange = this.handleOnVisibilityChange.bind(this);
+  }
+
+  handleOnVisibilityChange(inView) {
+    this.setState({
+      inView
+    });
+  }
+
   render() {
-    const { ref, play, onEnded, onPause, onStart } = this.props;
+    const { ref, play, onEnded, onPause, onStart, onReady } = this.props;
 
     return (
-      <Wrapper show={play}>
-        <StyledReactPlayer
-          ref={ref}
-          url='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
-          onEnded={onEnded}
-          onPause={onPause}
-          onStart={onStart}
-          playing={play}
-          width='100%'
-          height='100%'
-          controls
-        />
-      </Wrapper>
+      <Observer onChange={this.handleOnVisibilityChange}>
+        <Wrapper show={play}>
+          <StyledReactPlayer
+            ref={ref}
+            url='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+            onEnded={onEnded}
+            onPause={onPause}
+            onStart={onStart}
+            onReady={onReady}
+            playing={play}
+            pip={play && !this.state.inView}
+            width='100%'
+            height='100%'
+            controls
+          />
+        </Wrapper>
+      </Observer>
     )
   }
 }

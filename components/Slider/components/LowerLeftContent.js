@@ -249,6 +249,7 @@ export default class LowerLeftContent extends Component {
             hide={isLanding || !isActive || scrolledDown}
             whiteContent={whiteContent}
             onClick={this.triggerScrollDown}
+            downArrow
           >
             Read more
           </StyledCta>
