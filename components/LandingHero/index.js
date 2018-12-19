@@ -161,10 +161,10 @@ export default class LandingSlide extends Component {
     this.handleCloseReel();
   }
 
-  handleOnPlayClick() {
+  async handleOnPlayClick() {
     const { dispatch } = this.props;
 
-    this.handleLoadPlayer();
+    await this.handleLoadPlayer();
 
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
@@ -189,10 +189,11 @@ export default class LandingSlide extends Component {
     });
   }
 
-  handleLoadPlayer() {
+  async handleLoadPlayer() {
     this.setState({
       loadPlayer: true
     });
+    return true;
   }
 
   setPlayerRef(player) {
