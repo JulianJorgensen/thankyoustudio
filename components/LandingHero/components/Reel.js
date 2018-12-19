@@ -70,7 +70,7 @@ export default class Reel extends Component {
         <Wrapper show={play}>
           <StyledReactPlayer
             ref={ref}
-            url='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+            url='//cdn.thankyoustudio.com/videos/GENERAL_TY_REEL_FINAL_MASTER_Dec_18.mp4'
             onEnded={onEnded}
             onPause={onPause}
             onStart={onStart}
