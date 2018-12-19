@@ -79,21 +79,21 @@ const PlayReel = styled.div`
     pointer-events: none;
   `}
 
+  svg {
+    width: 120px;
+    height: 120px;
+    transition: transform 0.3s ease;
+  }
+
   ${breakpoint.up('m')`
     svg {
-      width: 120px;
-      height: 120px;
+      width: 170px;
+      height: 170px;
       transition: transform 0.3s ease;
     }
 
     &:hover svg {
       transform: scale(1.2);
-    }
-
-    svg {
-      width: 170px;
-      height: 170px;
-      transition: transform 0.3s ease;
     }
   `}
 `

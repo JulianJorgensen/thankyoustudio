@@ -42,6 +42,12 @@ export default class VimeoVideo extends Component {
       });
     }
 
+    if (inView && !playing) {
+      this.setState({
+        pauseVideo: false
+      });
+    }
+
     if (!inView && playing) {
       this.setState({
         pauseVideo: true
