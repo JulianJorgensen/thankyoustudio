@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
+import screenfull from 'screenfull';
 import styled from 'styled-components';
 import LowerleftContent from 'components/Slider/components/LowerLeftContent';
 import PlayIcon from 'assets/icons/Play_button_black.svg';
@@ -138,10 +140,12 @@ export default class LandingSlide extends Component {
   constructor() {
     super();
     this.state = {};
+    this.player = null;
 
     this.handleOnPlayClick = this.handleOnPlayClick.bind(this);
     this.handleCloseReel = this.handleCloseReel.bind(this);
     this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
+    this.setPlayerRef = this.setPlayerRef.bind(this);
   }
 
   componentWillUpdate(newProps) {
@@ -160,6 +164,10 @@ export default class LandingSlide extends Component {
   handleOnPlayClick() {
     const { dispatch } = this.props;
 
+    if (screenfull.enabled) {
+      screenfull.request(findDOMNode(this.player));
+    }
+
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
       playReel: true,
@@ -168,6 +176,10 @@ export default class LandingSlide extends Component {
 
   handleCloseReel() {
     const { dispatch, isActive } = this.props;
+
+    if (screenfull.enabled) {
+      screenfull.exit(findDOMNode(this.player));
+    }
 
     dispatch(actions.landingVideoPlaying(false));
     this.setState({
@@ -179,6 +191,10 @@ export default class LandingSlide extends Component {
     this.setState({
       loadPlayer: true
     });
+  }
+
+  setPlayerRef(player) {
+    this.player = player;
   }
 
   render() {
@@ -217,7 +233,7 @@ export default class LandingSlide extends Component {
           </Content>
         </Inner>
 
-        {loadPlayer && <Reel play={playReel} onEnded={this.handleCloseReel} onPause={this.handleCloseReel} onStart={this.handleOnPlayClick} />}
+        {loadPlayer && <Reel ref={this.setPlayerRef} play={playReel} onEnded={this.handleCloseReel} onPause={this.handleCloseReel} onStart={this.handleOnPlayClick} />}
         {playReel && <CloseReel onClick={this.handleCloseReel}><CloseIcon /></CloseReel>}
       </Wrapper>
     )
