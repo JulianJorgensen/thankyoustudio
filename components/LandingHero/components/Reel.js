@@ -7,15 +7,17 @@ import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 const Wrapper = styled.div`
   display: none;
   position: absolute;
-  width: 100vw;
-  height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+  transition: transform 0.2s ease;
+  transform: scale(0);
 
   ${breakpoint.m`
+    width: 100vw;
+    height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
     min-height: 100vh;
     min-width: 177.77vh; /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(1);
   `}
 
   ${props => props.show && `
