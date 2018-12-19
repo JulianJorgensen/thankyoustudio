@@ -99,6 +99,7 @@ const PlayReel = styled.div`
 `
 
 const PlayText = styled.div`
+  display: none;
   position: absolute;
   bottom: 0;
   opacity: 0;
@@ -111,6 +112,10 @@ const PlayText = styled.div`
     opacity: 1;
     transform: translateY(140%);
   }
+
+  ${breakpoint.m `
+    display: block;
+  `}
 `
 
 const CloseReel = styled.div`

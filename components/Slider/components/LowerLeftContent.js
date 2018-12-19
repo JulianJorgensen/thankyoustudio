@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   position: absolute;
   z-index: 98;
   left: ${LAYOUT.MOBILE.EDGE_MARGIN};
-  bottom: 120px;
+  bottom: 100px;
   width: 100%;
   max-width: calc(100vw - 40px);
   opacity: 0;
