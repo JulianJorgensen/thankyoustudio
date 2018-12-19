@@ -217,7 +217,7 @@ export default class LandingSlide extends Component {
           </Content>
         </Inner>
 
-        {loadPlayer && <Reel play={playReel} onEnded={this.handleCloseReel} />}
+        {loadPlayer && <Reel play={playReel} onEnded={this.handleCloseReel} onPause={this.handleCloseReel} />}
         {playReel && <CloseReel onClick={this.handleCloseReel}><CloseIcon /></CloseReel>}
       </Wrapper>
     )
