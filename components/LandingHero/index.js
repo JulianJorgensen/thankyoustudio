@@ -146,6 +146,7 @@ export default class LandingSlide extends Component {
     this.handleCloseReel = this.handleCloseReel.bind(this);
     this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
     this.setPlayerRef = this.setPlayerRef.bind(this);
+    this.playReel = this.playReel.bind(this);
   }
 
   componentWillUpdate(newProps) {
@@ -167,15 +168,19 @@ export default class LandingSlide extends Component {
     this.handleLoadPlayer();
 
     setTimeout(() => {
-      dispatch(actions.landingVideoPlaying(true));
-      this.setState({
-        playReel: true,
-      });
-  
-      if (screenfull.enabled) {
-        screenfull.request(findDOMNode(this.player));
-      }  
-    }, 500);
+      this.playReel();
+    }, 200);
+  }
+
+  playReel() {
+    dispatch(actions.landingVideoPlaying(true));
+    this.setState({
+      playReel: true,
+    });
+
+    if (screenfull.enabled) {
+      screenfull.request(findDOMNode(this.player));
+    }
   }
 
   handleCloseReel() {
