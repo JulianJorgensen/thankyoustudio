@@ -44,6 +44,7 @@ const Wrapper = styled.div`
     transition-duration: 0.5s;
 
     &:before {
+      display: ${props.isLandingVideoPlaying ? 'none' : 'block'};
       content: '';
       position: fixed;
       top: 0;
@@ -64,19 +65,11 @@ const Wrapper = styled.div`
   `}
 
   ${props => props.isNext && breakpoint.m`
-    width: ${props.showNextSlide ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
+    width: ${props.showNextSlide && !props.isLandingVideoPlaying ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
   `}
 
   ${props => props.isNext && props.isSliding && `
     pointer-events: none;
-  `}
-
-  ${props => props.isNext && props.isLandingVideoPlaying && `
-    width: 0;
-
-    &:before {
-      display: none;
-    }
   `}
 
   background: ${props => props.background ? props.background : ''};
