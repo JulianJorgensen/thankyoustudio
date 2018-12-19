@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   position: absolute;
   transition: transform 0.2s ease;
   transform: scale(0);
+  background-color: black;
 
   ${breakpoint.m`
     width: 100vw;
