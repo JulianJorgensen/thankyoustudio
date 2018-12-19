@@ -164,6 +164,8 @@ export default class LandingSlide extends Component {
   handleOnPlayClick() {
     const { dispatch } = this.props;
 
+    this.handleLoadPlayer();
+
     if (screenfull.enabled) {
       screenfull.request(findDOMNode(this.player));
     }
