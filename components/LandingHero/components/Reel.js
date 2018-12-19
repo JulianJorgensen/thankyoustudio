@@ -31,7 +31,7 @@ const StyledReactPlayer = styled(ReactPlayer)`
 
 export default class Reel extends Component {
   render() {
-    const { play, onEnded, onPause } = this.props;
+    const { play, onEnded, onPause, onStart } = this.props;
 
     return (
       <Wrapper show={play}>
@@ -39,6 +39,7 @@ export default class Reel extends Component {
           url='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
           onEnded={onEnded}
           onPause={onPause}
+          onStart={onStart}
           playing={play}
           width='100%'
           height='100%'
