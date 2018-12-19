@@ -75,7 +75,7 @@ export default class VimeoVideo extends Component {
 
     return (
       <Wrapper className={className}>
-        <Observer {...props} tag="div" onChange={this.handleOnVisibilityChange}>
+        <Observer {...props} onChange={this.handleOnVisibilityChange}>
           <Video
             video={vimeoId}
             paused={pauseVideo}
