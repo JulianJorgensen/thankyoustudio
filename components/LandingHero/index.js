@@ -175,13 +175,14 @@ export default class LandingSlide extends Component {
   }
 
   playReel() {
-    const { dispatch } = this.props;
+    const { dispatch, store } = this.props;
     dispatch(actions.landingVideoPlaying(true));
     this.setState({
       playReel: true,
     });
 
-    if (screenfull.enabled) {
+    // play in fullscreen
+    if (store.isMobile && screenfull.enabled) {
       screenfull.request(findDOMNode(this.player));
     }
   }

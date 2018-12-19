@@ -5,9 +5,9 @@ import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
-  display: none;
+  opacity: 0;
   position: absolute;
-  transition: transform 0.2s ease;
+  transition: all 0.2s ease;
   transform: scale(0);
   background-color: black;
 
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
   `}
 
   ${props => props.show && `
-    display: block;
+    opacity: 1;
   `}
 `
 
