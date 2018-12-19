@@ -165,11 +165,13 @@ export default class LandingSlide extends Component {
   handleOnPlayClick() {
     this.handleLoadPlayer();
 
+    if (this.state.playReel) return;
+
     this.checkPlayerRef = setInterval(() => {
       // play the reel once the playerRef is defined
       if (this.player) {
-        clearInterval(this.checkPlayerRef);
         this.playReel();
+        clearInterval(this.checkPlayerRef);
       }
     }, 30);
   }
