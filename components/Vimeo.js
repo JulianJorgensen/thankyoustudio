@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
 import Vimeo from '@u-wave/react-vimeo';
 import styled from 'styled-components';
@@ -25,6 +26,9 @@ const Video = styled(Vimeo)`
   }
 `
 
+@connect((store) => ({
+  store,
+}))
 export default class VimeoVideo extends Component {
   constructor() {
     super();
@@ -46,7 +50,7 @@ export default class VimeoVideo extends Component {
       });
     }
 
-    if (inView && !playing) {
+    if (inView && !playing && !this.props.store.isMobile) {
       this.setState({
         pauseVideo: false
       });

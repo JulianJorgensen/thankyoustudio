@@ -162,7 +162,6 @@ export default class LowerLeftContent extends Component {
   toggleScrollEventListener() {
     // disable animation on mobile
     if (this.props.store.isMobile) return;
-    console.log('this.props.store.isMobile', this.props.store.isMobile)
 
     if (this.props.isActive) {
       document.addEventListener('scroll', this.handleOnScroll);
@@ -226,7 +225,7 @@ export default class LowerLeftContent extends Component {
   }
 
   triggerScrollDown() {
-    scroll.scrollTo(window.innerHeight + 100, {
+    scroll.scrollTo(this.props.store.isMobile ? window.innerHeight/2 : window.innerHeight + 100, {
       smooth: "easeInOutQuint"
     });
   }

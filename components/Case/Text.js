@@ -43,7 +43,7 @@ const StyledText = styled(Text)`
 
 export default ({ children, columnStart, ...props }) => (
   <Wrapper columnStart={columnStart} topPadding={props.topPadding} bottomPadding={props.bottomPadding}>
-    <LazyShow delay={200}>
+    <LazyShow noAnimation={props.intro}>
       <StyledText {...props}>
         {children}
       </StyledText>
