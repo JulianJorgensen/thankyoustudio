@@ -12,7 +12,6 @@ import { isProd, TRACKING } from 'utils/variables';
 @connect()
 export default class Layout extends Component {
   componentDidMount() {
-    console.log('mounting LAyout !!!')
     // require polyfill for intersection observer only in client side
     require('intersection-observer');
 
