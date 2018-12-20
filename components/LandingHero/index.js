@@ -110,6 +110,7 @@ const PlayText = styled.div`
   transition: all 0.3s ease;
   width: 200px;
   text-align: center;
+  color: black;
 
   ${PlayReel}:hover & {
     opacity: 1;

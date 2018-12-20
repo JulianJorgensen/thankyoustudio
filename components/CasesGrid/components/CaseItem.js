@@ -86,7 +86,7 @@ const Tag = styled.li`
 
 export default ({ slug, title, tags, bgImage, delay, animateFromLeft, noAnimation, onMouseEnter, ...props }) => (
   <LazyShow animateFromLeft={animateFromLeft} noAnimation={noAnimation} delay={delay}>
-    <Wrapper onMouseEnter={() => { !props.isMobile && console.log('prefetch slug'); Router.prefetch(`/${slug}`) }}>
+    <Wrapper onMouseEnter={() => { !props.isMobile && Router.prefetch(`/${slug}`) }}>
         <ImageWrapper href={`/work/${slug}`} {...props}>
           <Title>{title}</Title>
           <StyledImage src={bgImage} />

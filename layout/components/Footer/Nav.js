@@ -6,9 +6,13 @@ import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Nav = styled.nav`
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: 40px;
   margin-bottom: 20px;
+
+  ${breakpoint.m `
+    justify-content: flex-end;
+  `}
 `
 
 const NavItem = styled.div`

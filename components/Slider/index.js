@@ -232,7 +232,8 @@ export default class FancySlider extends Component {
       hasMouseLeftNextSlide,
       fontsLoaded,
       navColor,
-      isLandingVideoPlaying
+      isLandingVideoPlaying,
+      isMobile
     } = this.props.store;
 
     if (!activeSlide) return null;
@@ -295,6 +296,7 @@ export default class FancySlider extends Component {
                     fontsLoaded={fontsLoaded}
                     showNextSlide={isNext && this.state.showNextSlide}
                     isFirstWorkSlide={i === 1}
+                    isMobile={isMobile}
                   />
                 )
               })
