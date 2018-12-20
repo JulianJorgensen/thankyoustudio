@@ -64,6 +64,7 @@ const Title = styled.h1`
 `
 
 const TitleAlt = styled(Title)`
+  display: none;
   position: absolute;
   opacity: 0;
   transform: translateX(100px) translateY(-100%);
@@ -71,6 +72,10 @@ const TitleAlt = styled(Title)`
   ${props => props.show && `
     opacity: 1;
     transform: translateX(0) translateY(-100%);
+  `}
+
+  ${breakpoint.m `
+    display: block;
   `}
 `
 
@@ -157,6 +162,7 @@ export default class LowerLeftContent extends Component {
   toggleScrollEventListener() {
     // disable animation on mobile
     if (this.props.store.isMobile) return;
+    console.log('this.props.store.isMobile', this.props.store.isMobile)
 
     if (this.props.isActive) {
       document.addEventListener('scroll', this.handleOnScroll);
