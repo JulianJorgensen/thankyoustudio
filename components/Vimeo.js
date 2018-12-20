@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
+import dynamic from 'next/dynamic';
 import Vimeo from '@u-wave/react-vimeo';
-import Observer from 'react-intersection-observer';
 import styled from 'styled-components';
+
+const Observer = dynamic(import('react-intersection-observer'), {
+  ssr: false
+});
 
 const Wrapper = styled.div`
 `

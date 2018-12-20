@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import Observer from 'react-intersection-observer';
+import dynamic from 'next/dynamic';
 import ReactPlayer from 'react-player/lib/players/Vimeo.js';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
+
+const Observer = dynamic(import('react-intersection-observer'), {
+  ssr: false
+});
 
 const Wrapper = styled.div`
   opacity: 0;
