@@ -7,6 +7,7 @@ import styled from 'styled-components';
 import LowerleftContent from 'components/Slider/components/LowerLeftContent';
 import PlayIcon from 'assets/icons/Play_button_black.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
+import PlayReelMaskSvg from 'assets/svgs/play-reel-mask.svg';
 import Logo from 'components/Logo';
 import * as actions from 'store/actions';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
@@ -73,31 +74,11 @@ const PlayReel = styled.div`
   font-size: 26px;
   transition: opacity 0.2s;
   top: -56px; // this is a hack to compensate for mobile overlayed navigation
-
-  display: none;
+  max-width: 80vw;
 
   ${props => props.hide && `
     opacity: 0;
     pointer-events: none;
-  `}
-
-  svg {
-    width: 120px;
-    height: 120px;
-    transition: transform 0.3s ease;
-  }
-
-  ${breakpoint.up('m')`
-    display: block;
-    svg {
-      width: 170px;
-      height: 170px;
-      transition: transform 0.3s ease;
-    }
-
-    &:hover svg {
-      transform: scale(1.2);
-    }
   `}
 `
 
@@ -143,6 +124,17 @@ const StyledLogo = styled(Logo)`
   font-size: inherit;
 `
 
+const Teaser = styled.video`
+  width: 100%;
+`
+
+const PlayReelMask = styled(PlayReelMaskSvg)`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform: scale(1.05);
+`
+
 @connect((store) => ({
   store,
 }))
@@ -160,20 +152,8 @@ export default class LandingSlide extends Component {
     this.handleOnReady = this.handleOnReady.bind(this);
   }
 
-  componentWillUpdate(newProps) {
-    const { isActive, store } = this.props;
-    const wasActive = (this.props.isActive && !newProps.isActive) || (!store.condenseSlider && newProps.store.condenseSlider);
-
-    if (wasActive) {
-      this.handleCloseReel();
-    }
-  }
-
-  componentWillUnmount() {
-    this.handleCloseReel();
-  }
-
   handleOnPlayClick() {
+    console.log('handleOnPlayClick');
     this.handleLoadPlayer();
 
     if (this.state.playReel) return;
@@ -202,7 +182,7 @@ export default class LandingSlide extends Component {
 
   handleCloseReel() {
     const { dispatch, isActive } = this.props;
-
+    console.log('handleCloseReel');
     if (screenfull.enabled) {
       screenfull.exit(findDOMNode(this.player));
     }
@@ -220,6 +200,7 @@ export default class LandingSlide extends Component {
   }
 
   setPlayerRef(player) {
+    console.log('setting playerref')
     this.player = player;
   }
 
@@ -259,8 +240,10 @@ export default class LandingSlide extends Component {
               fontsLoaded={store.fontsLoaded}
               hide={!props.isActive}
             >
-              <PlayIcon />
-              <PlayText>Play reel</PlayText>
+                <PlayReelMask />
+                <Teaser autoPlay playsInline muted loop>
+                  <source src="//cdn.thankyoustudio.com/videos/teaser-reel-small.mp4" type="video/mp4" />
+                </Teaser>
             </PlayReel>
           </Content>
         </Inner>

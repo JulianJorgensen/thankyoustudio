@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   opacity: 0;
   position: absolute;
   transition: all 0.2s ease;
-  transform: scale(0);
   background-color: black;
 
   ${breakpoint.m`
