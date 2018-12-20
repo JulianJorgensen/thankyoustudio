@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Observer from 'react-intersection-observer';
-import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
+import ReactPlayer from 'react-player/lib/players/Vimeo.js';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
@@ -70,7 +70,7 @@ export default class Reel extends Component {
         <Wrapper show={play}>
           <StyledReactPlayer
             ref={ref}
-            url='//cdn.thankyoustudio.com/videos/GENERAL_TY_REEL_FINAL_MASTER_Dec_18.mp4'
+            url='https://vimeo.com/306390266'
             onEnded={onEnded}
             onPause={onPause}
             onStart={onStart}
