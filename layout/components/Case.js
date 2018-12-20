@@ -15,7 +15,7 @@ const MobileHero = dynamic(import('components/MobileHero'));
 const Wrapper = styled.div`
   position: absolute;
   width: 100%;
-  background-color: #fafafa;
+  background-color: white;
   top: ${LAYOUT.MOBILE.HERO_HEIGHT};
 
   ${media.tablet`

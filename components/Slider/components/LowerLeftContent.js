@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   position: absolute;
   z-index: 98;
   left: ${LAYOUT.MOBILE.EDGE_MARGIN};
-  bottom: 30px;
+  bottom: ${LAYOUT.MOBILE.EDGE_MARGIN};
   width: 100%;
   max-width: calc(100vw - 40px);
   opacity: 0;
@@ -44,11 +44,8 @@ const Header = styled.div`
 `
 
 const Title = styled.h1`
-  position: absolute;
-  top: 0;
   display: flex;
   align-items: flex-end;
-  height: 80px;
   pointer-events: none;
 
   color: inherit;
@@ -56,15 +53,12 @@ const Title = styled.h1`
   transition-property: opacity, transform;
   transition-duration: 0.3s;
   transition-timing-function: ease;
-  transform: translateY(-100%);
 
   ${props => props.hide && `
     opacity: 0;
-    transform: translateX(-100px) translateY(-100%);
   `}
 
   ${breakpoint.up('m')`
-    height: 150px;
     margin-left: -4px;
   `}
 `
@@ -81,10 +75,14 @@ const TitleAlt = styled(Title)`
 `
 
 const TeaserText = styled(Text)`
-  margin: 20px 0 10px;
+  margin: 0 0 10px;
   opacity: 1;
   transition: opacity 0.2s;
   pointer-events: none;
+
+  p {
+    margin: 0;
+  }
 
   ${breakpoint.up('m')`
     max-width: 50vw;
@@ -92,25 +90,32 @@ const TeaserText = styled(Text)`
 `
 
 const StyledCta = styled(Cta)`
+  display: ${props => props.hide ? 'none' : 'block'};
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
   pointer-events: auto;
   transition: opacity 0.2s ease;
+
+  ${breakpoint.m `
+    display: block;
+  `}
 `
 
 const TopCta = styled(StyledCta)`
   position: absolute;
-  top: -90px;
+  top: -32px;
 `
 
 const PreTitle = styled(Title)`
-  position: absolute;
-  top: 0;
-  transform: translateY(-150%);
+  display: none;
   transition: opacity 0.3s ease;
 
   ${props => props.hide && `
     opacity: 0;
+  `}
+
+  ${breakpoint.m `
+    display: block;
   `}
 `
 
@@ -237,7 +242,7 @@ export default class LowerLeftContent extends Component {
             {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
             <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
-            <TeaserText bold isNext={isNext}><p>{teaserText}</p></TeaserText>
+            <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
           </Header>
           <StyledCta 
             hide={isLanding || !isActive || scrolledDown}

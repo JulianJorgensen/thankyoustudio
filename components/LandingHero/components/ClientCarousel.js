@@ -28,16 +28,10 @@ const clientTitles = [
 ];
 
 const List = styled.ul`
-  position: absolute;
-  bottom: 0;
   display: flex;
   align-items: flex-end;
-  height: 80px;
   width: 90vw;
-
-  ${breakpoint.up('m')`
-    height: 150px;
-  `}
+  height: 80px;
 `
 
 const TitleItem = styled.li`

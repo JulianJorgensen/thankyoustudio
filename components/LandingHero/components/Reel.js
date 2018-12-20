@@ -70,7 +70,7 @@ export default class Reel extends Component {
         <Wrapper show={play}>
           <StyledReactPlayer
             ref={ref}
-            url='https://vimeo.com/306390266'
+            url='https://vimeo.com/307493850'
             onEnded={onEnded}
             onPause={onPause}
             onStart={onStart}

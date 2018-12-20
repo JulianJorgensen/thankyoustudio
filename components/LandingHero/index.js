@@ -9,7 +9,7 @@ import PlayIcon from 'assets/icons/Play_button_black.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import Logo from 'components/Logo';
 import * as actions from 'store/actions';
-import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
+import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 import ClientCarousel from './components/ClientCarousel';
 import SlideVideo from 'components/Slider/components/SlideVideo';
 
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: ${LAYOUT.MOBILE.HERO_HEIGHT};
   width: 100%;
   background-color: white;
   color: white;

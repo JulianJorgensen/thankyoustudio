@@ -34,7 +34,7 @@ export const LAYOUT = {
   MOBILE: {
     EDGE_MARGIN: '10px',
     HEADER_DISAPPEAR: 0,
-    HERO_HEIGHT: '100vh'
+    HERO_HEIGHT: '70vh'
   }
 }
 

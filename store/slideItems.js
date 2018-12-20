@@ -1,6 +1,7 @@
 export default [
   {
     slug: "",
+    isLanding: true,
     // whiteContent: true
   },
   {
