@@ -23,13 +23,14 @@ const VideoWrapper = styled.div`
 
 const Video = styled.video`
   min-height: ${LAYOUT.MOBILE.HERO_HEIGHT};
-  min-width: 100vw;
+  min-width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 
   ${breakpoint.up('m')`
+    min-width: 100vw;
     min-height: 100vh;
   `}
 `

@@ -74,6 +74,8 @@ const PlayReel = styled.div`
   transition: opacity 0.2s;
   top: -56px; // this is a hack to compensate for mobile overlayed navigation
 
+  display: none;
+
   ${props => props.hide && `
     opacity: 0;
     pointer-events: none;
@@ -86,6 +88,7 @@ const PlayReel = styled.div`
   }
 
   ${breakpoint.up('m')`
+    display: block;
     svg {
       width: 170px;
       height: 170px;

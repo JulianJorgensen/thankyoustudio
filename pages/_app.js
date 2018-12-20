@@ -19,15 +19,6 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  ::selection {
-    color: black;
-    background-color: #EDEDED;
-  }
-  ::-moz-selection {
-    color: black;
-    background-color: #EDEDED;
-  }
-
   a {
     color: inherit;
     text-decoration: none;
@@ -61,12 +52,6 @@ const GlobalStyle = createGlobalStyle`
     ${breakpoint.up('m')`
       font-size: 34px;
     `}
-  }
-
-  p {
-    font-size: 22px;
-    line-height: 34px;
-    letter-spacing: -1px
   }
 
   ul {
