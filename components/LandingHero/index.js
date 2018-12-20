@@ -118,6 +118,7 @@ const PlayText = styled.div`
 
   ${breakpoint.m `
     display: block;
+    width: 100%;
   `}
 `
 
