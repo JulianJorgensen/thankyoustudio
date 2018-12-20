@@ -33,6 +33,7 @@
     "next-fonts": "^0.10.0",
     "next-images": "^0.10.6",
     "next-page-transitions": "^1.0.0-alpha.4",
+    "next-redux-wrapper": "^2.1.0",
     "nodemailer": "^4.7.0",
     "nodemailer-mailgun-transport": "^1.4.0",
     "prop-types": "^15.6.2",
