@@ -16,7 +16,7 @@ const Content = styled.div`
 export default (props) => (
   <DefaultPage title="About" {...props}>
     <Content>
-      <h1>Good design is good business</h1>
+      <h2>Good design is good business</h2>
       <AboutCopy />
     </Content>
   </DefaultPage>
