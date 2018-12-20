@@ -22,7 +22,7 @@ const NavItem = styled.div`
 
 export default () => (
   <Nav>
-    <NavItem onMouseEnter={() => Router.prefetch('/ventures')}><Link href="/ventures"><a>Ventures</a></Link></NavItem>
+    {/* <NavItem onMouseEnter={() => Router.prefetch('/ventures')}><Link href="/ventures"><a>Ventures</a></Link></NavItem> */}
     <NavItem onMouseEnter={() => Router.prefetch('/work')}><Link href="/work"><a>Work</a></Link></NavItem>
     <NavItem onMouseEnter={() => Router.prefetch('/about')}><Link href="/about"><a>About</a></Link></NavItem>
     <NavItem onMouseEnter={() => Router.prefetch('/contact')}><Link href="/contact"><a>Contact</a></Link></NavItem>
