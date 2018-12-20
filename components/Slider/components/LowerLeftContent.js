@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { animateScroll as scroll } from 'react-scroll';
 import { breakpoint, HERO, LAYOUT, FONTS, TIMINGS } from 'utils/variables';
-import media from 'utils/mediaQueries';
-import ChevronDown from 'assets/icons/FontAwesome/regular/chevron-down.svg';
 import Text from 'components/Typography/Text';
 import Cta from 'components/Cta';
 
@@ -152,6 +150,9 @@ export default class LowerLeftContent extends Component {
   }
 
   toggleScrollEventListener() {
+    // disable animation on mobile
+    if (this.props.store.isMobile) return;
+
     if (this.props.isActive) {
       document.addEventListener('scroll', this.handleOnScroll);
     } else {

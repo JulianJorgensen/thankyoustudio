@@ -6,7 +6,8 @@ import reducer from './reducers';
 export const initialState = {
   hasMouseLeftNextSlide: true,
   slider: {
-  }
+  },
+  isMobile: true
 };
 
 export function initializeStore () {

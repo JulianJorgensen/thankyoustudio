@@ -13,7 +13,7 @@ const StyledCasesGrid = styled(CasesGrid)`
 `
 
 const StyledAboutCopy = styled(AboutCopy)`
-  margin: 230px ${LAYOUT.MOBILE.EDGE_MARGIN} 60px;
+  margin: 0px ${LAYOUT.MOBILE.EDGE_MARGIN} 60px;
 
   ${breakpoint.up('m')`
     margin: 310px ${LAYOUT.EDGE_MARGIN} 0;
@@ -23,7 +23,7 @@ const StyledAboutCopy = styled(AboutCopy)`
 export default (props) => (
   <Case isLanding {...props}>
     <StyledAboutCopy />
-    <StyledCasesGrid onWhite />
+    <StyledCasesGrid  isMobile={props.isMobile} onWhite />
     <InstagramFeed />
   </Case>
 )

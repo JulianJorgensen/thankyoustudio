@@ -86,10 +86,6 @@ export default class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    if (pageProps.store) {
-      pageProps.store.dispatch(actions.setIsMobile(isMobile));
-    }
-
     return { pageProps, isMobile };
   }
 

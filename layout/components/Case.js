@@ -95,7 +95,7 @@ export default class Case extends Component {
             {!isLanding && 
               <div>
                 <CasesGridTitle>Other cases</CasesGridTitle>
-                <CasesGrid onWhite />
+                <CasesGrid isMobile={isMobile} onWhite />
               </div>
             }
           </Content>

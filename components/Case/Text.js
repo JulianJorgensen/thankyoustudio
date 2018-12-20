@@ -30,7 +30,7 @@ const StyledText = styled(Text)`
   `}
 
   ${props => props.intro && `
-    padding: 180px ${LAYOUT.MOBILE.EDGE_MARGIN} 30px;
+    padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN} 30px;
   `}
 
   ${props => props.intro && breakpoint.up('m')`

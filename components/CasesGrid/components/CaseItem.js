@@ -1,5 +1,6 @@
 import React from 'react';
 import Router from 'next/router';
+import { connect } from 'react-redux';
 import styled from 'styled-components';
 import LazyShow from 'components/lazyShow';
 import Link from 'components/Link';
@@ -85,7 +86,7 @@ const Tag = styled.li`
 
 export default ({ slug, title, tags, bgImage, delay, animateFromLeft, noAnimation, onMouseEnter, ...props }) => (
   <LazyShow animateFromLeft={animateFromLeft} noAnimation={noAnimation} delay={delay}>
-    <Wrapper onMouseEnter={() => Router.prefetch(`/${slug}`)}>
+    <Wrapper onMouseEnter={() => { !props.isMobile && console.log('prefetch slug'); Router.prefetch(`/${slug}`) }}>
         <ImageWrapper href={`/work/${slug}`} {...props}>
           <Title>{title}</Title>
           <StyledImage src={bgImage} />

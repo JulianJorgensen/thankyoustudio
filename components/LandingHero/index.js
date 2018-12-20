@@ -246,11 +246,11 @@ export default class LandingSlide extends Component {
             // whiteContent
             // fadeToBlack
           />
-          <SlideVideo
+          {/* <SlideVideo
             video="//cdn.thankyoustudio.com/videos/Homepage_cover_2.mp4"
             isActive={props.isMobile || props.isActive}
             isDirty
-          />
+          /> */}
           <Content>
             <PlayReel
               onMouseEnter={!store.isMobile && this.handleLoadPlayer}
