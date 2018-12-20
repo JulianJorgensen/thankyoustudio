@@ -35,7 +35,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Video src="//cdn.thankyoustudio.com/cases/swatch-skin/swatch_timessquare.mp4" />
+      <Video lazy src="//cdn.thankyoustudio.com/cases/swatch-skin/swatch_timessquare.mp4" />
     </Grid>
 
     <Grid ratio="2x3">

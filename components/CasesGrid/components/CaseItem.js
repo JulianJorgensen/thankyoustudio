@@ -8,10 +8,10 @@ import Image from 'components/Image';
 import { EASINGS, breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
-  margin-bottom: 15px;
+  // margin-bottom: 15px;
 
   ${breakpoint.up('m')`
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
   `}
 `
 
@@ -85,18 +85,18 @@ const Tag = styled.li`
 `
 
 export default ({ slug, title, tags, bgImage, delay, animateFromLeft, noAnimation, onMouseEnter, ...props }) => (
-  <LazyShow animateFromLeft={animateFromLeft} noAnimation={noAnimation} delay={delay}>
     <Wrapper onMouseEnter={() => { !props.isMobile && Router.prefetch(`/${slug}`) }}>
         <ImageWrapper href={`/work/${slug}`} {...props}>
-          <Title>{title}</Title>
-          <StyledImage src={bgImage} />
+          <LazyShow animateFromLeft={animateFromLeft} noAnimation={noAnimation} delay={delay}>
+            <Title>{title}</Title>
+            <StyledImage src={bgImage} />
+          </LazyShow>
         </ImageWrapper>
 
-        <Tags whitecontent={props.whiteContent}>
+        {/* <Tags whitecontent={props.whiteContent}>
           {tags.map(tag => (
             <Tag key={tag}>{tag}</Tag>
           ))}
-        </Tags>
+        </Tags> */}
     </Wrapper>
-  </LazyShow>
 )
