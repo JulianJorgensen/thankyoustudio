@@ -87,6 +87,7 @@ export default class MyApp extends App {
     }
 
     ctx.reduxStore.dispatch(actions.setIsMobile(isMobile));
+    console.log('ismobile from server', isMobile);
 
     return { pageProps, isMobile };
   }

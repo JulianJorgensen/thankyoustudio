@@ -23,8 +23,8 @@ const Wrapper = styled.div`
     opacity: 1;
   `}
 
-  ${breakpoint.up('m')`
-    width: 50vw;
+  ${breakpoint.m `
+    width: 80vw;
     left: 40px;
     bottom: 40px;
   `}
@@ -85,19 +85,19 @@ const TeaserText = styled(Text)`
   }
 
   ${breakpoint.up('m')`
-    max-width: 50vw;
+    max-width: 700px;
   `}
 `
 
 const StyledCta = styled(Cta)`
-  display: ${props => props.hide ? 'none' : 'block'};
+  display: ${props => props.hide ? 'none' : 'flex'};
   opacity: ${props => props.hide ? '0' : '1'};
   cursor: pointer;
   pointer-events: auto;
   transition: opacity 0.2s ease;
 
   ${breakpoint.m `
-    display: block;
+    display: flex;
   `}
 `
 

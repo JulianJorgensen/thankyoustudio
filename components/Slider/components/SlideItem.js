@@ -4,18 +4,22 @@ import { TweenLite } from 'gsap';
 import throttle from 'lodash.throttle';
 import LandingSlide from 'components/LandingHero';
 import WorkSlide from './WorkSlide';
-import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
+import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  height: 100%;
+  height: ${LAYOUT.MOBILE.HERO_HEIGHT};
   transition: width ${TIMINGS.SLIDE_ITEM_WRAPPER} ${EASINGS.EASE_IN_OUT_CUSTOM};
   opacity: 0;
   width: 0;
   pointer-events: none;
   overflow: hidden;
+
+  ${breakpoint.m `
+    height: ${LAYOUT.HERO_HEIGHT};
+  `}
 
   ${props => props.isActive && `
     position: absolute;
