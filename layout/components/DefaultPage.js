@@ -79,7 +79,7 @@ export default class DefaultPage extends Component {
         }
 
         .fade-exit-active.default-page.slider-is-active {
-          transform: translateX(-100%);
+          transform: translateX(100%);
           transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-in;
           z-index: 6;
         }
@@ -88,12 +88,7 @@ export default class DefaultPage extends Component {
 
         .fade-enter-active.default-page .content,
         .fade-enter-done.default-page .content {
-          transition: transform 0.8s ease-out, opacity 0.3s ease-out;
-        }
-
-        .fade-exit-active.default-page .content,
-        .fade-exit-done.default-page .content {
-          transition: transform 0.3s ease-in, opacity 0.2s ease-in;
+          transition: transform 0.4s ease-out, opacity 0.3s ease-out;
         }
 
         .fade-enter.default-page .content {
@@ -136,7 +131,7 @@ export default class DefaultPage extends Component {
           {children}
         </Content>
         <Footer />
-        {!isMobile && renderPageTransitionStyles()}
+        {renderPageTransitionStyles()}
       </Wrapper>
     )
   }
