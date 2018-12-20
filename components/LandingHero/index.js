@@ -238,7 +238,7 @@ export default class LandingSlide extends Component {
             preTitle={<StyledLogo />}
             title={<ClientCarousel isActive={props.isActive} />}
             titleAlt="You're welcome"
-            teaserText="We are a full-service agency that create world class digital products, brands and experiences."
+            teaserText="We are a full-service studio that create unique digital products, brands and experiences."
             isActive={props.isActive}
             isLanding
             fontsLoaded

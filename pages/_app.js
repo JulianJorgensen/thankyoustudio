@@ -30,9 +30,13 @@ const GlobalStyle = createGlobalStyle`
 
   h1 {
     font-size: 40px;
-
+    line-height: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+ 
     ${breakpoint.up('m')`
-      font-size: 70px;
+      font-size: 75px;
+      line-height: 75px;
     `}
   }
 

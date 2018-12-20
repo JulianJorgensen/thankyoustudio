@@ -47,11 +47,6 @@ export default class Contact extends Component {
             <Email href="mailto:info@thankyoustudio.com">info@thankyoustudio.com</Email>
             <Phone>+45 5214 0000</Phone>
             <StyledLocations />
-
-            <Careers>
-              <h3>Thinking of joining?</h3>
-              <p>We collaborate with smart, creative makers.<br />Your ideas and energy shape our culture and you’ll thrive in an environment that values great work and having fun.<br /><a href="mailto:jobs@thankyoustudio.com">jobs@thankyoustudio.com</a></p>
-            </Careers>
         </Content>
       </DefaultPage>
     )

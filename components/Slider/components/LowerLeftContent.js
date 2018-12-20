@@ -53,11 +53,6 @@ const Title = styled.h1`
   height: 80px;
   pointer-events: none;
 
-  font-size: 40px;
-  line-height: 40px;
-  font-weight: 800;
-  font-family: ${FONTS.PRIMARY};
-  text-transform: uppercase;
   color: inherit;
   opacity: 1;
   transition-property: opacity, transform;
@@ -73,8 +68,6 @@ const Title = styled.h1`
   ${breakpoint.up('m')`
     height: 150px;
     margin-left: -4px;
-    font-size: 75px;
-    line-height: 75px;
   `}
 `
 
