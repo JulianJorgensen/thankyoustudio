@@ -30,8 +30,8 @@ export const FONTS = {
 export const LAYOUT = {
   CONTAINER_WIDTH: '1100px',
   EDGE_MARGIN: '40px',
-  HEADER_DISAPPEAR: 300,
   HERO_HEIGHT: '100vh',
+  HEADER_DISAPPEAR: 300,
   MOBILE: {
     EDGE_MARGIN: '10px',
     HEADER_DISAPPEAR: 0,

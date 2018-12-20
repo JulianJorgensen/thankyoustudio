@@ -136,7 +136,7 @@ export default class DefaultPage extends Component {
           {children}
         </Content>
         <Footer />
-        {renderPageTransitionStyles()}
+        {!isMobile && renderPageTransitionStyles()}
       </Wrapper>
     )
   }

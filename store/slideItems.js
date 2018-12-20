@@ -40,7 +40,7 @@ export default [
     slug: "amazon",
     title: "Amazon",
     teaserText: "Building a product from A-Z",
-    introText: "",
+    introText: " ",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "black",
     whiteContent: true,

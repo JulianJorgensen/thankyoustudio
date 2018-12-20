@@ -12,6 +12,7 @@ import { isProd, TRACKING } from 'utils/variables';
 @connect()
 export default class Layout extends Component {
   componentDidMount() {
+    console.log('mounting LAyout !!!')
     // require polyfill for intersection observer only in client side
     require('intersection-observer');
 
@@ -20,7 +21,6 @@ export default class Layout extends Component {
 
     // HOTJAR Site tracking
     if (isProd) {
-      console.log('HOTJAR running!');
       hotjar.initialize(TRACKING.HOTJAR_ID, 6);
     }
   }

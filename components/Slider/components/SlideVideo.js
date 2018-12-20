@@ -17,7 +17,7 @@ const VideoWrapper = styled.div`
   height: ${LAYOUT.MOBILE.HERO_HEIGHT};
 
   ${breakpoint.up('m')`
-    height: 100vh;
+    height: ${LAYOUT.HERO_HEIGHT};
   `}
 `
 
@@ -31,7 +31,7 @@ const Video = styled.video`
 
   ${breakpoint.up('m')`
     min-width: 100vw;
-    min-height: 100vh;
+    min-height: ${LAYOUT.HERO_HEIGHT};
   `}
 `
 
