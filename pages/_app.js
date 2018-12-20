@@ -1,11 +1,12 @@
 import React from 'react';
 import App, { Container } from 'next/app';
 import Head from 'next/head';
-import withReduxStore from 'store/with-redux-store';
+import withRedux from 'next-redux-wrapper';
 import { createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import * as actions from 'store/actions';
+import { initializeStore } from 'store';
 import { FONTS, META, TIMINGS } from 'utils/variables';
 import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
@@ -69,25 +70,35 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-@withReduxStore
-export default class MyApp extends App {
+class MyApp extends App {
   constructor() {
     super();
 
     this.checkScreenSizes = this.checkScreenSizes.bind(this);
   }
 
-  static async getInitialProps({reduxStore, Component, ctx}) {
+  static async getInitialProps({ Component, ctx, ...props }) {
     const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
     const isMobile = mobilecheck(userAgent);
 
+    // update slider based on url
+    const url = ctx.asPath;
+    const urlExploded = url.split('/');
+    const currentPage = ctx.pathname.substr(1);
+    const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
+
+    if (isCase) {
+      await ctx.store.dispatch(actions.updateActiveSlide(currentPage));
+    }
+
+    // set is mobile
+    await ctx.store.dispatch(actions.setIsMobile(isMobile));
+
+    // set page props
     let pageProps = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
-
-    ctx.reduxStore.dispatch(actions.setIsMobile(isMobile));
-    console.log('ismobile from server', isMobile);
 
     return { pageProps, isMobile };
   }
@@ -98,22 +109,23 @@ export default class MyApp extends App {
   }
 
   checkScreenSizes() {
-    const { reduxStore } = this.props;
-    if (!reduxStore) return;
+    const { store } = this.props;
+    if (!store) return;
 
     if (window.innerWidth < BREAKPOINTS_NEW.m) {
-      if (reduxStore.isMobile) return;
-      this.props.reduxStore.dispatch(actions.setIsMobile(true));
+      if (store.isMobile) return;
+      this.props.store.dispatch(actions.setIsMobile(true));
     } else {
-      if (!reduxStore.isMobile) return;
-      this.props.reduxStore.dispatch(actions.setIsMobile(false));
+      if (!store.isMobile) return;
+      console.log('setting isMobile false...');
+      this.props.store.dispatch(actions.setIsMobile(false));
     }
   }
 
   render () {
-    const { Component, pageProps, reduxStore } = this.props
-    const isMobile = this.props.isMobile || reduxStore.isMobile;
-
+    const { Component, pageProps, store } = this.props
+    const isMobile = this.props.isMobile || store.isMobile;
+    console.log('store', store.getState());
     return (
       <Container>
         <Head>
@@ -125,7 +137,7 @@ export default class MyApp extends App {
           <link rel="shortcut icon" href={favicon} />
           {/* <link rel="canonical" href={META.CANONICAL} /> */}
         </Head>
-        <Provider store={reduxStore}>
+        <Provider store={store}>
           <Layout isMobile={isMobile}>
             <TransitionGroup component={null}>
               <CSSTransition
@@ -177,3 +189,5 @@ export default class MyApp extends App {
     )
   }
 }
+
+export default withRedux(initializeStore)(MyApp);

@@ -9,6 +9,6 @@ export const initialState = {
   }
 };
 
-export function initializeStore () {
+export function initializeStore (initialState) {
   return createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)))
 }
