@@ -39,8 +39,8 @@ export default [
   {
     slug: "amazon",
     title: "Amazon",
-    teaserText: "Re-launching an iconic watch collection with a global 360° campaign celebrating the beauty of movement and freedom.",
-    introText: "In 1997, Swatch launched it’s very first SKIN watch - the thinnest watch in the world. 20 years later we helped them re-launch the collection with a new design catering to a new generation of strong and self-confident women.",
+    teaserText: "Building a product from A-Z",
+    introText: "",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "black",
     whiteContent: true,

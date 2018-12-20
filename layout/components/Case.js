@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import * as actions from 'store/actions';
 import slideItems from 'store/slideItems';
 import { breakpoint, LAYOUT, META, TIMINGS } from 'utils/variables';
-import media from 'utils/mediaQueries';
 import Text from 'components/Case/Text';
 import CasesGrid from 'components/CasesGrid';
 import Footer from 'layout/components/Footer';
@@ -18,7 +17,7 @@ const Wrapper = styled.div`
   background-color: white;
   top: ${LAYOUT.MOBILE.HERO_HEIGHT};
 
-  ${media.tablet`
+  ${breakpoint.m `
     top: 100vh;
   `}
 
@@ -35,7 +34,7 @@ const Content = styled.div`
 const CasesGridTitle = styled.h2`
   margin: 100px ${LAYOUT.MOBILE.EDGE_MARGIN} 10px;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     margin: 300px ${LAYOUT.EDGE_MARGIN} 10px;
   `}
 `
