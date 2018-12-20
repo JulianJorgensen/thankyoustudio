@@ -88,11 +88,11 @@ class MyApp extends App {
     const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
 
     if (isCase) {
-      await ctx.store.dispatch(actions.updateActiveSlide(currentPage));
+      ctx.store.dispatch(actions.updateActiveSlide(currentPage));
     }
 
     // set is mobile
-    await ctx.store.dispatch(actions.setIsMobile(isMobile));
+    ctx.store.dispatch(actions.setIsMobile(isMobile));
 
     // set page props
     let pageProps = {};
@@ -100,7 +100,7 @@ class MyApp extends App {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps, isMobile };
+    return { pageProps };
   }
 
   componentDidMount() {
@@ -117,14 +117,13 @@ class MyApp extends App {
       this.props.store.dispatch(actions.setIsMobile(true));
     } else {
       if (!store.isMobile) return;
-      console.log('setting isMobile false...');
       this.props.store.dispatch(actions.setIsMobile(false));
     }
   }
 
   render () {
     const { Component, pageProps, store } = this.props
-    const isMobile = this.props.isMobile || store.isMobile;
+    const isMobile = store.isMobile;
     console.log('store', store.getState());
     return (
       <Container>
