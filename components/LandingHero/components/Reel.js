@@ -60,9 +60,9 @@ export default class Reel extends Component {
   }
 
   handleOnVisibilityChange(inView) {
-    // this.setState({
-    //   fixedMode: !inView
-    // });
+    if (inView) return;
+
+    this.props.onPause();
   }
 
   render() {

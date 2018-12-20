@@ -26,7 +26,7 @@ const Wrapper = styled.div`
     width: 100%;
     z-index: 5;
     opacity: 1;
-    pointer-events: auto;
+    // pointer-events: auto;
   `}
 
   ${props => props.isActive && !props.isSliding && `
