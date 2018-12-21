@@ -13,6 +13,7 @@ const Wrapper = styled.div`
   position: absolute;
   transition: all 0.2s ease;
   background-color: black;
+  pointer-events: auto;
 
   ${breakpoint.m`
     width: 100vw;

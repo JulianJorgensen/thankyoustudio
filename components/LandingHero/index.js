@@ -13,7 +13,6 @@ import * as actions from 'store/actions';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 import ClientCarousel from './components/ClientCarousel';
 import SlideVideo from 'components/Slider/components/SlideVideo';
-import ReactPlayer from 'react-player/lib/players/Vimeo.js';
 const Reel = dynamic(import('./components/Reel'));
 
 const Wrapper = styled.div`
@@ -75,10 +74,16 @@ const PlayReel = styled.div`
   transition: opacity 0.2s;
   top: -56px; // this is a hack to compensate for mobile overlayed navigation
   max-width: 90vw;
+  pointer-events: auto;
 
   ${props => props.hide && `
     opacity: 0;
     pointer-events: none;
+  `}
+
+  display: none;
+  ${breakpoint.m `
+    display: flex;
   `}
 `
 
@@ -246,7 +251,6 @@ export default class LandingSlide extends Component {
             isDirty
           /> */}
           <Content>
-            {!store.isMobile &&
               <PlayReel
                 onMouseEnter={!store.isMobile && this.handleLoadPlayer}
                 onClick={this.handleOnPlayClick}
@@ -258,23 +262,10 @@ export default class LandingSlide extends Component {
                     <source src="//cdn.thankyoustudio.com/videos/teaser-reel-small.mp4" type="video/mp4" />
                   </Teaser>
               </PlayReel>
-            }
           </Content>
         </Inner>
 
-          {store.isMobile && 
-            <ReactPlayerMobile>
-              <ReactPlayer
-                url='https://vimeo.com/307493850'
-                playing={playReel}
-                width='100%'
-                height='0%'
-                controls
-              />        
-            </ReactPlayerMobile>
-          }
-
-        {!store.isMobile && loadPlayer &&
+        {loadPlayer &&
           <Reel
             ref={this.setPlayerRef}
             play={playReel}

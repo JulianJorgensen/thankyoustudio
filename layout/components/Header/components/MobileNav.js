@@ -20,7 +20,7 @@ const Wrapper = styled.nav`
   overflow: hidden;
 
   ${props => props.active && `
-    height: 60vh;
+    height: 100vh;
     transform: translateY(0);
     background-color: black;
   `}
