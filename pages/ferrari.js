@@ -27,6 +27,12 @@ export default (props) => (
     title="Ferrari"
     slug="ferrari"
   >
+    <Grid>
+      <Text intro>
+        <p>Our job was to present the 2015 Ferrari F1 car to the world. Building on the overwhelming existing respect for the brand, we were to bring the fans to the front row along with the press. We achieved this by creating a global, real-time, online event that was built up over a period of time, climaxing with the reveal of the F1 car. We created a four chapter film focusing on Ferrari’s heritage, the team and the car — all for the fans.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <FullCaseVideo vimeoId="305773161" />
     </Grid>

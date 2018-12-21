@@ -19,10 +19,10 @@ const StyledText = styled(Text)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  max-width: 900px;
 
   p {
     font-size: inherit;
-    line-height: inherit;
   }
 
   ${breakpoint.up('m')`
@@ -30,14 +30,12 @@ const StyledText = styled(Text)`
   `}
 
   ${props => props.intro && `
-    padding: 40px ${LAYOUT.MOBILE.EDGE_MARGIN} 30px;
+    padding: 40px 0 30px;
   `}
 
   ${props => props.intro && breakpoint.up('m')`
     display: block;
-    padding: 350px 40px 80px;
-    column-count: 2;
-    column-gap: 60px;
+    padding: 220px 0 80px;
   `}
 `
 

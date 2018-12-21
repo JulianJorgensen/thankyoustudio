@@ -50,15 +50,15 @@ export default ({ className, ...props }) => {
   return (
     <Wrapper className={className} {...props}>
       <CaseItems onWhite={props.onWhite}>
-        <CaseItem {...getCaseData('ferrari')} whitecontent {...props} />
-        <CaseItem {...getCaseData('swatch')} whitecontent delay={props.isMobile ? 0 : 100} {...props} />
-        <CaseItem {...getCaseData('amazon')} whitecontent delay={props.isMobile ? 0 : 200} {...props} />
+        <CaseItem {...getCaseData('ferrari')} {...props} />
+        <CaseItem {...getCaseData('swatch')} delay={props.isMobile ? 0 : 100} {...props} />
+        <CaseItem {...getCaseData('amazon')} delay={props.isMobile ? 0 : 200} {...props} />
         <CaseItem {...getCaseData('copenhagen')} {...props} />
         <CaseItem {...getCaseData('universal-robots')} delay={props.isMobile ? 0 : 100} {...props} />
-        <CaseItem {...getCaseData('onea')} whitecontent delay={props.isMobile ? 0 : 200} {...props} />
+        <CaseItem {...getCaseData('onea')} delay={props.isMobile ? 0 : 200} {...props} />
         <CaseItem {...getCaseData('swatch-scuba-libra')} {...props} />
-        <CaseItem {...getCaseData('gyldendal')} whitecontent delay={props.isMobile ? 0 : 100} {...props} />
-        <CaseItem {...getCaseData('steelseries')} whitecontent delay={props.isMobile ? 0 : 200} {...props} />
+        <CaseItem {...getCaseData('gyldendal')} delay={props.isMobile ? 0 : 100} {...props} />
+        <CaseItem {...getCaseData('steelseries')} delay={props.isMobile ? 0 : 200} {...props} />
         <CaseItem {...getCaseData('bundesliga')} {...props} />
         {/* <Capabilities /> */}
       </CaseItems>

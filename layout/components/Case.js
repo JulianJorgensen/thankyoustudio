@@ -69,19 +69,6 @@ export default class Case extends Component {
       )
     }
 
-    const renderIntroText = () => {
-      const slide = slideItems.find(obj => obj.slug === slug);
-      if (!slide) return;
-      // if (isMobile) return (
-      //   <Text intro>
-      //     {slide.teaserText}<br /><br />
-      //     {slide.introText}
-      //   </Text>
-      // )
-
-      return <Text intro>{slide.introText}</Text>
-    }
-
     return (
         <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
           <Head>
@@ -89,7 +76,6 @@ export default class Case extends Component {
           </Head>
           {/* {isMobile && renderMobileHero()} */}
           <Content>
-            {renderIntroText()}
             {children}
             {!isLanding && 
               <div>

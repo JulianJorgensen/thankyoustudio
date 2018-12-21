@@ -11,6 +11,12 @@ export default (props) => (
     title="Bundesliga"
     slug="bundesliga"
   >
+    <Grid>
+      <Text intro>
+        <p>We were to develop a graphic theme and film for the Bundesliga Season Opening. Presenting all 18 football clubs by their club logos and game footage from the previous season. We were also tasked with designing banners within the same design format and produce a soundtrack to support the trailer for the opening ceremony performed on the field.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga_stadium.jpg" />
     </Grid>

@@ -26,6 +26,12 @@ export default (props) => (
     title="Universal Robots"
     slug="universal-robots"
   >
+    <Grid>
+      <Text intro>
+        <p>You are invited, but actually this party is really for UR robots themselves. And to make this a special thing to remember all the other 24.999 robots are invited – and not just for the party, but for the all the preparations as well. We set out to create a cinematic music narrative with a aesthetic inspiration paying homage to old school music dance videos. We explore  the opportunity to personify the UR robots by giving them musical influence. Starting with 3 small movies showing the “behind the scenes” of all the preparations to create excitement for the release of the main film, the celebration film.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <Image lazy delay={300} src="//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-01.jpg" />
     </Grid>

@@ -29,25 +29,26 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  p {
+    line-height: 150%;
+  }
+
   h1 {
     font-size: 40px;
-    line-height: 40px;
+    line-height: 100%;
     font-weight: 800;
     text-transform: uppercase;
  
     ${breakpoint.up('m')`
       font-size: 75px;
-      line-height: 75px;
     `}
   }
 
   h2 {
     font-size: 25px;
-    line-height: 35px;
 
     ${breakpoint.up('m')`
       font-size: 40px;
-      line-height: 54px;
     `}
   }
 

@@ -14,6 +14,12 @@ export default (props) => (
     title="Swatch"
     slug="swatch"
   >
+    <Grid>
+      <Text intro>
+        <p>In 1997, Swatch launched it’s very first SKIN watch - the thinnest watch in the world. 20 years later we helped them re-launch the collection with a new design catering to a new generation of strong and self-confident women.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <FullCaseVideo vimeoId="304158078" />
     </Grid>

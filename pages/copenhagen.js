@@ -12,6 +12,12 @@ export default (props) => (
     title="Copenhagen Distillery"
     slug="copenhagen"
   >
+    <Grid>
+      <Text intro>
+        <p>The distillery revives a 250 year artisan history with a desire to shake up the world of spirits. It is a joint venture between THANK YOU Studio and master distiller Henrik Brinks. Our journey started in 2014 and we are already fast becoming an iconic spirit brand representing Copenhagen worldwide.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <FullCaseVideo vimeoId="262509870" />
     </Grid>
@@ -31,7 +37,9 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
-      <Text topPadding bottomPadding columnStart="2">Inside the rustic walls of the distillery itself, we built a custom distillation lab dubbed ‘The Black Box’— where all the magic happens. We put the heart of innovation inside the walls of historic stones. A monolith of the future housed within the past, The Black Box is a representation of our design language where tradition and innovation merge.</Text>
+      <Text topPadding bottomPadding columnStart="2">
+        <p>Inside the rustic walls of the distillery itself, we built a custom distillation lab dubbed ‘The Black Box’— where all the magic happens. We put the heart of innovation inside the walls of historic stones. A monolith of the future housed within the past, The Black Box is a representation of our design language where tradition and innovation merge.</p>
+      </Text>
     </Grid>
 
     <Grid ratio="16x9">
@@ -52,7 +60,9 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
-      <Text topPadding bottomPadding columnStart="2">The blend of modern and handmade expresses the core of Copenhagen Distillery. The philosophy reaches beyond the visual identity, driving the brand, the culture and the product. You can sense our philosophy in every bottle: each one is unique, numbered and signed by the master distiller.</Text>
+      <Text topPadding bottomPadding columnStart="2">
+        <p>The blend of modern and handmade expresses the core of Copenhagen Distillery. The philosophy reaches beyond the visual identity, driving the brand, the culture and the product. You can sense our philosophy in every bottle: each one is unique, numbered and signed by the master distiller.</p>
+      </Text>
     </Grid>
 
     <Grid ratio="16x9">

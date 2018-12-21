@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import LowerleftContent from 'components/Slider/components/LowerLeftContent';
 import PlayIcon from 'assets/icons/Play_button_black.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
-import PlayReelMaskSvg from 'assets/svgs/play-reel-mask.svg';
+import PlayMaskSvg from 'assets/svgs/play-mask.svg';
 import Logo from 'components/Logo';
 import * as actions from 'store/actions';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
@@ -133,11 +133,17 @@ const Teaser = styled.video`
   width: 100%;
 `
 
-const PlayReelMask = styled(PlayReelMaskSvg)`
+const PlayReelMask = styled(PlayMaskSvg)`
   position: absolute;
   height: 100%;
   width: 100%;
-  transform: scale(1.05);
+  transform: scale(1);
+  transition: transform 0.2s ease;
+  pointer-events: auto;
+
+  ${PlayReel}:hover & {
+    transform: scale(1.1);
+  }
 `
 
 const ReactPlayerMobile = styled.div`
@@ -238,7 +244,7 @@ export default class LandingSlide extends Component {
             preTitle={<StyledLogo />}
             title={<ClientCarousel isActive={props.isActive} />}
             titleAlt="You're welcome"
-            teaserText="We are a full-service studio that create unique digital products, brands and experiences."
+            teaserText="Our work is always authentic at heart, meaningful in spirit and crafted for impact."
             isActive={props.isActive}
             isLanding
             fontsLoaded
@@ -259,7 +265,7 @@ export default class LandingSlide extends Component {
               >
                   <PlayReelMask />
                   <Teaser autoPlay playsInline muted loop>
-                    <source src="//cdn.thankyoustudio.com/videos/teaser-reel-small.mp4" type="video/mp4" />
+                    <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_cover_square.mp4" type="video/mp4" />
                   </Teaser>
               </PlayReel>
           </Content>

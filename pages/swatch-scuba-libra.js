@@ -13,6 +13,12 @@ export default (props) => (
     title="Swatch Scuba Libra"
     slug="swatch-scuba-libra"
   >
+    <Grid>
+      <Text intro>
+        <p>Scuba Libre is a collection of Swatch's marine watches. For the 2014 collection, the watches were released in a variety of wildly vivid colours and styles. We were tasked with introducing the new line to the world and the brief was short: Be bold, be whimsical and be fun.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_yellow.jpg" />
     </Grid>

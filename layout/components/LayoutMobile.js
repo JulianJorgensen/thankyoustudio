@@ -69,27 +69,26 @@ export default class LayoutMobile extends Component {
         </Wrapper>
         <style jsx global>{`
           .fade-enter {
-            transition-property: transform;
-            transform: translateX(300px);
+            transition-property: opacity;
             position: fixed !important;
-            top: 0;
-            z-index: 3;
+            z-index: 9;
+            opacity: 0;
           }
 
           .fade-enter-active {
             position: fixed !important;
             transition-duration: ${TIMINGS.DEFAULT_PAGE_WRAPPER};
-            transform: translateX(0px);
+            opacity: 1;
           }
 
           .fade-exit {
-            transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER};
-            transform: translateX(0px);
+            transition: opacity ${TIMINGS.DEFAULT_PAGE_WRAPPER};
             z-index: 2;
+            opacity: 1;
           }
 
           .fade-exit-active {
-            transform: translateX(-100px);
+            opacity: 0;
           }
         `}
         </style>

@@ -11,8 +11,8 @@ export default (props) => (
     title="Amazon"
     slug="amazon"
   >
-    <Grid cols="2" collapseOnMobile>
-      <Text>
+    <Grid>
+      <Text intro>
         <p>Amazon has often been named the world’s most innovative company. They’ve earned this title by designing and engineering such high-profile consumer electronic devices as Fire tablets, Kindle e-readers, Amazon Fire TV, Amazon Echo, and more.</p>
         <p>But creating such revolutionary technology takes a lot of research and development before finally building the first prototypes.</p>
         <p>Amazon reached out to us to assist them in the development of a wide variety of new products. Most notably, an advanced smartphone featuring new revolutionary technologies.</p>

@@ -209,7 +209,7 @@ export default class LowerLeftContent extends Component {
     const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
     const { isMobile } = this.props.store;
 
-    let movementSpeed = isMobile ? 2.7 : 2.5;
+    let movementSpeed = isMobile ? 2.7 : 3.3;
     let colorSwitchSpeed = isMobile ? 1.2 : 2;
     let colorSwitchOffset = isMobile ? 150 : 80;
 
@@ -247,7 +247,7 @@ export default class LowerLeftContent extends Component {
             {preTitle && <PreTitle hide={scrolledDown}>{preTitle}</PreTitle>}
             <Title isNext={isNext} hide={titleAlt && scrolledDown}>{title}</Title>
             {titleAlt && <TitleAlt show={scrolledDown}>{titleAlt}</TitleAlt>}
-            <TeaserText bold isNext={isNext}>{teaserText}</TeaserText>
+            <TeaserText bold isNext={isNext}><p>{teaserText}</p></TeaserText>
           </Header>
           <StyledCta 
             hide={isLanding || !isActive || scrolledDown}

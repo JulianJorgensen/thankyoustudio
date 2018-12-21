@@ -14,6 +14,12 @@ export default (props) => (
     title="Gyldendal"
     slug="gyldendal"
   >
+    <Grid>
+      <Text intro>
+        <p>To secure their position as market leader in the face of new competitors, even newer technologies and an everchanging landscape online. Gyldendal needed to be connected to contemporary culture.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <FullCaseVideo vimeoId="304155100" />
     </Grid>

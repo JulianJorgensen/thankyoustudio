@@ -19,13 +19,9 @@ const ImageWrapper = styled(Link)`
   position: relative;
   cursor: pointer;
   overflow: hidden;
-  color: black;
+  color: white;
   height: 0;
   padding-bottom: 56.25%;
-
-  ${props => props.whitecontent && `
-    color: white;
-  `}
 `
 
 const StyledImage = styled(Image)`

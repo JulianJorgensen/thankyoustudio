@@ -3,15 +3,16 @@ import styled from 'styled-components';
 import { breakpoint } from 'utils/variables';
 
 const Wrapper = styled.div`
-  font-size: 18px;
+  font-size: 16px;
   font-weight: ${props => props.bold ? 'bold' : ''};
+  max-width: 500px;
 
   ${breakpoint.up('s')`
-    font-size: 24px;
+    font-size: 18px;
   `}
 
   ${breakpoint.up('m')`
-    font-size: 30px;
+    font-size: 22px;
   `}
 `
 

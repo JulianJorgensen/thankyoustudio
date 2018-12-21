@@ -12,6 +12,12 @@ export default (props) => (
     title="Steelseries"
     slug="steelseries"
   >
+    <Grid>
+      <Text intro>
+        <p>Since early 2015, we have been working with SteelSeries to develop their brand and build a solid foundation for them to grow into a major global player in a rapidly expanding market.</p>
+      </Text>
+    </Grid>
+
     <Grid ratio="16x9">
       <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_headphones.jpg" />
     </Grid>

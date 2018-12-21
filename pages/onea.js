@@ -12,6 +12,11 @@ export default (props) => (
     title="Onea"
     slug="onea"
   >
+    <Grid>
+      <Text intro>
+        <p>ONE A is a Danish design company that produces advanced architectural lighting systems and smart lighting products for high-end living spaces.</p>
+      </Text>
+    </Grid>
 
     <Grid ratio="16x9">
       <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-dark.jpg" />

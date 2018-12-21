@@ -193,8 +193,8 @@ export default class SlideItem extends Component {
         onClick={onClickHandler}
         className={props.isActive ? 'wrapper is-active' : 'wrapper'}
         style={styles}
-        // onMouseEnter={() => props.isNext ? this.handleNextSlideHoverWhenHidden(true) : ''}
-        // onMouseLeave={() => props.isNext ? this.handleNextSlideHoverWhenHidden(false) : ''}
+        onMouseEnter={() => props.isNext ? this.handleNextSlideHoverWhenHidden(true) : ''}
+        onMouseLeave={() => props.isNext ? this.handleNextSlideHoverWhenHidden(false) : ''}
       >
         { slideItemData.slug === '' ? <LandingSlide isActive={props.isActive} /> : <WorkSlide isDirty={this.state.isDirty} {...slideItemData} {...props} /> }
       </Wrapper>
