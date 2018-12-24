@@ -9,7 +9,6 @@ import { breakpoint, LAYOUT, META, TIMINGS } from 'utils/variables';
 import Text from 'components/Case/Text';
 import CasesGrid from 'components/CasesGrid';
 import Footer from 'layout/components/Footer';
-const MobileHero = dynamic(import('components/MobileHero'));
 
 const Wrapper = styled.div`
   position: absolute;
@@ -57,24 +56,11 @@ export default class Case extends Component {
       return `${title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.`;
     }
 
-    const renderMobileHero = () => {
-      const slide = slideItems.find(obj => obj.slug === slug);
-      return (
-        <MobileHero
-          isMobile={isMobile}
-          isLanding={isLanding}
-          title={slide && slide.title}
-          imageSrc={slide && slide.mobile.imageThumb}
-        />
-      )
-    }
-
     return (
         <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
           <Head>
             <title>{renderTitle()}</title>
           </Head>
-          {/* {isMobile && renderMobileHero()} */}
           <Content>
             {children}
             {!isLanding && 

@@ -42,7 +42,7 @@ const Text = styled.div`
   `}
 `
 
-const StyledChevronRight = styled(ChevronRight)`
+const Arrow = styled.div`
   width: 15px;
   height: 15px;
   margin-left: 3px;
@@ -58,6 +58,6 @@ const StyledChevronRight = styled(ChevronRight)`
 export default ({ children, ...props}) => (
   <Wrapper {...props}>
     <Text whiteContent={props.whiteContent}>{children}</Text>
-    <StyledChevronRight whiteContent={props.whiteContent} down={props.downArrow} />
+    <Arrow whiteContent={props.whiteContent} down={props.downArrow}><ChevronRight /></Arrow>
   </Wrapper>
 );

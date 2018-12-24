@@ -5,15 +5,13 @@ import dynamic from 'next/dynamic';
 import screenfull from 'screenfull';
 import styled from 'styled-components';
 import LowerleftContent from 'components/Slider/components/LowerLeftContent';
-import PlayIcon from 'assets/icons/Play_button_black.svg';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import PlayMaskSvg from 'assets/svgs/play-mask.svg';
 import Logo from 'components/Logo';
 import * as actions from 'store/actions';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 import ClientCarousel from './components/ClientCarousel';
-import SlideVideo from 'components/Slider/components/SlideVideo';
-const Reel = dynamic(import('./components/Reel'));
+import Reel from './components/Reel';
 
 const Wrapper = styled.div`
   position: relative;
@@ -73,7 +71,7 @@ const PlayReel = styled.div`
   font-size: 26px;
   transition: opacity 0.2s;
   top: -56px; // this is a hack to compensate for mobile overlayed navigation
-  max-width: 90vw;
+  max-width: 40vw;
   pointer-events: auto;
 
   ${props => props.hide && `
@@ -81,7 +79,6 @@ const PlayReel = styled.div`
     pointer-events: none;
   `}
 
-  display: none;
   ${breakpoint.m `
     display: flex;
   `}
@@ -137,7 +134,7 @@ const PlayReelMask = styled(PlayMaskSvg)`
   position: absolute;
   height: 100%;
   width: 100%;
-  transform: scale(1);
+  transform: scale(1.02);
   transition: transform 0.2s ease;
   pointer-events: auto;
 
@@ -270,17 +267,6 @@ export default class LandingSlide extends Component {
               </PlayReel>
           </Content>
         </Inner>
-
-        {loadPlayer &&
-          <Reel
-            ref={this.setPlayerRef}
-            play={playReel}
-            onReady={this.handleOnReady}
-            onStart={this.handleOnPlayClick}
-            onPause={this.handleCloseReel}
-            onEnded={this.handleCloseReel}
-          />
-        }
       </Wrapper>
     )
   }

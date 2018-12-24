@@ -1,20 +1,23 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import dynamic from 'next/dynamic';
-import ReactPlayer from 'react-player/lib/players/Vimeo.js';
+// import dynamic from 'next/dynamic';
+import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
-const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
-});
+// const Observer = dynamic(import('react-intersection-observer'), {
+//   ssr: false
+// });
 
 const Wrapper = styled.div`
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   transition: all 0.2s ease;
   background-color: black;
   pointer-events: auto;
-
+  z-index: 99;
+  width: 100vw;
+  height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+  
   ${breakpoint.m`
     width: 100vw;
     height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
@@ -27,20 +30,6 @@ const Wrapper = styled.div`
 
   ${props => props.show && `
     opacity: 1;
-  `}
-
-  ${props => props.fixedMode && `
-    position: fixed;
-    transform: none;
-    min-height: auto;
-    min-width: auto;
-    width: 20vw;
-    height: 0;
-    padding-bottom: 56.25%;
-    top: auto;
-    left: auto;
-    right: 0;
-    bottom: 0;
   `}
 `
 
@@ -60,6 +49,10 @@ export default class Reel extends Component {
     this.handleOnVisibilityChange = this.handleOnVisibilityChange.bind(this);
   }
 
+  componentDidMount() {
+    console.log('reel mounted')
+  }
+
   handleOnVisibilityChange(inView) {
     if (inView) return;
 
@@ -67,26 +60,26 @@ export default class Reel extends Component {
   }
 
   render() {
-    const { ref, play, onEnded, onPause, onStart, onReady } = this.props;
+    // const { ref, play, onEnded, onPause, onStart, onReady } = this.props;
 
     return (
-      <Observer onChange={this.handleOnVisibilityChange}>
-        <Wrapper show={play}>
+      // <Observer onChange={this.handleOnVisibilityChange}>
+        <Wrapper>
           <StyledReactPlayer
-            ref={ref}
-            url='https://vimeo.com/307493850'
-            onEnded={onEnded}
-            onPause={onPause}
-            onStart={onStart}
-            onReady={onReady}
-            playing={play}
+            // ref={ref}
+            url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
+            // onEnded={onEnded}
+            // onPause={onPause}
+            // onStart={onStart}
+            // onReady={onReady}
+            // playing={play}
             width='100%'
             height='100%'
             controls
             // fixedMode={this.state.fixedMode}
           />
         </Wrapper>
-      </Observer>
+      // </Observer>
     )
   }
 }
