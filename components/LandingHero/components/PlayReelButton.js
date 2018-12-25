@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   max-width: 40vw;
   pointer-events: auto;
 
+  ${props => props.isLoading && `
+    border: 20px solid red;
+  `}
+
   ${props => props.hide && `
     opacity: 0;
     pointer-events: none;
