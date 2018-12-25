@@ -79,7 +79,7 @@ export default class Reel extends Component {
     if (this.props.store.isMobile) {
       setTimeout(() => {
         console.log('is mobile and load player')
-        this.setState({ loadPlayer: true });
+        this.setState({ loadPlayerTimeout: true });
       }, 2000);
     }
   }
@@ -97,7 +97,7 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.reel.isPlaying}>
           <Inner loading={store.reel.isLoading}>
-            {store.reel.isLoading && <Player/>}
+            {(store.reel.isLoading || this.state.loadPlayerTimeout) && <Player/>}
           </Inner>
           <CloseReel onClick={this.handleClose}><CloseIcon /></CloseReel>
         </Wrapper>

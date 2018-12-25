@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import dynamic from 'next/dynamic';
 import * as actions from 'store/actions';
 
 import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
@@ -61,8 +60,6 @@ export default class Reel extends Component {
         onPause={this.handlePause}
         onEnded={this.handleClose}
         playing={store.reel.isPlaying}
-        preload="none"
-        autoPlay={true}
       />
     )
   }

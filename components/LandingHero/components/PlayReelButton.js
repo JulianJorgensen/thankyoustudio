@@ -23,7 +23,6 @@ const Wrapper = styled.div`
   pointer-events: auto;
 
   ${props => props.isLoading && `
-    border: 20px solid red;
   `}
 
   ${props => props.hide && `
