@@ -37,7 +37,7 @@ const Wrapper = styled.div`
 `
 
 const PlayText = styled.div`
-  display: none;
+  display: ${props => props.loading ? 'block' : 'none'};
   position: absolute;
   top: 0;
   opacity: 0;
@@ -87,7 +87,7 @@ export default class PlayReelButton extends Component {
     super();
     this.state = {};
 
-    this.closeReel = this. closeReel.bind(this);
+    this.closeReel = this.closeReel.bind(this);
     this.playReel = this.playReel.bind(this);
     this.loadPlayer = this.loadPlayer.bind(this);
     this.handleOnPlayClick = this.handleOnPlayClick.bind(this);
@@ -110,14 +110,16 @@ export default class PlayReelButton extends Component {
 
     this.checkPlayerRef = setInterval(() => {
       // play the reel once the player is ready
-      if (store.reel.isReady) {
+      console.log('checking to see if reel isReady', this.props.store.reel.isReady);
+      if (this.props.store.reel.isReady) {
+        console.log('reel isReady');
         this.setState({
           isLoading: false
         });
         dispatch(actions.landingVideoPlaying(true));
         clearInterval(this.checkPlayerRef);
       }
-    }, 30);
+    }, 200);
   }
 
   playReel() {
@@ -131,6 +133,7 @@ export default class PlayReelButton extends Component {
   }
 
   loadPlayer() {
+    console.log('loading player');
     const { dispatch } = this.props;
     dispatch(actions.landingVideoLoading(true));
   }
@@ -146,7 +149,7 @@ export default class PlayReelButton extends Component {
         hide={!props.isActive}
         isLoading={this.state.isLoading}
       >
-        <PlayText>{this.state.isLoading || store.reel.isPlaying ? 'Loading' : 'Play'} Reel</PlayText>
+        <PlayText loading={this.state.isLoading}>{this.state.isLoading || store.reel.isPlaying ? 'Loading' : 'Play'} Reel</PlayText>
         <PlayReelMask />
         <Teaser autoPlay playsInline muted loop>
           <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_cover_square.mp4" type="video/mp4" />
