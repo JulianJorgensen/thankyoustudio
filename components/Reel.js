@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
-import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
 import * as actions from 'store/actions';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
+const ReactPlayer = dynamic(import('react-player/lib/players/FilePlayer.js'));
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
 });
@@ -31,11 +31,6 @@ const Wrapper = styled.div`
 const Inner = styled.div`
   width: 100vw;
   height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
-`
-
-const StyledReactPlayer = styled(ReactPlayer)`
-  width: 100%;
-  height: 100%;
 `
 
 @connect((store) => ({
@@ -99,7 +94,7 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.isLandingVideoPlaying}>
           <Inner>
-            <StyledReactPlayer
+            <ReactPlayer
               // ref={ref}
               url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
               // onEnded={onEnded}
