@@ -5,7 +5,6 @@ import throttle from 'lodash.throttle';
 import LandingSlide from 'components/LandingHero';
 import WorkSlide from './WorkSlide';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
-import Reel from 'components/LandingHero/components/Reel';
 
 const Wrapper = styled.div`
   position: absolute;

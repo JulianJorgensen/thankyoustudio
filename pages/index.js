@@ -6,7 +6,7 @@ import Grid from 'components/Grid';
 import Text from 'components/Case/Text';
 import AboutCopy from 'components/AboutCopy';
 import { breakpoint, LAYOUT } from 'utils/variables';
-import Reel from 'components/LandingHero/components/Reel';
+import Reel from 'components/Reel';
 
 const CasesGrid = dynamic(import('components/CasesGrid'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
