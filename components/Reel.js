@@ -94,18 +94,20 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.isLandingVideoPlaying}>
           <Inner>
-            <ReactPlayer
-              // ref={ref}
-              url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
-              // onEnded={onEnded}
-              onPause={this.handlePause}
-              // onStart={onStart}
-              // onReady={onReady}
-              playing={store.isLandingVideoPlaying}
-              width='100%'
-              height='100%'
-              controls
-            />
+            {store.isLandingVideoPlaying &&
+              <ReactPlayer
+                // ref={ref}
+                url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
+                // onEnded={onEnded}
+                onPause={this.handlePause}
+                // onStart={onStart}
+                // onReady={onReady}
+                playing={store.isLandingVideoPlaying}
+                width='100%'
+                height='100%'
+                controls
+              />
+            }
           </Inner>
         </Wrapper>
       </Observer>
