@@ -6,13 +6,13 @@ import * as actions from 'store/actions';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
-const ReactPlayer = dynamic(import('react-player/lib/players/FilePlayer.js'));
+import ReactPlayer from 'react-player/lib/players/FilePlayer.js';
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
 });
 
 const Wrapper = styled.div`
-  opacity: 1;
+  opacity: 0;
   position: fixed;
   top: 0;
   left: 0;
