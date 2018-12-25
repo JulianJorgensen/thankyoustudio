@@ -42,7 +42,7 @@ export default ({ className, ...props }) => {
     return {
       title: caseData.title,
       tags: caseData.tags,
-      bgImage: caseData.imageThumb,
+      bgImage: props.isMobile ? caseData.mobile.imageThumb : caseData.imageThumb,
       slug: slug
     }
   }

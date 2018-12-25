@@ -54,8 +54,9 @@ export const EASINGS = {
 }
 
 export const META = {
-  TITLE: 'THANK YOU designs digital experiences and connect brands',
-  DESCRIPTION: 'Design thinking is at the core of everything we do. The result is always fresh, vibrant and relevant.',
+  TITLE: 'THANK YOU crafts digital products, brands and experiences',
+  CASE_TITLE: 'We craft world class digital products, brands and experiences',
+  DESCRIPTION: 'A full-service studio located in Copenhagen, San Francisco and Reykjavík. Our work is always authentic at heart, meaningful in spirit and crafted for impact. 🙏',
   CANONICAL: 'https://www.thankyoustudio.com'
 }
 

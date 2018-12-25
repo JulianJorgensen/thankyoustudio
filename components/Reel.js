@@ -30,8 +30,17 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
-  width: 100vw;
-  height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+  min-width: 100vw;
+  min-height: 100vh;
+
+  * {
+    min-height: inherit;
+    min-width: inherit;
+  }
+
+  video {
+    object-fit: cover;
+  }
 `
 
 const CloseReel = styled.div`
@@ -60,6 +69,7 @@ export default class Reel extends Component {
 
     this.handleOnVisibilityChange = this.handleOnVisibilityChange.bind(this);
     this.handlePause = this.handlePause.bind(this);
+    this.handleClose = this.handleClose.bind(this);
     this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
     this.handleOnReady = this.handleOnReady.bind(this);
   }
@@ -94,6 +104,10 @@ export default class Reel extends Component {
   }
 
   handlePause() {
+    this.handleClose();
+  }
+
+  handleClose() {
     const { dispatch } = this.props;
     dispatch(actions.landingVideoPlaying(false));
   }
@@ -122,16 +136,14 @@ export default class Reel extends Component {
                 // ref={ref}
                 url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
                 onPause={this.handlePause}
-                onEnded={this.handlePause}
+                onEnded={this.handleClose}
                 // onStart={onStart}
                 onReady={this.handleOnReady}
                 playing={store.isLandingVideoPlaying}
-                width='100%'
-                height='100%'
-                controls
               />
             }
           </Inner>
+          <CloseReel onClick={this.handleClose}><CloseIcon /></CloseReel>
         </Wrapper>
       </Observer>
     )

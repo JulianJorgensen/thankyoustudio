@@ -53,7 +53,7 @@ export default class Case extends Component {
 
     const renderTitle = () => {
       if (!title) return META.TITLE;
-      return `${title} case by THANK YOU Studio. Design. Digital experiences. Connecting brands.`;
+      return `${title} case by THANK YOU Studio. ${META.CASE_TITLE}`;
     }
 
     return (

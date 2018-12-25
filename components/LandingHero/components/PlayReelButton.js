@@ -57,12 +57,12 @@ const PlayReelMask = styled(PlayMaskSvg)`
   position: absolute;
   height: 100%;
   width: 100%;
-  transform: scale(1.02);
+  transform: scale(1.01);
   transition: transform 0.2s ease;
   pointer-events: auto;
 
   ${Wrapper}:hover & {
-    transform: scale(1.1);
+    transform: scale(1.09);
   }
 `
 

@@ -16,7 +16,7 @@ const VideoWrapper = styled.div`
   width: 100vw;
   height: ${LAYOUT.MOBILE.HERO_HEIGHT};
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     height: ${LAYOUT.HERO_HEIGHT};
   `}
 `
@@ -29,7 +29,7 @@ const Video = styled.video`
   left: 50%;
   transform: translate(-50%, -50%);
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     min-width: 100vw;
     min-height: ${LAYOUT.HERO_HEIGHT};
   `}
