@@ -101,6 +101,7 @@ export default class PlayReelButton extends Component {
   handleOnPlayClick() {
     const { dispatch, store } = this.props;
 
+    this.loadPlayer();
     this.setState({
       isLoading: true
     });
