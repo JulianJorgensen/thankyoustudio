@@ -50,6 +50,7 @@
     "react-redux": "^5.0.1",
     "react-scroll": "^1.7.10",
     "react-scrollmagic": "^2.0.0",
+    "react-spinners": "^0.4.8",
     "react-swipeable": "^4.3.0",
     "react-transition-group": "^2.5.0",
     "redux": "^3.6.0",

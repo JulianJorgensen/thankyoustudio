@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import dynamic from 'next/dynamic';
 import * as actions from 'store/actions';
+import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
 const ReactPlayer = dynamic(import('react-player/lib/players/FilePlayer.js'));
@@ -33,6 +34,22 @@ const Inner = styled.div`
   height: 56.25vw; /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
 `
 
+const CloseReel = styled.div`
+  position: absolute;
+  right: 40px;
+  top: 40px;
+  z-index: 200;
+  cursor: pointer;
+  svg {
+    width: 60px;
+    height: 60px;
+
+    path {
+      fill: white;
+    }
+  }
+`
+
 @connect((store) => ({
   store,
 }))
@@ -43,10 +60,16 @@ export default class Reel extends Component {
 
     this.handleOnVisibilityChange = this.handleOnVisibilityChange.bind(this);
     this.handlePause = this.handlePause.bind(this);
+    this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
+    this.handleOnReady = this.handleOnReady.bind(this);
   }
 
   componentDidMount() {
-    console.log('reel mounted')
+    console.log('reel mounted');
+
+    setTimeout(() => {
+      this.handleLoadPlayer();
+    }, 2500);
   }
 
   handleOnPlayClick() {
@@ -94,14 +117,14 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.isLandingVideoPlaying}>
           <Inner>
-            {store.isLandingVideoPlaying &&
+            {this.state.loadPlayer &&
               <ReactPlayer
                 // ref={ref}
                 url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
-                // onEnded={onEnded}
                 onPause={this.handlePause}
+                onEnded={this.handlePause}
                 // onStart={onStart}
-                // onReady={onReady}
+                onReady={this.handleOnReady}
                 playing={store.isLandingVideoPlaying}
                 width='100%'
                 height='100%'
