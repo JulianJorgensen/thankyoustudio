@@ -92,6 +92,7 @@ export default class Reel extends Component {
 
   handleOnReady() {
     const { dispatch } = this.props;
+    alert('player is ready');
     dispatch(actions.landingVideoReady(true));
   }
 
