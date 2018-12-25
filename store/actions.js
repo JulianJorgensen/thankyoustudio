@@ -33,6 +33,20 @@ export const landingVideoPlaying = (isPlaying) => dispatch => {
   });
 }
 
+export const landingVideoReady = (isReady) => dispatch => {
+  return dispatch({
+    type: actionTypes.LANDING_VIDEO_READY,
+    isReady
+  });
+}
+
+export const landingVideoLoading = (isLoading) => dispatch => {
+  return dispatch({
+    type: actionTypes.LANDING_VIDEO_LOADING,
+    isLoading
+  });
+}
+
 export const updatePrevSlide = (slide) => dispatch => {
   return dispatch({
     type: actionTypes.UPDATE_PREV_SLIDE,

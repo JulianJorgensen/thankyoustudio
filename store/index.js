@@ -5,8 +5,8 @@ import reducer from './reducers';
 
 export const initialState = {
   hasMouseLeftNextSlide: true,
-  slider: {
-  }
+  slider: {},
+  reel: {}
 };
 
 export function initializeStore (initialState) {

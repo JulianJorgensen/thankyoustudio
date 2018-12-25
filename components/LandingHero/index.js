@@ -66,7 +66,7 @@ export default class LandingSlide extends Component {
 
     return (
       <Wrapper>
-        <Inner hide={store.isLandingVideoPlaying}>
+        <Inner hide={store.reel.isPlaying}>
           <LowerleftContent
             preTitle={<StyledLogo />}
             title={<ClientCarousel isActive={props.isActive} />}

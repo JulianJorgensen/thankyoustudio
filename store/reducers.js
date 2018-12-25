@@ -17,7 +17,26 @@ export default (state = initialState, action) => {
     case actionTypes.LANDING_VIDEO_PLAYING:
       return {
         ...state,
-        isLandingVideoPlaying: action.isPlaying
+        reel: {
+          ...state.reel,
+          isPlaying: action.isPlaying
+        }
+      };
+    case actionTypes.LANDING_VIDEO_READY:
+      return {
+        ...state,
+        reel: {
+          ...state.reel,
+          isReady: action.isReady
+        }
+      };
+    case actionTypes.LANDING_VIDEO_LOADING:
+      return {
+        ...state,
+        reel: {
+          ...state.reel,
+          isLoading: action.isLoading
+        }
       };
     case actionTypes.UPDATE_PREV_SLIDE:
       return {

@@ -30,17 +30,19 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
-  min-width: 100vw;
-  min-height: 100vh;
+  ${breakpoint.m `
+    min-width: 100vw;
+    min-height: 100vh;
 
-  * {
-    min-height: inherit;
-    min-width: inherit;
-  }
+    * {
+      min-height: inherit;
+      min-width: inherit;
+    }
 
-  video {
-    object-fit: cover;
-  }
+    video {
+      object-fit: cover;
+    }
+  `}
 `
 
 const CloseReel = styled.div`
@@ -70,31 +72,7 @@ export default class Reel extends Component {
     this.handleOnVisibilityChange = this.handleOnVisibilityChange.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleClose = this.handleClose.bind(this);
-    this.handleLoadPlayer = this.handleLoadPlayer.bind(this);
     this.handleOnReady = this.handleOnReady.bind(this);
-  }
-
-  componentDidMount() {
-    console.log('reel mounted');
-
-    setTimeout(() => {
-      this.handleLoadPlayer();
-    }, 2500);
-  }
-
-  handleOnPlayClick() {
-    console.log('handleOnPlayClick');
-    this.handleLoadPlayer();
-
-    if (this.state.playReel) return;
-
-    this.checkPlayerRef = setInterval(() => {
-      // play the reel once the player is ready
-      if (this.player) {
-        this.playReel();
-        clearInterval(this.checkPlayerRef);
-      }
-    }, 30);
   }
 
   handleOnVisibilityChange(inView) {
@@ -112,16 +90,9 @@ export default class Reel extends Component {
     dispatch(actions.landingVideoPlaying(false));
   }
 
-  handleLoadPlayer() {
-    this.setState({
-      loadPlayer: true
-    });
-  }
-
   handleOnReady() {
-    this.setState({
-      playerReady: true
-    });
+    const { dispatch } = this.props;
+    dispatch(actions.landingVideoReady(true));
   }
 
   render() {
@@ -129,9 +100,9 @@ export default class Reel extends Component {
 
     return (
       <Observer onChange={this.handleOnVisibilityChange}>
-        <Wrapper show={store.isLandingVideoPlaying}>
+        <Wrapper show={store.reel.isPlaying}>
           <Inner>
-            {this.state.loadPlayer &&
+            {store.reel.isLoading &&
               <ReactPlayer
                 // ref={ref}
                 url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
@@ -139,7 +110,7 @@ export default class Reel extends Component {
                 onEnded={this.handleClose}
                 // onStart={onStart}
                 onReady={this.handleOnReady}
-                playing={store.isLandingVideoPlaying}
+                playing={store.reel.isPlaying}
               />
             }
           </Inner>

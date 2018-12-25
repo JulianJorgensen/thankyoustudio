@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+// import { TweenLite, MorphSVGPlugin } from 'gsap';
 import styled from 'styled-components';
 import { ClipLoader } from 'react-spinners';
-import PlayMaskSvg from 'assets/svgs/play-mask.svg';
+import PlayMaskSvg from 'assets/svgs/reel-mask.svg';
 import * as actions from 'store/actions';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 
@@ -61,6 +62,10 @@ const PlayReelMask = styled(PlayMaskSvg)`
   transition: transform 0.2s ease;
   pointer-events: auto;
 
+  #circle {
+    visibility: hidden;
+  }
+
   ${Wrapper}:hover & {
     transform: scale(1.09);
   }
@@ -76,9 +81,38 @@ const Teaser = styled.video`
 export default class PlayReelButton extends Component {
   constructor() {
     super();
+    this.state = {};
 
     this.closeReel = this. closeReel.bind(this);
     this.playReel = this.playReel.bind(this);
+    this.loadPlayer = this.loadPlayer.bind(this);
+    this.handleOnPlayClick = this.handleOnPlayClick.bind(this);
+  }
+
+
+  // componentDidMount() {
+  //   TweenLite.to("#triangle", 1, {morphSVG:"#circle"});
+  // }
+
+  handleOnPlayClick() {
+    const { dispatch, store } = this.props;
+
+    this.setState({
+      isLoading: true
+    });
+
+    if (store.reel.isPlaying) return;
+
+    this.checkPlayerRef = setInterval(() => {
+      // play the reel once the player is ready
+      if (store.reel.isReady) {
+        this.setState({
+          isLoading: false
+        });
+        dispatch(actions.landingVideoPlaying(true));
+        clearInterval(this.checkPlayerRef);
+      }
+    }, 30);
   }
 
   playReel() {
@@ -86,9 +120,14 @@ export default class PlayReelButton extends Component {
     dispatch(actions.landingVideoPlaying(true));
   }
 
-   closeReel() {
+  closeReel() {
     const { dispatch } = this.props;
     dispatch(actions.landingVideoPlaying(false));
+  }
+
+  loadPlayer() {
+    const { dispatch } = this.props;
+    dispatch(actions.landingVideoLoading(true));
   }
 
   render() {
@@ -96,12 +135,13 @@ export default class PlayReelButton extends Component {
 
     return (
       <Wrapper
-        onMouseEnter={!store.isMobile && this.handleLoadPlayer}
-        onClick={this.playReel}
+        onMouseEnter={!store.isMobile && this.loadPlayer}
+        onClick={this.handleOnPlayClick}
         fontsLoaded={store.fontsLoaded}
         hide={!props.isActive}
+        isLoading={this.state.isLoading}
       >
-        <PlayText>Play Reel</PlayText>
+        <PlayText>{this.state.isLoading || store.reel.isPlaying ? 'Loading' : 'Play'} Reel</PlayText>
         <PlayReelMask />
         <Teaser autoPlay playsInline muted loop>
           <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_cover_square.mp4" type="video/mp4" />

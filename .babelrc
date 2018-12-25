@@ -13,7 +13,8 @@
           "assets": "./assets",
           "fonts": "./assets/fonts",
           "store": "./store",
-          "utils": "./utils"
+          "utils": "./utils",
+          "TweenLite": "./node_modules/gsap/src/uncompressed/TweenLite"
         }
       }
     ],
@@ -30,6 +31,21 @@
       { "legacy": true }
     ],
     "transform-class-properties",
-    "inline-react-svg"
+    [
+      "inline-react-svg",
+      {
+        "svgo": {
+          "plugins": [
+            {
+              "removeAttrs": { "attrs": "(data-name)" }
+            },
+            {
+              "cleanupIDs": false
+            }
+          ]
+
+        }
+      }
+    ]
   ]
 }

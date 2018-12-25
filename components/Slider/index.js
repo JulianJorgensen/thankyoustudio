@@ -232,7 +232,7 @@ export default class FancySlider extends Component {
       hasMouseLeftNextSlide,
       fontsLoaded,
       navColor,
-      isLandingVideoPlaying,
+      reel,
       isMobile
     } = this.props.store;
 
@@ -290,7 +290,7 @@ export default class FancySlider extends Component {
                     isNext={isNext}
                     isScrollNSliding={slider.isScrollNSliding}
                     isSliding={isSliding}
-                    isLandingVideoPlaying={isLandingVideoPlaying}
+                    reel={reel}
                     hasMouseLeftNextSlide={hasMouseLeftNextSlide}
                     onMouseOut={isNext ? this.handleNextMouseLeave : ()=>{return}}
                     fontsLoaded={fontsLoaded}

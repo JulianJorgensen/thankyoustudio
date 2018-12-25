@@ -48,7 +48,7 @@ const Wrapper = styled.div`
     transition-duration: 0.5s;
 
     &:before {
-      display: ${props.isLandingVideoPlaying ? 'none' : 'block'};
+      display: ${props.reel.isPlaying ? 'none' : 'block'};
       content: '';
       position: fixed;
       top: 0;
@@ -69,7 +69,7 @@ const Wrapper = styled.div`
   `}
 
   ${props => props.isNext && breakpoint.m`
-    width: ${props.showNextSlide && !props.isLandingVideoPlaying ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
+    width: ${props.showNextSlide && !props.reel.isPlaying ? props.hasMouseLeftNextSlide ? '10vw' : '15vw' : '0'};
   `}
 
   ${props => props.isNext && props.isSliding && `
