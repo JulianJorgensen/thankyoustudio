@@ -33,6 +33,9 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
+  width: 0;
+  height: 0;
+
   ${breakpoint.m `
     min-width: 100vw;
     min-height: 100vh;
