@@ -12,7 +12,7 @@ const Observer = dynamic(import('react-intersection-observer'), {
 });
 
 const Wrapper = styled.div`
-  opacity: 0;
+  opacity: 1;
   position: fixed;
   top: 0;
   left: 0;
@@ -102,8 +102,8 @@ export default class Reel extends Component {
     return (
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.reel.isPlaying}>
-          <Inner>
-            {store.reel.isLoading && alert('loading') && 
+          <Inner loading={store.reel.isLoading}>
+            {store.reel.isLoading && 
               <ReactPlayer
                 // ref={ref}
                 url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
