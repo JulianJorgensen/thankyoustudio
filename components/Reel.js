@@ -103,7 +103,7 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.reel.isPlaying}>
           <Inner>
-            {store.reel.isLoading &&
+            {store.reel.isLoading && alert('loading') && 
               <ReactPlayer
                 // ref={ref}
                 url='http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
