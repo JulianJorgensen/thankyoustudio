@@ -35,6 +35,10 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
+  * {
+    max-width: 100vw;
+  }
+
   ${breakpoint.m `
     min-width: 100vw;
     min-height: 100vh;

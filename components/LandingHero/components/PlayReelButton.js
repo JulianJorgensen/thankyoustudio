@@ -20,7 +20,7 @@ const Wrapper = styled.div`
   transition: opacity 0.2s;
   top: -56px; // this is a hack to compensate for mobile overlayed navigation
   max-width: 40vw;
-  pointer-events: auto;
+  pointer-events: ${props => props.isActive ? 'auto' : 'none'};
 
   ${props => props.isLoading && `
   `}
