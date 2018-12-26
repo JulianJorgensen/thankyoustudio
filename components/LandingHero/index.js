@@ -12,6 +12,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   height: ${LAYOUT.MOBILE.HERO_HEIGHT};
+  min-height: 500px;
   width: 100%;
   background-color: white;
   color: white;
