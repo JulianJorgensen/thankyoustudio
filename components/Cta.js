@@ -50,6 +50,11 @@ const Arrow = styled.div`
     fill: ${props => props.whiteContent ? appleBlueDarkTheme : appleBlue};
   }
 
+  svg {
+    height: 100%;
+    width: 100%;
+  }
+
   ${props => props.down && `
     transform: rotate(90deg);
   `}
