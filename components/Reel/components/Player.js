@@ -61,6 +61,7 @@ export default class Reel extends Component {
         // onPause={this.handlePause}
         onEnded={this.handleClose}
         playing={true}
+        muted
       />
     )
   }

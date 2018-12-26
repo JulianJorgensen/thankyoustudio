@@ -4,7 +4,8 @@ import dynamic from 'next/dynamic';
 import { breakpoint } from 'utils/variables';
 
 const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
+  ssr: false,
+  loading: () => <div>loading!...</div>
 });
 
 const Wrapper = styled.div`
