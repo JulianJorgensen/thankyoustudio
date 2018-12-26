@@ -56,12 +56,11 @@ export default class Reel extends Component {
     return (
       <ReactPlayer
         url='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
-        // onReady={this.handleOnReady}
-        // onStart={this.handleOnStart}
-        // onPause={this.handlePause}
+        onReady={this.handleOnReady}
+        onStart={this.handleOnStart}
+        onPause={this.handlePause}
         onEnded={this.handleClose}
-        playing={true}
-        muted
+        playing={store.reel.isPlaying}
       />
     )
   }
