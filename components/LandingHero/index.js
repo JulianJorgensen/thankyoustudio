@@ -71,7 +71,6 @@ export default class LandingSlide extends Component {
             preTitle={<StyledLogo />}
             title={<ClientCarousel isActive={props.isActive} />}
             titleAlt="You're welcome"
-            // teaserText={store.reel.isReady ? ' isReady' : 'not ready'}
             teaserText="Our work is always authentic at heart, meaningful in spirit and crafted for impact."
             isActive={props.isActive}
             isLanding
@@ -80,7 +79,7 @@ export default class LandingSlide extends Component {
             // fadeToBlack
           />
           <Content>
-            <PlayReelButton isActive={props.isActive} />
+            <PlayReelButton isActive={store.isMobile ? store.reel.isLoading : props.isActive} />
           </Content>
         </Inner>
       </Wrapper>

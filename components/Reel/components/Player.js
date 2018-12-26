@@ -24,7 +24,6 @@ export default class Reel extends Component {
   }
 
   handleOnStart() {
-    console.log('on start');
   }
 
   handleClose() {
@@ -33,7 +32,6 @@ export default class Reel extends Component {
   }
 
   handleOnReady() {
-    console.log('handleOnReady')
     const { dispatch } = this.props;
     dispatch(actions.landingVideoReady(true));
   }
@@ -43,7 +41,7 @@ export default class Reel extends Component {
 
     return (
       <ReactPlayer
-        url='http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4'
+        url='//cdn.thankyoustudio.com/videos/reel_dec20.mp4'
         onReady={this.handleOnReady}
         onStart={this.handleOnStart}
         onPause={this.handlePause}
