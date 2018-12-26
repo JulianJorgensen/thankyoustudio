@@ -17,7 +17,7 @@ const Observer = dynamic(import('react-intersection-observer'), {
 });
 
 const Wrapper = styled.div`
-  opacity: 0;
+  opacity: 0.2;
   position: fixed;
   top: 0;
   left: 0;
@@ -35,18 +35,19 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
+  min-width: 100vw;
+  min-height: 100vh;
+
+  * {
+    min-height: inherit;
+    min-width: inherit;
+  }
+
+  video {
+    object-fit: cover;
+  }
   ${breakpoint.m `
-    min-width: 100vw;
-    min-height: 100vh;
 
-    * {
-      min-height: inherit;
-      min-width: inherit;
-    }
-
-    video {
-      object-fit: cover;
-    }
   `}
 `
 

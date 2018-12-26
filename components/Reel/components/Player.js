@@ -56,9 +56,9 @@ export default class Reel extends Component {
     return (
       <ReactPlayer
         url='//cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_dec20.mp4'
-        onReady={this.handleOnReady}
-        onStart={this.handleOnStart}
-        onPause={this.handlePause}
+        // onReady={this.handleOnReady}
+        // onStart={this.handleOnStart}
+        // onPause={this.handlePause}
         onEnded={this.handleClose}
         playing={true}
       />
