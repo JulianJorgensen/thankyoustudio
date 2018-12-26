@@ -106,7 +106,7 @@ export default class LayoutDesktop extends Component {
     return (
       <Wrapper>
         <Header />
-        <Slider />
+        {/* <Slider /> */}
         {children}
       </Wrapper>
     )
