@@ -60,7 +60,7 @@ export default class Reel extends Component {
         onStart={this.handleOnStart}
         onPause={this.handlePause}
         onEnded={this.handleClose}
-        playing={store.reel.isPlaying}
+        playing={true}
       />
     )
   }

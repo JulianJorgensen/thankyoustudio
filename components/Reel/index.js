@@ -77,16 +77,6 @@ export default class Reel extends Component {
     this.handleClose = this.handleClose.bind(this);
   }
 
-  componentDidMount() {
-    if (this.props.store.isMobile) {
-      setTimeout(() => {
-        console.log('is mobile and load player')
-        this.setState({ loadPlayerTimeout: true });
-      }, 2000);
-    }
-  }
-
-
   handleClose() {
     const { dispatch } = this.props;
     dispatch(actions.landingVideoPlaying(false));
