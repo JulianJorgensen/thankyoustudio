@@ -6,7 +6,7 @@ import Grid from 'components/Grid';
 import Text from 'components/Case/Text';
 import AboutCopy from 'components/AboutCopy';
 import { breakpoint, LAYOUT } from 'utils/variables';
-import Reel from 'components/Reel';
+// import Reel from 'components/Reel';
 
 const CasesGrid = dynamic(import('components/CasesGrid'));
 const InstagramFeed = dynamic(import('components/InstagramFeed'));
@@ -16,7 +16,7 @@ const StyledCasesGrid = styled(CasesGrid)`
 
 export default (props) => (
   <Case isLanding {...props}>
-    <Reel />
+    {/* <Reel /> */}
     <Grid>
       <Text intro>
         <p>We like to keep things simple. To us, designing is about making sense of complex matters — translating them into unique digital products, brands and experiences, that make people happy and companies succeed.</p>
