@@ -6,11 +6,11 @@ import * as actions from 'store/actions';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
-import Player from './components/Player';
+// import Player from './components/Player';
 
-// const Player = dynamic(import('./components/Player'), {
-//   ssr: false
-// });
+const Player = dynamic(import('./components/Player'), {
+  ssr: false
+});
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
