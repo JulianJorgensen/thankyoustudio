@@ -107,10 +107,10 @@ export default class PlayReelButton extends Component {
 
     // mobile needs different treatment because of ios restriction
     // it can only handle 1 timeout/interval
-    if (store.isMobile) {
-      dispatch(actions.landingVideoPlaying(true));
-      return;
-    }
+    // if (store.isMobile) {
+    //   dispatch(actions.landingVideoPlaying(true));
+    //   return;
+    // }
 
     // desktop
     this.checkPlayerRef = setInterval(() => {
