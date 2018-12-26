@@ -20,17 +20,6 @@ export default class Reel extends Component {
     this.handleOnReady = this.handleOnReady.bind(this);
   }
 
-  componentDidMount() {
-    console.log('mounted player!', this.props.store)
-    this.startReadyTimeout();
-  }
-
-  startReadyTimeout() {
-    setTimeout(() => {
-      this.handleOnReady();
-    }, 3000);
-  }
-
   handlePause() {
     this.handleClose();
   }

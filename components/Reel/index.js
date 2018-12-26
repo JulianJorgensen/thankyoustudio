@@ -74,7 +74,20 @@ export default class Reel extends Component {
     super();
 
     this.state = {};
+
+    this.startReadyTimeout = this.startReadyTimeout.bind(this);
     this.handleClose = this.handleClose.bind(this);
+  }
+
+  componentDidMount() {
+    this.startReadyTimeout();
+  }
+
+  async startReadyTimeout() {
+    setTimeout(() => {
+      const { dispatch } = this.props;
+      dispatch(actions.landingVideoReady(true));  
+    }, 2000);
   }
 
   handleClose() {
@@ -89,8 +102,8 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.reel.isPlaying}>
           <Inner loading={store.reel.isLoading}>
-            {/* {(store.reel.isLoading || this.state.loadPlayerTimeout) && <Player/>} */}
-            <Player/>
+            {store.reel.isLoading && <Player/>}
+            {/* <Player/> */}
           </Inner>
           <CloseReel onClick={this.handleClose}><CloseIcon /></CloseReel>
         </Wrapper>
