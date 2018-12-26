@@ -102,8 +102,8 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.reel.isPlaying}>
           <Inner loading={store.reel.isLoading}>
-            {store.reel.isLoading && <Player/>}
-            {/* <Player/> */}
+            {/* {store.reel.isLoading && <Player/>} */}
+            <Player/>
           </Inner>
           <CloseReel onClick={this.handleClose}><CloseIcon /></CloseReel>
         </Wrapper>

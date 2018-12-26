@@ -13,7 +13,6 @@ export default class Reel extends Component {
     this.state = {};
     this.video = {};
 
-    this.startReadyTimeout = this.startReadyTimeout.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleOnStart = this.handleOnStart.bind(this);
     this.handleClose = this.handleClose.bind(this);
