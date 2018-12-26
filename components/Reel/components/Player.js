@@ -47,7 +47,7 @@ export default class Reel extends Component {
         onPause={this.handlePause}
         onEnded={this.handleClose}
         playing={store.reel.isPlaying}
-        preload='none'
+        fileConfig={{ attributes: { preload: store.isMobile ? 'none' : 'auto' }}}
       />
     )
   }
