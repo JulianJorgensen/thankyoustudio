@@ -19,17 +19,18 @@ export default class Layout extends Component {
     window.scrollTo(0, 0);
 
     // HOTJAR Site tracking
-    if (isProd) {
-      hotjar.initialize(TRACKING.HOTJAR_ID, 6);
-    }
+    // if (isProd) {
+    //   hotjar.initialize(TRACKING.HOTJAR_ID, 6);
+    // }
   }
 
   initFontObserver() {
-    const font = new FontFaceObserver('Helvetica Neue');
+    this.props.dispatch(actions.confirmFontsLoaded());
+    // const font = new FontFaceObserver('Helvetica Neue');
 
-    font.load().then(() => {
-      this.props.dispatch(actions.confirmFontsLoaded());
-    });
+    // font.load().then(() => {
+    //   this.props.dispatch(actions.confirmFontsLoaded());
+    // });
   }
 
   render() {
