@@ -13,7 +13,7 @@ export default class Reel extends Component {
     this.state = {};
     this.video = {};
 
-    this.handleOnVisibilityChange = this.handleOnVisibilityChange.bind(this);
+    this.startReadyTimeout = this.startReadyTimeout.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleOnStart = this.handleOnStart.bind(this);
     this.handleClose = this.handleClose.bind(this);
@@ -22,12 +22,13 @@ export default class Reel extends Component {
 
   componentDidMount() {
     console.log('mounted player!', this.props.store)
+    this.startReadyTimeout();
   }
 
-  handleOnVisibilityChange(inView) {
-    if (inView) return;
-
-    this.handlePause();
+  startReadyTimeout() {
+    setTimeout(() => {
+      this.handleOnReady();
+    }, 3000);
   }
 
   handlePause() {

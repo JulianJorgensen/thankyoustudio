@@ -23,17 +23,21 @@ const StyledText = styled(Text)`
 
   p {
     font-size: inherit;
+
+    &:first-child {
+      margin-top: 0;
+    }
   }
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     padding: 0;
   `}
 
   ${props => props.intro && `
-    padding: 40px 0 30px;
+    padding: 0 0 30px;
   `}
 
-  ${props => props.intro && breakpoint.up('m')`
+  ${props => props.intro && breakpoint.m`
     display: block;
     padding: 220px 0 80px;
   `}
