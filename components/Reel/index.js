@@ -86,8 +86,9 @@ export default class Reel extends Component {
   async startReadyTimeout() {
     setTimeout(() => {
       const { dispatch } = this.props;
+      dispatch(actions.landingVideoLoading(true));  
       dispatch(actions.landingVideoReady(true));  
-    }, 2000);
+    }, 1500);
   }
 
   handleClose() {
@@ -102,8 +103,8 @@ export default class Reel extends Component {
       <Observer onChange={this.handleOnVisibilityChange}>
         <Wrapper show={store.reel.isPlaying}>
           <Inner loading={store.reel.isLoading}>
-            {/* {store.reel.isLoading && <Player/>} */}
-            <Player/>
+            {store.reel.isLoading && <Player/>}
+            {/* <Player/> */}
           </Inner>
           <CloseReel onClick={this.handleClose}><CloseIcon /></CloseReel>
         </Wrapper>
