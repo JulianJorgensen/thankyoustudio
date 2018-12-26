@@ -111,6 +111,7 @@ export default class PlayReelButton extends Component {
       // play the reel once the player is ready
       console.log('checking to see if reel isReady', this.props.store.reel.isReady);
       if (this.props.store.reel.isReady) {
+        alert('reel isReady');
         console.log('reel isReady');
         this.setState({
           isLoading: false
