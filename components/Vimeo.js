@@ -5,7 +5,8 @@ import Vimeo from '@u-wave/react-vimeo';
 import styled from 'styled-components';
 
 const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
+  ssr: false,
+  loading: () => <Loader />
 });
 
 const Wrapper = styled.div`

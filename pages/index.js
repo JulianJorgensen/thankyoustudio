@@ -7,9 +7,15 @@ import Text from 'components/Case/Text';
 import AboutCopy from 'components/AboutCopy';
 import { breakpoint, LAYOUT } from 'utils/variables';
 
-const Reel = dynamic(import('components/Reel'));
-const CasesGrid = dynamic(import('components/CasesGrid'));
-const InstagramFeed = dynamic(import('components/InstagramFeed'));
+const Reel = dynamic(import('components/Reel'), {
+  loading: () => <Loader />
+});
+const CasesGrid = dynamic(import('components/CasesGrid'), {
+  loading: () => <Loader />
+});
+const InstagramFeed = dynamic(import('components/InstagramFeed'), {
+  loading: () => <Loader />
+});
 
 const StyledCasesGrid = styled(CasesGrid)`
 `

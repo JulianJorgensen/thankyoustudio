@@ -4,7 +4,9 @@ import styled from 'styled-components';
 import { breakpoint, EASINGS, LAYOUT } from 'utils/variables';
 import LowerleftContent from './LowerLeftContent';
 
-const SlideVideo = dynamic(import('./SlideVideo'));
+const SlideVideo = dynamic(import('./SlideVideo'), {
+  loading: () => <Loader />
+});
 
 const Wrapper = styled.div`
   width: 100%;

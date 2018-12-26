@@ -5,9 +5,11 @@ import Fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import { aspectRatio } from 'utils/styleUtils';
 import { breakpoint, EASINGS, INSTAGRAM } from 'utils/variables';
+import Loader from 'components/Loader';
 
 const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
+  ssr: false,
+  loading: () => <Loader />
 });
 
 const Wrapper = styled.div`

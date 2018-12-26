@@ -9,11 +9,13 @@ import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 // import Player from './components/Player';
 
 const Player = dynamic(import('./components/Player'), {
-  ssr: false
+  ssr: false,
+  loading: () => <Loader />
 });
 
 const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false
+  ssr: false,
+  loading: () => <Loader />
 });
 
 const Wrapper = styled.div`
