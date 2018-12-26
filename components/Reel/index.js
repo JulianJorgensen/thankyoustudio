@@ -5,6 +5,7 @@ import dynamic from 'next/dynamic';
 import * as actions from 'store/actions';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
+import Loader from 'components/Loader';
 
 // import Player from './components/Player';
 

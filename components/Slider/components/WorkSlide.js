@@ -3,6 +3,7 @@ import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 import { breakpoint, EASINGS, LAYOUT } from 'utils/variables';
 import LowerleftContent from './LowerLeftContent';
+import Loader from 'components/Loader';
 
 const SlideVideo = dynamic(import('./SlideVideo'), {
   loading: () => <Loader />

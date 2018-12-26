@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
 import Vimeo from '@u-wave/react-vimeo';
 import styled from 'styled-components';
+import Loader from 'components/Loader';
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false,

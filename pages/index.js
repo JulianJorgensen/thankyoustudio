@@ -6,6 +6,7 @@ import Grid from 'components/Grid';
 import Text from 'components/Case/Text';
 import AboutCopy from 'components/AboutCopy';
 import { breakpoint, LAYOUT } from 'utils/variables';
+import Loader from 'components/Loader';
 
 const Reel = dynamic(import('components/Reel'), {
   loading: () => <Loader />
