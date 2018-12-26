@@ -80,7 +80,7 @@ export default class Reel extends Component {
   }
 
   componentDidMount() {
-    this.startReadyTimeout();
+    if (this.props.store.isMobile) this.startReadyTimeout();
   }
 
   async startReadyTimeout() {
@@ -88,7 +88,7 @@ export default class Reel extends Component {
       const { dispatch } = this.props;
       dispatch(actions.landingVideoLoading(true));  
       dispatch(actions.landingVideoReady(true));  
-    }, 1500);
+    }, 4000);
   }
 
   handleClose() {
