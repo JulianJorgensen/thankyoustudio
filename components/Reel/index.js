@@ -6,9 +6,11 @@ import * as actions from 'store/actions';
 import CloseIcon from 'assets/icons/FontAwesome/regular/times.svg';
 import { breakpoint, EASINGS, TIMINGS } from 'utils/variables';
 
-const Player = dynamic(import('./components/Player'), {
-  ssr: false
-});
+import Player from './components/Player';
+
+// const Player = dynamic(import('./components/Player'), {
+//   ssr: false
+// });
 
 const Observer = dynamic(import('react-intersection-observer'), {
   ssr: false
@@ -33,9 +35,6 @@ const Wrapper = styled.div`
 `
 
 const Inner = styled.div`
-  width: 0;
-  height: 0;
-
   ${breakpoint.m `
     min-width: 100vw;
     min-height: 100vh;
