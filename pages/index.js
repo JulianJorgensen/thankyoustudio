@@ -17,7 +17,7 @@ const StyledCasesGrid = styled(CasesGrid)`
 export default (props) => (
   <Case isLanding {...props}>
     {/* <Reel /> */}
-    <Grid>
+    {/* <Grid>
       <Text intro>
         <p>We like to keep things simple. To us, designing is about making sense of complex matters — translating them into unique digital products, brands and experiences, that make people happy and companies succeed.</p>
         <p>We are a full-service studio, and at our offices in Copenhagen, San Francisco and Reykjavík, you’ll meet a tightly knit team —each one a specialist in their skill set, but with a curious mind for surrounding areas.</p>
@@ -25,6 +25,6 @@ export default (props) => (
     </Grid>
 
     <StyledCasesGrid  isMobile={props.isMobile} onWhite />
-    <InstagramFeed />
+    <InstagramFeed /> */}
   </Case>
 )
