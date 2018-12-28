@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { TweenLite, MorphSVGPlugin } from 'gsap';
 import styled from 'styled-components';
-import { ClipLoader } from 'react-spinners';
 import PlayMaskSvg from 'assets/svgs/reel-mask.svg';
 import * as actions from 'store/actions';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';

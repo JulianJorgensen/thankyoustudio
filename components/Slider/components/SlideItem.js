@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { TweenLite } from 'gsap';
 import throttle from 'lodash.throttle';
 import LandingSlide from 'components/LandingHero';
 import WorkSlide from './WorkSlide';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
+
+if (typeof window !== 'undefined') {
+  const TweenLite = require('gsap/TweenLite');
+}
 
 const Wrapper = styled.div`
   position: absolute;

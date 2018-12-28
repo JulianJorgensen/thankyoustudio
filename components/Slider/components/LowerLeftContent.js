@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { TweenLite } from 'gsap';
 import styled from 'styled-components';
 import throttle from 'lodash.throttle';
 import { animateScroll as scroll } from 'react-scroll';
 import { breakpoint, HERO, LAYOUT, FONTS, TIMINGS } from 'utils/variables';
 import Text from 'components/Typography/Text';
 import Cta from 'components/Cta';
+
+if (typeof window !== 'undefined') {
+  const TweenLite = require('gsap/TweenLite');
+}
 
 const Wrapper = styled.div`
   position: absolute;
