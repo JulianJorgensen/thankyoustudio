@@ -92,11 +92,11 @@ export default [
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "white",
     video: '//cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
-    imageThumb: '//cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-thumb.jpg',
+    imageThumb: '//cdn.thankyoustudio.com/cases/onea/images/onea-thumb.jpg',
     poster: '//cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',
     mobile: {
       video: '//cdn.thankyoustudio.com/cases/onea/videos/Onaa_cover_9_16.mp4',
-      imageThumb: '//cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-thumb.jpg',
+      imageThumb: '//cdn.thankyoustudio.com/cases/onea/images/onea-thumb.jpg',
       poster: '//cdn.thankyoustudio.com/cases/onea/images/onea-poster-mobile.jpg',
     }
   },
