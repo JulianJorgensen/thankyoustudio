@@ -144,16 +144,18 @@ export default class PlayReelButton extends Component {
     return (
       <Wrapper
         onMouseEnter={!store.isMobile && this.loadPlayer}
-        onClick={this.handleOnPlayClick}
+        onClick={props.isActive && this.handleOnPlayClick}
         fontsLoaded={store.fontsLoaded}
         hide={!props.isActive}
         isLoading={this.state.isLoading}
       >
         <PlayText loading={this.state.isLoading}>{this.state.isLoading || store.reel.isPlaying ? 'Loading' : 'Play'} Reel</PlayText>
-        <PlayReelMask />
-        <Teaser autoPlay playsInline muted loop>
-          <source src="//cdn.thankyoustudio.com/videos/reel_cover_square.mp4" type="video/mp4" />
-        </Teaser>
+        <PlayReelMask alt="Play reel" />
+        {props.isActive && 
+          <Teaser autoPlay playsInline muted loop>
+            <source src="//cdn.thankyoustudio.com/videos/reel_cover_square.mp4" type="video/mp4" />
+          </Teaser>
+        }
       </Wrapper>
     )
   }

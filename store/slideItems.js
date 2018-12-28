@@ -110,7 +110,7 @@ export default [
     fadeToBlack: true,
     video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
     imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
-    poster: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch-scuba-libra-poster.jpg",
     mobile: {
       video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/Swatchscuba_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
@@ -125,7 +125,7 @@ export default [
     background: "white",
     video: "//cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
     imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-thumb.jpg",
-    poster: "//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal_thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-poster.jpg",
     mobile: {
       video: "//cdn.thankyoustudio.com/cases/gyldendal/video/Gyldendal_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-thumb.jpg",
@@ -142,7 +142,7 @@ export default [
     fadeToBlack: true,
     video: "//cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
     imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
-    poster: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-poster.jpg",
     mobile: {
       video: "//cdn.thankyoustudio.com/cases/steelseries/videos/Steelseries_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",  
