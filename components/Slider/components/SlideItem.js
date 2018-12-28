@@ -7,6 +7,7 @@ import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 
 if (typeof window !== 'undefined') {
   const TweenLite = require('gsap/TweenLite');
+  require('gsap/CSSPlugin');
 }
 
 const Wrapper = styled.div`
@@ -125,7 +126,6 @@ export default class SlideItem extends Component {
         preloadedPoster: true
     }, () => {
       const { isMobile, slideItemData } = this.props;
-      console.log('preloading image', slideItemData.poster);
       let img = new Image();
       img.src = isMobile ? slideItemData.mobile.poster : slideItemData.poster;
     });
