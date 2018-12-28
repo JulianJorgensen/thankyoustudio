@@ -12,7 +12,7 @@ import HelveticaNeueRoman from 'fonts/37BC46_0_0.woff2';
 import HelveticaNeueBold from 'fonts/37BC46_1_0.woff2';
 import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
-import { breakpoint, BREAKPOINTS_NEW } from 'utils/variables';
+import { breakpoint, BREAKPOINTS } from 'utils/variables';
 import Layout from 'layout';
 
 const GlobalStyle = createGlobalStyle`
@@ -113,7 +113,7 @@ class MyApp extends App {
     const { store } = this.props;
     if (!store) return;
 
-    if (window.innerWidth < BREAKPOINTS_NEW.m) {
+    if (window.innerWidth < BREAKPOINTS.m) {
       if (store.isMobile) return;
       this.props.store.dispatch(actions.setIsMobile(true));
     } else {
@@ -125,7 +125,7 @@ class MyApp extends App {
   render () {
     const { Component, pageProps, store } = this.props
     const isMobile = store.isMobile;
-    console.log('store', store.getState());
+
     return (
       <Container>
         <Head>

@@ -154,7 +154,7 @@ export default class PlayReelButton extends Component {
         <PlayText loading={this.state.isLoading}>{this.state.isLoading || store.reel.isPlaying ? 'Loading' : 'Play'} Reel</PlayText>
         <PlayReelMask />
         <Teaser autoPlay playsInline muted loop>
-          <source src="http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/reel_cover_square.mp4" type="video/mp4" />
+          <source src="//cdn.thankyoustudio.com/videos/reel_cover_square.mp4" type="video/mp4" />
         </Teaser>
       </Wrapper>
     )

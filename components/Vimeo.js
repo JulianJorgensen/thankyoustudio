@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import dynamic from 'next/dynamic';
-import Vimeo from '@u-wave/react-vimeo';
+import VimeoPlayer from 'react-player/lib/players/Vimeo.js';
 import styled from 'styled-components';
 import Loader from 'components/Loader';
 
@@ -13,7 +13,7 @@ const Observer = dynamic(import('react-intersection-observer'), {
 const Wrapper = styled.div`
 `
 
-const Video = styled(Vimeo)`
+const Video = styled(VimeoPlayer)`
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -31,7 +31,7 @@ const Video = styled(Vimeo)`
 @connect((store) => ({
   store,
 }))
-export default class VimeoVideo extends Component {
+export default class Vimeo extends Component {
   constructor() {
     super();
     this.state = {

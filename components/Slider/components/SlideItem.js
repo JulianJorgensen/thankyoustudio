@@ -90,6 +90,7 @@ export default class SlideItem extends Component {
 
     this.handleOnScroll = this.handleOnScroll.bind(this);
     this.updateNextSlidePosition = throttle(this.updateNextSlidePosition, 15);
+    this.preloadPoster = this.preloadPoster.bind(this);
   }
 
   componentDidMount() {
@@ -99,7 +100,11 @@ export default class SlideItem extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { isNext, isActive, isPrevious } = this.props;
+    const { isNext, isActive, isPrevious, preloadPoster } = this.props;
+
+    if (preloadPoster && !this.state.preloadedPoster) {
+      this.preloadPoster();
+    }
 
     if (!prevProps) return;
     if (prevProps == this.props) return;
@@ -110,6 +115,17 @@ export default class SlideItem extends Component {
     if (prevProps.isPrevious && isPrevious) return;
     this.toggleScrollEventListener();
     this.setIsDirty();
+  }
+
+  preloadPoster() {
+    this.setState({
+        preloadedPoster: true
+    }, () => {
+      const { isMobile, slideItemData } = this.props;
+      console.log('preloading image', slideItemData.poster);
+      let img = new Image();
+      img.src = isMobile ? slideItemData.mobile.poster : slideItemData.poster;
+    });
   }
 
   setIsDirty() {

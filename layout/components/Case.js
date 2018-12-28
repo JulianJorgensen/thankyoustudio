@@ -57,7 +57,7 @@ export default class Case extends Component {
     }
 
     return (
-        <Wrapper usePrevAsNextSlide={store.usePrevAsNextSlide} {...props} className="case-page">
+        <Wrapper {...props} className="case-page">
           <Head>
             <title>{renderTitle()}</title>
           </Head>

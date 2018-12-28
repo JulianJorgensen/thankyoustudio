@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import Router, { withRouter } from 'next/router'
 import throttle from 'lodash.throttle';
 import styled from 'styled-components';
-import Headroom from 'react-headroom';
 import { closeMobileNav, toggleMobileNav } from 'store/actions';
 import Nav from './components/Nav';
 import MobileNav from './components/MobileNav';

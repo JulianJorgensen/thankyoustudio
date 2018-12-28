@@ -14,6 +14,7 @@ export default [
     fadeToBlack: true,
     video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
     imageThumb: '//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
+    poster: '',
     mobile: {
       video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrai_cover_9_16.mp4',
       poster: ''
@@ -28,11 +29,11 @@ export default [
     whiteContent: true,
     fadeToBlack: true,
     video: "//cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",
+    imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
     poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster.jpg",
     mobile: {
       video: "//cdn.thankyoustudio.com/videos/Swatch_skin_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",
+      imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
       poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster-mobile.jpg"
     }
   },
@@ -158,7 +159,7 @@ export default [
     fadeToBlack: true,
     video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
     imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-thumb.jpg',
-    poster: '//cdn.thankyoustudio.com/cases/bundesliga/images/thumb.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-poster.jpg',
     mobile: {
       video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/Bundesliga_cover_9_16.mp4',
       imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-thumb.jpg',

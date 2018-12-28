@@ -67,8 +67,11 @@ const BackButton = styled.div`
 export default class FancySlider extends Component {
   constructor() {
     super();
+
     this.state = {};
 
+    this.addArrowKeyEvents = this.addArrowKeyEvents.bind(this);
+    this.showNextSlide = this.showNextSlide.bind(this);
     this.handleBackClick = this.handleBackClick.bind(this);
     this.handleNextMouseLeave = this.handleNextMouseLeave.bind(this);
     this.triggerNextClick = this.triggerNextClick.bind(this);
@@ -227,7 +230,6 @@ export default class FancySlider extends Component {
       prevSlide,
       slider,
       isSliding,
-      usePrevAsNextSlide,
       hasMouseLeftNextSlide,
       fontsLoaded,
       navColor,
@@ -271,7 +273,7 @@ export default class FancySlider extends Component {
 
                 // detect if is next
                 let isNext;
-                if (usePrevAsNextSlide && prevSlide) {
+                if (prevSlide) {
                   isNext = prevSlide.index === i;
                 } else {
                   isNext = ((activeSlide.index === i - 1) || (activeSlide.index === (SlideItems.length - 1) && i === 0));
@@ -296,6 +298,7 @@ export default class FancySlider extends Component {
                     showNextSlide={isNext && this.state.showNextSlide}
                     isFirstWorkSlide={i === 1}
                     isMobile={isMobile}
+                    preloadPoster={activeSlide.index === i - 2}
                   />
                 )
               })
