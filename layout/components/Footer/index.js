@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import media from 'utils/mediaQueries';
 import Logo from 'components/Logo';
 import Cta from './Cta';
 import Locations from './Locations';
@@ -19,7 +18,7 @@ const MobileWrapper = styled.footer`
   width: 100%;
   padding: 80px ${LAYOUT.MOBILE.EDGE_MARGIN};
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     display: none;
   `}
 `
@@ -27,7 +26,7 @@ const MobileWrapper = styled.footer`
 const DesktopWrapper = styled.footer`
   display: none;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -42,7 +41,7 @@ const DesktopWrapper = styled.footer`
 const Details = styled.div`
   text-align: center;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -52,7 +51,7 @@ const Details = styled.div`
 const StyledLogo = styled(Logo)`
   margin: 60px 0 30px;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     margin: 0;
   `}
 `

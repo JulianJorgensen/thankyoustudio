@@ -4,7 +4,6 @@ import Head from 'next/head';
 import styled from 'styled-components';
 import * as actions from 'store/actions';
 import Footer from 'layout/components/Footer';
-import media from 'utils/mediaQueries';
 import { breakpoint, LAYOUT, META, TIMINGS } from 'utils/variables';
 
 const Wrapper = styled.div`
@@ -26,7 +25,7 @@ const Content = styled.div`
   min-height: calc(100vh - 300px);
   opacity: 1;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     padding: 120px ${props => props.withPadding ? LAYOUT.EDGE_MARGIN : '0'};
   `}
 `

@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import FontFaceObserver from 'fontfaceobserver';
 import { hotjar } from 'react-hotjar';
+import 'ssr-intersection-observer';
 import * as actions from 'store/actions';
 import withAnalytics from 'utils/withAnalytics';
-import LayoutMobile from './components/LayoutMobile';
 import LayoutDesktop from './components/LayoutDesktop';
 import { isProd, TRACKING } from 'utils/variables';
 
@@ -12,9 +12,6 @@ import { isProd, TRACKING } from 'utils/variables';
 @connect()
 export default class Layout extends Component {
   componentDidMount() {
-    // require polyfill for intersection observer only in client side
-    require('intersection-observer');
-
     this.initFontObserver();
     window.scrollTo(0, 0);
 

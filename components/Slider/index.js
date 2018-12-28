@@ -8,7 +8,6 @@ import SlideItem from './components/SlideItem';
 import ChevronLeftIcon from 'assets/icons/FontAwesome/regular/chevron-left.svg';
 import * as actions from 'store/actions';
 import SlideItems from 'store/slideItems';
-import media from 'utils/mediaQueries';
 import { breakpoint, LAYOUT, EASINGS, TIMINGS } from 'utils/variables';
 
 const Slider = styled.div`
@@ -21,7 +20,7 @@ const Slider = styled.div`
   transition: left ${TIMINGS.SLIDER} ease-out;
   pointer-events: none;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     height: 100vh;
   `}
   
@@ -47,7 +46,7 @@ const BackButton = styled.div`
   cursor: pointer;
   pointer-events: auto;
 
-  ${breakpoint.up('m') `
+  ${breakpoint.m `
     display: ${props => props.hide ? 'none' : 'block'};
   `}
 

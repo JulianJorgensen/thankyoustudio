@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import media from 'utils/mediaQueries';
 import Fetch from 'isomorphic-unfetch';
 import dynamic from 'next/dynamic';
 import { aspectRatio } from 'utils/styleUtils';
@@ -20,7 +19,7 @@ const Wrapper = styled.div`
   align-items: center;
   margin-top: 80px;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     margin-top: 150px;
   `}
 `
@@ -35,11 +34,11 @@ const Posts = styled.div`
   width: 100%;
   background-color: black;
 
-  ${media.tablet`
+  ${breakpoint.m`
     grid-template-columns: repeat(4, 1fr);
   `}
 
-  ${media.desktop`
+  ${breakpoint.l`
     grid-template-columns: repeat(8, 1fr);
   `}
 `
@@ -109,7 +108,7 @@ const PostContent = styled.div`
   font-size: 9px;
   line-height: 10px;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     font-size: initial;
     line-height: initial;
   `}

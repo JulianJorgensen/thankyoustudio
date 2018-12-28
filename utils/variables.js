@@ -1,6 +1,6 @@
 import styledBreakpoint from '@humblebee/styled-components-breakpoint';
 
-export const BREAKPOINTS_NEW = {
+export const BREAKPOINTS = {
   xxs: 0,
   xs: 375,
   s: 576,
@@ -10,13 +10,7 @@ export const BREAKPOINTS_NEW = {
   xxl: 1400,
 }
 
-export const breakpoint = styledBreakpoint(BREAKPOINTS_NEW);
-
-export const BREAKPOINTS = {
-  desktop: 992,
-  tablet: 768,
-  phone: 576,
-}
+export const breakpoint = styledBreakpoint(BREAKPOINTS);
 
 export const TRACKING = {
   GOOGLE_ANALYTICS: 'UA-98361509-1',

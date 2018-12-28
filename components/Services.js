@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { LAYOUT } from 'utils/variables';
-import media from 'utils/mediaQueries';
+import { breakpoint, LAYOUT } from 'utils/variables';
 
 const Wrapper = styled.div`
   display: flex;
@@ -12,7 +11,7 @@ const Wrapper = styled.div`
 const TabsNav = styled.div`
   display: none;
 
-  ${media.tablet`
+  ${breakpoint.m`
     display: flex;
     margin-bottom: 80px;
     width: ${LAYOUT.CONTAINER_WIDTH};  
@@ -57,7 +56,7 @@ const TabNavItem = styled.h2`
 `
 
 const Tabs = styled.div`
-  ${media.tablet`
+  ${breakpoint.m`
     display: flex;
     width: ${LAYOUT.CONTAINER_WIDTH};
     padding-right: 300px;
@@ -69,7 +68,7 @@ const Tab = styled.div`
     margin: 0;
   }
 
-  ${media.tablet`
+  ${breakpoint.m`
     display: none;
     column-count: 2;
 

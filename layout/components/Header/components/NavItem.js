@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import media from 'utils/mediaQueries';
 import { breakpoint } from 'utils/variables';
 
 const NavLink = styled.div`
@@ -14,11 +13,11 @@ const NavLink = styled.div`
     z-index: 99;
   `}
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     display: block;
   `}
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     font-size: 18px;
     margin-right: 28px;
   `}
@@ -41,7 +40,7 @@ const NavLinkLine = styled.div`
   transition: all 0.2s ease 0s;
   width: 0%;
 
-  ${breakpoint.up('m')`
+  ${breakpoint.m`
     display: block;
     position: absolute;
 
