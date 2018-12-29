@@ -82,7 +82,7 @@ export default class Case extends Component {
 
             .fade-exit-active.case-page {
               transform: translateX(100px);
-              transition: all ${isMobile ? TIMINGS.MOBILE.DEFAULT_PAGE_WRAPPER : TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;
+              transition: all ${isMobile ? TIMINGS.MOBILE.CASE_WRAPPER : TIMINGS.CASE_WRAPPER} ease-out;
               opacity: 0;
             }
           `}

@@ -34,7 +34,7 @@ const StyledText = styled(Text)`
   `}
 
   ${props => props.intro && `
-    padding: 0 0 30px;
+    padding: 30px 0;
   `}
 
   ${props => props.intro && breakpoint.m`
