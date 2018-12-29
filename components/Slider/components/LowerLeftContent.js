@@ -229,7 +229,7 @@ export default class LowerLeftContent extends Component {
   }
 
   triggerScrollDown() {
-    scroll.scrollTo(this.props.store.isMobile ? window.innerHeight/2 : window.innerHeight + 100, {
+    scroll.scrollTo(this.props.store.isMobile ? window.innerHeight : window.innerHeight + 100, {
       smooth: "easeInOutQuint"
     });
   }
