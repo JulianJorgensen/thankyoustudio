@@ -28,6 +28,13 @@ const Wrapper = styled.div`
 const Content = styled.div`
   position: relative;
   width: 100%;
+  opacity: 1;
+  transition: opacity 0.2s ease;
+
+  ${props => props.isSliding && `
+    opacity: 0;
+    transition-delay: 0.2s;
+  `}
 `
 
 const CasesGridTitle = styled.h2`
@@ -61,7 +68,7 @@ export default class Case extends Component {
           <Head>
             <title>{renderTitle()}</title>
           </Head>
-          <Content>
+          <Content isSliding={store.isSliding}>
             {children}
             {!isLanding && 
               <div>
