@@ -85,12 +85,14 @@ export default class Vimeo extends Component {
 
     return (
       <Wrapper className={className}>
-        <Observer {...props} onChange={this.handleOnVisibilityChange}>
+        <Observer {...props} onChange={this.handleOnVisibilityChange} threshold={0.5}>
           <Video
-            video={vimeoId}
-            paused={pauseVideo}
+            url={`https://vimeo.com/${vimeoId}`}
+            playing={!pauseVideo}
             onPlay={this.handleOnPlay}
             onPause={this.handleOnPause}
+            width='100%'
+            height='100%'
             {...props}
           />
         </Observer>

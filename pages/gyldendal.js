@@ -29,17 +29,17 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_joan.jpg" />
+      <Image lazy bgColor="#96A4C7" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_joan.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_yellow.jpg" />
-      <Image lazy delay={300} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_at_skrive_er_at_graede.jpg" />
+      <Image lazy bgColor="#F7D346" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_yellow.jpg" />
+      <Image lazy bgColor="#FFFFFF" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_at_skrive_er_at_graede.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="3x4">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_gys.jpg" />
-      <Image lazy delay={300} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_leth.jpg" />
+      <Image lazy bgColor="#856B88" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_gys.jpg" />
+      <Image lazy bgColor="#F3F5C6" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_leth.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -51,30 +51,30 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_sketch.jpg" />
+      <Image lazy bgColor="#FFFFFF" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_sketch.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_fonts.jpg" />
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_joan_didion.jpg" />
+      <Image lazy bgColor="#998468" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_fonts.jpg" />
+      <Image lazy bgColor="#E1DBEA" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_joan_didion.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_favoritter.jpg" />
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_60.jpg" />
+      <Image lazy bgColor="#DEF1F0" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_favoritter.jpg" />
+      <Image lazy bgColor="#637775" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_60.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_color_palette.jpg" />
+      <Image lazy bgColor="#F7F8F2" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_color_palette.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_quotes.jpg" />
+      <Image lazy bgColor="#FFFFFF" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_quotes.jpg" />
       <Video src="//cdn.thankyoustudio.com/cases/gyldendal/video/dynamisk_ramme_slow%20copy.mp4" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_klubpris.jpg" />
+      <Image lazy bgColor="#F4F9F2" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_klubpris.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -86,34 +86,34 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_collage.jpg" />
+      <Image lazy bgColor="#FBF7F1" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_collage.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_collage_02.jpg" />
+      <Image lazy bgColor="#F6F7F1" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_collage_02.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="3x4">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_anti_guru.jpg" />
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_sig_nej.jpg" />
+      <Image lazy bgColor="#ED4137" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_anti_guru.jpg" />
+      <Image lazy bgColor="#F8F7F1" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_sig_nej.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_bus_poster.jpg" />
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_banner.jpg" />
+      <Image lazy bgColor="#777278" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_bus_poster.jpg" />
+      <Image lazy bgColor="#D6D7D9" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_banner.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_frames.jpg" />
+      <Image lazy bgColor="#EBEBED" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_frames.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="3x4">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_magazine.jpg" />
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_magazine_02.jpg" />
+      <Image lazy bgColor="#FFFFFF" src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_magazine.jpg" />
+      <Image lazy bgColor="#7184A4" delay={100} src="//cdn.thankyoustudio.com/cases/gyldendal/gyldendal_magazine_02.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal-iconset.jpg" />
+      <Image lazy bgColor="#F8F7F1" src="//cdn.thankyoustudio.com/cases/gyldendal/images/gyldendal-iconset.jpg" />
     </Grid>
   </Case>
 )

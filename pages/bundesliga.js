@@ -18,7 +18,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga_stadium.jpg" />
+      <Image lazy bgColor="#30393C" src="//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga_stadium.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -33,7 +33,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy delay={200} src="//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga_players.jpg" />
+      <Image lazy bgColor="#fafafa" src="//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga_players.jpg" />
     </Grid>
 
   </Case>

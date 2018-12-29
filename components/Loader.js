@@ -15,11 +15,11 @@ const scale = keyframes`
 
 const Wrapper = styled.div`
   border-radius: 100%;
-  background-color: black;
+  background-color: #d3d3d3;
   opacity: 0.2;
   width: 50px;
   height: 50px;
-  animation: ${scale} 2s linear infinite;
+  animation: ${scale} 1s linear infinite;
 `
 
 export default () => (

@@ -37,13 +37,13 @@ export default class CaseImage extends Component {
 
     if (props.lazy) {
       return (
-        <LazyShow delay={delay} bgColor={bgColor}>
-          <ImageWrapper>
+        <ImageWrapper bgColor={bgColor}>
+          <LazyShow delay={delay}>
             <Image onLoad={this.handleImageLoaded} loaded={this.state.loaded} {...props}>
               {children}
             </Image>
-          </ImageWrapper>
-        </LazyShow>
+         </LazyShow>
+        </ImageWrapper>
       )
     }
   

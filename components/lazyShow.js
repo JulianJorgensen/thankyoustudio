@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import dynamic from 'next/dynamic';
 import { breakpoint } from 'utils/variables';
-import Loader from 'components/Loader';
-
-const Observer = dynamic(import('react-intersection-observer'), {
-  ssr: false,
-  loading: () => <Loader />
-});
+import Observer from 'react-intersection-observer';
 
 const Wrapper = styled.div`
   width: 100%;
