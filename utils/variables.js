@@ -64,18 +64,16 @@ export const TIMINGS = {
   SET_IS_SLIDING_FALSE: 800,
   PAGE_TRANSITION_TIMEOUT: 600,
   SCROLL_TO_TOP: 550, // the number has to be less than the slider animation to prevent a flickering
-  SCROLL_DURATION: 600,
   MOBILE: {
     CASE_WRAPPER: '0.2s',
     DEFAULT_PAGE_WRAPPER: '0.2s',  
     SLIDE_ITEM_WRAPPER: '0.2s',
     SLIDER: '0.6s',
-    SET_IS_SCROLL_N_SLIDING_FALSE: 600,
-    CHANGE_CASE_CONTENT: 600,
-    SET_IS_SLIDING_FALSE: 600,
-    PAGE_TRANSITION_TIMEOUT: 100,
-    SCROLL_TO_TOP: 100,
-    SCROLL_DURATION: 600,
+    SET_IS_SCROLL_N_SLIDING_FALSE: 500,
+    CHANGE_CASE_CONTENT: 500,
+    SET_IS_SLIDING_FALSE: 500,
+    PAGE_TRANSITION_TIMEOUT: 200,
+    SCROLL_TO_TOP: 0,
   }
 }
 
@@ -89,7 +87,6 @@ export const TIMINGS = {
 //   SET_IS_SLIDING_FALSE: 50000,
 //   PAGE_TRANSITION_TIMEOUT: 50000,
 //   SCROLL_TO_TOP: 48000, // the number has to be less than the slider animation to prevent a flickering
-//   SCROLL_DURATION: 50000,
 // }
 
 export const INSTAGRAM = {
