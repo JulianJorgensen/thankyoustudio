@@ -33,7 +33,7 @@ export default [
     imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
     poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster.jpg",
     mobile: {
-      video: "//cdn.thankyoustudio.com/videos/Swatch_skin_cover_9_16.mp4",
+      video: "//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/Swatch_skin_cover_9_16.mp4",
       imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
       poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster-mobile.jpg"
     }
