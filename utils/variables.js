@@ -60,10 +60,23 @@ export const TIMINGS = {
   SLIDE_ITEM_WRAPPER: '0.5s',
   SLIDER: '0.8s',
   SET_IS_SCROLL_N_SLIDING_FALSE: 800,
+  CHANGE_CASE_CONTENT: 800,
   SET_IS_SLIDING_FALSE: 800,
   PAGE_TRANSITION_TIMEOUT: 600,
   SCROLL_TO_TOP: 550, // the number has to be less than the slider animation to prevent a flickering
   SCROLL_DURATION: 600,
+  MOBILE: {
+    CASE_WRAPPER: '0.3s',
+    DEFAULT_PAGE_WRAPPER: '0.3s',  
+    SLIDE_ITEM_WRAPPER: '0.3s',
+    SLIDER: '0.8s',
+    SET_IS_SCROLL_N_SLIDING_FALSE: 800,
+    CHANGE_CASE_CONTENT: 0,
+    SET_IS_SLIDING_FALSE: 800,
+    PAGE_TRANSITION_TIMEOUT: 400,
+    SCROLL_TO_TOP: 450, // the number has to be less than the slider animation to prevent a flickering
+    SCROLL_DURATION: 500,
+  }
 }
 
 // slow motion timings

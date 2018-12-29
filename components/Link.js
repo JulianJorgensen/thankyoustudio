@@ -17,7 +17,6 @@ export default class Link extends Component {
   constructor() {
     super();
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.setActiveSlideToPrevious = this.setActiveSlideToPrevious.bind(this);
   }
 
   handleOnClick() {
@@ -35,41 +34,36 @@ export default class Link extends Component {
     dispatch(actions.setIsSliding(true));
 
     if (isCase || isHome) {
-      console.log('expand slider again');
       dispatch(actions.condenseSlider(false));
       dispatch(actions.setHeaderSolid(false));
     } else {
-      console.log('condense slider');
       dispatch(actions.condenseSlider(true));
       dispatch(actions.setHasMouseLeftNextSlide(true));
+    }
+
+    // UPDATE PAGE ROUTE
+    let routeChangeTimeout = 0;
+    if (isCase && isSliderActive) {
+      routeChangeTimeout = store.isMobile ? TIMINGS.MOBILE.CHANGE_CASE_CONTENT : TIMINGS.CHANGE_CASE_CONTENT;
     }
 
     setTimeout(() => {
       Router.push({
         pathname: `/${slug}`
       }, isCase ? `/work/${slug}` : `/${slug}`);
+    }, routeChangeTimeout);
 
-      dispatch(actions.setIsSliding(false));
-    }, isCase && isSliderActive ? TIMINGS.SET_IS_SLIDING_FALSE : 0);
 
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, TIMINGS.SCROLL_TO_TOP);
-  }
-
-  setActiveSlideToPrevious() {
-    const { dispatch, store } = this.props;
-    let prevSlide;
-    
-    if (!store.activeSlide) return;
-
-    if (store.activeSlide.index === 0) {
-      prevSlide = SlideItems[SlideItems.length - 1];
-    } else {
-      prevSlide = SlideItems[store.activeSlide.index - 1];
+    // SET IS SCROLLING FALSE
+    let setIsSlidingTimeout = 0;
+    if (isCase && isSliderActive) {
+      setIsSlidingTimeout = store.isMobile ? TIMINGS.MOBILE.SET_IS_SLIDING_FALSE : TIMINGS.SET_IS_SLIDING_FALSE;
     }
 
-    dispatch(actions.updateActiveSlide(prevSlide.slug));
+    setTimeout(() => {
+      dispatch(actions.setIsSliding(false));
+    }, setIsSlidingTimeout);
+
   }
 
   render() {

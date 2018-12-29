@@ -143,7 +143,7 @@ class MyApp extends App {
               <CSSTransition
                 key={this.props.router.route}
                 classNames='fade'
-                timeout={TIMINGS.PAGE_TRANSITION_TIMEOUT}
+                timeout={isMobile ? TIMINGS.MOBILE.PAGE_TRANSITION_TIMEOUT : TIMINGS.PAGE_TRANSITION_TIMEOUT}
               >
                 <Component isMobile={isMobile} {...pageProps} />
               </CSSTransition>

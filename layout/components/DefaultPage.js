@@ -64,7 +64,7 @@ export default class DefaultPage extends Component {
 
         .fade-enter-active.default-page {
           transform: translateX(0);
-          transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;
+          transition: transform ${isMobile ? TIMINGS.MOBILE.DEFAULT_PAGE_WRAPPER : TIMINGS.DEFAULT_PAGE_WRAPPER} ease-out;
         }
 
         .fade-exit-enter.default-page,
@@ -79,7 +79,7 @@ export default class DefaultPage extends Component {
 
         .fade-exit-active.default-page.slider-is-active {
           transform: translateX(100%);
-          transition: transform ${TIMINGS.DEFAULT_PAGE_WRAPPER} ease-in;
+          transition: transform ${isMobile ? TIMINGS.MOBILE.DEFAULT_PAGE_WRAPPER : TIMINGS.DEFAULT_PAGE_WRAPPER} ease-in;
           z-index: 6;
         }
 

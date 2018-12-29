@@ -14,6 +14,12 @@ const scale = keyframes`
 `;
 
 const Wrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
+
+const Spinner = styled.div`
   border-radius: 100%;
   background-color: #d3d3d3;
   opacity: 0.2;
@@ -23,5 +29,7 @@ const Wrapper = styled.div`
 `
 
 export default () => (
-  <Wrapper />
+  <Wrapper>
+    <Spinner />
+  </Wrapper>
 );
