@@ -35,6 +35,10 @@ const Content = styled.div`
   ${props => props.isSliding && `
     opacity: 0;
   `}
+
+  ${breakpoint.m`
+    transition: none;
+  `}
 `
 
 const CasesGridTitle = styled.h2`
