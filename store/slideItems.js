@@ -17,6 +17,7 @@ export default [
     poster: '',
     mobile: {
       video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrai_cover_9_16.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
       poster: ''
     }
   },

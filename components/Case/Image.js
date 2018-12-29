@@ -7,6 +7,7 @@ const ImageWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #fafafafa;
 
   ${breakpoint.m`
     background-color: ${props => props.bgColor ? props.bgColor : 'transparent'};  
