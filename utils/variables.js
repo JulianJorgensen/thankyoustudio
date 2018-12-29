@@ -65,14 +65,14 @@ export const TIMINGS = {
   PAGE_TRANSITION_TIMEOUT: 600,
   SCROLL_TO_TOP: 550, // the number has to be less than the slider animation to prevent a flickering
   MOBILE: {
-    CASE_WRAPPER: '0.2s',
+    CASE_WRAPPER: '0.1s',
     DEFAULT_PAGE_WRAPPER: '0.2s',  
     SLIDE_ITEM_WRAPPER: '0.2s',
     SLIDER: '0.6s',
     SET_IS_SCROLL_N_SLIDING_FALSE: 500,
     CHANGE_CASE_CONTENT: 500,
     SET_IS_SLIDING_FALSE: 500,
-    PAGE_TRANSITION_TIMEOUT: 200,
+    PAGE_TRANSITION_TIMEOUT: 0,
     SCROLL_TO_TOP: 0,
   }
 }

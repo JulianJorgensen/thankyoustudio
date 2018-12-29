@@ -30,10 +30,10 @@ const Content = styled.div`
   width: 100%;
   opacity: 1;
   transition: opacity 0.2s ease;
+  transition-delay: 0.3s;
 
   ${props => props.isSliding && `
     opacity: 0;
-    transition-delay: 0.2s;
   `}
 `
 
