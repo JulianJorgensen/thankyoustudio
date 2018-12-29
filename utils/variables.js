@@ -74,7 +74,7 @@ export const TIMINGS = {
     CHANGE_CASE_CONTENT: 600,
     SET_IS_SLIDING_FALSE: 600,
     PAGE_TRANSITION_TIMEOUT: 100,
-    SCROLL_TO_TOP: 100, // the number has to be less than the slider animation to prevent a flickering
+    SCROLL_TO_TOP: 100,
     SCROLL_DURATION: 600,
   }
 }

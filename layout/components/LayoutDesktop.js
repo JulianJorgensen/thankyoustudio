@@ -79,7 +79,7 @@ export default class LayoutDesktop extends Component {
       this.props.dispatch(actions.setIsSliding(true));
       setTimeout(() => {
         this.props.dispatch(actions.setIsSliding(false));
-      }, TIMINGS.SET_IS_SLIDING_FALSE)
+      }, store.isMobile ? TIMINGS.MOBILE.SET_IS_SLIDING_FALSE : TIMINGS.SET_IS_SLIDING_FALSE)
 
       // scroll to top
       setTimeout(() => {
@@ -97,7 +97,7 @@ export default class LayoutDesktop extends Component {
   scrollToTop() {
     setTimeout(() => {
       window.scrollTo(0, 0);
-    }, TIMINGS.SCROLL_TO_TOP);
+    }, this.props.store.isMobile ? TIMINGS.MOBILE.SCROLL_TO_TOP : TIMINGS.SCROLL_TO_TOP);
   }
 
   render() {
