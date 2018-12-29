@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Router, { withRouter } from 'next/router'
 import throttle from 'lodash.throttle';
 import styled from 'styled-components';
-import { closeMobileNav, toggleMobileNav } from 'store/actions';
+import * as actions from 'store/actions';
 import Nav from './components/Nav';
 import MobileNav from './components/MobileNav';
 import Bars from './components/Bars';
@@ -80,12 +80,12 @@ export default class Header extends Component {
 
   componentWillUpdate() {
     Router.onRouteChangeStart = url => {
-      this.props.dispatch(closeMobileNav());
+      this.props.dispatch(actions.closeMobileNav());
     }
   }
 
   handleMobileNavClick() {
-    this.props.dispatch(toggleMobileNav());
+    this.props.dispatch(actions.toggleMobileNav());
   }
 
   handleOnScroll(e) {
@@ -102,12 +102,14 @@ export default class Header extends Component {
 
     if (scrollTop > SWITCH_TO_SOLID) {
       this.setState({
-        isSolid: true
+        enableAutoHide: true
       });
+      if (!this.props.store.headerSolid) this.props.dispatch(actions.setHeaderSolid(true));
     } else {
       this.setState({
-        isSolid: false
+        enableAutoHide: false
       });
+      if (this.props.store.headerSolid) this.props.dispatch(actions.setHeaderSolid(false));
     }
   }
 
@@ -143,7 +145,7 @@ export default class Header extends Component {
 
   render() {
     const { store, router, isMobile } = this.props;
-    const { isSolid, direction } = this.state;
+    const { isSolid, direction, enableAutoHide } = this.state;
     const { activeSlide, slider, mobileNav, navColor } = store;
 
     let windowHeight;
@@ -158,12 +160,12 @@ export default class Header extends Component {
         fontsloaded={store.fontsLoaded}
         color={navColor}
         scrollnsliding={slider.isScrollNSliding}
-        isSolid={isSolid}
-        hide={isSolid && direction === 'bottom'}
+        isSolid={store.headerSolid}
+        hide={enableAutoHide && direction === 'bottom'}
         ref={div => this.headerEl = div}
       >
-        <Nav navColor={isSolid ? 'black' : navColor} page={page} mobileActive={mobileNav} />
-        <Bars navColor={isSolid ? 'black' : navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
+        <Nav navColor={enableAutoHide ? 'black' : navColor} page={page} mobileActive={mobileNav} />
+        <Bars navColor={enableAutoHide ? 'black' : navColor} active={mobileNav} onClick={this.handleMobileNavClick.bind(this)} />
         <MobileNav active={mobileNav} />
       </Wrapper>
     );

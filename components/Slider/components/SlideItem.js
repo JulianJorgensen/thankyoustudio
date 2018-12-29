@@ -16,13 +16,16 @@ const Wrapper = styled.div`
   right: 0;
   height: ${LAYOUT.MOBILE.HERO_HEIGHT};
   min-height: 500px;
-  transition: width ${TIMINGS.SLIDE_ITEM_WRAPPER} ${EASINGS.EASE_IN_OUT_CUSTOM};
+  transition-property: width;
+  transition-duration: ${TIMINGS.MOBILE.SLIDE_ITEM_WRAPPER};
+  transition-timing-function: ${EASINGS.EASE_IN_OUT_CUSTOM};
   opacity: 0;
   width: 0;
   pointer-events: none;
   overflow: hidden;
 
   ${breakpoint.m `
+    transition-duration: ${TIMINGS.SLIDE_ITEM_WRAPPER};
     height: ${LAYOUT.HERO_HEIGHT};
   `}
 

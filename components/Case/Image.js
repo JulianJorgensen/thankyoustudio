@@ -10,7 +10,7 @@ const ImageWrapper = styled.div`
   background-color: #fafafafa;
 
   ${breakpoint.m`
-    background-color: ${props => props.bgColor ? props.bgColor : 'transparent'};  
+    // background-color: ${props => props.bgColor ? props.bgColor : 'transparent'};  
   `}
 `
 
