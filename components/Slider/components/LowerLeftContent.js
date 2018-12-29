@@ -21,6 +21,7 @@ const Wrapper = styled.div`
   opacity: 0;
   color: ${props => props.whiteContent ? 'white' : 'black'};
   pointer-events: none;
+  width: 100vw;
 
   ${props => props.fontsLoaded && `
     opacity: 1;
