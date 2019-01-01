@@ -14,6 +14,7 @@ import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
 import { breakpoint, BREAKPOINTS } from 'utils/variables';
 import Layout from 'layout';
+import { getContentAPI } from 'prismic';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -79,29 +80,36 @@ class MyApp extends App {
   }
 
   static async getInitialProps({ Component, ctx, ...props }) {
-    const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
-    const isMobile = mobilecheck(userAgent);
-
-    // update slider based on url
-    const url = ctx.asPath;
-    const urlExploded = url.split('/');
-    const currentPage = ctx.pathname.substr(1);
-    const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
-
-    if (isCase) {
-      ctx.store.dispatch(actions.updateActiveSlide(currentPage));
-    }
-
-    // set is mobile
-    ctx.store.dispatch(actions.setIsMobile(isMobile));
-
     // set page props
     let pageProps = {};
     if (Component.getInitialProps) {
       pageProps = await Component.getInitialProps(ctx);
     }
 
-    return { pageProps };
+    // update slider based on url
+    const url = ctx.asPath;
+    const urlExploded = url.split('/');
+    const currentPage = ctx.pathname.substr(1);
+    const isCase = (url === '/' || (urlExploded[1] === 'work' && urlExploded[2]));
+    if (isCase) {
+      ctx.store.dispatch(actions.updateActiveSlide(currentPage));
+    }
+
+    // set is mobile
+    const userAgent = ctx.req ? ctx.req.headers['user-agent'] : navigator.userAgent;
+    const isMobile = mobilecheck(userAgent);
+    ctx.store.dispatch(actions.setIsMobile(isMobile));
+
+    // fetch prismic content
+    const response = await getContentAPI({ lang: 'en-us' });
+    const results = response.results;
+    const content = {
+      about: results.filter(obj => obj.type === 'about')[0].data
+    }
+    ctx.store.dispatch(actions.setContent(content));
+
+    // return as props
+    return { pageProps, isMobile, content };
   }
 
   componentDidMount() {
@@ -123,9 +131,9 @@ class MyApp extends App {
   }
 
   render () {
-    const { Component, pageProps, store } = this.props
-    const isMobile = store.isMobile;
-
+    const { Component, pageProps, isMobile, content, store } = this.props
+    console.log('isMobile', isMobile);
+    console.log('content', content);
     return (
       <Container>
         <Head>
@@ -145,7 +153,7 @@ class MyApp extends App {
                 classNames='fade'
                 timeout={isMobile ? TIMINGS.MOBILE.PAGE_TRANSITION_TIMEOUT : TIMINGS.PAGE_TRANSITION_TIMEOUT}
               >
-                <Component isMobile={isMobile} {...pageProps} />
+                <Component isMobile={isMobile} content={content} {...pageProps} />
               </CSSTransition>
             </TransitionGroup>
           </Layout>

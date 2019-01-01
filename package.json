@@ -34,6 +34,8 @@
     "next-redux-wrapper": "^2.1.0",
     "nodemailer": "^4.7.0",
     "nodemailer-mailgun-transport": "^1.4.0",
+    "prismic-javascript": "^2.0.1",
+    "prismic-reactjs": "^0.3.2",
     "prop-types": "^15.6.2",
     "pug": "^2.0.3",
     "react": "^16.4.2",

@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RichText } from 'prismic-reactjs';
 import DefaultPage from 'layout/components/DefaultPage';
 import Text from 'components/Typography/Text';
 import AboutCopy from 'components/AboutCopy';
@@ -17,7 +18,7 @@ export default (props) => (
   <DefaultPage title="About" {...props}>
     <Content>
       <h2>Good design is good business</h2>
-      <AboutCopy />
+      {RichText.render(props.content.about.body)}
     </Content>
   </DefaultPage>
 )

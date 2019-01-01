@@ -2,6 +2,13 @@ import actionTypes from 'store/types';
 import SlideItems from 'store/slideItems';
 import { TIMINGS } from 'utils/variables';
 
+export const setContent = (content) => dispatch => {
+  return dispatch({ 
+    type: actionTypes.SET_CONTENT,
+    content
+  });
+}
+
 export const updateActiveSlide = (slug) => dispatch => {
   let slide = {};
 

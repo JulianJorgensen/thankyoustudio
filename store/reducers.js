@@ -3,6 +3,11 @@ import actionTypes from 'store/types';
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case actionTypes.SET_CONTENT:
+      return {
+        ...state,
+        content: action.content
+      };
     case actionTypes.UPDATE_ACTIVE_SLIDE:
       return {
         ...state,
