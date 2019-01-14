@@ -29,23 +29,23 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#EFEFEF" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_pink.jpg" />
+      <Image lazy bgColor="#EFEFEF" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_pink.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#EFEFEF" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_man.jpg" />
+      <Image lazy bgColor="#EFEFEF" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_man.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#EFEFEF" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_catalogue_spread.jpg" />
+      <Image lazy bgColor="#EFEFEF" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_catalogue_spread.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Video lazy bgColor="#ECF2FC" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_timessquare.mp4" />
+      <Video lazy bgColor="#ECF2FC" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_timessquare.mp4" />
     </Grid>
 
     <Grid ratio="2x3">
-      <Image lazy src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_lightblue_watch.jpg" />
+      <Image lazy src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_lightblue_watch.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -53,18 +53,18 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#7E998A" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_train_campaign.jpg" />
-      <Image lazy bgColor="#9A9177" delay={100} src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_train_campaign_02.jpg" />
+      <Image lazy bgColor="#7E998A" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_train_campaign.jpg" />
+      <Image lazy bgColor="#9A9177" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_train_campaign_02.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#C1BDBC" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_bus_campaign.jpg" />
-      <Image lazy bgColor="#441D87" delay={100} src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_asian_woman.jpg" />
+      <Image lazy bgColor="#C1BDBC" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_bus_campaign.jpg" />
+      <Image lazy bgColor="#441D87" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_asian_woman.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#6866AF" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_your_move.jpg" />
-      <Image lazy bgColor="#F8FDFF" delay={100} src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_your_move_02.jpg" />
+      <Image lazy bgColor="#6866AF" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_your_move.jpg" />
+      <Image lazy bgColor="#F8FDFF" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch_your_move_02.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>

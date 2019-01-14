@@ -20,7 +20,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#FFF314" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_yellow.jpg" />
+      <Image lazy bgColor="#FFF314" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_yellow.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -32,8 +32,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="3x4">
-      <Image lazy bgColor="#DFDFDF" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_go_deep.jpg" />
-      <Image lazy bgColor="#DFDFDF" delay={100} src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_splash.jpg" />
+      <Image lazy bgColor="#DFDFDF" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_go_deep.jpg" />
+      <Image lazy bgColor="#DFDFDF" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_splash.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -41,7 +41,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#091525" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_octopus_blue.jpg" />
+      <Image lazy bgColor="#091525" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_octopus_blue.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -49,8 +49,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#D31D51" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_store.jpg" />
-      <Image lazy bgColor="#A7201E" delay={100} src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_shop_02.jpg" />
+      <Image lazy bgColor="#D31D51" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_store.jpg" />
+      <Image lazy bgColor="#A7201E" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_shop_02.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
