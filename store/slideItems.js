@@ -12,12 +12,12 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
-    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
+    video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrari_Horse_1920.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
     poster: '',
     mobile: {
-      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/videos/Ferrai_cover_9_16.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-cover.jpg',
+      video: '//cdn.thankyoustudio.com/cases/ferrari/videos/Ferrai_cover_9_16.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-cover.jpg',
       poster: ''
     }
   },
@@ -29,13 +29,13 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/videos/Swatch_skin_frontpage.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-poster.jpg",
+    video: "//cdn.thankyoustudio.com/videos/Swatch_skin_frontpage.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/Swatch_skin_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-thumb.jpg",
-      poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-skin/swatch-poster-mobile.jpg"
+      video: "//cdn.thankyoustudio.com/cases/swatch-skin/Swatch_skin_cover_9_16.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-thumb.jpg",
+      poster: "//cdn.thankyoustudio.com/cases/swatch-skin/swatch-poster-mobile.jpg"
     }
   },
   {
@@ -47,13 +47,13 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/amazon_CameraExplode.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/amazon/videos/amazon_CameraExplode.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/amazon/images/amazon-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/videos/Amazon_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon_cover.jpg",
-      poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/amazon/images/amazon-poster-mobile.jpg",
+      video: "//cdn.thankyoustudio.com/cases/amazon/videos/Amazon_cover_9_16.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/amazon/images/amazon_cover.jpg",
+      poster: "//cdn.thankyoustudio.com/cases/amazon/images/amazon-poster-mobile.jpg",
     }
   },
   {
@@ -62,13 +62,13 @@ export default [
     teaserText: "Creating a brand by combining tradition with adventure.",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
-    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
-    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
+    video: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/cph-distil-background.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
     mobile: {
-      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/videos/CD_cover_9_16.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
-      poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhage-poster-mobile.jpg',
+      video: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/videos/CD_cover_9_16.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-distillery-thumb.jpg',
+      poster: '//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhage-poster-mobile.jpg',
     }
   },
   {
@@ -77,13 +77,13 @@ export default [
     teaserText: "It’s all about celebrating the 25.000 gold edition robot. So let’s make a party!",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "white",
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/videos/universal-robots-cover.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/universal-robots/videos/universal-robots-cover.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/videos/Universalrobots_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-thumb.jpg",
-      poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-poster-mobile.jpg",
+      video: "//cdn.thankyoustudio.com/cases/universal-robots/videos/Universalrobots_cover_9_16.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-thumb.jpg",
+      poster: "//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-poster-mobile.jpg",
     }
   },
   {
@@ -92,13 +92,13 @@ export default [
     teaserText: "Rebranding a luxury lighting company and launching a revolutionary website",
     tags: ["Design", "Strategy", "Development", "Branding"],
     background: "white",
-    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/videos/onea_cover.mp4',
-    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-thumb.jpg',
-    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea_poster.jpg',
+    video: '//cdn.thankyoustudio.com/cases/onea/videos/onea_cover.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/onea/images/onea-thumb.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/onea/images/onea_poster.jpg',
     mobile: {
-      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/videos/Onaa_cover_9_16.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-thumb.jpg',
-      poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-poster-mobile.jpg',
+      video: '//cdn.thankyoustudio.com/cases/onea/videos/Onaa_cover_9_16.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/onea/images/onea-thumb.jpg',
+      poster: '//cdn.thankyoustudio.com/cases/onea/images/onea-poster-mobile.jpg',
     }
   },
   {
@@ -109,13 +109,13 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch-scuba-libra-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/swatch-scuba-libra-cover.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch-scuba-libra-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/Swatchscuba_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
-      poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/swatch-scuba-libra/images/swatch-scuba-libra-poster-mobile.jpg",
+      video: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/Swatchscuba_cover_9_16.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch_scuba_libra_thumb.jpg",
+      poster: "//cdn.thankyoustudio.com/cases/swatch-scuba-libra/images/swatch-scuba-libra-poster-mobile.jpg",
     }
   },
   {
@@ -124,13 +124,13 @@ export default [
     teaserText: "Rebuilding a brand and bringing the largest and oldest publishing house in Denmark into the digital age.",
     tags: ["Design.", "Experiences.", "Culture."],
     background: "white",
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal-thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/gyldendal/video/citationstegn_anim_case.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/video/Gyldendal_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal-thumb.jpg",
-      poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/gyldendal/gyldendal-poster-mobile.jpg",
+      video: "//cdn.thankyoustudio.com/cases/gyldendal/video/Gyldendal_cover_9_16.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-thumb.jpg",
+      poster: "//cdn.thankyoustudio.com/cases/gyldendal/gyldendal-poster-mobile.jpg",
     }
   },
   {
@@ -141,13 +141,13 @@ export default [
     background: "white",
     whiteContent: true,
     fadeToBlack: true,
-    video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/SteelseriesCover.mp4",
-    imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",
-    poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-poster.jpg",
+    video: "//cdn.thankyoustudio.com/cases/steelseries/videos/SteelseriesCover.mp4",
+    imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",
+    poster: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-poster.jpg",
     mobile: {
-      video: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/videos/Steelseries_cover_9_16.mp4",
-      imageThumb: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-thumb.jpg",  
-      poster: "http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries-poster-mobile.jpg",
+      video: "//cdn.thankyoustudio.com/cases/steelseries/videos/Steelseries_cover_9_16.mp4",
+      imageThumb: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-thumb.jpg",  
+      poster: "//cdn.thankyoustudio.com/cases/steelseries/steelseries-poster-mobile.jpg",
     }
   },
   {
@@ -158,13 +158,13 @@ export default [
     background: "black",
     whiteContent: true,
     fadeToBlack: true,
-    video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/videos/bundesliga-cover.mp4',
-    imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/bundesliga-thumb.jpg',
-    poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/bundesliga-poster.jpg',
+    video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/bundesliga-cover.mp4',
+    imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-thumb.jpg',
+    poster: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-poster.jpg',
     mobile: {
-      video: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/videos/Bundesliga_cover_9_16.mp4',
-      imageThumb: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/bundesliga-thumb.jpg',
-      poster: 'http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/bundesliga/images/bundesliga-poster-mobile.jpg',
+      video: '//cdn.thankyoustudio.com/cases/bundesliga/videos/Bundesliga_cover_9_16.mp4',
+      imageThumb: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-thumb.jpg',
+      poster: '//cdn.thankyoustudio.com/cases/bundesliga/images/bundesliga-poster-mobile.jpg',
     }
   },
 ];

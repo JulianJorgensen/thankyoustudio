@@ -33,7 +33,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#211C22" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-01.jpg" />
+      <Image lazy bgColor="#211C22" src="//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-01.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
@@ -41,8 +41,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#D6DADD" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-02.jpg" />
-      <Image lazy bgColor="#BCBCBC" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/universal-robots/images/universal-robots-03.jpg" />
+      <Image lazy bgColor="#D6DADD" src="//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-02.jpg" />
+      <Image lazy bgColor="#BCBCBC" delay={100} src="//cdn.thankyoustudio.com/cases/universal-robots/images/universal-robots-03.jpg" />
     </Grid>
 
     <Grid ratio="16x9">

@@ -23,17 +23,17 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#313131" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_henrik.jpg" />
-      <Image lazy bgColor="#101010" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_brygge.jpg" />
+      <Image lazy bgColor="#313131" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_henrik.jpg" />
+      <Image lazy bgColor="#101010" delay={100} src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_brygge.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#0B0B0B" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_brygge_02.jpg" />
-      <Image lazy bgColor="#929292" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_henrik_02.jpg" />
+      <Image lazy bgColor="#0B0B0B" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_brygge_02.jpg" />
+      <Image lazy bgColor="#929292" delay={100} src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_henrik_02.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#323232" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_barrel.jpg" />
+      <Image lazy bgColor="#323232" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_barrel.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -43,20 +43,20 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#121212" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_gin_black.jpg" />
+      <Image lazy bgColor="#121212" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_oak_gin_black.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#ffffff" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gins_lineup.jpg" />
+      <Image lazy bgColor="#ffffff" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_gins_lineup.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#464351" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_01.jpg" />
+      <Image lazy bgColor="#464351" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_01.jpg" />
     </Grid>
 
     <Grid ratio="4x3" cols="2">
-      <Image lazy bgColor="#C4A46C" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_02.jpg" />
-      <Image lazy bgColor="#615C62" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_03.jpg" />
+      <Image lazy bgColor="#C4A46C" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_02.jpg" />
+      <Image lazy bgColor="#615C62" delay={100} src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_gin_amanda_03.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -66,24 +66,24 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#0B0D19" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_01.jpg" />
+      <Image lazy bgColor="#0B0D19" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_01.jpg" />
     </Grid>
 
     <Grid ratio="4x3" cols="2">
-      <Image lazy bgColor="#303345" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_02.jpg" />
-      <Image lazy bgColor="#060915" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_03.jpg" />
+      <Image lazy bgColor="#303345" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_02.jpg" />
+      <Image lazy bgColor="#060915" delay={100} src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_team_03.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#1A2F4C" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_aquavit.jpg" />
+      <Image lazy bgColor="#1A2F4C" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_aquavit.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#FFFFFF" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen_distillery_snaps_lineup.jpg" />
+      <Image lazy bgColor="#FFFFFF" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen_distillery_snaps_lineup.jpg" />
     </Grid>
 
     <Grid ratio="3x2">
-      <Image lazy bgColor="#423930" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/copenhagen-distillery/images/copenhagen-distillery_behind.jpg" />
+      <Image lazy bgColor="#423930" src="//cdn.thankyoustudio.com/cases/copenhagen-distillery/images/copenhagen-distillery_behind.jpg" />
     </Grid>
   </Case>
 )

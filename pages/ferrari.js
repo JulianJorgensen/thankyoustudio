@@ -10,7 +10,7 @@ const Scuderia = styled.div`
   padding: 150px;
   display: flex;
   justify-content: center;
-  background: url('http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/scuderia_ferrari_bg.jpg') center center no-repeat;
+  background: url('//cdn.thankyoustudio.com/cases/ferrari/images/scuderia_ferrari_bg.jpg') center center no-repeat;
   background-size: cover;
 `
 
@@ -42,22 +42,22 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="3x2">
-      <Image lazy bgColor="#020202" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-01.jpg" />
-      <Image lazy bgColor="#A8A7E1" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-02.jpg" />
+      <Image lazy bgColor="#020202" src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-01.jpg" />
+      <Image lazy bgColor="#A8A7E1" delay={100} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-02.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="3x2">
-      <Image lazy bgColor="#D6BFB5" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-03.jpg" />
-      <Image lazy bgColor="#71090E" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-hublot.jpg" />
+      <Image lazy bgColor="#D6BFB5" src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-03.jpg" />
+      <Image lazy bgColor="#71090E" delay={100} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-hublot.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#0A0907" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-pirelli.jpg" />
+      <Image lazy bgColor="#0A0907" src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-pirelli.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#2E2924" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-archive.jpg" />
-      <Image lazy bgColor="#0A0603" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-mechanics.jpg" />
+      <Image lazy bgColor="#2E2924" src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-archive.jpg" />
+      <Image lazy bgColor="#0A0603" delay={100} src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-mechanics.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -69,8 +69,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#090506" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-04.jpg" />
-      <Image lazy bgColor="#4C080D" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/ferrari/images/ferrari-vettel.jpg" />
+      <Image lazy bgColor="#090506" src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-04.jpg" />
+      <Image lazy bgColor="#4C080D" src="//cdn.thankyoustudio.com/cases/ferrari/images/ferrari-vettel.jpg" />
     </Grid>
 
   </Case>

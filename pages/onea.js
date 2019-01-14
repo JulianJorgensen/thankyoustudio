@@ -19,17 +19,17 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#020204" delay={200} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-dark.jpg" />
+      <Image lazy bgColor="#020204" delay={200} src="//cdn.thankyoustudio.com/cases/onea/images/onea-dark.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="1x1">
-      <Image lazy bgColor="#3C4760" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-02.jpg" />
-      <Image lazy bgColor="#F4F4F4" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-cylinder.jpg" />
+      <Image lazy bgColor="#3C4760" src="//cdn.thankyoustudio.com/cases/onea/images/onea-02.jpg" />
+      <Image lazy bgColor="#F4F4F4" delay={100} src="//cdn.thankyoustudio.com/cases/onea/images/onea-cylinder.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="2x3">
-      <Image lazy bgColor="" bgColor="white" inline src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-logo.jpg" />
-      <Image lazy bgColor="#171C22" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-standing-light.jpg" />
+      <Image lazy bgColor="" bgColor="white" inline src="//cdn.thankyoustudio.com/cases/onea/images/onea-logo.jpg" />
+      <Image lazy bgColor="#171C22" delay={100} src="//cdn.thankyoustudio.com/cases/onea/images/onea-standing-light.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -40,8 +40,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="1x1">
-      <Image lazy bgColor="#1F1F1F" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-gradient-dark.jpg" />
-      <Image lazy bgColor="#E0E0E0" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-gradient-light.jpg" />
+      <Image lazy bgColor="#1F1F1F" src="//cdn.thankyoustudio.com/cases/onea/images/onea-gradient-dark.jpg" />
+      <Image lazy bgColor="#E0E0E0" delay={100} src="//cdn.thankyoustudio.com/cases/onea/images/onea-gradient-light.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -49,12 +49,12 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#323232" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-storm-long.jpg" />
+      <Image lazy bgColor="#323232" src="//cdn.thankyoustudio.com/cases/onea/images/onea-storm-long.jpg" />
     </Grid>
 
     <Grid cols="2" ratio="2x3">
-      <Image lazy bgColor="#969696" src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-storm-base-tube.jpg" />
-      <Image lazy bgColor="#030305" delay={100} src="http://cdn.thankyoustudio.com.s3.amazonaws.com/cases/onea/images/onea-lightning-table.jpg" />
+      <Image lazy bgColor="#969696" src="//cdn.thankyoustudio.com/cases/onea/images/onea-storm-base-tube.jpg" />
+      <Image lazy bgColor="#030305" delay={100} src="//cdn.thankyoustudio.com/cases/onea/images/onea-lightning-table.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
