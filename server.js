@@ -31,6 +31,10 @@ app.prepare()
   // Email routes
   server.post('/email', email);
 
+  server.get('/proposal/:uid', (req, res) => {
+    app.render(req, res, '/proposal', { uid : req.params.uid })
+  })
+
   server.get('/work', (req, res) => {
     app.render(req, res, `/work`)
   })

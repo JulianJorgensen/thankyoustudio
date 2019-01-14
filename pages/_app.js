@@ -14,7 +14,7 @@ import favicon from 'assets/images/favicon.ico';
 import mobilecheck from 'utils/mobilecheck';
 import { breakpoint, BREAKPOINTS } from 'utils/variables';
 import Layout from 'layout';
-import { getContentAPI } from 'prismic';
+import { getContentByType } from 'prismic';
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -101,7 +101,7 @@ class MyApp extends App {
     ctx.store.dispatch(actions.setIsMobile(isMobile));
 
     // fetch prismic content
-    const response = await getContentAPI({ lang: 'en-us' });
+    const response = await getContentByType(['about']);
     const results = response.results;
     const content = {
       about: results.filter(obj => obj.type === 'about')[0].data
@@ -132,8 +132,7 @@ class MyApp extends App {
 
   render () {
     const { Component, pageProps, isMobile, content, store } = this.props
-    console.log('isMobile', isMobile);
-    console.log('content', content);
+
     return (
       <Container>
         <Head>
@@ -182,7 +181,7 @@ class MyApp extends App {
             font-family: ${FONTS.PRIMARY}, Helvetica, sans-serif;
             overflow-y: scroll;
             overflow-x: hidden;
-            background-color: black;
+            background-color: white;
           }
 
           body {

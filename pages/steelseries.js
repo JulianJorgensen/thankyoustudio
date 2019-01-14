@@ -19,7 +19,7 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#0D0D0F" src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_headphones.jpg" />
+      <Image lazy bgColor="#0D0D0F" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_headphones.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -31,15 +31,15 @@ export default (props) => (
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#262626" src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_headset_closeup.jpg" />
+      <Image lazy bgColor="#262626" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_headset_closeup.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#121212" src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_rise_to_the_challenge.jpg" />
+      <Image lazy bgColor="#121212" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_rise_to_the_challenge.jpg" />
     </Grid>
 
     <Grid ratio="16x9">
-      <Image lazy bgColor="#FFFFFF" src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_boxes.jpg" />
+      <Image lazy bgColor="#FFFFFF" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_boxes.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
@@ -47,8 +47,8 @@ export default (props) => (
     </Grid>
 
     <Grid cols="2" ratio="16x9">
-      <Image lazy bgColor="#282828" src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_mouse_birdsview.jpg" />
-      <Image lazy bgColor="#100F16" src="//cdn.thankyoustudio.com/cases/steelseries/steelseries_rival_700.jpg" />
+      <Image lazy bgColor="#282828" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_mouse_birdsview.jpg" />
+      <Image lazy bgColor="#100F16" src="//cdn.thankyoustudio.com.s3.amazonaws.com/cases/steelseries/steelseries_rival_700.jpg" />
     </Grid>
 
     <Grid cols="2" collapseOnMobile>
